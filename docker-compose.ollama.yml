@@ -12,11 +12,7 @@ services:
     networks:
       - yoda-network
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:11434/api/tags"]
-      interval: 30s
-      timeout: 10s
-      retries: 5
-      start_period: 60s
+      disable: true
 
   yoda-app:
     build:
@@ -54,10 +50,8 @@ services:
       - ./docx:/app/docx
     
     depends_on:
-      ollama:
-        condition: service_healthy
-      mongodb:
-        condition: service_healthy
+      - ollama
+      - mongodb
     
     networks:
       - yoda-network

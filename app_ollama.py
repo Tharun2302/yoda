@@ -68,7 +68,7 @@ def add_security_headers(response):
     if 'Content-Security-Policy' not in response.headers:
         content_type = response.headers.get('Content-Type', '')
         if 'text/html' in content_type:
-            response.headers['Content-Security-Policy'] = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; connect-src 'self' http://68.183.88.5 http://127.0.0.1:8002 http://localhost:8002"
+            response.headers['Content-Security-Policy'] = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; connect-src 'self' http://68.183.88.5:8002 http://68.183.88.5 http://127.0.0.1:8002 http://localhost:8002"
         else:
             response.headers['Content-Security-Policy'] = "default-src 'self'"
     
@@ -487,7 +487,7 @@ def index():
     
     from flask import make_response
     response = make_response(html_content)
-    response.headers['Content-Security-Policy'] = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self' http://68.183.88.5 http://127.0.0.1:8002 http://localhost:8002"
+    response.headers['Content-Security-Policy'] = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self' http://68.183.88.5:8002 http://68.183.88.5 http://127.0.0.1:8002 http://localhost:8002"
     return response
 
 @app.route('/index.html', methods=['GET'])
@@ -501,7 +501,7 @@ def chatbot_interface():
         
         response = send_file(chatbot_path)
         response.headers['Cache-Control'] = 'no-cache'
-        response.headers['Content-Security-Policy'] = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; connect-src 'self' http://68.183.88.5 http://127.0.0.1:8002 http://localhost:8002; img-src 'self' data: blob:; media-src 'self' blob:"
+        response.headers['Content-Security-Policy'] = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; connect-src 'self' http://68.183.88.5:8002 http://68.183.88.5 http://127.0.0.1:8002 http://localhost:8002; img-src 'self' data: blob:; media-src 'self' blob:"
         
         return response
     
