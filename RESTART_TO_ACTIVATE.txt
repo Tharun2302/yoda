@@ -1,0 +1,109 @@
+================================================================================
+    HELM + HEALTHBENCH PARALLEL EVALUATION IS NOW READY!
+================================================================================
+
+WHAT'S NEW:
+  ✓ HELM evaluator added (Stanford CRFM Framework)
+  ✓ Parallel evaluation with HealthBench
+  ✓ Combined results in dashboard
+  ✓ Dual scoring for every response
+
+================================================================================
+                    CRITICAL: RESTART APP NOW!
+================================================================================
+
+TO ACTIVATE THE NEW SYSTEM:
+
+  1. Stop the current app (press Ctrl+C in the terminal)
+  
+  2. Restart it:
+     python app.py
+  
+  3. You'll see BOTH evaluators initialize:
+     [EVALUATOR] ✅ Initialized with gpt-4o-mini
+     [HELM EVALUATOR] ✅ Initialized with gpt-4o-mini
+
+================================================================================
+                    WHAT YOU'LL SEE AFTER RESTART
+================================================================================
+
+CONSOLE OUTPUT (For Each Response):
+  
+  [EVALUATION] Starting HealthBench evaluation...
+  [EVALUATION] [OK] Overall Score: 0.88 (11/13 passed)
+  [EVALUATION] [OK] Safety Score: 0.95
+  [EVALUATION] Tag Scores: safety: 0.95, empathy: 0.75...
+  
+  [HELM] Starting HELM evaluation...
+  [HELM] [OK] Overall: 4.2/5.0
+  [HELM] Accuracy: 4/5, Completeness: 4/5, Clarity: 5/5
+
+DASHBOARD (http://localhost:8002/healthbench/dashboard):
+  
+  - Top stats now include "Average HELM Score"
+  - Each evaluation shows both HealthBench and HELM results
+  - HELM section shows 3 criteria with explanations
+
+================================================================================
+                        EVALUATION SYSTEMS
+================================================================================
+
+SYSTEM 1: HEALTHBENCH (OpenAI)
+  - 13 rubrics (safety, empathy, communication)
+  - Red flag detection (5 critical behaviors)
+  - Tag-based scores
+  - Output: 0-1 scale (0.88 = 88%)
+
+SYSTEM 2: HELM (Stanford CRFM)
+  - 3 criteria (accuracy, completeness, clarity)
+  - Medical content quality focus
+  - 1-5 scoring scale
+  - Output: 1-5 scale (4.2 = 84%)
+
+COMBINED: Best of Both Worlds
+  - Safety + Medical Accuracy
+  - Empathy + Completeness
+  - Red Flags + Content Quality
+  - 16 total evaluation points
+
+================================================================================
+                            COST IMPACT
+================================================================================
+
+Before: HealthBench only
+  - 13 API calls per response
+  - ~$0.002-0.003 per response
+
+After: HealthBench + HELM
+  - 14 API calls per response (13 + 1)
+  - ~$0.003-0.005 per response
+  - Increase: ~60% (~$1-2 per 100 conversations)
+
+Very affordable for comprehensive dual evaluation!
+
+================================================================================
+                        DISABLE IF NEEDED
+================================================================================
+
+To disable HELM (keep only HealthBench):
+  Add to .env:
+  HELM_EVAL_ENABLED=false
+
+To disable HealthBench (keep only HELM):
+  Add to .env:
+  HEALTHBENCH_EVAL_ENABLED=false
+
+To disable both:
+  HEALTHBENCH_EVAL_ENABLED=false
+  HELM_EVAL_ENABLED=false
+
+================================================================================
+                      JUST RESTART THE APP!
+================================================================================
+
+  python app.py
+
+Then every chatbot response gets evaluated by BOTH systems! 🎉
+
+================================================================================
+

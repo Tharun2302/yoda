@@ -1,0 +1,59 @@
+# Complete Requirements for HealthYoda Chatbot
+# Includes: Flask App, HealthBench Evaluation, HELM Evaluation, RAG System
+
+# ============================================================================
+# CORE CHATBOT REQUIREMENTS
+# ============================================================================
+Flask==3.0.0
+flask-cors==4.0.0
+openai>=1.40.0
+python-dotenv==1.0.0
+httpx>=0.27.0
+
+# ============================================================================
+# RAG SYSTEM
+# ============================================================================
+python-docx>=1.1.0
+chromadb>=0.4.0
+
+# ============================================================================
+# HEALTHBENCH EVALUATION REQUIREMENTS
+# ============================================================================
+blobfile>=2.0.0
+pandas>=2.0.0
+numpy>=1.26.0,<3.0.0
+jinja2>=3.0.0
+tqdm>=4.64.0
+requests>=2.31.0
+
+# ============================================================================
+# LANGFUSE (Optional - for observability dashboard)
+# ============================================================================
+langfuse>=2.0.0
+
+# ============================================================================
+# HELM EVALUATION REQUIREMENTS (Minimal - for live evaluation)
+# Note: We use a lightweight integration, not full HELM framework
+# ============================================================================
+# OpenAI (already included above)
+# json (built-in)
+# All HELM dependencies are in the Helm folder if needed for full integration
+
+# ============================================================================
+# OPTIONAL: Full HELM Framework (if you want to run batch benchmarks)
+# Uncomment the line below to install full HELM
+# ============================================================================
+# crfm-helm[summarization,medhelm]>=0.5.10
+
+# ============================================================================
+# UTILITY LIBRARIES
+# ============================================================================
+typing-extensions>=4.0.0
+
+# ============================================================================
+# NOTES:
+# - For HealthBench only: Install lines 1-27
+# - For HELM live evaluation: Everything is already included (uses OpenAI)
+# - For full HELM benchmarking: Uncomment line 35 (warning: large install)
+# ============================================================================
+

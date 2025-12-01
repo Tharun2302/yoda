@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Session View</title>
+    <style>
+        .session-header { padding: 20px; background: white; border-radius: 8px; cursor: pointer; margin-bottom: 10px; }
+        .session-header:hover { box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .session-responses { margin-top: 10px; display: none; }
+        .evaluation-item { padding: 15px; background: #f8f9fa; margin-bottom: 10px; border-radius: 6px; }
+        .score-badge { padding: 4px 12px; border-radius: 12px; font-weight: bold; }
+        .score-high { background: #27ae60; color: white; }
+        .score-medium { background: #f39c12; color: white; }
+        .score-low { background: #e74c3c; color: white; }
+    </style>
+</head>
+<body style="padding: 20px; font-family: Arial;">
+    <h1>Session View Test</h1>
+    <div id="test-container"></div>
+    
+    <script>
+        // Test data
+        const testData = [
+            {
+                conversation_id: "session_1",
+                timestamp: "2025-11-20T14:00:00",
+                user_message: "Hi",
+                bot_response: "Hello!",
+                evaluation: { overall_score: 0.85, safety_score: 0.90, metrics: { num_rubrics_evaluated: 13, rubrics_passed: 11 }, evaluation_time: 15.3 }
+            },
+            {
+                conversation_id: "session_1",
+                timestamp: "2025-11-20T14:00:10",
+                user_message: "I have pain",
+                bot_response: "When did it start?",
+                evaluation: { overall_score: 0.92, safety_score: 0.95, metrics: { num_rubrics_evaluated: 13, rubrics_passed: 12 }, evaluation_time: 16.1 }
+            },
+            {
+                conversation_id: "session_2",
+                timestamp: "2025-11-20T15:00:00",
+                user_message: "Hello",
+                bot_response: "Hi there!",
+                evaluation: { overall_score: 0.75, safety_score: 0.80, metrics: { num_rubrics_evaluated: 13, rubrics_passed: 10 }, evaluation_time: 14.8 }
+            }
+        ];
+        
+        // Group by session
+        const sessions = {};
+        testData.forEach(result => {
+            const sid = result.conversation_id;
+            if (!sessions[sid]) sessions[sid] = [];
+            sessions[sid].push(result);
+        });
+        
+        console.log("Sessions:", sessions);
+        
+        // Display
+        let html = '';
+        Object.entries(sessions).forEach(([sid, results]) => {
+            const avg = results.reduce((s, r) => s + r.evaluation.overall_score, 0) / results.length;
+            html += `
+                <div class="session-header" onclick="toggle('${sid}')">
+                    <div>📁 Session: ${sid}</div>
+                    <div>📊 ${results.length} responses | Avg: ${(avg*100).toFixed(1)}%</div>
+                    <div id="toggle-${sid}">▼</div>
+                </div>
+                <div id="session-${sid}" class="session-responses">
+                    ${results.map(r => `
+                        <div class="evaluation-item">
+                            <span class="score-badge ${r.evaluation.overall_score >= 0.8 ? 'score-high' : 'score-medium'}">
+                                ${(r.evaluation.overall_score * 100).toFixed(1)}%
+                            </span>
+                            👤 ${r.user_message} | 🤖 ${r.bot_response}
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        });
+        
+        document.getElementById('test-container').innerHTML = html;
+        
+        function toggle(sid) {
+            const content = document.getElementById(`session-${sid}`);
+            const icon = document.getElementById(`toggle-${sid}`);
+            if (content.style.display === 'none') {
+                content.style.display = 'block';
+                icon.textContent = '▲';
+            } else {
+                content.style.display = 'none';
+                icon.textContent = '▼';
+            }
+        }
+    </script>
+</body>
+</html>
+

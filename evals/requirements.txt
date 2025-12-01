@@ -1,0 +1,9 @@
+# HealthBench Integration Requirements
+openai>=1.0.0
+blobfile
+pandas
+numpy
+jinja2
+tqdm
+requests
+

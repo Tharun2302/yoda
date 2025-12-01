@@ -1,0 +1,77 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# Environment variables
+.env
+.env.*
+!env.template
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+logs/
+
+# Database
+*.sqlite3
+*.db
+chroma_db/*.bin
+chroma_db/*.sqlite3
+
+# MongoDB data
+mongodb_data/
+
+# Docker
+docker-compose.override.yml
+
+# SSL certificates (if any)
+ssl/*.pem
+ssl/*.key
+ssl/*.crt
+
+# Temporary files
+*.tmp
+*.temp
+tmp/
+temp/
+
+# Jupyter
+*.ipynb
+.ipynb_checkpoints/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+*.cover
+
+# OS
+Thumbs.db
+Desktop.ini
+
+# Backups
+*.bak
+*.backup
+mongodb-backup-*
