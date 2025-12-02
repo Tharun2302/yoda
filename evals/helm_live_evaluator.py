@@ -5,13 +5,26 @@ This module provides real-time evaluation using HELM/MedHELM's
 LLM-as-judge approach, running in parallel with HealthBench.
 
 Based on Stanford CRFM's HELM framework medical dialogue annotators.
+
+Supports both OpenAI and Ollama backends.
 """
 import os
 import json
 import time
 from typing import List, Dict, Any, Optional
 from dataclasses import dataclass
-from openai import OpenAI
+
+try:
+    from openai import OpenAI
+    OPENAI_AVAILABLE = True
+except ImportError:
+    OPENAI_AVAILABLE = False
+
+try:
+    import httpx
+    HTTPX_AVAILABLE = True
+except ImportError:
+    HTTPX_AVAILABLE = False
 
 
 @dataclass
@@ -144,20 +157,52 @@ Return a valid JSON object with ALL SIX criteria:
 Valid JSON only. No markdown, no additional text.
 """
     
-    def __init__(self, judge_model: str = "gpt-4o-mini", enabled: bool = True):
+    def __init__(self, judge_model: str = "gpt-4o-mini", enabled: bool = True, use_ollama: bool = False):
         """
         Initialize the HELM evaluator
         
         Args:
             judge_model: Model to use for evaluation (gpt-4o-mini recommended)
             enabled: Whether evaluation is enabled
+            use_ollama: Use Ollama instead of OpenAI
         """
         self.enabled = enabled
         self.judge_model = judge_model
         self.client = None
+        self.use_ollama = use_ollama
+        self.ollama_base_url = None
+        self.ollama_client = None
         
         if self.enabled:
+            # Try Ollama first if specified
+            if use_ollama:
+                try:
+                    if not HTTPX_AVAILABLE:
+                        print("[HELM EVALUATOR] httpx not installed, cannot use Ollama")
+                        self.enabled = False
+                        return
+                    
+                    ollama_url = os.getenv('OLLAMA_BASE_URL', 'http://localhost:11434')
+                    ollama_model = os.getenv('OLLAMA_MODEL', 'alibayram/medgemma:4b')
+                    self.ollama_base_url = ollama_url
+                    self.judge_model = ollama_model
+                    self.ollama_client = httpx.Client(base_url=ollama_url, timeout=120.0)
+                    
+                    print(f"[HELM EVALUATOR] ✅ Initialized with Ollama model: {ollama_model}")
+                    return
+                    
+                except Exception as e:
+                    print(f"[HELM EVALUATOR] Failed to initialize Ollama: {e}")
+                    self.enabled = False
+                    return
+            
+            # Fall back to OpenAI
             try:
+                if not OPENAI_AVAILABLE:
+                    print("[HELM EVALUATOR] OpenAI package not installed")
+                    self.enabled = False
+                    return
+                
                 api_key = os.getenv('OPENAI_API_KEY')
                 if not api_key:
                     print("[HELM EVALUATOR] OPENAI_API_KEY not found, disabling HELM evaluation")
@@ -165,7 +210,7 @@ Valid JSON only. No markdown, no additional text.
                     return
                 
                 self.client = OpenAI(api_key=api_key)
-                print(f"[HELM EVALUATOR] ✅ Initialized with {judge_model}")
+                print(f"[HELM EVALUATOR] ✅ Initialized with OpenAI model: {judge_model}")
                 
             except Exception as e:
                 print(f"[HELM EVALUATOR] Failed to initialize: {e}")
@@ -206,15 +251,28 @@ Valid JSON only. No markdown, no additional text.
                 RESPONSE=bot_response
             )
             
-            # Call LLM judge
-            response = self.client.chat.completions.create(
-                model=self.judge_model,
-                messages=[{'role': 'user', 'content': prompt}],
-                max_tokens=400,
-                temperature=0.0
-            )
-            
-            result_text = response.choices[0].message.content.strip()
+            # Call LLM judge (OpenAI or Ollama)
+            if self.use_ollama and self.ollama_client:
+                payload = {
+                    "model": self.judge_model,
+                    "messages": [{'role': 'user', 'content': prompt}],
+                    "stream": False,
+                    "options": {
+                        "temperature": 0.0,
+                        "num_predict": 400
+                    }
+                }
+                response = self.ollama_client.post("/api/chat", json=payload)
+                result_json = response.json()
+                result_text = result_json.get('message', {}).get('content', '').strip()
+            else:
+                response = self.client.chat.completions.create(
+                    model=self.judge_model,
+                    messages=[{'role': 'user', 'content': prompt}],
+                    max_tokens=400,
+                    temperature=0.0
+                )
+                result_text = response.choices[0].message.content.strip()
             
             # Clean up response (remove markdown if present)
             if result_text.startswith('```'):
@@ -276,10 +334,16 @@ def get_helm_evaluator(judge_model: str = "gpt-4o-mini") -> HelmLiveEvaluator:
     # Check if HELM evaluation is enabled
     enabled = os.getenv('HELM_EVAL_ENABLED', 'true').lower() == 'true'
     
+    # Check if we should use Ollama
+    use_ollama = os.getenv('OLLAMA_BASE_URL') is not None and not os.getenv('OPENAI_API_KEY')
+    if use_ollama:
+        judge_model = os.getenv('OLLAMA_MODEL', 'alibayram/medgemma:4b')
+    
     if _helm_evaluator_instance is None:
         _helm_evaluator_instance = HelmLiveEvaluator(
             judge_model=judge_model,
-            enabled=enabled
+            enabled=enabled,
+            use_ollama=use_ollama
         )
     
     return _helm_evaluator_instance

@@ -79,12 +79,14 @@ OLLAMA_BASE_URL = os.getenv('OLLAMA_BASE_URL', 'http://localhost:11434')
 OLLAMA_MODEL = os.getenv('OLLAMA_MODEL', 'alibayram/medgemma:4b')
 OLLAMA_API_KEY = os.getenv('OLLAMA_API_KEY', 'ollama')  # Local Ollama doesn't need real key
 
-# Initialize Ollama client
-ollama_client = httpx.Client(base_url=OLLAMA_BASE_URL, timeout=60.0)
+# Initialize Ollama client with longer timeout (first inference can take 60-120s to load model)
+ollama_client = httpx.Client(base_url=OLLAMA_BASE_URL, timeout=120.0)
 
 def call_ollama_chat(messages, stream=True, temperature=0.7, max_tokens=1000):
     """Call Ollama API for chat completion"""
     try:
+        print(f"[OLLAMA] Calling {OLLAMA_MODEL} at {OLLAMA_BASE_URL}...")
+        
         payload = {
             "model": OLLAMA_MODEL,
             "messages": messages,
@@ -96,21 +98,34 @@ def call_ollama_chat(messages, stream=True, temperature=0.7, max_tokens=1000):
         }
         
         if stream:
+            print(f"[OLLAMA] Streaming chat request (first response may take 60-90s for model loading)...")
             with ollama_client.stream("POST", "/api/chat", json=payload) as response:
+                first_token = True
                 for line in response.iter_lines():
                     if line:
                         try:
                             data = json.loads(line)
                             if "message" in data and "content" in data["message"]:
+                                if first_token:
+                                    print(f"[OLLAMA] ✓ First token received!")
+                                    first_token = False
                                 yield data["message"]["content"]
                         except json.JSONDecodeError:
                             continue
         else:
+            print(f"[OLLAMA] Non-streaming chat request...")
             response = ollama_client.post("/api/chat", json=payload)
             data = response.json()
+            print(f"[OLLAMA] ✓ Response received!")
             return data.get("message", {}).get("content", "")
+    except httpx.TimeoutException as e:
+        error_msg = f"Ollama request timed out after 120s. Model may be loading for first time. Please try again."
+        print(f"[ERROR] {error_msg}")
+        raise Exception(error_msg)
     except Exception as e:
         print(f"[ERROR] Ollama API call failed: {e}")
+        import traceback
+        traceback.print_exc()
         raise
 
 # Langfuse tracker
@@ -398,6 +413,69 @@ def health_check():
     """Health check endpoint"""
     return jsonify({'status': 'healthy', 'model': OLLAMA_MODEL})
 
+@app.route('/healthbench/results', methods=['GET'])
+def get_healthbench_results():
+    """
+    API endpoint to get HealthBench evaluation results for dashboard.
+    """
+    try:
+        if not results_storage:
+            return jsonify({
+                'error': 'HealthBench evaluation not available',
+                'results': [],
+                'statistics': {}
+            }), 503
+        
+        limit = request.args.get('limit', 50, type=int)
+        recent_results = results_storage.get_recent_evaluations(limit=limit)
+        statistics = results_storage.get_statistics()
+        
+        response = jsonify({
+            'success': True,
+            'results': recent_results,
+            'statistics': statistics,
+            'total_count': len(recent_results)
+        })
+        response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
+        response.headers['Pragma'] = 'no-cache'
+        response.headers['Expires'] = '0'
+        return response
+    
+    except Exception as e:
+        print(f"[ERROR] Failed to retrieve HealthBench results: {e}")
+        return jsonify({
+            'error': str(e),
+            'results': [],
+            'statistics': {}
+        }), 500
+
+@app.route('/healthbench/dashboard', methods=['GET'])
+def healthbench_dashboard():
+    """Serve the HealthBench evaluation dashboard"""
+    try:
+        dashboard_path = Path(__file__).parent / 'healthbench_dashboard_v3.html'
+        
+        if not dashboard_path.exists():
+            dashboard_path = Path(__file__).parent / 'healthbench_dashboard_clean.html'
+        
+        if not dashboard_path.exists():
+            dashboard_path = Path(__file__).parent / 'healthbench_dashboard.html'
+        
+        if not dashboard_path.exists():
+            return f"<h1>Dashboard not found</h1><p>Please ensure dashboard file exists.</p>", 404
+        
+        response = send_file(dashboard_path)
+        response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
+        response.headers['Pragma'] = 'no-cache'
+        response.headers['Expires'] = '0'
+        response.headers['Content-Security-Policy'] = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; connect-src 'self' http://68.183.88.5:8002 http://127.0.0.1:8002 http://localhost:8002"
+        
+        return response
+    
+    except Exception as e:
+        print(f"[ERROR] Failed to serve dashboard: {e}")
+        return f"<h1>Error</h1><p>{str(e)}</p>", 500
+
 @app.route('/', methods=['GET'])
 def index():
     """Landing page"""
@@ -452,21 +530,46 @@ def index():
                 font-size: 14px;
                 margin-bottom: 20px;
             }
+            .links {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
             .link-card {
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
                 padding: 40px 30px;
                 border-radius: 15px;
                 text-decoration: none;
-                display: inline-block;
-                color: white;
-                transition: transform 0.3s;
+                transition: transform 0.3s, box-shadow 0.3s;
+                border: 2px solid transparent;
             }
             .link-card:hover {
                 transform: translateY(-10px);
+                box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+                border-color: #667eea;
             }
             .link-card h2 {
                 font-size: 32px;
                 margin-bottom: 15px;
+            }
+            .link-card p {
+                color: #34495e;
+                font-size: 16px;
+                margin-bottom: 0;
+            }
+            .chatbot-card {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            }
+            .chatbot-card h2, .chatbot-card p {
+                color: white;
+            }
+            .dashboard-card h2 {
+                color: #667eea;
+            }
+            @media (max-width: 768px) {
+                .links {
+                    grid-template-columns: 1fr;
+                }
             }
         </style>
     </head>
@@ -476,10 +579,17 @@ def index():
             <div class="badge">Powered by Ollama + Medgemma</div>
             <p>AI-Powered Medical Interview Assistant</p>
             
-            <a href="/index.html" class="link-card">
-                <h2>🤖 Start Chatbot</h2>
-                <p>Begin medical interview</p>
-            </a>
+            <div class="links">
+                <a href="/index.html" class="link-card chatbot-card">
+                    <h2>🤖 Chatbot</h2>
+                    <p>Start medical interview</p>
+                </a>
+                
+                <a href="/healthbench/dashboard" class="link-card dashboard-card">
+                    <h2>📊 Dashboard</h2>
+                    <p>View evaluation results</p>
+                </a>
+            </div>
         </div>
     </body>
     </html>

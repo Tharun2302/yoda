@@ -3,13 +3,26 @@ Simple Live HealthBench Evaluator for Real-Time Chatbot Evaluation
 
 This is a simplified version that evaluates chatbot responses directly
 without complex dependencies.
+
+Supports both OpenAI and Ollama backends.
 """
 import os
 import json
 import time
 from typing import List, Dict, Any, Optional
 from dataclasses import dataclass
-from openai import OpenAI
+
+try:
+    from openai import OpenAI
+    OPENAI_AVAILABLE = True
+except ImportError:
+    OPENAI_AVAILABLE = False
+
+try:
+    import httpx
+    HTTPX_AVAILABLE = True
+except ImportError:
+    HTTPX_AVAILABLE = False
 
 
 @dataclass
@@ -133,20 +146,52 @@ class SimpleLiveEvaluator:
         }
     ]
     
-    def __init__(self, grader_model: str = "gpt-4o-mini", enabled: bool = True):
+    def __init__(self, grader_model: str = "gpt-4o-mini", enabled: bool = True, use_ollama: bool = False):
         """
         Initialize the evaluator
         
         Args:
             grader_model: Model to use for grading
             enabled: Whether evaluation is enabled
+            use_ollama: Use Ollama instead of OpenAI
         """
         self.enabled = enabled
         self.grader_model = grader_model
         self.client = None
+        self.use_ollama = use_ollama
+        self.ollama_base_url = None
+        self.ollama_client = None
         
         if self.enabled:
+            # Try Ollama first if specified
+            if use_ollama:
+                try:
+                    if not HTTPX_AVAILABLE:
+                        print("[EVALUATOR] httpx not installed, cannot use Ollama")
+                        self.enabled = False
+                        return
+                    
+                    ollama_url = os.getenv('OLLAMA_BASE_URL', 'http://localhost:11434')
+                    ollama_model = os.getenv('OLLAMA_MODEL', 'alibayram/medgemma:4b')
+                    self.ollama_base_url = ollama_url
+                    self.grader_model = ollama_model
+                    self.ollama_client = httpx.Client(base_url=ollama_url, timeout=120.0)
+                    
+                    print(f"[EVALUATOR] ✅ Initialized with Ollama model: {ollama_model}")
+                    return
+                    
+                except Exception as e:
+                    print(f"[EVALUATOR] Failed to initialize Ollama: {e}")
+                    self.enabled = False
+                    return
+            
+            # Fall back to OpenAI
             try:
+                if not OPENAI_AVAILABLE:
+                    print("[EVALUATOR] OpenAI package not installed")
+                    self.enabled = False
+                    return
+                
                 api_key = os.getenv('OPENAI_API_KEY')
                 if not api_key:
                     print("[EVALUATOR] OPENAI_API_KEY not found, disabling evaluation")
@@ -154,7 +199,7 @@ class SimpleLiveEvaluator:
                     return
                 
                 self.client = OpenAI(api_key=api_key)
-                print(f"[EVALUATOR] ✅ Initialized with {grader_model}")
+                print(f"[EVALUATOR] ✅ Initialized with OpenAI model: {grader_model}")
                 
             except Exception as e:
                 print(f"[EVALUATOR] Failed to initialize: {e}")
@@ -236,6 +281,32 @@ class SimpleLiveEvaluator:
             traceback.print_exc()
             return None
     
+    def _call_llm(self, prompt: str, max_tokens: int = 200) -> str:
+        """Call LLM (OpenAI or Ollama) with the given prompt"""
+        if self.use_ollama and self.ollama_client:
+            # Call Ollama
+            payload = {
+                "model": self.grader_model,
+                "messages": [{'role': 'user', 'content': prompt}],
+                "stream": False,
+                "options": {
+                    "temperature": 0.0,
+                    "num_predict": max_tokens
+                }
+            }
+            response = self.ollama_client.post("/api/chat", json=payload)
+            result = response.json()
+            return result.get('message', {}).get('content', '')
+        else:
+            # Call OpenAI
+            response = self.client.chat.completions.create(
+                model=self.grader_model,
+                messages=[{'role': 'user', 'content': prompt}],
+                max_tokens=max_tokens,
+                temperature=0.0
+            )
+            return response.choices[0].message.content.strip()
+    
     def _evaluate_rubric(
         self,
         rubric: Dict[str, Any],
@@ -292,14 +363,7 @@ Respond ONLY with valid JSON (no markdown, no code blocks):
 """
         
         try:
-            response = self.client.chat.completions.create(
-                model=self.grader_model,
-                messages=[{'role': 'user', 'content': prompt}],
-                max_tokens=200,
-                temperature=0.0
-            )
-            
-            result_text = response.choices[0].message.content.strip()
+            result_text = self._call_llm(prompt, max_tokens=200)
             
             # Clean up response (remove markdown code blocks if present)
             if result_text.startswith('```'):
@@ -490,10 +554,16 @@ def get_live_evaluator(grader_model: str = "gpt-4o-mini") -> SimpleLiveEvaluator
     
     enabled = os.getenv('HEALTHBENCH_EVAL_ENABLED', 'true').lower() == 'true'
     
+    # Check if we should use Ollama
+    use_ollama = os.getenv('OLLAMA_BASE_URL') is not None and not os.getenv('OPENAI_API_KEY')
+    if use_ollama:
+        grader_model = os.getenv('OLLAMA_MODEL', 'alibayram/medgemma:4b')
+    
     if _evaluator_instance is None:
         _evaluator_instance = SimpleLiveEvaluator(
             grader_model=grader_model,
-            enabled=enabled
+            enabled=enabled,
+            use_ollama=use_ollama
         )
     
     return _evaluator_instance
