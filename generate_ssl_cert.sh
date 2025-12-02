@@ -3,7 +3,7 @@
 # Generate self-signed SSL certificate for IP address
 # This allows HTTPS without a domain name
 
-echo "Generating self-signed SSL certificate for IP: 167.71.238.114"
+echo "Generating self-signed SSL certificate for IP: 68.183.88.5"
 echo ""
 
 # Create ssl directory if it doesn't exist
@@ -13,14 +13,14 @@ mkdir -p ssl
 openssl genrsa -out ssl/key.pem 2048
 
 # Generate certificate signing request (CSR) with IP address
-openssl req -new -key ssl/key.pem -out ssl/cert.csr -subj "/CN=167.71.238.114" \
-  -addext "subjectAltName=IP:167.71.238.114"
+openssl req -new -key ssl/key.pem -out ssl/cert.csr -subj "/CN=68.183.88.5" \
+  -addext "subjectAltName=IP:68.183.88.5"
 
 # Generate self-signed certificate (valid for 365 days)
 openssl x509 -req -days 365 -in ssl/cert.csr -signkey ssl/key.pem -out ssl/cert.pem \
   -extensions v3_req -extfile <(
     echo "[v3_req]"
-    echo "subjectAltName=IP:167.71.238.114"
+    echo "subjectAltName=IP:68.183.88.5"
   )
 
 # Clean up CSR

@@ -156,13 +156,13 @@ echo ""
 
 if [ "$SKIP_NGINX" = true ]; then
     echo -e "${YELLOW}Application is running at:${NC}"
-    echo -e "  • http://167.71.238.114:8002"
+    echo -e "  • http://68.183.88.5:8002"
     echo -e "  • http://localhost:8002 (if running locally)"
 else
     echo -e "${YELLOW}Application is running at:${NC}"
-    echo -e "  • https://167.71.238.114 (HTTPS via nginx) 🔒"
-    echo -e "  • http://167.71.238.114 (redirects to HTTPS)"
-    echo -e "  • http://167.71.238.114:8002 (direct access, HTTP only)"
+    echo -e "  • https://68.183.88.5 (HTTPS via nginx) 🔒"
+    echo -e "  • http://68.183.88.5 (redirects to HTTPS)"
+    echo -e "  • http://68.183.88.5:8002 (direct access, HTTP only)"
     echo ""
     echo -e "${YELLOW}Note:${NC} First-time HTTPS access will show a browser security warning."
     echo -e "      This is normal for self-signed certificates. Click 'Advanced' → 'Proceed'."

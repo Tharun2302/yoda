@@ -1,0 +1,124 @@
+═══════════════════════════════════════════════════════════════════════════════
+ QUICK DEPLOYMENT COMMANDS FOR SERVER 68.183.88.5
+ Branch: SUditya | Repository: https://github.com/Tharun2302/yoda.git
+═══════════════════════════════════════════════════════════════════════════════
+
+▶ STEP 1: SSH INTO SERVER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ssh root@68.183.88.5
+
+
+▶ STEP 2: CLEAN EXISTING DEPLOYMENT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+cd /opt/yoda 2>/dev/null || cd ~
+docker-compose down -v 2>/dev/null || true
+docker ps -a | grep -E "hyoda|yoda" | awk '{print $1}' | xargs docker rm -f 2>/dev/null || true
+sudo rm -rf /opt/yoda
+docker system prune -f --volumes
+
+
+▶ STEP 3: INSTALL DOCKER & DOCKER COMPOSE (if not installed)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+sudo apt update -y
+curl -fsSL https://get.docker.com -o get-docker.sh && sudo sh get-docker.sh
+sudo usermod -aG docker $USER
+sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+newgrp docker
+
+
+▶ STEP 4: CLONE SUditya BRANCH
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+sudo mkdir -p /opt/yoda
+sudo chown -R $USER:$USER /opt/yoda
+cd /opt/yoda
+git clone -b SUditya --single-branch https://github.com/Tharun2302/yoda.git .
+
+
+▶ STEP 5: CONFIGURE ENVIRONMENT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+cp env.template .env
+nano .env
+# Add your OpenAI API key: OPENAI_API_KEY=sk-your-key-here
+# Save: Ctrl+X, Y, Enter
+chmod 600 .env
+
+
+▶ STEP 6: GENERATE SSL CERTIFICATES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+chmod +x generate_ssl_cert.sh
+./generate_ssl_cert.sh
+
+
+▶ STEP 7: DEPLOY WITH DOCKER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+chmod +x deploy.sh
+./deploy.sh
+
+
+▶ STEP 8: VERIFY DEPLOYMENT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+docker-compose ps
+curl http://localhost:8002/health
+docker-compose logs hyoda-app | tail -50
+
+
+═══════════════════════════════════════════════════════════════════════════════
+ ACCESS YOUR APPLICATION
+═══════════════════════════════════════════════════════════════════════════════
+✓ HTTPS: https://68.183.88.5
+✓ HTTP:  http://68.183.88.5:8002
+✓ Dashboard: https://68.183.88.5/healthbench/dashboard
+
+
+═══════════════════════════════════════════════════════════════════════════════
+ USEFUL COMMANDS
+═══════════════════════════════════════════════════════════════════════════════
+View logs:           docker-compose logs -f
+View app logs:       docker-compose logs -f hyoda-app
+Service status:      docker-compose ps
+Restart services:    docker-compose restart
+Stop services:       docker-compose down
+Start services:      docker-compose up -d
+Check health:        curl http://localhost:8002/health
+
+
+═══════════════════════════════════════════════════════════════════════════════
+ TROUBLESHOOTING
+═══════════════════════════════════════════════════════════════════════════════
+If services don't start:
+  docker-compose logs hyoda-app
+  docker-compose restart
+
+If complete reset needed:
+  cd /opt/yoda
+  docker-compose down -v
+  docker-compose up -d --build
+
+
+═══════════════════════════════════════════════════════════════════════════════
+ AUTOMATED DEPLOYMENT (Alternative)
+═══════════════════════════════════════════════════════════════════════════════
+Download and run the automated script:
+
+ssh root@68.183.88.5
+curl -fsSL https://raw.githubusercontent.com/Tharun2302/yoda/SUditya/DEPLOY_TO_SERVER_68.183.88.5.sh -o deploy_auto.sh
+chmod +x deploy_auto.sh
+./deploy_auto.sh
+
+(Note: You'll be prompted for OpenAI API key during automated deployment)
+
+
+═══════════════════════════════════════════════════════════════════════════════
+ SUCCESS INDICATORS
+═══════════════════════════════════════════════════════════════════════════════
+✓ docker-compose ps shows all services "Up (healthy)"
+✓ curl returns {"status":"healthy"}
+✓ Browser loads chatbot at https://68.183.88.5
+✓ No errors in logs
+
+
+═══════════════════════════════════════════════════════════════════════════════
+ DEPLOYMENT COMPLETED! 🎉
+═══════════════════════════════════════════════════════════════════════════════
+

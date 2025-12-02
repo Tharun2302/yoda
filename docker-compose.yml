@@ -28,7 +28,7 @@ services:
       - HELM_JUDGE_MODEL=${HELM_JUDGE_MODEL:-gpt-4o-mini}
       
       # CORS Configuration
-      - ALLOWED_ORIGINS=${ALLOWED_ORIGINS:-https://167.71.238.114,http://167.71.238.114:8002,http://localhost:8002,http://127.0.0.1:8002}
+      - ALLOWED_ORIGINS=${ALLOWED_ORIGINS:-https://68.183.88.5,http://68.183.88.5:8002,http://localhost:8002,http://127.0.0.1:8002}
       
       # Rate Limiting
       - RATE_LIMIT_REQUESTS=${RATE_LIMIT_REQUESTS:-100}
