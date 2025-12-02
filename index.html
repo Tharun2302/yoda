@@ -885,6 +885,114 @@
       background: #28a745;
     }
 
+    /* Hands-free confirmation modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+    }
+
+    .modal.show {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content {
+      background-color: white;
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 400px;
+      width: 90%;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      pointer-events: auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .modal-content h3 {
+      margin: 0 0 15px 0;
+      color: #0129ac;
+      font-size: 20px;
+    }
+
+    .modal-content p {
+      margin: 0 0 25px 0;
+      color: #666;
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    .modal-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .modal-btn {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      flex: 1;
+      max-width: 150px;
+      pointer-events: auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .modal-btn.primary {
+      background: #0129ac;
+      color: white;
+    }
+
+    .modal-btn.primary:hover {
+      background: #0056b3;
+    }
+
+    .modal-btn.secondary {
+      background: #f8f9fa;
+      color: #495057;
+      border: 1px solid #dee2e6;
+    }
+
+    .modal-btn.secondary:hover {
+      background: #e9ecef;
+    }
+
+    @media (max-width: 768px) {
+      .modal-content {
+        padding: 24px 20px;
+        max-width: 90%;
+      }
+
+      .modal-content h3 {
+        font-size: 18px;
+      }
+
+      .modal-content p {
+        font-size: 14px;
+      }
+
+      .modal-buttons {
+        flex-direction: column;
+      }
+
+      .modal-btn {
+        max-width: 100%;
+      }
+    }
+
     /* ============================================
        MOBILE RESPONSIVE STYLES
        Keep sizes same, use space better
@@ -1996,8 +2104,16 @@
                   isStreaming = false;
                   
                   // If voice mode enabled, speak the response
+                  // In hands-free mode, recording will auto-start after speaking completes
                   if (voiceEnabled && fullResponse) {
                     await speakText(fullResponse);
+                  } else if (voiceEnabled && isHandsFree && !isSpeaking) {
+                    // If TTS is disabled but hands-free is on, restart recording immediately
+                    setTimeout(() => {
+                      if (voiceEnabled && isHandsFree && !isSpeaking && !isRecording) {
+                        startRecording();
+                      }
+                    }, 500);
                   }
                   
                   // Continue reading stream for evaluation_complete event
@@ -2053,11 +2169,74 @@
     
     // Voice state management
     let voiceEnabled = false;
+    let isHandsFree = false; // Hands-free mode flag
     let isRecording = false;
     let isSpeaking = false;
     let mediaRecorder = null;
     let audioChunks = [];
+    
+    // Voice latency tracker - measures time from patient voice end to bot voice start
+    // Similar to AssemblyAI's silence detection between speakers
+    const voiceLatencyTracker = {
+      patientSpeechEndTime: null, // When patient actually stopped speaking (silence started)
+      botVoiceStartTime: null,
+      isTracking: false,
+      
+      // Mark when patient's actual speech ends (when silence is detected, not when recording stops)
+      markPatientSpeechEnd() {
+        // This is called when volume drops below threshold (silence detected)
+        this.patientSpeechEndTime = performance.now();
+        this.isTracking = true;
+        console.log('%c[LATENCY] Patient speech ended (silence detected)', 'color: #888; font-weight: normal;');
+      },
+      
+      // Mark when bot starts speaking (when TTS playback begins)
+      markBotVoiceStart() {
+        if (!this.isTracking || !this.patientSpeechEndTime) {
+          console.warn('%c[LATENCY] Bot voice started but no patient speech end time recorded', 'color: orange;');
+          return;
+        }
+        
+        this.botVoiceStartTime = performance.now();
+        const latency = this.botVoiceStartTime - this.patientSpeechEndTime;
+        const latencySeconds = (latency / 1000).toFixed(2);
+        const latencyMs = latency.toFixed(0);
+        
+        // Display latency in RED with prominent styling
+        console.log(
+          `%c⏱️ VOICE LATENCY: ${latencySeconds}s (${latencyMs}ms)`,
+          'color: red; font-size: 16px; font-weight: bold; background: #ffe6e6; padding: 4px 8px; border-radius: 4px;'
+        );
+        
+        // Additional breakdown in smaller text
+        console.log(
+          `%c  Patient speech ended: ${this.patientSpeechEndTime.toFixed(2)}ms | Bot voice started: ${this.botVoiceStartTime.toFixed(2)}ms`,
+          'color: #666; font-size: 12px;'
+        );
+        
+        // Reset for next measurement
+        this.reset();
+      },
+      
+      // Reset tracker for next conversation turn
+      reset() {
+        this.patientSpeechEndTime = null;
+        this.botVoiceStartTime = null;
+        this.isTracking = false;
+      },
+      
+      // Cancel tracking if something goes wrong
+      cancel() {
+        if (this.isTracking) {
+          console.warn('%c[LATENCY] Tracking cancelled - resetting', 'color: orange;');
+          this.reset();
+        }
+      }
+    };
     let currentAudio = null;
+    let audioContext = null;
+    let analyserNode = null;
+    let silenceDetectionInterval = null;
     
     const voiceToggleBtn = document.getElementById('voiceToggleBtn');
     const micBtn = document.getElementById('micBtn');
@@ -2159,78 +2338,230 @@
       }
     }
     
-    // Toggle voice mode
-    async function toggleVoiceMode() {
-      voiceEnabled = !voiceEnabled;
+    // Show hands-free confirmation modal
+    function showHandsFreeModal() {
+      const modal = document.getElementById('handsFreeModal');
+      if (modal) {
+        modal.classList.add('show');
+      }
+    }
+
+    // Hide hands-free confirmation modal
+    function hideHandsFreeModal() {
+      const modal = document.getElementById('handsFreeModal');
+      if (modal) {
+        modal.classList.remove('show');
+      }
+    }
+
+    // Start session after modal choice
+    async function startSessionAfterModalChoice() {
+      // Only send greeting if no messages are displayed and greeting hasn't been sent
+      if (messagesDiv.children.length === 0 && !greetingSent) {
+        await sendInitialGreeting();
+      }
+    }
+
+    // Enable hands-free mode after confirmation
+    async function enableHandsFreeMode() {
+      hideHandsFreeModal();
+      voiceEnabled = true;
+      isHandsFree = true;
       
-      if (voiceEnabled) {
-        // Check if secure context FIRST (required for getUserMedia)
-        // This is the most common issue in deployment (HTTP vs HTTPS)
-        if (!isSecureContext()) {
-          console.error('[ERROR] getUserMedia requires HTTPS or localhost');
-          const protocol = window.location.protocol;
-          const hostname = window.location.hostname;
-          let message = 'Voice mode requires a secure connection (HTTPS) or localhost.\n\n';
-          
-          if (protocol === 'http:' && hostname !== 'localhost' && hostname !== '127.0.0.1') {
-            message += 'You are accessing the site over HTTP from an IP address.\n';
-            message += 'To use voice features:\n';
-            message += '1. Access via localhost: http://localhost:8003\n';
-            message += '2. Or set up HTTPS in production';
-          } else {
-            message += 'Please access the site over HTTPS or use localhost.';
-          }
-          
-          alert(message);
-          voiceEnabled = false;
-          return;
-        }
-        
-        // Check if getUserMedia is available (only after secure context check)
-        if (!isGetUserMediaAvailable()) {
-          console.error('[ERROR] getUserMedia is not supported in this browser');
-          alert('Voice mode is not supported in this browser. Please use a modern browser like Chrome, Firefox, or Edge.');
-          voiceEnabled = false;
-          return;
-        }
-        
-        // Check microphone permission
-        try {
-          const stream = await getUserMedia({ audio: true });
-          stream.getTracks().forEach(track => track.stop()); // Stop immediately, just checking permission
-          
-          voiceToggleBtn.classList.add('active');
-          voiceToggleBtn.querySelector('span').textContent = 'Voice On';
-          micBtn.classList.remove('disabled');
-        } catch (error) {
-          console.error('[ERROR] Microphone permission denied:', error);
-          let errorMessage = 'Microphone permission is required for voice mode.';
-          
-          if (error.name === 'NotAllowedError' || error.name === 'PermissionDeniedError') {
-            errorMessage = 'Microphone permission was denied. Please allow microphone access in your browser settings and try again.';
-          } else if (error.name === 'NotFoundError' || error.name === 'DevicesNotFoundError') {
-            errorMessage = 'No microphone found. Please connect a microphone and try again.';
-          } else if (error.name === 'NotReadableError' || error.name === 'TrackStartError') {
-            errorMessage = 'Microphone is already in use by another application. Please close other applications using the microphone.';
-          } else if (error.name === 'OverconstrainedError' || error.name === 'ConstraintNotSatisfiedError') {
-            errorMessage = 'Microphone constraints could not be satisfied. Please check your microphone settings.';
-          }
-          
-          alert(errorMessage);
-          voiceEnabled = false;
-        }
-      } else {
+      voiceToggleBtn.classList.add('active');
+      voiceToggleBtn.querySelector('span').textContent = 'Voice On';
+      micBtn.classList.remove('disabled');
+      
+      // Update mic button to show it's always-on
+      micBtn.title = 'Hands-free mode active - microphone always on';
+      
+      // Start the session (send greeting)
+      await startSessionAfterModalChoice();
+      
+      // Start recording immediately in hands-free mode
+      try {
+        await startRecording();
+      } catch (error) {
+        console.error('[ERROR] Failed to start hands-free recording:', error);
+        // If recording fails, disable hands-free mode
+        voiceEnabled = false;
+        isHandsFree = false;
         voiceToggleBtn.classList.remove('active');
         voiceToggleBtn.querySelector('span').textContent = 'Voice Off';
         micBtn.classList.add('disabled');
+        alert('Failed to start hands-free mode. Please try again.');
+      }
+    }
+
+    // Toggle voice mode
+    async function toggleVoiceMode() {
+      // If disabling voice mode
+      if (voiceEnabled) {
+        voiceEnabled = false;
+        isHandsFree = false;
+        voiceToggleBtn.classList.remove('active');
+        voiceToggleBtn.querySelector('span').textContent = 'Voice Off';
+        micBtn.classList.add('disabled');
+        micBtn.title = 'Push to talk';
         stopRecording(); // Stop if currently recording
         stopSpeaking(); // Stop if currently speaking
+        return;
+      }
+      
+      // If enabling voice mode - show confirmation modal
+      // Check if secure context FIRST (required for getUserMedia)
+      if (!isSecureContext()) {
+        console.error('[ERROR] getUserMedia requires HTTPS or localhost');
+        const protocol = window.location.protocol;
+        const hostname = window.location.hostname;
+        let message = 'Voice mode requires a secure connection (HTTPS) or localhost.\n\n';
+        
+        if (protocol === 'http:' && hostname !== 'localhost' && hostname !== '127.0.0.1') {
+          message += 'You are accessing the site over HTTP from an IP address.\n';
+          message += 'To use voice features:\n';
+          message += '1. Access via localhost: http://localhost:8003\n';
+          message += '2. Or set up HTTPS in production';
+        } else {
+          message += 'Please access the site over HTTPS or use localhost.';
+        }
+        
+        alert(message);
+        return;
+      }
+      
+      // Check if getUserMedia is available (only after secure context check)
+      if (!isGetUserMediaAvailable()) {
+        console.error('[ERROR] getUserMedia is not supported in this browser');
+        alert('Voice mode is not supported in this browser. Please use a modern browser like Chrome, Firefox, or Edge.');
+        return;
+      }
+      
+      // Check microphone permission
+      try {
+        const stream = await getUserMedia({ audio: true });
+        stream.getTracks().forEach(track => track.stop()); // Stop immediately, just checking permission
+        
+        // Show confirmation modal
+        showHandsFreeModal();
+      } catch (error) {
+        console.error('[ERROR] Microphone permission denied:', error);
+        let errorMessage = 'Microphone permission is required for voice mode.';
+        
+        if (error.name === 'NotAllowedError' || error.name === 'PermissionDeniedError') {
+          errorMessage = 'Microphone permission was denied. Please allow microphone access in your browser settings and try again.';
+        } else if (error.name === 'NotFoundError' || error.name === 'DevicesNotFoundError') {
+          errorMessage = 'No microphone found. Please connect a microphone and try again.';
+        } else if (error.name === 'NotReadableError' || error.name === 'TrackStartError') {
+          errorMessage = 'Microphone is already in use by another application. Please close other applications using the microphone.';
+        } else if (error.name === 'OverconstrainedError' || error.name === 'ConstraintNotSatisfiedError') {
+          errorMessage = 'Microphone constraints could not be satisfied. Please check your microphone settings.';
+        }
+        
+        alert(errorMessage);
       }
     }
     
+    // Silence detection using Web Audio API
+    function startSilenceDetection(stream) {
+      if (!isHandsFree) return; // Only use silence detection in hands-free mode
+      
+      try {
+        // Create audio context and analyser
+        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        analyserNode = audioContext.createAnalyser();
+        analyserNode.fftSize = 256;
+        analyserNode.smoothingTimeConstant = 0.8;
+        
+        const source = audioContext.createMediaStreamSource(stream);
+        source.connect(analyserNode);
+        
+        const dataArray = new Uint8Array(analyserNode.frequencyBinCount);
+        let isSpeaking = false;
+        let silenceStartTime = null;
+        const SILENCE_THRESHOLD = 30; // Volume threshold (0-255)
+        const SILENCE_DURATION = 2000; // 2 seconds of silence to stop
+        let lastCheckTime = Date.now();
+        
+        const checkVolume = () => {
+          if (!isRecording || !isHandsFree) {
+            if (silenceDetectionInterval) {
+              clearInterval(silenceDetectionInterval);
+              silenceDetectionInterval = null;
+            }
+            return;
+          }
+          
+          analyserNode.getByteFrequencyData(dataArray);
+          
+          // Calculate average volume
+          let sum = 0;
+          for (let i = 0; i < dataArray.length; i++) {
+            sum += dataArray[i];
+          }
+          const averageVolume = sum / dataArray.length;
+          
+          const now = Date.now();
+          
+          if (averageVolume > SILENCE_THRESHOLD) {
+            // User is speaking
+            if (!isSpeaking) {
+              isSpeaking = true;
+              silenceStartTime = null;
+            }
+          } else {
+            // Silence detected
+            if (isSpeaking) {
+              // User was speaking, now silence
+              if (silenceStartTime === null) {
+                // First moment of silence detected - mark this as speech end time
+                silenceStartTime = now;
+                voiceLatencyTracker.markPatientSpeechEnd();
+              } else if (now - silenceStartTime >= SILENCE_DURATION) {
+                // Silence for long enough - stop recording
+                isSpeaking = false;
+                silenceStartTime = null;
+                stopRecording();
+                return;
+              }
+            }
+          }
+          
+          lastCheckTime = now;
+        };
+        
+        // Check volume every 100ms
+        silenceDetectionInterval = setInterval(checkVolume, 100);
+      } catch (error) {
+        console.error('[ERROR] Silence detection error:', error);
+        // Continue without silence detection if it fails
+      }
+    }
+
+    // Stop silence detection
+    function stopSilenceDetection() {
+      if (silenceDetectionInterval) {
+        clearInterval(silenceDetectionInterval);
+        silenceDetectionInterval = null;
+      }
+      
+      if (audioContext) {
+        try {
+          audioContext.close();
+        } catch (e) {
+          // Ignore errors when closing
+        }
+        audioContext = null;
+      }
+      
+      analyserNode = null;
+    }
+
     // Start recording
     async function startRecording() {
       if (!voiceEnabled || isRecording || isSpeaking) return;
+      
+      // Cancel previous tracking if exists (new recording starting before bot spoke)
+      voiceLatencyTracker.cancel();
       
       // Check if getUserMedia is available
       if (!isGetUserMediaAvailable()) {
@@ -2256,6 +2587,15 @@
         };
         
         mediaRecorder.onstop = async () => {
+          // In hands-free mode, speech end time was already marked by silence detection
+          // In normal mode (push-to-talk), mark it now
+          if (!isHandsFree) {
+            voiceLatencyTracker.markPatientSpeechEnd();
+          }
+          
+          // Stop silence detection
+          stopSilenceDetection();
+          
           // Create audio blob
           const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
           
@@ -2271,9 +2611,19 @@
         isRecording = true;
         
         // Update UI
-        micBtn.classList.add('recording');
-        voiceStatus.textContent = '🔴 Recording...';
+        if (isHandsFree) {
+          micBtn.classList.add('recording');
+          voiceStatus.textContent = '🎤 Listening...';
+        } else {
+          micBtn.classList.add('recording');
+          voiceStatus.textContent = '🔴 Recording...';
+        }
         voiceStatus.classList.add('show', 'recording');
+        
+        // Start silence detection if in hands-free mode
+        if (isHandsFree) {
+          startSilenceDetection(stream);
+        }
         
         // Auto-stop after 60 seconds (safety limit)
         setTimeout(() => {
@@ -2286,6 +2636,7 @@
         console.error('[ERROR] Recording error:', error);
         alert('Error accessing microphone. Please check permissions.');
         isRecording = false;
+        stopSilenceDetection();
       }
     }
     
@@ -2294,6 +2645,15 @@
       if (!isRecording || !mediaRecorder) return;
       
       try {
+        // In normal mode (push-to-talk), mark speech end when button is released
+        // In hands-free mode, this was already marked by silence detection
+        if (!isHandsFree && !voiceLatencyTracker.isTracking) {
+          voiceLatencyTracker.markPatientSpeechEnd();
+        }
+        
+        // Stop silence detection
+        stopSilenceDetection();
+        
         mediaRecorder.stop();
         isRecording = false;
         
@@ -2304,6 +2664,7 @@
         voiceStatus.classList.add('transcribing');
       } catch (error) {
         console.error('[ERROR] Stop recording error:', error);
+        stopSilenceDetection();
       }
     }
     
@@ -2337,16 +2698,33 @@
         
         logTiming('Speech to Text', startTime);
         
-        // Put transcribed text in input box for user to review/edit
-        input.value = transcribedText;
-        input.focus();
-        
-        // Optionally auto-send (disabled by default - let user review)
-        // await sendMessage();
+        // In hands-free mode, auto-send if text is valid
+        if (isHandsFree && transcribedText && transcribedText.trim().length > 0) {
+          // Minimum length check to avoid sending noise
+          if (transcribedText.trim().length >= 2) {
+            // Auto-send the transcribed text
+            input.value = transcribedText;
+            await sendMessage();
+          } else {
+            // Text too short, just put it in input for user to see
+            input.value = transcribedText;
+            input.focus();
+            // Restart recording in hands-free mode
+            if (voiceEnabled && isHandsFree && !isSpeaking) {
+              setTimeout(() => startRecording(), 500);
+            }
+          }
+        } else {
+          // Normal mode - put transcribed text in input box for user to review/edit
+          input.value = transcribedText;
+          input.focus();
+        }
         
       } catch (error) {
         logTiming('Speech to Text (FAILED)', startTime);
         console.error('[ERROR] Transcription error:', error);
+        // Cancel latency tracking on transcription failure
+        voiceLatencyTracker.cancel();
         voiceStatus.textContent = '❌ Transcription failed';
         voiceStatus.classList.add('show');
         setTimeout(() => {
@@ -2511,6 +2889,9 @@
         
         // Set up event handlers BEFORE calling speak()
         utterance.onstart = () => {
+          // Mark bot voice start timestamp and calculate latency
+          voiceLatencyTracker.markBotVoiceStart();
+          
           // TTS started speaking (playback begins)
         };
         
@@ -2518,8 +2899,17 @@
           // Speech playback completed (not logging timing here - only processing time matters)
           stopSpeaking();
           
-          // Auto-enable mic after bot finishes speaking
-          if (voiceEnabled) {
+          // In hands-free mode, auto-start recording after bot finishes speaking
+          if (voiceEnabled && isHandsFree) {
+            micBtn.classList.remove('disabled');
+            // Wait a bit before starting to record (let TTS finish completely)
+            setTimeout(() => {
+              if (voiceEnabled && isHandsFree && !isSpeaking && !isRecording) {
+                startRecording();
+              }
+            }, 500);
+          } else if (voiceEnabled) {
+            // Normal mode - just show status
             micBtn.classList.remove('disabled');
             voiceStatus.textContent = '🎤 Your turn';
             voiceStatus.classList.add('show');
@@ -2532,6 +2922,8 @@
         utterance.onerror = (error) => {
           logTiming('Text to Speech (FAILED)', startTime);
           console.error('[ERROR] Speech synthesis error:', error);
+          // Cancel latency tracking on TTS failure
+          voiceLatencyTracker.cancel();
           stopSpeaking();
         };
         
@@ -2558,6 +2950,8 @@
       } catch (error) {
         logTiming('Text to Speech (FAILED)', startTime);
         console.error('[ERROR] TTS error:', error);
+        // Cancel latency tracking on TTS failure
+        voiceLatencyTracker.cancel();
         stopSpeaking();
       }
     }
@@ -2577,25 +2971,138 @@
       }
     }
     
-    // Mic button event listeners
-    micBtn.addEventListener('mousedown', startRecording);
-    micBtn.addEventListener('mouseup', stopRecording);
+    // Mic button event listeners - only for push-to-talk mode (not hands-free)
+    micBtn.addEventListener('mousedown', () => {
+      if (!isHandsFree && voiceEnabled) {
+        startRecording();
+      }
+    });
+    micBtn.addEventListener('mouseup', () => {
+      if (!isHandsFree && voiceEnabled) {
+        stopRecording();
+      }
+    });
     micBtn.addEventListener('mouseleave', () => {
-      if (isRecording) stopRecording();
+      if (!isHandsFree && isRecording) {
+        stopRecording();
+      }
     });
     
     // Touch support for mobile
     micBtn.addEventListener('touchstart', (e) => {
-      e.preventDefault();
-      startRecording();
+      if (!isHandsFree && voiceEnabled) {
+        e.preventDefault();
+        startRecording();
+      }
     });
     micBtn.addEventListener('touchend', (e) => {
-      e.preventDefault();
-      stopRecording();
+      if (!isHandsFree && voiceEnabled) {
+        e.preventDefault();
+        stopRecording();
+      }
     });
     
     // Voice toggle button
     voiceToggleBtn.addEventListener('click', toggleVoiceMode);
+    
+    // Modal event handlers - attach after DOM is ready
+    function setupModalHandlers() {
+      const continueHandsFreeBtn = document.getElementById('continueHandsFreeBtn');
+      const switchToChatBtn = document.getElementById('switchToChatBtn');
+      const handsFreeModal = document.getElementById('handsFreeModal');
+
+      console.log('[MODAL] Setting up handlers:', {
+        continueBtn: !!continueHandsFreeBtn,
+        switchBtn: !!switchToChatBtn,
+        modal: !!handsFreeModal
+      });
+
+      if (continueHandsFreeBtn) {
+        continueHandsFreeBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          console.log('[MODAL] Continue button clicked');
+          enableHandsFreeMode();
+        });
+      } else {
+        console.error('[MODAL] Continue button not found!');
+      }
+
+      if (switchToChatBtn) {
+        switchToChatBtn.addEventListener('click', async (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          console.log('[MODAL] Switch to Chat button clicked');
+          hideHandsFreeModal();
+          // Disable voice mode completely
+          voiceEnabled = false;
+          isHandsFree = false;
+          
+          // Update UI to reflect voice is off
+          voiceToggleBtn.classList.remove('active');
+          voiceToggleBtn.querySelector('span').textContent = 'Voice Off';
+          micBtn.classList.add('disabled');
+          micBtn.title = 'Push to talk';
+          
+          // Stop any ongoing recording or speaking
+          stopRecording();
+          stopSpeaking();
+          
+          // Hide voice status
+          voiceStatus.classList.remove('show');
+          
+          // Start the session (send greeting)
+          await startSessionAfterModalChoice();
+        });
+      } else {
+        console.error('[MODAL] Switch to Chat button not found!');
+      }
+
+      // Close modal when clicking outside (but not on modal-content)
+      if (handsFreeModal) {
+        handsFreeModal.addEventListener('click', async (e) => {
+          // Only close if clicking directly on the modal backdrop, not on modal-content
+          if (e.target === handsFreeModal) {
+            hideHandsFreeModal();
+            // Disable voice mode completely
+            voiceEnabled = false;
+            isHandsFree = false;
+            
+            // Update UI to reflect voice is off
+            voiceToggleBtn.classList.remove('active');
+            voiceToggleBtn.querySelector('span').textContent = 'Voice Off';
+            micBtn.classList.add('disabled');
+            micBtn.title = 'Push to talk';
+            
+            // Stop any ongoing recording or speaking
+            stopRecording();
+            stopSpeaking();
+            
+            // Hide voice status
+            voiceStatus.classList.remove('show');
+            
+            // Start the session (send greeting) when clicking outside
+            await startSessionAfterModalChoice();
+          }
+        });
+        
+        // Prevent modal-content clicks from closing the modal
+        const modalContent = handsFreeModal.querySelector('.modal-content');
+        if (modalContent) {
+          modalContent.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent click from bubbling to modal backdrop
+          });
+        }
+      }
+    }
+    
+    // Call setup function when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setupModalHandlers);
+    } else {
+      // DOM is already ready
+      setupModalHandlers();
+    }
     
     // Check voice availability on page load
     checkVoiceAvailability();
@@ -2948,8 +3455,19 @@
       // Reset greeting flag for new conversation
       greetingSent = false;
       
-      // Now start the new conversation with greeting (after undo timer ended)
-      await startNewConversation();
+      // Reset voice mode state for new chat
+      voiceEnabled = false;
+      isHandsFree = false;
+      voiceToggleBtn.classList.remove('active');
+      voiceToggleBtn.querySelector('span').textContent = 'Voice Off';
+      micBtn.classList.add('disabled');
+      micBtn.title = 'Push to talk';
+      stopRecording();
+      stopSpeaking();
+      
+      // Show voice warning modal for new chat
+      // The greeting will be sent after user chooses an option in the modal
+      showHandsFreeModal();
     }
 
     // Reset new chat button to normal state
@@ -3185,27 +3703,27 @@
           if (user.id) {
             loadUserChatHistory(user.id).catch(error => {
               console.error('[ERROR] Failed to load history, but continuing:', error);
-              // If history loading fails and no messages, send greeting
+              // If history loading fails and no messages, show modal
               setTimeout(() => {
                 if (messagesDiv.children.length === 0 && !greetingSent) {
-                  sendInitialGreeting();
+                  showHandsFreeModal();
                 }
               }, 500);
             }).finally(() => {
               hideLoadingIndicator();
-              // Double-check after history load completes - if still no messages, send greeting
+              // Double-check after history load completes - if still no messages, show modal
               setTimeout(() => {
                 if (messagesDiv.children.length === 0 && !greetingSent) {
-                  sendInitialGreeting();
+                  showHandsFreeModal();
                 }
               }, 300);
             });
           } else {
             hideLoadingIndicator();
-            // No user ID, send greeting
+            // No user ID, show modal
             setTimeout(() => {
               if (messagesDiv.children.length === 0 && !greetingSent) {
-                sendInitialGreeting();
+                showHandsFreeModal();
               }
             }, 500);
           }
@@ -3349,9 +3867,9 @@
             // Scroll to bottom
             scrollToBottom();
           } else {
-            // No history to load - send initial greeting
+            // No history to load - show modal
             if (!greetingSent) {
-              sendInitialGreeting();
+              showHandsFreeModal();
             }
           }
         } else {
@@ -3363,9 +3881,9 @@
         console.error('[HISTORY] Failed to load chat history:', error);
         console.error('[HISTORY] Error details:', error.message, error.stack);
         // Continue with empty chat if loading fails
-        // Send greeting if no messages are displayed
+        // Show modal if no messages are displayed
         if (messagesDiv.children.length === 0 && !greetingSent) {
-          sendInitialGreeting();
+          showHandsFreeModal();
         }
       }
     }
@@ -3399,16 +3917,27 @@
     document.getElementById('logoutBtn').addEventListener('click', handleLogout);
     document.addEventListener('click', closeDropdown);
     
-    // Check if we need to send initial greeting on page load
-    // Wait a bit to allow history to load first
+    // Show voice warning modal by default on page load
+    // Wait a bit to ensure DOM is ready and history is loaded
     setTimeout(() => {
-      // Only send greeting if no messages are displayed and greeting hasn't been sent
-      if (messagesDiv.children.length === 0 && !greetingSent) {
-        // Send greeting regardless of session - if there's a session but no messages,
-        // it means it's a new conversation and needs greeting
-        sendInitialGreeting();
+      // Only show modal if there are no messages (new session or empty chat)
+      if (messagesDiv.children.length === 0) {
+        // Show the hands-free voice mode modal by default
+        showHandsFreeModal();
       }
     }, 1500); // Wait 1.5 seconds for history to potentially load
   </script>
+
+  <!-- Hands-free confirmation modal -->
+  <div id="handsFreeModal" class="modal">
+    <div class="modal-content">
+      <h3>🎤 Hands-Free Voice Mode</h3>
+      <p>Voice mode keeps the microphone always on to automatically detect when you speak. Your audio is processed securely and not stored.</p>
+      <div class="modal-buttons">
+        <button class="modal-btn primary" id="continueHandsFreeBtn">Continue</button>
+        <button class="modal-btn secondary" id="switchToChatBtn">Switch to Chat</button>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
