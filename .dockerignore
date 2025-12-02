@@ -42,6 +42,14 @@ docker-compose.yml
 test_*.py
 *_test.py
 
+# Helm - exclude heavy frontend and development files
+Helm/helm-frontend/
+Helm/scripts/
+Helm/install-*.sh
+Helm/pre-commit*.sh
+Helm/mkdocs.yml
+Helm/uv.lock
+
 # OS
 .DS_Store
 Thumbs.db

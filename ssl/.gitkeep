@@ -1,0 +1,13 @@
+# SSL certificates directory
+# 
+# This directory will contain:
+# - cert.pem: SSL certificate
+# - key.pem: Private key
+#
+# Generate certificates using:
+# - On Linux/Mac: ./generate_ssl_cert.sh
+# - On Windows: .\generate_ssl_cert.bat
+#
+# IMPORTANT: SSL certificates are excluded from git for security.
+# Generate them on your deployment server before running docker-compose.
+
