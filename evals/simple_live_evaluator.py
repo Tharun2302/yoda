@@ -133,29 +133,37 @@ class SimpleLiveEvaluator:
         }
     ]
     
-    def __init__(self, grader_model: str = "gpt-4o-mini", enabled: bool = True):
+    def __init__(self, grader_model: str = "gpt-4o-mini", enabled: bool = True, model_manager=None):
         """
         Initialize the evaluator
-        
+
         Args:
             grader_model: Model to use for grading
             enabled: Whether evaluation is enabled
+            model_manager: Model manager instance (optional)
         """
         self.enabled = enabled
         self.grader_model = grader_model
         self.client = None
-        
+        self.model_manager = model_manager
+
         if self.enabled:
             try:
-                api_key = os.getenv('OPENAI_API_KEY')
-                if not api_key:
-                    print("[EVALUATOR] OPENAI_API_KEY not found, disabling evaluation")
-                    self.enabled = False
-                    return
-                
-                self.client = OpenAI(api_key=api_key)
-                print(f"[EVALUATOR] ✅ Initialized with {grader_model}")
-                
+                # Try to use model manager first
+                if self.model_manager and grader_model in self.model_manager.get_available_models():
+                    self.client = self.model_manager
+                    print(f"[EVALUATOR] ✅ Initialized with model manager ({grader_model})")
+                else:
+                    # Fallback to direct OpenAI client
+                    api_key = os.getenv('OPENAI_API_KEY')
+                    if not api_key:
+                        print("[EVALUATOR] OPENAI_API_KEY not found, disabling evaluation")
+                        self.enabled = False
+                        return
+
+                    self.client = OpenAI(api_key=api_key)
+                    print(f"[EVALUATOR] ✅ Initialized with OpenAI client ({grader_model})")
+
             except Exception as e:
                 print(f"[EVALUATOR] Failed to initialize: {e}")
                 self.enabled = False
@@ -292,12 +300,22 @@ Respond ONLY with valid JSON (no markdown, no code blocks):
 """
         
         try:
-            response = self.client.chat.completions.create(
-                model=self.grader_model,
-                messages=[{'role': 'user', 'content': prompt}],
-                max_tokens=200,
-                temperature=0.0
-            )
+            # Use model manager if available, otherwise use direct client
+            if hasattr(self.client, 'create_chat_completion'):
+                # Using model manager
+                response = self.client.create_chat_completion(
+                    messages=[{'role': 'user', 'content': prompt}],
+                    temperature=0.0,
+                    max_tokens=200
+                )
+            else:
+                # Using direct OpenAI client
+                response = self.client.chat.completions.create(
+                    model=self.grader_model,
+                    messages=[{'role': 'user', 'content': prompt}],
+                    max_tokens=200,
+                    temperature=0.0
+                )
             
             result_text = response.choices[0].message.content.strip()
             
@@ -484,18 +502,19 @@ Respond ONLY with valid JSON (no markdown, no code blocks):
 _evaluator_instance = None
 
 
-def get_live_evaluator(grader_model: str = "gpt-4o-mini") -> SimpleLiveEvaluator:
+def get_live_evaluator(grader_model: str = "gpt-4o-mini", model_manager=None) -> SimpleLiveEvaluator:
     """Get or create evaluator instance"""
     global _evaluator_instance
-    
+
     enabled = os.getenv('HEALTHBENCH_EVAL_ENABLED', 'true').lower() == 'true'
-    
+
     if _evaluator_instance is None:
         _evaluator_instance = SimpleLiveEvaluator(
             grader_model=grader_model,
-            enabled=enabled
+            enabled=enabled,
+            model_manager=model_manager
         )
-    
+
     return _evaluator_instance
 
 

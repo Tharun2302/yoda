@@ -33,18 +33,27 @@ except ImportError:
 # Load environment variables from .env file
 load_dotenv()
 
+# Import model manager
+try:
+    from model_manager import get_model_manager
+    MODEL_MANAGER_AVAILABLE = True
+    print("✅ Model manager loaded")
+except Exception as e:
+    MODEL_MANAGER_AVAILABLE = False
+    print(f"[WARNING] Model manager not available: {e}")
+
 # Import HealthBench evaluation modules
 try:
     # Add local evals folder to path
     evals_path = Path(__file__).resolve().parent / 'evals'
     sys.path.insert(0, str(evals_path))
-    
+
     # Import evaluation modules from local evals folder
     from simple_live_evaluator import get_live_evaluator
     from helm_live_evaluator import get_helm_evaluator  # HELM-style evaluation
     from langfuse_scorer import create_langfuse_scorer
     from results_storage import get_results_storage
-    
+
     EVALUATION_AVAILABLE = True
     print("✅ HealthBench evaluation modules loaded from local evals folder")
 except Exception as e:
@@ -87,18 +96,27 @@ def add_security_headers(response):
     
     return response
 
-# Initialize OpenAI client
-openai_api_key = os.getenv('OPENAI_API_KEY')
-if not openai_api_key:
-    print("WARNING: OPENAI_API_KEY environment variable not set!")
-    print("Please set it using: export OPENAI_API_KEY='your-api-key'")
-    print("Or create a .env file with OPENAI_API_KEY=your-api-key")
-    openai_api_key = None
-
-if openai_api_key:
-    client = OpenAI(api_key=openai_api_key)
+# Initialize model manager
+model_manager = None
+if MODEL_MANAGER_AVAILABLE:
+    try:
+        model_manager = get_model_manager()
+        print("✅ Model manager initialized successfully")
+    except Exception as e:
+        print(f"⚠️  Model manager initialization failed: {e}")
+        model_manager = None
 else:
-    client = None
+    print("⚠️  Model manager not available")
+
+# Legacy OpenAI client for backward compatibility (will be removed later)
+openai_api_key = os.getenv('OPENAI_API_KEY')
+client = None
+if openai_api_key:
+    try:
+        client = OpenAI(api_key=openai_api_key)
+        print("✅ Legacy OpenAI client initialized")
+    except Exception as e:
+        print(f"⚠️  Legacy OpenAI client initialization failed: {e}")
 
 # Langfuse tracker is initialized in langfuse_tracker.py module
 # It will be None if LANGFUSE_ENABLED=false or if credentials are missing
@@ -117,17 +135,24 @@ def initialize_rag_system():
     global rag_system
     if rag_system is None:
         try:
-            rag_system = QuestionBookRAG('docx/Question BOOK.docx', openai_client=client)
-            print(f"✅ RAG System loaded: {len(rag_system.questions)} questions available")
-            if rag_system.collection is not None:
-                try:
-                    count = rag_system.collection.count()
-                    if count > 0:
-                        print(f"✅ Vector database ready: {count} embeddings available")
-                    else:
-                        print(f"ℹ️  Vector database initialized (no embeddings yet)")
-                except Exception as e:
-                    print(f"ℹ️  Vector database initialized (error checking count: {e})")
+            # Initialize RAG with model manager and OpenAI client for embeddings
+            if model_manager:
+                rag_system = QuestionBookRAG('docx/Question BOOK.docx', model_manager=model_manager, openai_client=client)
+            elif client:
+                rag_system = QuestionBookRAG('docx/Question BOOK.docx', openai_client=client)
+                print(f"✅ RAG System loaded: {len(rag_system.questions)} questions available")
+                if rag_system.collection is not None:
+                    try:
+                        count = rag_system.collection.count()
+                        if count > 0:
+                            print(f"✅ Vector database ready: {count} embeddings available")
+                        else:
+                            print(f"ℹ️  Vector database initialized (no embeddings yet)")
+                    except Exception as e:
+                        print(f"ℹ️  Vector database initialized (error checking count: {e})")
+            else:
+                print("[WARNING] No suitable client available for RAG system")
+                rag_system = None
         except Exception as e:
             print(f"[WARNING] Could not load RAG system: {e}")
             import traceback
@@ -137,37 +162,42 @@ def initialize_rag_system():
 def initialize_evaluation_system():
     """Initialize HealthBench and HELM evaluation systems (called once, not on reload)"""
     global live_evaluator, helm_evaluator, langfuse_scorer, results_storage
-    
+
     if not EVALUATION_AVAILABLE:
         print("[INFO] Evaluation system not available")
         return
-    
+
     if live_evaluator is None:
         try:
-            # Get grader model from environment or use default
-            grader_model = os.getenv('HEALTHBENCH_GRADER_MODEL', 'gpt-4o-mini')
-            helm_judge_model = os.getenv('HELM_JUDGE_MODEL', 'gpt-4o-mini')
-            
-            # Initialize HealthBench evaluator
-            live_evaluator = get_live_evaluator(grader_model=grader_model)
-            
+            # Get grader model from environment or use active model from model manager
+            if model_manager:
+                active_model = model_manager.get_active_model()
+                grader_model = active_model if active_model else 'gpt-4o-mini'
+                helm_judge_model = active_model if active_model else 'gpt-4o-mini'
+            else:
+                grader_model = os.getenv('HEALTHBENCH_GRADER_MODEL', 'gpt-4o-mini')
+                helm_judge_model = os.getenv('HELM_JUDGE_MODEL', 'gpt-4o-mini')
+
+            # Initialize HealthBench evaluator with model manager
+            live_evaluator = get_live_evaluator(grader_model=grader_model, model_manager=model_manager)
+
             # Initialize HELM evaluator
             helm_evaluator = get_helm_evaluator(judge_model=helm_judge_model)
-            
+
             # Initialize Langfuse scorer with the existing langfuse client
             # Will auto-disable if langfuse is None
             langfuse_scorer = create_langfuse_scorer(langfuse_client=langfuse)
-            
+
             # Initialize results storage for custom dashboard
             results_storage = get_results_storage()
-            
+
             if live_evaluator.enabled:
                 print(f"[OK] HealthBench evaluation initialized (grader: {grader_model})")
             if helm_evaluator and helm_evaluator.enabled:
                 print(f"[OK] HELM evaluation initialized (judge: {helm_judge_model})")
             if results_storage:
                 print(f"[OK] Results storage initialized for custom dashboard")
-            
+
             if not live_evaluator.enabled and (not helm_evaluator or not helm_evaluator.enabled):
                 print("[INFO] All evaluation systems disabled")
         except Exception as e:
@@ -548,7 +578,7 @@ def extract_complaint_name(session_id, user_response, bot_question):
     Intelligently extract the complaint name from user's first response.
     Uses LLM to identify the actual complaint vs timing/onset information.
     """
-    if not client:
+    if not model_manager and not client:
         return
     
     session_data = get_or_create_session_data(session_id)
@@ -577,71 +607,19 @@ Examples:
 """
     
     try:
-        response = client.chat.completions.create(
-            model="gpt-4o-mini",
-            messages=[{'role': 'user', 'content': extraction_prompt}],
-            temperature=0.1,
-            max_tokens=200
-        )
-        
-        extracted_text = response.choices[0].message.content.strip()
-        # Parse JSON
-        import json
-        # Remove markdown code blocks if present
-        if '```json' in extracted_text:
-            extracted_text = extracted_text.split('```json')[1].split('```')[0].strip()
-        elif '```' in extracted_text:
-            extracted_text = extracted_text.split('```')[1].split('```')[0].strip()
-        
-        extracted_data = json.loads(extracted_text)
-        
-        complaint_name = extracted_data.get('complaint_name')
-        if complaint_name and complaint_name.lower() != 'null':
-            update_session_data(session_id, {'complaint_name': complaint_name[:100]})
-            print(f"[LLM Extract] Set complaint_name: {complaint_name}")
-    except Exception as e:
-        print(f"[LLM Extract] Error extracting complaint name: {e}")
-
-def extract_complaint_name(session_id, user_response, bot_question):
-    """
-    Intelligently extract the complaint name from user's first response.
-    Uses LLM to identify the actual complaint vs timing/onset information.
-    """
-    if not client:
-        return
-    
-    session_data = get_or_create_session_data(session_id)
-    if not session_data or session_data.get('complaint_name'):
-        return  # Already has complaint name
-    
-    extraction_prompt = f"""Extract the MAIN COMPLAINT or CHIEF COMPLAINT from the patient's response.
-
-Bot Question: "{bot_question}"
-Patient Response: "{user_response}"
-
-Identify the PRIMARY MEDICAL COMPLAINT (e.g., "chest pain", "headache", "stomach ache", "shortness of breath").
-DO NOT extract timing information (yesterday, today, etc.) as the complaint.
-DO NOT extract location-only information unless it's part of the complaint.
-
-If the response contains a complaint, return JSON: {{"complaint_name": "the actual complaint"}}
-If the response is only timing/onset information, return: {{"complaint_name": null}}
-If unclear, return: {{"complaint_name": null}}
-
-Examples:
-- Q: "What brings you in?" A: "chest pain" → {{"complaint_name": "chest pain"}}
-- Q: "What brings you in?" A: "pain in my stomach" → {{"complaint_name": "pain in stomach"}}
-- Q: "What brings you in?" A: "yesterday" → {{"complaint_name": null}}
-- Q: "When did it start?" A: "yesterday" → {{"complaint_name": null}}
-- Q: "What brings you in?" A: "I have a headache since yesterday" → {{"complaint_name": "headache"}}
-"""
-    
-    try:
-        response = client.chat.completions.create(
-            model="gpt-4o-mini",
-            messages=[{'role': 'user', 'content': extraction_prompt}],
-            temperature=0.1,
-            max_tokens=200
-        )
+        if model_manager:
+            response = model_manager.create_chat_completion(
+                messages=[{'role': 'user', 'content': extraction_prompt}],
+                temperature=0.1,
+                max_tokens=200
+            )
+        else:
+            response = client.chat.completions.create(
+                model="gpt-4o-mini",
+                messages=[{'role': 'user', 'content': extraction_prompt}],
+                temperature=0.1,
+                max_tokens=200
+            )
         
         extracted_text = response.choices[0].message.content.strip()
         # Parse JSON
@@ -695,7 +673,7 @@ def extract_and_store_data_with_llm(session_id, user_response, bot_question, con
     Store question-answer pair AND extract structured data.
     Stores ALL responses including "no".
     """
-    if not client:  # No OpenAI client
+    if not model_manager and not client:  # No AI client
         return
     
     # ALWAYS store the Q&A pair first (even "no" responses)
@@ -733,12 +711,19 @@ Return JSON with dynamic field names. If no meaningful data, return: {{}}
 """
     
     try:
-        response = client.chat.completions.create(
-            model="gpt-4o-mini",
-            messages=[{'role': 'user', 'content': extraction_prompt}],
-            temperature=0.1,
-            max_tokens=500
-        )
+        if model_manager:
+            response = model_manager.create_chat_completion(
+                messages=[{'role': 'user', 'content': extraction_prompt}],
+                temperature=0.1,
+                max_tokens=500
+            )
+        else:
+            response = client.chat.completions.create(
+                model="gpt-4o-mini",
+                messages=[{'role': 'user', 'content': extraction_prompt}],
+                temperature=0.1,
+                max_tokens=500
+            )
         
         extracted_text = response.choices[0].message.content.strip()
         # Parse JSON
@@ -1141,9 +1126,9 @@ def chat_greeting():
         if rag_system is None:
             initialize_rag_system()
         
-        if not client:
+        if not model_manager and not client:
             def error_response():
-                yield f"data: {json.dumps({'type': 'error', 'error': 'OpenAI API key not configured'})}\n\n"
+                yield f"data: {json.dumps({'type': 'error', 'error': 'No AI model configured'})}\n\n"
             return Response(error_response(), mimetype='text/event-stream')
         
         data = request.get_json() or {}
@@ -1204,14 +1189,22 @@ def chat_greeting():
                     
                     full_response = ""
                     
-                    # Stream response from OpenAI
-                    stream = client.chat.completions.create(
-                        model="gpt-4o-mini",
-                        messages=messages,
-                        stream=True,
-                        temperature=0.7,
-                        max_tokens=1000
-                    )
+                    # Stream response from model manager or OpenAI client
+                    if model_manager:
+                        stream = model_manager.create_chat_completion(
+                            messages=messages,
+                            stream=True,
+                            temperature=0.7,
+                            max_tokens=1000
+                        )
+                    else:
+                        stream = client.chat.completions.create(
+                            model="gpt-4o-mini",
+                            messages=messages,
+                            stream=True,
+                            temperature=0.7,
+                            max_tokens=1000
+                        )
                     
                     for chunk in stream:
                         if chunk.choices[0].delta.content is not None:
@@ -1259,9 +1252,9 @@ def chat_stream():
         # Ensure RAG system is initialized (lazy initialization)
         if rag_system is None:
             initialize_rag_system()
-        
-        if not client:
-            error_msg = "OpenAI API key not configured. Please set OPENAI_API_KEY environment variable."
+
+        if not model_manager and not client:
+            error_msg = "No AI model configured. Please check OPENAI_API_KEY or Ollama configuration."
             def error_response():
                 yield f"data: {json.dumps({'type': 'error', 'error': error_msg})}\n\n"
             return Response(error_response(), mimetype='text/event-stream')
@@ -1448,15 +1441,23 @@ def chat_stream():
                 yield f"data: {json.dumps({'type': 'thinking_complete'})}\n\n"
                 
                 full_response = ""
-                
-                # Stream response from OpenAI
-                stream = client.chat.completions.create(
-                    model="gpt-4o-mini",  # Using GPT-4o mini model
-                    messages=messages,
-                    stream=True,
-                    temperature=0.7,
-                    max_tokens=1000
-                )
+
+                # Stream response from model manager or OpenAI client
+                if model_manager:
+                    stream = model_manager.create_chat_completion(
+                        messages=messages,
+                        stream=True,
+                        temperature=0.7,
+                        max_tokens=1000
+                    )
+                else:
+                    stream = client.chat.completions.create(
+                        model="gpt-4o-mini",  # Using GPT-4o mini model
+                        messages=messages,
+                        stream=True,
+                        temperature=0.7,
+                        max_tokens=1000
+                    )
                 
                 for chunk in stream:
                     if chunk.choices[0].delta.content is not None:
@@ -1778,10 +1779,125 @@ def submit_feedback():
         traceback.print_exc()
         return jsonify({'error': str(e)}), 500
 
+@app.route('/models', methods=['GET'])
+def get_available_models():
+    """Get list of available models"""
+    if not model_manager:
+        return jsonify({'error': 'Model manager not available'}), 503
+
+    models = model_manager.get_available_models()
+    active_model = model_manager.get_active_model()
+
+    return jsonify({
+        'models': models,
+        'active_model': active_model
+    })
+
+@app.route('/models/active', methods=['GET'])
+def get_active_model():
+    """Get currently active model"""
+    if not model_manager:
+        return jsonify({'error': 'Model manager not available'}), 503
+
+    active_model = model_manager.get_active_model()
+    config = model_manager.get_model_config(active_model)
+
+    return jsonify({
+        'active_model': active_model,
+        'config': config
+    })
+
+@app.route('/models/active', methods=['POST'])
+def set_active_model():
+    """Set active model"""
+    if not model_manager:
+        return jsonify({'error': 'Model manager not available'}), 503
+
+    data = request.get_json()
+    if not data or 'model_id' not in data:
+        return jsonify({'error': 'model_id is required'}), 400
+
+    model_id = data['model_id']
+    success = model_manager.set_active_model(model_id)
+
+    if success:
+        print(f"🔄 Active model changed to: {model_id}")
+        return jsonify({
+            'success': True,
+            'active_model': model_id,
+            'message': f'Active model set to {model_id}'
+        })
+    else:
+        return jsonify({
+            'success': False,
+            'error': f'Model {model_id} not available'
+        }), 400
+
 @app.route('/health', methods=['GET'])
 def health_check():
     """Health check endpoint"""
     return jsonify({'status': 'healthy'})
+
+@app.route('/rag/rebuild', methods=['POST'])
+def rebuild_vector_store():
+    """Rebuild the RAG vector store incrementally"""
+    global rag_system
+
+    try:
+        # Check if RAG system exists
+        if rag_system is None:
+            return jsonify({'error': 'RAG system not initialized'}), 503
+
+        # Check if rebuild is allowed via environment variable
+        rebuild_allowed = os.getenv('REBUILD_VECTORSTORE', 'false').lower() == 'true'
+        if not rebuild_allowed:
+            return jsonify({
+                'error': 'Vector store rebuild not enabled',
+                'message': 'Set REBUILD_VECTORSTORE=true in environment to enable rebuilds'
+            }), 403
+
+        # Get rebuild model from environment
+        rebuild_model = os.getenv('RAG_REBUILD_MODEL', 'text-embedding-3-small')
+
+        print(f"[RAG] Starting incremental rebuild using model: {rebuild_model}")
+
+        # Force rebuild embeddings incrementally
+        rag_system.create_embeddings(force_rebuild=True, rebuild_model=rebuild_model)
+
+        # Get updated stats
+        count = rag_system.collection.count() if rag_system.collection else 0
+
+        return jsonify({
+            'success': True,
+            'message': f'Vector store rebuilt successfully',
+            'embeddings_count': count,
+            'questions_count': len(rag_system.questions),
+            'rebuild_model': rebuild_model
+        })
+
+    except Exception as e:
+        print(f"[RAG] Rebuild failed: {e}")
+        import traceback
+        traceback.print_exc()
+        return jsonify({'error': f'Rebuild failed: {str(e)}'}), 500
+
+@app.route('/rag/status', methods=['GET'])
+def get_rag_status():
+    """Get RAG system status"""
+    if rag_system is None:
+        return jsonify({
+            'initialized': False,
+            'questions_count': 0,
+            'embeddings_count': 0
+        })
+
+    count = rag_system.collection.count() if rag_system.collection else 0
+    return jsonify({
+        'initialized': True,
+        'questions_count': len(rag_system.questions),
+        'embeddings_count': count,
+        'collection_name': rag_system.collection.name if rag_system.collection else None
+    })
 
 @app.route('/session/<session_id>/data', methods=['GET'])
 def get_session_data(session_id):

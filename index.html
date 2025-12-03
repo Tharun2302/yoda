@@ -152,6 +152,184 @@
       border-color: #bd2130;
     }
 
+    /* Model selector dropdown */
+    .model-selector {
+      position: relative;
+      display: inline-block;
+    }
+
+    .model-select-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 12px;
+      background: #f8f9fa;
+      color: #495057;
+      border: 1px solid #dee2e6;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      font-family: inherit;
+      min-width: 140px;
+    }
+
+    .model-select-btn:hover {
+      background: #e9ecef;
+      border-color: #adb5bd;
+      color: #212529;
+    }
+
+    .model-dropdown-arrow {
+      font-size: 12px;
+      transition: transform 0.2s ease;
+    }
+
+    .model-selector.open .model-dropdown-arrow {
+      transform: rotate(180deg);
+    }
+
+    .model-dropdown {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: white;
+      border: 1px solid #dee2e6;
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      min-width: 200px;
+      max-height: 300px;
+      overflow-y: auto;
+      z-index: 1001;
+      display: none;
+      margin-top: 4px;
+    }
+
+    .model-dropdown.show {
+      display: block;
+    }
+
+    .model-option {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 12px;
+      cursor: pointer;
+      border-bottom: 1px solid #f8f9fa;
+      transition: background-color 0.2s ease;
+    }
+
+    .model-option:last-child {
+      border-bottom: none;
+    }
+
+    .model-option:hover {
+      background: #f8f9fa;
+    }
+
+    .model-option.active {
+      background: #e3f2fd;
+      color: #1976d2;
+      font-weight: 500;
+    }
+
+    .model-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .model-name {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .model-provider {
+      font-size: 12px;
+      color: #6c757d;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .model-status {
+      font-size: 12px;
+      color: #28a745;
+      font-weight: 500;
+    }
+
+    /* Toast notifications */
+    .toast-notification {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 10000;
+      min-width: 300px;
+      max-width: 500px;
+      padding: 0;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      animation: toastSlideIn 0.3s ease-out;
+    }
+
+    .toast-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      background: white;
+      border-radius: 8px;
+      border-left: 4px solid #007bff;
+    }
+
+    .toast-success .toast-content {
+      border-left-color: #28a745;
+    }
+
+    .toast-error .toast-content {
+      border-left-color: #dc3545;
+    }
+
+    .toast-warning .toast-content {
+      border-left-color: #ffc107;
+    }
+
+    .toast-info .toast-content {
+      border-left-color: #17a2b8;
+    }
+
+    .toast-message {
+      flex: 1;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .toast-close {
+      background: none;
+      border: none;
+      font-size: 20px;
+      color: #999;
+      cursor: pointer;
+      padding: 0;
+      margin-left: 12px;
+      line-height: 1;
+    }
+
+    .toast-close:hover {
+      color: #666;
+    }
+
+    @keyframes toastSlideIn {
+      from {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
     .countdown-container {
       position: relative;
       margin-left: 4px;
@@ -1334,6 +1512,26 @@
         </svg>
         <span>Voice Off</span>
       </button>
+
+      <!-- Model Selector -->
+      <div class="model-selector" id="modelSelector">
+        <button class="model-select-btn" id="modelSelectBtn" title="Select AI model">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+          <span id="activeModelName">Loading...</span>
+          <span class="model-dropdown-arrow">▼</span>
+        </button>
+        <div class="model-dropdown" id="modelDropdown">
+          <div class="model-option" data-model="loading">
+            <div class="model-info">
+              <div class="model-name">Loading models...</div>
+              <div class="model-provider">Please wait</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <button class="new-chat-btn" id="newChatBtn">
         <span>
           <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="icon" aria-hidden="true">
@@ -3004,6 +3202,192 @@
     
     // Voice toggle button
     voiceToggleBtn.addEventListener('click', toggleVoiceMode);
+
+    // ===== MODEL SELECTOR FUNCTIONALITY =====
+
+    let availableModels = {};
+    let activeModelId = null;
+
+    // Model selector elements
+    const modelSelector = document.getElementById('modelSelector');
+    const modelSelectBtn = document.getElementById('modelSelectBtn');
+    const modelDropdown = document.getElementById('modelDropdown');
+    const activeModelName = document.getElementById('activeModelName');
+
+    // Load available models
+    async function loadAvailableModels() {
+      try {
+        const response = await fetch(`${getApiBase()}/models`);
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+        const data = await response.json();
+        availableModels = data.models || {};
+        activeModelId = data.active_model;
+
+        updateModelDropdown();
+        updateActiveModelDisplay();
+      } catch (error) {
+        console.error('[MODEL] Failed to load models:', error);
+        activeModelName.textContent = 'Error loading models';
+      }
+    }
+
+    // Update the dropdown with available models
+    function updateModelDropdown() {
+      if (!modelDropdown) return;
+
+      const modelIds = Object.keys(availableModels);
+      if (modelIds.length === 0) {
+        modelDropdown.innerHTML = `
+          <div class="model-option">
+            <div class="model-info">
+              <div class="model-name">No models available</div>
+              <div class="model-provider">Check configuration</div>
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      modelDropdown.innerHTML = modelIds.map(modelId => {
+        const model = availableModels[modelId];
+        const isActive = modelId === activeModelId;
+        return `
+          <div class="model-option ${isActive ? 'active' : ''}" data-model="${modelId}">
+            <div class="model-info">
+              <div class="model-name">${model.display_name}</div>
+              <div class="model-provider">${model.provider}</div>
+            </div>
+            ${isActive ? '<div class="model-status">Active</div>' : ''}
+          </div>
+        `;
+      }).join('');
+
+      // Add event listeners to model options
+      document.querySelectorAll('.model-option').forEach(option => {
+        option.addEventListener('click', () => {
+          const modelId = option.dataset.model;
+          if (modelId && modelId !== 'loading') {
+            selectModel(modelId);
+          }
+        });
+      });
+    }
+
+    // Update the active model display
+    function updateActiveModelDisplay() {
+      if (!activeModelName) return;
+
+      if (activeModelId && availableModels[activeModelId]) {
+        const model = availableModels[activeModelId];
+        activeModelName.textContent = model.display_name.split(' ')[0]; // Show first word (e.g., "GPT-4o")
+      } else {
+        activeModelName.textContent = 'No model';
+      }
+    }
+
+    // Select a model
+    async function selectModel(modelId) {
+      if (!modelId || modelId === activeModelId) return;
+
+      try {
+        const response = await fetch(`${getApiBase()}/models/active`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ model_id: modelId })
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+
+        const data = await response.json();
+        if (data.success) {
+          activeModelId = modelId;
+          updateModelDropdown();
+          updateActiveModelDisplay();
+          closeModelDropdown();
+
+          // Show success message
+          showToast(`Model switched to ${availableModels[modelId].display_name}`, 'success');
+        } else {
+          throw new Error(data.error || 'Failed to switch model');
+        }
+      } catch (error) {
+        console.error('[MODEL] Failed to switch model:', error);
+        showToast(`Failed to switch model: ${error.message}`, 'error');
+      }
+    }
+
+    // Toggle dropdown visibility
+    function toggleModelDropdown() {
+      if (!modelSelector) return;
+
+      const isOpen = modelSelector.classList.contains('open');
+      if (isOpen) {
+        closeModelDropdown();
+      } else {
+        openModelDropdown();
+      }
+    }
+
+    function openModelDropdown() {
+      if (!modelSelector || !modelDropdown) return;
+      modelSelector.classList.add('open');
+      modelDropdown.classList.add('show');
+    }
+
+    function closeModelDropdown() {
+      if (!modelSelector || !modelDropdown) return;
+      modelSelector.classList.remove('open');
+      modelDropdown.classList.remove('show');
+    }
+
+    // Event listeners for model selector
+    if (modelSelectBtn) {
+      modelSelectBtn.addEventListener('click', toggleModelDropdown);
+    }
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!modelSelector?.contains(e.target)) {
+        closeModelDropdown();
+      }
+    });
+
+    // Load models on page load
+    loadAvailableModels();
+
+    // ===== TOAST NOTIFICATIONS =====
+
+    function showToast(message, type = 'info') {
+      // Remove existing toasts
+      const existingToasts = document.querySelectorAll('.toast-notification');
+      existingToasts.forEach(toast => toast.remove());
+
+      // Create toast element
+      const toast = document.createElement('div');
+      toast.className = `toast-notification toast-${type}`;
+      toast.innerHTML = `
+        <div class="toast-content">
+          <span class="toast-message">${message}</span>
+          <button class="toast-close" onclick="this.parentElement.parentElement.remove()">×</button>
+        </div>
+      `;
+
+      // Add to page
+      document.body.appendChild(toast);
+
+      // Auto-remove after 5 seconds
+      setTimeout(() => {
+        if (toast.parentElement) {
+          toast.remove();
+        }
+      }, 5000);
+    }
     
     // Modal event handlers - attach after DOM is ready
     function setupModalHandlers() {

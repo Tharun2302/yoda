@@ -16,12 +16,28 @@ except ImportError:
 
 class QuestionBookRAG:
     """RAG system for retrieving relevant questions from the Question Book"""
-    
-    def __init__(self, docx_path: str = 'docx/Question BOOK.docx', openai_client=None):
+
+    def __init__(self, docx_path: str = 'docx/Question BOOK.docx', openai_client=None, model_manager=None):
         self.docx_path = docx_path
         self.questions = []
         self.sections = []
-        self.openai_client = openai_client
+
+        # Handle different client types
+        if model_manager and hasattr(model_manager, 'create_embeddings'):
+            # New model manager interface
+            self.model_manager = model_manager
+            self.openai_client = None
+        elif openai_client and hasattr(openai_client, 'create_embeddings'):
+            # Legacy OpenAI client
+            self.openai_client = openai_client
+            self.model_manager = None
+        elif openai_client and hasattr(openai_client, 'create_chat_completion'):
+            # Model manager passed as openai_client parameter
+            self.model_manager = openai_client
+            self.openai_client = None
+        else:
+            self.openai_client = None
+            self.model_manager = None
         
         # Initialize ChromaDB for vector storage (if available)
         self.chroma_client = None
@@ -190,44 +206,64 @@ class QuestionBookRAG:
             'tree_path': tree_path
         })
     
-    def create_embeddings(self, force_rebuild: bool = False):
+    def create_embeddings(self, force_rebuild: bool = False, rebuild_model: str = None):
         """
         Create embeddings for all questions and store in vector database
-        
+
         Args:
             force_rebuild: If True, rebuild embeddings even if they exist
+            rebuild_model: Specific model to use for embeddings (overrides default)
         """
         if not self.collection:
             print("[WARNING] Vector database not available - skipping embeddings. Using keyword search only.")
             return
-            
-        if not self.openai_client:
-            print("[WARNING] OpenAI client not available - skipping embeddings. Using keyword search only.")
+
+        if not self.openai_client and not self.model_manager:
+            print("[WARNING] No embedding client available - skipping embeddings. Using keyword search only.")
             return
-        
+
+        current_count = self.collection.count()
+
         # Check if collection already has data (unless force rebuild)
-        if not force_rebuild and self.collection.count() > 0:
-            print(f"[OK] Vector database already has {self.collection.count()} embeddings")
+        if not force_rebuild and current_count > 0:
+            print(f"[OK] Vector database already has {current_count} embeddings")
             print(f"   Set REBUILD_VECTORSTORE=true in .env to rebuild")
             return
+
+        # For incremental rebuilds, check what needs to be updated
+        if force_rebuild and current_count > 0:
+            print(f"[INFO] Performing incremental rebuild (current: {current_count} embeddings)...")
+            # Check if we have the expected number of questions
+            if current_count >= len(self.questions):
+                print(f"[INFO] Vector store already up-to-date ({current_count} >= {len(self.questions)} questions)")
+                return
+            else:
+                print(f"[INFO] Adding {len(self.questions) - current_count} new embeddings...")
+        else:
+            print(f"Creating embeddings for {len(self.questions)} questions...")
         
-        if force_rebuild and self.collection.count() > 0:
-            print(f"[INFO] Rebuilding vector database (current: {self.collection.count()} embeddings)...")
-            # Delete existing collection and recreate
-            self.chroma_client.delete_collection(name="question_book")
-            self.collection = self.chroma_client.create_collection(
-                name="question_book",
-                metadata={"description": "HealthYoda Question Book embeddings"}
-            )
-        
-        print(f"Creating embeddings for {len(self.questions)} questions...")
-        
+        # Determine which questions need embeddings
+        start_index = 0
+        if force_rebuild and current_count > 0:
+            # Incremental: only process new questions
+            start_index = current_count
+            questions_to_process = self.questions[start_index:]
+        else:
+            # Full rebuild: process all questions
+            questions_to_process = self.questions
+
+        if not questions_to_process:
+            print(f"[INFO] No new questions to process")
+            return
+
+        print(f"Processing embeddings for {len(questions_to_process)} questions (starting from index {start_index})...")
+
         # Create text for embedding (combine question + context)
         texts_to_embed = []
         ids = []
         metadatas = []
-        
-        for idx, q in enumerate(self.questions):
+
+        for idx, q in enumerate(questions_to_process, start=start_index):
             # Create rich text for embedding: question + system + symptom + category + answers
             text_parts = []
             if q.get('question'):
@@ -240,7 +276,7 @@ class QuestionBookRAG:
                 text_parts.append(f"Category: {q['category']}")
             if q.get('possible_answers'):
                 text_parts.append(f"Possible answers: {', '.join(q['possible_answers'][:5])}")
-            
+
             full_text = " | ".join(text_parts)
             texts_to_embed.append(full_text)
             ids.append(f"q_{idx}")
@@ -261,13 +297,39 @@ class QuestionBookRAG:
             batch_metadatas = metadatas[i:i+batch_size]
             
             try:
-                # Get embeddings from OpenAI
-                response = self.openai_client.embeddings.create(
-                    model="text-embedding-3-small",  # Cost-effective embedding model
-                    input=batch_texts
-                )
-                
-                embeddings = [item.embedding for item in response.data]
+                # Get embeddings using specified rebuild model or fallback logic
+                embeddings = None
+
+                # If rebuild_model is specified, use it directly with OpenAI client
+                if rebuild_model and self.openai_client:
+                    try:
+                        response = self.openai_client.embeddings.create(
+                            model=rebuild_model,
+                            input=batch_texts
+                        )
+                        embeddings = [item.embedding for item in response.data]
+                        print(f"  Using specified rebuild model: {rebuild_model}")
+                    except Exception as e:
+                        print(f"Specified rebuild model {rebuild_model} failed: {e}, trying fallback...")
+
+                # Fallback: use model manager or direct OpenAI client
+                if embeddings is None:
+                    if self.model_manager and hasattr(self.model_manager, 'create_embeddings'):
+                        try:
+                            response = self.model_manager.create_embeddings(batch_texts)
+                            embeddings = [item.embedding for item in response.data]
+                        except Exception as e:
+                            print(f"Model manager embeddings failed: {e}, trying direct client...")
+
+                    if embeddings is None and self.openai_client:
+                        response = self.openai_client.embeddings.create(
+                            model="text-embedding-3-small",  # Cost-effective embedding model
+                            input=batch_texts
+                        )
+                        embeddings = [item.embedding for item in response.data]
+
+                if embeddings is None:
+                    raise ValueError("No embedding client available")
                 
                 # Add to ChromaDB
                 self.collection.add(
@@ -322,14 +384,31 @@ class QuestionBookRAG:
         Returns question with tags and tree_path for logging
         """
         # Try semantic search first if embeddings are available
-        if use_semantic_search and self.openai_client and self.collection and self.collection.count() > 0:
+        if use_semantic_search and self.collection and self.collection.count() > 0:
             try:
-                # Create embedding for the conversation context
-                response = self.openai_client.embeddings.create(
-                    model="text-embedding-3-small",
-                    input=conversation_context
-                )
-                query_embedding = response.data[0].embedding
+                # Try to create embedding using model manager (which may have OpenAI embeddings available)
+                if self.model_manager and hasattr(self.model_manager, 'create_embeddings'):
+                    try:
+                        response = self.model_manager.create_embeddings([conversation_context])
+                        query_embedding = response.data[0].embedding
+                    except Exception:
+                        # If model manager embeddings fail, try direct OpenAI client
+                        if self.openai_client:
+                            response = self.openai_client.embeddings.create(
+                                model="text-embedding-3-small",
+                                input=conversation_context
+                            )
+                            query_embedding = response.data[0].embedding
+                        else:
+                            raise ValueError("No embedding client available")
+                elif self.openai_client:
+                    response = self.openai_client.embeddings.create(
+                        model="text-embedding-3-small",
+                        input=conversation_context
+                    )
+                    query_embedding = response.data[0].embedding
+                else:
+                    raise ValueError("No embedding client available")
                 
                 # Build where clause for filtering (ChromaDB syntax)
                 where_clause = None
