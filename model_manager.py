@@ -1,6 +1,6 @@
 """
 Model Manager for HealthYoda
-Supports switching between OpenAI and Ollama models
+Supports switching between OpenAI, Ollama, and Google Gemini models
 """
 import os
 import json
@@ -14,6 +14,13 @@ except ImportError:
     OLLAMA_AVAILABLE = False
     print("⚠️  ollama package not installed - Ollama models disabled")
 
+try:
+    import google.generativeai as genai
+    GEMINI_AVAILABLE = True
+except ImportError:
+    GEMINI_AVAILABLE = False
+    print("⚠️  google-generativeai package not installed - Gemini models disabled")
+
 class ModelManager:
     """
     Manages multiple AI models (OpenAI, Ollama) with easy switching
@@ -22,6 +29,7 @@ class ModelManager:
     def __init__(self):
         self.openai_client = None
         self.ollama_client = None
+        self.gemini_client = None
         self.available_models = {}
         self.active_model = None
         self.model_configs = {}
@@ -31,7 +39,7 @@ class ModelManager:
         self._set_default_model()
 
     def _initialize_clients(self):
-        """Initialize OpenAI and Ollama clients"""
+        """Initialize OpenAI, Ollama, and Gemini clients"""
         # Initialize OpenAI client
         openai_key = os.getenv('OPENAI_API_KEY')
         if openai_key:
@@ -40,6 +48,19 @@ class ModelManager:
                 print("✅ OpenAI client initialized")
             except Exception as e:
                 print(f"⚠️  OpenAI client initialization failed: {e}")
+
+        # Initialize Gemini client
+        if GEMINI_AVAILABLE:
+            gemini_key = os.getenv('GEMINI_API_KEY')
+            if gemini_key:
+                try:
+                    genai.configure(api_key=gemini_key)
+                    self.gemini_client = genai
+                    print("✅ Gemini client initialized")
+                except Exception as e:
+                    print(f"⚠️  Gemini client initialization failed: {e}")
+            else:
+                print("⚠️  GEMINI_API_KEY not found in environment")
 
         # Initialize Ollama client
         if OLLAMA_AVAILABLE:
@@ -58,9 +79,9 @@ class ModelManager:
                 self.ollama_client = None
 
     def _load_model_configs(self):
-        """Load available model configurations - limited to GPT-4o Mini and MedGemma"""
+        """Load available model configurations - GPT-4o Mini, Gemini models, and MedGemma"""
         self.model_configs = {
-            # Only GPT-4o Mini from OpenAI
+            # GPT-4o Mini from OpenAI
             'gpt-4o-mini': {
                 'provider': 'openai',
                 'model_name': 'gpt-4o-mini',
@@ -70,6 +91,32 @@ class ModelManager:
                 'supports_chat': True
             }
         }
+
+        # Add Gemini models if available
+        if self.gemini_client:
+            # Gemini 3 Pro - Fastest, free tier 300M tokens
+            self.model_configs['gemini-3-pro-preview'] = {
+                'provider': 'gemini',
+                'model_name': 'gemini-3-pro-preview',
+                'display_name': 'Gemini 3 Pro (Google) - FREE 300M',
+                'context_window': 1000000,  # 1M tokens
+                'supports_embeddings': False,
+                'supports_chat': True
+            }
+            self.available_models['gemini-3-pro-preview'] = self.model_configs['gemini-3-pro-preview']
+            print("✅ Gemini 3 Pro added to available models")
+            
+            # Gemini 1.5 Flash - Cheapest & Fast
+            self.model_configs['gemini-1.5-flash'] = {
+                'provider': 'gemini',
+                'model_name': 'gemini-1.5-flash',
+                'display_name': 'Gemini 1.5 Flash (Google) - Cheapest',
+                'context_window': 1000000,  # 1M tokens
+                'supports_embeddings': False,
+                'supports_chat': True
+            }
+            self.available_models['gemini-1.5-flash'] = self.model_configs['gemini-1.5-flash']
+            print("✅ Gemini 1.5 Flash added to available models")
 
         # Add MedGemma from Ollama if available
         if self.ollama_client:
@@ -116,6 +163,8 @@ class ModelManager:
         for model_id, config in self.model_configs.items():
             if config['provider'] == 'openai' and self.openai_client:
                 self.available_models[model_id] = config
+            elif config['provider'] == 'gemini' and self.gemini_client:
+                self.available_models[model_id] = config
             elif config['provider'] == 'ollama' and self.ollama_client:
                 self.available_models[model_id] = config
 
@@ -136,17 +185,23 @@ class ModelManager:
         print(f"📋 Available models: {list(self.available_models.keys())}")
 
     def _set_default_model(self):
-        """Set default active model - prefer GPT-4o Mini, fallback to MedGemma"""
+        """Set default active model - prefer Gemini 1.5 Flash (cheapest), fallback to Gemini 3 Pro, then GPT-4o Mini"""
         # Try to set from environment variable
-        default_model = os.getenv('DEFAULT_MODEL', 'gpt-4o-mini')
+        default_model = os.getenv('DEFAULT_MODEL', 'gemini-1.5-flash')
 
         # If the requested default is available, use it
         if default_model in self.available_models:
             self.active_model = default_model
             print(f"🎯 Default model set to: {self.active_model}")
         else:
-            # Fallback priority: GPT-4o Mini first, then MedGemma, then any available
-            if 'gpt-4o-mini' in self.available_models:
+            # Fallback priority: Gemini 1.5 Flash > Gemini 3 Pro > GPT-4o Mini > MedGemma
+            if 'gemini-1.5-flash' in self.available_models:
+                self.active_model = 'gemini-1.5-flash'
+                print(f"🎯 Default model set to: {self.active_model} (Cheapest & Fast!)")
+            elif 'gemini-3-pro-preview' in self.available_models:
+                self.active_model = 'gemini-3-pro-preview'
+                print(f"🎯 Default model set to: {self.active_model} (FREE 300M tokens!)")
+            elif 'gpt-4o-mini' in self.available_models:
                 self.active_model = 'gpt-4o-mini'
                 print(f"🎯 Default model set to: {self.active_model}")
             elif any('medgemma' in model_id.lower() for model_id in self.available_models):
@@ -192,6 +247,8 @@ class ModelManager:
 
         if config['provider'] == 'openai':
             return self._openai_chat_completion(config, messages, **kwargs)
+        elif config['provider'] == 'gemini':
+            return self._gemini_chat_completion(config, messages, **kwargs)
         elif config['provider'] == 'ollama':
             return self._ollama_chat_completion(config, messages, **kwargs)
         else:
@@ -227,6 +284,95 @@ class ModelManager:
             params['stream'] = kwargs['stream']
 
         return self.openai_client.chat.completions.create(**params)
+
+    def _gemini_chat_completion(self, config: Dict, messages: List[Dict], **kwargs) -> Any:
+        """Gemini chat completion"""
+        if not self.gemini_client:
+            raise ValueError("Gemini client not initialized")
+
+        # Convert OpenAI format to Gemini format
+        gemini_messages = []
+        system_instruction = None
+        
+        for msg in messages:
+            if msg['role'] == 'system':
+                system_instruction = msg['content']
+            elif msg['role'] == 'user':
+                gemini_messages.append({
+                    'role': 'user',
+                    'parts': [msg['content']]
+                })
+            elif msg['role'] == 'assistant':
+                gemini_messages.append({
+                    'role': 'model',
+                    'parts': [msg['content']]
+                })
+
+        # Create Gemini model instance
+        model = self.gemini_client.GenerativeModel(
+            model_name=config['model_name'],
+            system_instruction=system_instruction
+        )
+
+        # Check if streaming
+        if kwargs.get('stream', False):
+            # Streaming response
+            generation_config = {
+                'temperature': kwargs.get('temperature', 0.7),
+                'max_output_tokens': kwargs.get('max_tokens', 1000),
+            }
+            
+            response = model.generate_content(
+                gemini_messages,
+                generation_config=generation_config,
+                stream=True
+            )
+            
+            # Create OpenAI-compatible streaming response
+            return self._gemini_to_openai_stream(response)
+        else:
+            # Non-streaming response
+            generation_config = {
+                'temperature': kwargs.get('temperature', 0.7),
+                'max_output_tokens': kwargs.get('max_tokens', 1000),
+            }
+            
+            response = model.generate_content(
+                gemini_messages,
+                generation_config=generation_config
+            )
+            
+            # Create OpenAI-compatible response
+            return self._gemini_to_openai_response(response)
+
+    def _gemini_to_openai_stream(self, gemini_stream):
+        """Convert Gemini streaming response to OpenAI format"""
+        for chunk in gemini_stream:
+            if chunk.text:
+                # Create OpenAI-compatible chunk
+                yield type('obj', (object,), {
+                    'choices': [type('obj', (object,), {
+                        'delta': type('obj', (object,), {
+                            'content': chunk.text
+                        })(),
+                        'index': 0,
+                        'finish_reason': None
+                    })()]
+                })()
+
+    def _gemini_to_openai_response(self, gemini_response):
+        """Convert Gemini response to OpenAI format"""
+        return type('obj', (object,), {
+            'choices': [type('obj', (object,), {
+                'message': type('obj', (object,), {
+                    'content': gemini_response.text,
+                    'role': 'assistant'
+                })(),
+                'index': 0,
+                'finish_reason': 'stop'
+            })()],
+            'model': 'gemini-2.0-flash-exp'
+        })()
 
     def _ollama_chat_completion(self, config: Dict, messages: List[Dict], **kwargs) -> Any:
         """Ollama chat completion"""
