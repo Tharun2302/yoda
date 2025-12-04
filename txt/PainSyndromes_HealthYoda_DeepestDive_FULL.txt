@@ -1,0 +1,460 @@
+PAIN SYNDROMES — HealthYoda RAG DEEPEST DIVE
+=========================================================
+FULL VERSION WITH QUESTIONS + REALISTIC PATIENT ANSWERS + RED FLAGS
+Developer-Ready RAG / Intake Knowledge Base File
+=========================================================
+
+PAIN SYNDROME CLUSTERS
+----------------------
+1. Acute vs chronic pain discriminator
+2. Chronic widespread pain (fibromyalgia-type)
+3. Chronic regional musculoskeletal pain (neck, shoulder, back, knee)
+4. Neuropathic pain (burning, electric, shooting)
+5. Complex Regional Pain Syndrome (CRPS)
+6. Chronic headache syndromes (migraine, tension, cluster) – symptom lens
+7. Chronic abdominal pain (functional vs organic flags)
+8. Chronic pelvic pain
+9. Central sensitization / amplified pain
+10. Cancer-related pain (high-level symptom view)
+11. Pain and mood overlap (anxiety, depression, catastrophizing)
+12. Opioid-related issues (hyperalgesia, dependence)
+13. Red-flag “can’t miss” pain patterns (spine, chest, abdomen)
+
+=========================================================
+SECTION 1 — UNIVERSAL PAIN HPI STRUCTURE
+=========================================================
+
+Q1. Where is your pain located?
+A:
+- "All over."
+- "Lower back."
+- "Neck and shoulders."
+- "Hands and feet."
+- "Behind one eye."
+
+Q2. When did it start?
+A:
+- "Started suddenly yesterday."
+- "Has been there for months."
+- "Years of pain."
+
+Q3. How would you describe the pain?
+A:
+- "Aching."
+- "Sharp or stabbing."
+- "Burning."
+- "Electric/shooting."
+- "Throbbing."
+
+Q4. Intensity (0–10)?
+A:
+- "Around 3/10 most days."
+- "8/10 at worst."
+
+Q5. Constant or comes and goes?
+A:
+- "Constant dull pain with flares."
+- "Comes in attacks."
+
+Q6. What makes it better or worse?
+A:
+- "Worse with movement."
+- "Worse at night."
+- "Worse with stress."
+- "Better with rest/heat."
+
+Q7. Impact on life?
+A:
+- "Hard to work."
+- "Limits exercise."
+- "Sleep disturbed."
+
+PAIN GLOBAL RED FLAGS (FOR ROUTING, NOT DIAGNOSIS):
+- Pain with fever and looking ill
+- Pain with weight loss or night sweats
+- Chest pain with SOB, sweating, or nausea
+- Severe abdominal pain with vomiting or rigid abdomen
+- Back pain with leg weakness, saddle anesthesia, or incontinence
+- New severe headache (“worst headache”) or neuro deficits
+- Bone pain with night pain and weight loss
+- Pain after major trauma
+
+=========================================================
+SECTION 2 — ACUTE VS CHRONIC PAIN DISCRIMINATOR
+=========================================================
+
+Q1. How long have you had this pain?
+A:
+- "Less than a week." (acute)
+- "A few weeks." (subacute)
+- "More than 3 months." (chronic pain syndrome flag)
+
+Q2. Single event vs long-standing problem?
+A:
+- "Started after injury."
+- "No clear trigger, gradually worse over time."
+
+=========================================================
+SECTION 3 — CHRONIC WIDESPREAD PAIN (FIBROMYALGIA-TYPE)
+=========================================================
+
+KEY CLUES:
+- Pain in multiple body regions
+- Chronic duration (≥3 months)
+- Non-restorative sleep
+- Fatigue and “brain fog”
+- Normal neuro exam/history baseline
+
+Q1. Do you have pain in many areas of your body?
+A:
+- "Yes, neck, shoulders, back, hips, and legs."
+
+Q2. How long has this been going on?
+A:
+- "For years."
+
+Q3. Do your muscles feel tender to touch?
+A:
+- "Yes, even light pressure hurts."
+
+Q4. How is your sleep?
+A:
+- "I sleep but wake up feeling exhausted."
+
+Q5. Any memory or concentration issues (“brain fog”)?
+A:
+- "Hard to focus or remember things."
+
+Q6. Any major injury or illness right before this started?
+A:
+- "Started after a stressful period / infection / accident."
+- "No obvious trigger."
+
+FIBROMYALGIA-STYLE RED FLAGS (TO LOOK FOR OTHER CAUSES):
+- Widespread pain + weight loss
+- Widespread pain + fever or night sweats
+- Focal neurologic deficits
+- Swollen, red joints
+
+=========================================================
+SECTION 4 — CHRONIC REGIONAL PAIN (MUSCULOSKELETAL)
+=========================================================
+
+Subclusters:
+- Neck pain
+- Shoulder pain
+- Low back pain
+- Hip/knee pain
+
+NECK PAIN:
+Q1. Where exactly is the pain?
+A:
+- "At the base of my neck."
+- "Radiates to shoulders."
+
+Q2. Numbness or tingling in arms/hands?
+A:
+- "Tingling down one arm."
+- "No numbness."
+
+NECK RED FLAGS:
+- Pain after serious trauma
+- Neck pain + fever + stiffness
+- Neck pain + arm/leg weakness or difficulty walking
+
+SHOULDER PAIN:
+Q1. Pain with overhead movement?
+A:
+- "Worse when lifting arm overhead."
+
+Q2. Night pain lying on shoulder?
+A:
+- "Cannot sleep on that side."
+
+BACK PAIN (CHRONIC):
+Q1. Where is the back pain?
+A:
+- "Across lower back."
+- "One side into buttock."
+
+Q2. Does the pain travel down your leg?
+A:
+- "Yes to below the knee."
+- "Stays in the back."
+
+Q3. Any numbness, tingling, or weakness?
+A:
+- "Tingling in foot."
+- "No weakness that I notice."
+
+BACK PAIN RED FLAGS:
+- Back pain with fever or chills
+- Back pain with weight loss and history of cancer
+- Back pain with leg weakness, saddle numbness, or bladder/bowel dysfunction
+- Severe nighttime back pain unrelieved by rest
+
+KNEE/HIP PAIN (CHRONIC):
+Q1. Worse with walking/using stairs?
+A:
+- "Worse going downstairs."
+Q2. Morning stiffness duration?
+A:
+- "Stiff for less than 30 minutes." (degenerative pattern)
+- "Stiff for over an hour." (inflammatory pattern flag)
+
+=========================================================
+SECTION 5 — NEUROPATHIC PAIN
+=========================================================
+
+CHARACTER:
+- Burning
+- Electric/shooting
+- Tingling
+- Numbness with pain
+
+COMMON PATTERNS:
+- Diabetic peripheral neuropathy
+- Post-herpetic neuralgia
+- Radiculopathy
+- Entrapment neuropathies (carpal tunnel, etc.)
+
+Q1. How would you describe the pain?
+A:
+- "Feels like burning."
+- "Like electric shocks."
+
+Q2. Location and pattern?
+A:
+- "Both feet, like wearing tight socks."
+- "Down the arm into the hand."
+
+Q3. Numbness or tingling?
+A:
+- "Toes feel numb."
+- "Pins and needles."
+
+Q4. Worse at night?
+A:
+- "Yes, keeps me awake."
+
+NEUROPATHIC RED FLAGS:
+- Rapidly progressive weakness
+- Sudden onset with stroke-like symptoms
+- Neuropathic pain with bladder/bowel issues
+
+=========================================================
+SECTION 6 — COMPLEX REGIONAL PAIN SYNDROME (CRPS-LIKE)
+=========================================================
+
+CORE FEATURES:
+- Severe, disproportionate limb pain
+- Swelling, color changes
+- Temperature changes, sweating asymmetry
+- Allodynia (pain from light touch)
+
+Q1. Did your pain start after an injury or surgery to that limb?
+A:
+- "Yes, after a wrist fracture."
+- "After ankle surgery."
+
+Q2. How would you describe the pain?
+A:
+- "Burning and constant."
+- "Even light touch or air hurts."
+
+Q3. Any swelling, color, or temperature changes?
+A:
+- "Hand looks red and sometimes purple."
+- "That foot feels much colder than the other."
+
+Q4. Any change in hair/nail growth on that limb?
+A:
+- "Yes, hair seems different and skin is shiny."
+
+CRPS RED FLAGS:
+- Severe limb pain out of proportion to injury
+- Progressive loss of function
+- Severe allodynia with swelling and color changes
+
+=========================================================
+SECTION 7 — CHRONIC HEADACHE SYNDROMES (PAIN VIEW)
+=========================================================
+
+MIGRAINE-LIKE:
+Q1. Location?
+A:
+- "One side of head, throbbing."
+
+Q2. Associated with?
+A:
+- "Nausea, sensitive to light and sound."
+
+Q3. Duration?
+A:
+- "Lasts hours to a full day."
+
+TENSION-TYPE:
+A:
+- "Band-like pressure on both sides."
+
+CLUSTER-TYPE:
+A:
+- "Severe pain around one eye."
+- "Eye tears/red, nose runs."
+- "Comes in short, very intense attacks."
+
+HEADACHE RED FLAGS:
+- Sudden “worst headache of my life”
+- Headache with fever and stiff neck
+- Headache with neurologic symptoms (weakness, confusion, vision loss)
+- New headache in older patient or with cancer history
+
+=========================================================
+SECTION 8 — CHRONIC ABDOMINAL PAIN (FUNCTIONAL VS ORGANIC FLAGS)
+=========================================================
+
+Q1. Duration?
+A:
+- "Most days for 6 months."
+
+Q2. Relation to food or bowel movements?
+A:
+- "Better after bowel movement."
+- "Worse after certain foods."
+
+Q3. Red-flag GI symptoms?
+A:
+- "Unintended weight loss."
+- "Blood in stool."
+- "Waking at night with pain."
+
+ABDOMINAL PAIN RED FLAGS:
+- Persistent vomiting
+- GI bleeding (red or black stool)
+- Weight loss
+- Severe localized pain with fever
+
+=========================================================
+SECTION 9 — CHRONIC PELVIC PAIN
+=========================================================
+
+Q1. Where is your pain?
+A:
+- "Low in the pelvis."
+- "Deep in the vagina with intercourse."
+
+Q2. Relation to menstrual cycle?
+A:
+- "Worse during periods."
+- "Mid-cycle pain."
+
+Q3. Bowel or bladder triggers?
+A:
+- "Worse when bladder is full."
+- "Worse with bowel movements."
+
+PELVIC PAIN RED FLAGS:
+- Pelvic pain with fever
+- Pain with heavy bleeding or pregnancy
+- Pelvic pain with unexplained weight loss
+
+=========================================================
+SECTION 10 — CENTRAL SENSITIZATION / AMPLIFIED PAIN
+=========================================================
+
+CLUES:
+- Pain out of proportion to exam
+- Multiple pain sites
+- Heightened sensitivity to touch, sound, or light
+- Long history of pain clinic/ER visits
+
+Q1. How sensitive are you to touch or pressure?
+A:
+- "Even light touch hurts."
+
+Q2. Other sensitivity?
+A:
+- "Very sensitive to loud sounds or bright light."
+
+Q3. History of many tests?
+A:
+- "I've had many tests and no cause found."
+
+RED FLAGS (SEARCH FOR ORGANIC CAUSES):
+- New or rapidly changing pain
+- Neurologic symptoms
+- Fever/weight loss
+
+=========================================================
+SECTION 11 — CANCER-RELATED PAIN (SYMBOLIC PATTERN ONLY)
+=========================================================
+
+Q1. Any history of cancer?
+A:
+- "Yes, treated for cancer in the past."
+
+Q2. Pain location?
+A:
+- "Bone pain, worse at night."
+- "New persistent pain near tumor site."
+
+RED FLAGS:
+- Night pain that wakes patient
+- Bone pain + weight loss
+- Pain with pathologic fractures
+
+=========================================================
+SECTION 12 — PAIN & MOOD OVERLAP
+=========================================================
+
+Q1. Mood symptoms?
+A:
+- "Feeling down."
+- "Anxious."
+- "Hopeless about pain."
+
+Q2. Sleep?
+A:
+- "Poor sleep from pain."
+
+Q3. Impact on daily function?
+A:
+- "Stopped hobbies and socializing."
+
+RED FLAGS:
+- Thoughts of self-harm because of pain
+- Complete functional shutdown
+
+=========================================================
+SECTION 13 — OPIOID-RELATED PAIN ISSUES
+=========================================================
+
+Q1. Are you taking opioids for pain?
+A:
+- "Yes, daily."
+
+Q2. Does pain seem more sensitive or widespread over time?
+A:
+- "Yes, smaller things hurt more now."
+
+OPIOID RED FLAGS:
+- Escalating doses
+- Using more than prescribed
+- Overdose symptoms (confusion, slow breathing)
+
+=========================================================
+PAIN SYNDROMES GLOBAL RED FLAGS (ALREADY MENTIONED BUT CONSOLIDATED)
+=========================================================
+- Chest pain with SOB, sweating, nausea, or radiating pain
+- Severe abdominal pain with vomiting, rigid belly, or GI bleeding
+- Back pain with leg weakness, saddle anesthesia, or incontinence
+- New severe headache or “worst headache”
+- Pain with fever, weight loss, or night sweats
+- Limb pain with color changes, swelling, or loss of pulse
+- Recent major trauma with pain and deformity
+- Pain plus confusion or altered mental status
+- Pain leading to suicidal thoughts
+
+=========================================================
+END OF PAIN SYNDROMES DEEPEST DIVE FILE
+=========================================================

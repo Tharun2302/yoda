@@ -1,0 +1,340 @@
+OPHTHALMOLOGY — HealthYoda RAG DEEPEST DIVE
+=========================================================
+FULL VERSION WITH QUESTIONS + REALISTIC ANSWERS + RED FLAGS
+Developer-Ready RAG / Intake Knowledge Base File
+=========================================================
+
+OPHTHALMOLOGY COMPLAINT CLUSTERS
+--------------------------------
+1. Blurry vision
+2. Sudden vision loss
+3. Double vision (diplopia)
+4. Eye redness
+5. Eye pain
+6. Itching / burning
+7. Tearing / watering
+8. Discharge (purulent/watery)
+9. Photophobia (light sensitivity)
+10. Floaters
+11. Flashes of light
+12. "Curtain over vision"
+13. Foreign body sensation
+14. Eye trauma
+15. Eyelid swelling
+16. Stye / chalazion
+17. Dry eyes
+18. Contact lens–related symptoms
+19. Headache with visual symptoms
+20. Visual field defects
+
+=========================================================
+SECTION 1 — UNIVERSAL OPHTHALMOLOGY HPI STRUCTURE
+=========================================================
+
+ONSET:
+- Sudden
+- Gradual
+- Intermittent
+
+DURATION:
+- Minutes
+- Hours
+- Days
+- Weeks
+
+EYES INVOLVED:
+- One eye
+- Both eyes
+
+SEVERITY:
+- Mild blur
+- Moderate
+- Severe loss
+
+ASSOCIATED SYMPTOMS:
+- Pain
+- Redness
+- Discharge
+- Floaters
+- Flashes
+- Photophobia
+- Headache
+- Nausea
+
+RISK FACTORS:
+- Contact lenses
+- Trauma
+- Diabetes
+- Glaucoma history
+- Eye surgery
+- Steroid use
+- Autoimmune disease
+
+=========================================================
+SECTION 2 — BLURRY VISION
+=========================================================
+
+Q1. When did it start?
+A: "Suddenly this morning." / "Gradually over months."
+
+Q2. One or both eyes?
+A: "Left eye." / "Both eyes."
+
+Q3. Constant or intermittent?
+A: "Constant blur." / "Intermittent."
+
+Q4. Painful or painless?
+A: "Painless." / "Mild pain behind eye."
+
+Q5. Redness or discharge?
+A: "No redness." / "Watery eye."
+
+BLURRY VISION RED FLAGS:
+- Sudden unilateral vision loss
+- Blurry vision + headache (glaucoma)
+- Blurry vision + flashes/floaters
+- Diabetic hyperglycemia
+
+=========================================================
+SECTION 3 — SUDDEN VISION LOSS
+=========================================================
+
+Q1. Describe the vision loss.
+A: "Fog over eye." / "Everything went black."
+
+Q2. One or both eyes?
+A: "Right eye only."
+
+Q3. Flashes or floaters?
+A: "Saw flashing lights."
+
+Q4. Headache?
+A: "Severe headache."
+
+SUDDEN VISION LOSS RED FLAGS:
+- "Curtain over vision" (retinal detachment)
+- Painless sudden loss (CRAO)
+- Painful loss + red eye (glaucoma)
+- Vision loss + jaw pain (GCA >50)
+- Vision loss after trauma
+
+=========================================================
+SECTION 4 — DOUBLE VISION
+=========================================================
+
+Q1. Does it go away with one eye closed?
+A: "Yes." (binocular)
+
+Q2. Onset?
+A: "Started today."
+
+Q3. Associated symptoms?
+A: Headache, weakness, eyelid droop.
+
+DIPLOPIA RED FLAGS:
+- Painful diplopia
+- Diplopia + weakness (stroke)
+- Diplopia after trauma
+
+=========================================================
+SECTION 5 — EYE REDNESS
+=========================================================
+
+Q1. One or both eyes?
+A: "Right eye."
+
+Q2. Pain severity?
+A: "Mild irritation." / "Deep severe pain."
+
+Q3. Discharge?
+A: "Yellow crust." / "Watery."
+
+Q4. Itching?
+A: "Very itchy."
+
+EYE REDNESS RED FLAGS:
+- Severe pain
+- Photophobia
+- Contact lens user
+- Vision changes
+
+=========================================================
+SECTION 6 — EYE PAIN
+=========================================================
+
+Q1. Describe pain.
+A: "Sharp." / "Deep ache." / "Feels like something inside."
+
+Q2. Light sensitivity?
+A: "Bright lights hurt."
+
+Q3. Vision changes?
+A: "Yes blurry."
+
+EYE PAIN RED FLAGS:
+- Severe pain + red eye
+- Pain + nausea/vomiting (glaucoma)
+- Pain after trauma
+- Contact lens pain
+
+=========================================================
+SECTION 7 — ITCHING / BURNING
+=========================================================
+
+Q1. Allergies?
+A: "Yes allergies."
+
+Q2. Both eyes?
+A: "Both red and itchy."
+
+=========================================================
+SECTION 8 — TEARING / WATERING
+=========================================================
+
+Q1. One or both eyes?
+A: "Both watery."
+
+Q2. Pain?
+A: "No pain."
+
+=========================================================
+SECTION 9 — DISCHARGE
+=========================================================
+
+Purulent:
+A: "Yellow crusting."
+
+Watery:
+A: "Clear tears."
+
+=========================================================
+SECTION 10 — PHOTOPHOBIA
+=========================================================
+
+Q1. Pain with light?
+A: "Yes sharp pain."
+
+Q2. Redness?
+A: "Eye red."
+
+PHOTOPHOBIA RED FLAGS:
+- Photophobia + severe pain
+- Photophobia + headache (meningitis)
+- Contact lens user
+
+=========================================================
+SECTION 11 — FLOATERS
+=========================================================
+
+Q1. When did floaters appear?
+A: "Suddenly today."
+
+Q2. How many?
+A: "Lots of them."
+
+Q3. Any flashes?
+A: "Yes flashes."
+
+=========================================================
+SECTION 12 — FLASHES OF LIGHT
+=========================================================
+
+Q1. Describe flashes.
+A: "Lightning in corner."
+
+Q2. New floaters?
+A: "Yes new floaters."
+
+FLASHES/ FLOATERS RED FLAGS:
+- New floaters + flashes (retinal tear)
+- "Curtain" over vision
+
+=========================================================
+SECTION 13 — "CURTAIN OVER VISION"
+=========================================================
+
+Q1. Direction?
+A: "From top downward." / "From the side."
+
+CURTAIN RED FLAG:
+- Retinal detachment — emergent
+
+=========================================================
+SECTION 14 — FOREIGN BODY SENSATION
+=========================================================
+
+Q1. Exposure to metal/wood?
+A: "Cutting metal."
+
+Q2. Rubbing eye?
+A: "Feels like sand."
+
+FOREIGN BODY RED FLAGS:
+- Metal-on-metal exposure
+- Vision change
+- Can't open eye
+
+=========================================================
+SECTION 15 — EYE TRAUMA
+=========================================================
+
+Q1. How injured?
+A: "Got hit." / "Chemical splash."
+
+Q2. Vision?
+A: "Blurred."
+
+TRAUMA RED FLAGS:
+- Chemical exposure
+- Penetrating injury
+- Severe pain
+- Vision loss
+
+=========================================================
+SECTION 16 — EYELID SWELLING
+=========================================================
+
+Q1. Painful or painless?
+A: "Painful bump." (stye)
+A: "Painless swelling." (chalazion)
+
+=========================================================
+SECTION 17 — DRY EYES
+=========================================================
+
+Q1. Worse later in day?
+A: "Yes very dry."
+
+Q2. Grittiness?
+A: "Feels gritty."
+
+=========================================================
+SECTION 18 — CONTACT LENS SYMPTOMS
+=========================================================
+
+Q1. Sleeping in lenses?
+A: "Yes."
+
+Q2. Pain or redness?
+A: "Red painful eye."
+
+RED FLAGS:
+- Pain + contact lens = urgent evaluation
+
+=========================================================
+OPHTHALMOLOGY GLOBAL RED FLAGS
+=========================================================
+- Sudden vision loss
+- Severe eye pain
+- New floaters or flashes
+- "Curtain" over vision
+- Painful red eye
+- Photophobia
+- Chemical or penetrating eye trauma
+- Contact lens pain/redness
+- Diplopia + headache
+- Pain + vomiting (glaucoma)
+
+=========================================================
+END OF OPHTHALMOLOGY DEEPEST DIVE FILE
+=========================================================

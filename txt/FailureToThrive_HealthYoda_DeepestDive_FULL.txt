@@ -1,0 +1,238 @@
+FAILURE TO THRIVE (FTT) — HealthYoda RAG DEEPEST DIVE
+======================================================================
+FULL VERSION WITH QUESTIONS + REAL PATIENT ANSWERS + RED FLAGS
+Developer-Ready RAG / Intake Knowledge Base File
+======================================================================
+
+FTT CORE CLUSTERS
+-----------------
+1. Growth failure definitions
+2. Nutrition inadequate intake
+3. Feeding technique problems
+4. Organic disease causes
+5. Malabsorption syndromes
+6. Chronic illness-based FTT
+7. Developmental contributors
+8. Psychosocial / neglect concerns
+9. Neonatal risk patterns
+10. Global FTT red flags
+11. HealthYoda FTT triage logic
+
+======================================================================
+SECTION 1 — GROWTH FAILURE DEFINITIONS
+======================================================================
+
+CLUES:
+- Weight <5th percentile
+- Weight dropping across percentiles
+- Poor weight velocity
+- Weight affected BEFORE height
+
+Q1. Has weight changed percentiles?
+A:
+- “Dropped from 40th to 10th.”
+
+RED FLAGS:
+- Weight crossing 2 major percentiles  
+
+======================================================================
+SECTION 2 — NUTRITIONAL INTAKE ISSUES
+======================================================================
+
+BREAST/BOTTLE FEEDING:
+- Poor latch
+- Low milk transfer
+- Tiring with feeds
+- Infrequent feeds
+
+SOLID FEEDING:
+- Refusal of solids
+- Low intake
+- Grazing only
+
+Q1. Feeding sessions duration?
+A:
+- “Takes forever and falls asleep.”
+
+Q2. Feeding amounts?
+A:
+- “Not much.”
+
+======================================================================
+SECTION 3 — FEEDING TECHNIQUE PROBLEMS
+======================================================================
+
+CLUES:
+- Incorrect bottle nipple flow
+- Poor positioning
+- Improper formula mixing
+- Inconsistent schedule
+
+Q:
+- “Any difficulty feeding?”
+
+A:
+- “Formula seems too thin.”
+
+RED FLAGS:
+- Aspiration during feeding  
+
+======================================================================
+SECTION 4 — ORGANIC CAUSES OF FTT
+======================================================================
+
+GI:
+- Celiac
+- GERD
+- Food allergies
+- Milk protein intolerance
+
+ENDOCRINE:
+- Hypothyroid
+- Growth hormone deficiency
+
+CARDIAC:
+- Congenital heart disease
+- Sweating with feeds
+
+PULMONARY:
+- Chronic lung disease
+
+Q1. GI symptoms?
+A:
+- “Frequent spit up / vomiting.”
+
+Q2. Sweating with feeds?
+A:
+- “Yes a lot.”
+
+======================================================================
+SECTION 5 — MALABSORPTION SYNDROMES
+======================================================================
+
+CLUES:
+- Greasy stools
+- Frequent stools
+- Poor growth despite eating
+- Bloating
+
+Consider:
+- Cystic fibrosis
+- Chronic diarrhea
+- Celiac disease
+
+Q1. Stool description?
+A:
+- “Greasy / floating.”
+
+======================================================================
+SECTION 6 — CHRONIC ILLNESS FTT
+======================================================================
+
+CAUSES:
+- Congenital heart disease
+- Chronic lung disease
+- Recurrent infections
+- Renal disease
+- Liver disease
+- Metabolic disorders
+
+CLUES:
+- Poor energy
+- Sweating with feeds
+- Frequent infections
+
+RED FLAGS:
+- Recurrent serious infections  
+
+======================================================================
+SECTION 7 — DEVELOPMENTAL CONTRIBUTION
+======================================================================
+
+CLUES:
+- Low tone
+- Poor coordination
+- Difficulty swallowing
+- Feeding fatigue
+
+RED FLAGS:
+- Failure to gain + developmental delay  
+
+======================================================================
+SECTION 8 — PSYCHOSOCIAL / NEGLECT
+======================================================================
+
+CLUES:
+- Food insecurity
+- Lack of formula
+- Parent overwhelmed
+- Parent mental health issues
+- Inconsistent routine
+- Abuse/neglect signs
+
+Q1. Food availability?
+A:
+- “Sometimes not enough.”
+
+RED FLAGS:
+- Unsafe home environment  
+- Child fearful of caregiver  
+
+======================================================================
+SECTION 9 — NEONATAL RISK PATTERNS
+======================================================================
+
+CLUES:
+- Preterm infant
+- IUGR
+- NICU stay
+- Congenital anomalies
+
+RED FLAGS:
+- Lethargy  
+- Hypothermia  
+
+======================================================================
+SECTION 10 — GLOBAL FTT RED FLAGS
+======================================================================
+- Not gaining weight  
+- Dropping >2 percentiles  
+- Poor intake + fatigue  
+- Sweating with feeds  
+- Recurrent vomiting  
+- Bloody diarrhea  
+- Greasy stools  
+- Developmental delay  
+- Suspected abuse/neglect  
+- Persistent dehydration  
+- Decreased urine output  
+- Persistent fever  
+
+======================================================================
+SECTION 11 — FTT TRIAGE LOGIC (HEALTHYODA)
+======================================================================
+
+ASK:
+1. Feeding amounts?
+2. Frequency?
+3. Duration?
+4. Vomiting?
+5. Stools?
+6. Wet diapers?
+7. Sweating with feeds?
+8. Development?
+9. Illness?
+10. Safety at home?
+
+ROUTE:
+- Poor intake → feeding technique
+- Good intake + poor gain → malabsorption
+- Sweating with feeds → cardiac
+- Vomiting → GERD
+- Greasy stools → CF
+- Developmental delay → neuromuscular
+- Unsafe environment → neglect
+
+======================================================================
+END OF FILE
+======================================================================

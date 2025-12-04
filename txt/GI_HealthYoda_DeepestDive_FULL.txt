@@ -1,0 +1,447 @@
+GASTROINTESTINAL SYSTEM — HealthYoda RAG DEEPEST DIVE
+=========================================================
+FULL VERSION WITH QUESTIONS + ANSWERS + RED FLAGS
+Developer-Ready RAG / Intake Knowledge Base File
+=========================================================
+
+GI COMPLAINT CLUSTERS
+----------------------
+1. Abdominal pain
+2. Nausea & vomiting
+3. Diarrhea
+4. Constipation
+5. GI bleeding
+6. Acid reflux / heartburn
+7. Trouble swallowing (dysphagia)
+8. Bloating / gas
+9. Jaundice
+10. Liver-related symptoms
+11. Rectal symptoms
+12. Stool color/shape changes
+13. Unintentional weight loss
+
+=========================================================
+SECTION 1 — UNIVERSAL GI HPI STRUCTURE
+=========================================================
+
+ONSET — Possible Answers:
+- "Started suddenly this morning."
+- "Gradually over weeks."
+- "Began after eating restaurant food."
+
+DURATION — Possible Answers:
+- "Lasts a few minutes."
+- "Constant all day."
+- "Comes and goes."
+
+LOCATION — Possible Answers:
+- "Right upper abdomen."
+- "Right lower abdomen."
+- "Left lower abdomen."
+- "Belly button area."
+- "Upper stomach area."
+
+RADIATION — Possible Answers:
+- "To my back."
+- "To my right shoulder."
+- "To my groin."
+
+QUALITY — Possible Answers:
+- "Stabbing."
+- "Cramping."
+- "Burning."
+- "Twisting."
+- "Pressure-like."
+
+SEVERITY (0–10)
+- "2/10 mild"
+- "6/10 moderate"
+- "10/10 worst ever"
+
+TIMING — Possible Answers:
+- "Intermittent."
+- "Constant."
+- "Worse after meals."
+- "Worse at night."
+
+TRIGGERS — Possible Answers:
+- "Spicy foods."
+- "Fatty meals."
+- "Alcohol."
+- "Movement."
+- "Stress."
+
+RELIEVING FACTORS — Possible Answers:
+- "Not eating helps."
+- "Antacids help."
+- "Passing gas helps."
+- "Rest helps."
+
+ASSOCIATED SYMPTOMS — Possible Answers:
+- Nausea
+- Vomiting
+- Diarrhea
+- Constipation
+- Fever
+- Bloating
+- Gas
+- Jaundice
+- Weight loss
+
+RISK HISTORY:
+- Alcohol use
+- NSAID use
+- Gallstones
+- Ulcers
+- IBS
+- Liver disease
+- Recent travel
+- Recent antibiotics
+
+=========================================================
+SECTION 2 — ABDOMINAL PAIN
+=========================================================
+
+Q1. Where is the pain located?
+A:
+- "Right lower side."
+- "Upper middle stomach."
+- "Left lower side."
+- "Around my belly button."
+
+Q2. What does it feel like?
+A:
+- "Sharp stabbing pain."
+- "Cramping like period pains."
+- "Burning pain."
+- "Pressure and bloating."
+- "Twisting pain."
+
+Q3. When did the pain start?
+A:
+- "Suddenly an hour ago."
+- "Three days ago gradually."
+- "Months of episodes."
+
+Q4. Does it radiate anywhere?
+A:
+- "To my back."
+- "To my right shoulder blade."
+- "Into my groin."
+
+Q5. Severity (0–10)
+A:
+- "5/10."
+- "8/10."
+- "10/10 unbearable."
+
+Q6. Relationship to meals?
+A:
+- "Worse after fatty foods."
+- "Better when I skip meals."
+- "Happens only at night."
+
+Q7. Nausea or vomiting?
+A:
+- "Threw up twice."
+- "Nausea but no vomit."
+- "No nausea."
+
+Q8. Diarrhea or constipation?
+A:
+- "Watery diarrhea."
+- "Constipated for 4 days."
+- "Alternating diarrhea/constipation."
+
+Q9. Fever?
+A:
+- "High fever with chills."
+- "Low-grade fever."
+- "No fever."
+
+Q10. Able to pass gas or stool?
+A:
+- "No, completely blocked."
+- "Gas relieves pain."
+- "Small bowel movements."
+
+Q11. Any blood in stool?
+A:
+- "Bright red blood."
+- "Dark black stool."
+- "Small streaks on tissue."
+
+Q12. Urinary symptoms?
+A:
+- "Burning when I pee."
+- "Pain radiates down to groin."
+
+ABDOMINAL PAIN RED FLAGS:
+- Severe sudden pain
+- Pain + vomiting + fever
+- No gas or stool passage
+- Black tarry stool
+- Vomiting blood
+- Severe RLQ pain + fever
+- RUQ pain + jaundice + fever
+
+=========================================================
+SECTION 3 — NAUSEA & VOMITING
+=========================================================
+
+Q1. When did it start?
+A:
+- "This morning."
+- "After restaurant food."
+- "On and off for a week."
+
+Q2. How many times?
+A:
+- "Once."
+- "Four times today."
+- "All day long."
+
+Q3. Vomit appearance?
+A:
+- "Food pieces."
+- "Yellow bile."
+- "Green bile."
+- "Coffee-ground appearance."
+- "Bright red blood."
+
+Q4. Abdominal pain?
+A:
+- "Upper stomach pain before vomiting."
+
+Q5. Able to keep fluids down?
+A:
+- "No, everything comes up."
+- "Can sip small amounts."
+
+NAUSEA/VOMITING RED FLAGS:
+- Unable to keep fluids
+- Vomiting blood
+- Coffee-ground vomit
+- Severe dehydration
+- Projectile vomiting
+
+=========================================================
+SECTION 4 — DIARRHEA
+=========================================================
+
+Q1. Onset & frequency?
+A:
+- "10 times today."
+- "Started after seafood."
+- "Loose stools for 3 days."
+
+Q2. Stool character?
+A:
+- "Watery."
+- "Mucus."
+- "Greasy."
+- "Foul smelling."
+
+Q3. Blood in stool?
+A:
+- "Bright red blood."
+- "Black tarry stool."
+
+Q4. Associated symptoms?
+A:
+- Fever
+- Nausea
+- Cramping
+- Recent antibiotics
+- Recent travel
+
+DIARRHEA RED FLAGS:
+- Blood in stool
+- Fever + abdominal pain
+- Dehydration
+- Recent antibiotics (C. diff risk)
+
+=========================================================
+SECTION 5 — CONSTIPATION
+=========================================================
+
+Q1. How long since last bowel movement?
+A:
+- "5 days."
+- "Over a week."
+
+Q2. Stool consistency?
+A:
+- "Hard pellets."
+- "Large hard stools."
+
+Q3. Straining?
+A:
+- "Yes, a lot."
+
+Q4. Blood?
+A:
+- "Bright red streaks."
+
+CONSTIPATION RED FLAGS:
+- No stool + vomiting
+- Severe pain + distention
+- Ribbon-like stools
+
+=========================================================
+SECTION 6 — GI BLEEDING
+=========================================================
+
+Q1. What did the blood look like?
+A:
+- "Bright red blood."
+- "Black tarry stool."
+- "Coffee-ground vomit."
+
+Q2. Mixed with stool?
+A:
+- "Mixed."
+- "Separate."
+
+Q3. Dizziness?
+A:
+- "Yes, almost fainted."
+
+Q4. NSAID or alcohol use?
+A:
+- "Yes, daily ibuprofen."
+- "Heavy alcohol use."
+
+GI BLEED RED FLAGS:
+- Vomiting blood
+- Black tarry stool
+- Dizziness/fainting
+- Large-volume rectal bleeding
+
+=========================================================
+SECTION 7 — ACID REFLUX / HEARTBURN
+=========================================================
+
+Q1. Burning after meals?
+A:
+- "Yes after spicy food."
+
+Q2. Worse lying down?
+A:
+- "Yes, especially at night."
+
+Q3. Sour taste?
+A:
+- "Yes, bitter taste in mouth."
+
+=========================================================
+SECTION 8 — DYSPHAGIA
+=========================================================
+
+Q1. Trouble swallowing solids or liquids?
+A:
+- "Solids get stuck."
+- "Liquids too."
+
+Q2. Painful swallowing?
+A:
+- "Yes, sharp pain."
+
+Q3. Weight loss?
+A:
+- "Lost 10 pounds."
+
+DYSPHAGIA RED FLAGS:
+- Cannot swallow liquids
+- Drooling
+- Progressive difficulty
+- Weight loss
+
+=========================================================
+SECTION 9 — BLOATING / GAS
+=========================================================
+
+Q1. When does bloating happen?
+A:
+- "After meals."
+- "Every evening."
+
+Q2. Gas relieve pain?
+A:
+- "Yes, feels better after passing gas."
+
+=========================================================
+SECTION 10 — JAUNDICE
+=========================================================
+
+Q1. When did skin turn yellow?
+A:
+- "A week ago."
+
+Q2. Dark urine?
+A:
+- "Yes, tea-colored."
+
+Q3. Pale stools?
+A:
+- "Yes, clay-colored."
+
+Q4. Abdominal pain?
+A:
+- "Right upper side pain."
+
+JAUNDICE RED FLAGS:
+- Jaundice + fever
+- Severe RUQ pain
+- Confusion
+
+=========================================================
+SECTION 11 — RECTAL SYMPTOMS
+=========================================================
+
+Q1. Pain when passing stool?
+A:
+- "Sharp pain."
+
+Q2. Itching?
+A:
+- "Yes, a lot."
+
+Q3. Blood?
+A:
+- "Bright red on tissue."
+
+Q4. Lump?
+A:
+- "Small bump near anus."
+
+=========================================================
+SECTION 12 — WEIGHT LOSS
+=========================================================
+
+Q1. Unintentional?
+A:
+- "Yes, not trying."
+
+Q2. Amount?
+A:
+- "10 pounds."
+
+Q3. Duration?
+A:
+- "Last 2 months."
+
+=========================================================
+GLOBAL GI RED FLAGS
+=========================================================
+- Severe sudden abdominal pain
+- Vomiting blood
+- Black tarry stools
+- Rigidity or guarding
+- Severe dehydration
+- High fever + abdominal pain
+- Jaundice + fever
+- Projectile vomiting
+=========================================================
+END OF GI DEEPEST DIVE FILE
+=========================================================

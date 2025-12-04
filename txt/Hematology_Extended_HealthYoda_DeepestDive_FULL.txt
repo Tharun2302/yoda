@@ -1,0 +1,476 @@
+HEMATOLOGY — EXTENDED DEEP DIVE (HealthYoda RAG)
+=========================================================
+FULL VERSION WITH QUESTIONS + REALISTIC PATIENT ANSWERS + RED FLAGS
+Developer-Ready RAG / Intake Knowledge Base File
+=========================================================
+
+HEMATOLOGY EXTENDED COVERAGE
+----------------------------
+1. Full anemia workup patterns (microcytic, normocytic, macrocytic)
+2. Iron deficiency anemia (history-level pattern)
+3. B12 & folate deficiency (neurologic + GI patterns)
+4. Hemolytic anemia (dark urine, jaundice, back pain)
+5. Sickle cell disease pain crises
+6. Thalassemia trait vs disease patterns
+7. Aplastic anemia (pancytopenia symptoms)
+8. Bleeding disorders (platelet vs coagulation disorders)
+9. Heavy menstrual bleeding hematology evaluation
+10. Leukemias (acute vs chronic symptom patterns)
+11. Lymphomas (Hodgkin vs non-Hodgkin symptom clusters)
+12. Hypercoagulability syndromes (personal + family patterns)
+13. Deep vein thrombosis extended symptoms
+14. Pulmonary embolism extended symptoms
+15. Polycythemia vera & myeloproliferative disorders
+16. Hemochromatosis (iron overload)
+17. Multiple myeloma symptoms
+18. Transfusion reactions (mild → severe)
+19. Anticoagulation complications (warfarin, DOACs)
+20. Hematology emergency red flags (consolidated)
+
+=========================================================
+SECTION 1 — ANEMIA TYPES (MICRO, NORMO, MACRO)
+=========================================================
+
+Q1. What are your main symptoms?
+A:
+- "Fatigue."
+- "Short of breath on exertion."
+- "Dizzy when standing."
+- "Cold hands and feet."
+
+MICROCYTIC (IRON DEFICIENCY, THALASSEMIA):
+A:
+- "Craving ice" (pica)
+- "Heavy periods"
+- "Chronic blood loss symptoms"
+
+NORMOCYTIC (CHRONIC DISEASE, RENAL):
+A:
+- "Fatigue without other symptoms"
+- "History of kidney problems"
+
+MACROCYTIC (B12/FOLATE):
+A:
+- "Numb feet"
+- "Memory trouble"
+- "Burning tongue"
+
+RED FLAGS:
+- Chest pain with anemia
+- Syncope
+- Dark urine + jaundice (hemolysis)
+
+=========================================================
+SECTION 2 — IRON DEFICIENCY ANEMIA
+=========================================================
+
+Q1. Any blood loss?
+A:
+- "Heavy menstrual cycles."
+- "Bleeding hemorrhoids."
+- "Black stools."
+
+Q2. Cravings?
+A:
+- "Yes, ice or clay cravings."
+
+Q3. Hair/skin changes?
+A:
+- "Hair thinning."
+
+Q4. GI symptoms?
+A:
+- "Heartburn."
+- "Ulcer history."
+
+RED FLAGS:
+- Iron deficiency in men/post-menopausal women (possible GI bleed)
+- Fatigue + black stools
+- Severe dyspnea
+
+=========================================================
+SECTION 3 — B12 / FOLATE DEFICIENCY
+=========================================================
+
+Q1. Neurologic symptoms?
+A:
+- "Numbness in feet."
+- "Balance issues."
+
+Q2. Glossitis?
+A:
+- "Tongue feels sore/burning."
+
+Q3. Diet?
+A:
+- "Vegan diet."
+- "Poor intake."
+
+Q4. GI symptoms?
+A:
+- "Chronic diarrhea."
+- "Weight loss."
+
+RED FLAGS:
+- Neurologic deficits
+- Confusion
+- Falls
+
+=========================================================
+SECTION 4 — HEMOLYTIC ANEMIA
+=========================================================
+
+KEY SYMPTOMS:
+- Fatigue
+- Jaundice
+- Dark urine
+- Back/abdominal pain
+
+Q1. Urine color?
+A:
+- "Tea-colored urine."
+
+Q2. Fever or recent infection?
+A:
+- "Had viral infection 2 weeks ago."
+
+Q3. Family history?
+A:
+- "Family history of hemolytic anemia."
+
+RED FLAGS:
+- Jaundice + dark urine
+- Rapid drop in energy
+- Dyspnea
+
+=========================================================
+SECTION 5 — SICKLE CELL PAIN CRISIS
+=========================================================
+
+Q1. Pain location?
+A:
+- "Back, chest, arms, legs."
+
+Q2. Quality?
+A:
+- "Deep, throbbing, severe."
+
+Q3. Triggers?
+A:
+- "Cold exposure."
+- "Dehydration."
+- "Infection."
+
+Q4. Associated symptoms?
+A:
+- "Short of breath."
+- "Fever."
+
+RED FLAGS:
+- Chest pain + SOB (acute chest syndrome)
+- Fever
+- Severe abdominal pain
+
+=========================================================
+SECTION 6 — THALASSEMIA TRAIT VS DISEASE
+=========================================================
+
+TRAIT:
+A:
+- "Mild fatigue."
+- "Family history."
+- "Told I have low MCV for years."
+
+DISEASE:
+A:
+- "Severe fatigue since childhood."
+- "Needed transfusions."
+
+RED FLAGS:
+- Severe anemia symptoms
+- Shortness of breath
+
+=========================================================
+SECTION 7 — APLASTIC ANEMIA
+=========================================================
+
+Q1. Frequent infections?
+A:
+- "Get sick often."
+
+Q2. Bleeding/bruising?
+A:
+- "Bruise easily."
+
+Q3. Fatigue severity?
+A:
+- "Very severe."
+
+RED FLAGS:
+- Recurrent infections
+- Rapid bruising
+- Nosebleeds + fatigue
+
+=========================================================
+SECTION 8 — BLEEDING DISORDERS
+=========================================================
+
+PLATELET-TYPE:
+- Petechiae
+- Gum bleeding
+- Small bruises
+
+COAGULATION-TYPE:
+- Deep muscle bleeding
+- Joint swelling
+- Delayed bleeding after cuts
+
+Q1. Where do you bleed?
+A:
+- "Nose, gums."
+- "Deep bruises in legs."
+
+RED FLAGS:
+- Bleeding + fatigue + fever
+- New bruising without trauma
+
+=========================================================
+SECTION 9 — HEAVY MENSTRUAL BLEEDING (HEMATOLOGY VIEW)
+=========================================================
+
+Q1. How many pads/tampons per day?
+A:
+- "6–8 soaked."
+
+Q2. Duration of periods?
+A:
+- "7–10 days."
+
+Q3. Clots?
+A:
+- "Large clots."
+
+Q4. Family bleeding history?
+A:
+- "Yes, mother bleeds heavily."
+
+RED FLAGS:
+- Severe anemia symptoms
+- Fainting
+- Heavy bleeding + pregnancy possibility
+
+=========================================================
+SECTION 10 — LEUKEMIA (ACUTE VS CHRONIC)
+=========================================================
+
+ACUTE:
+- Fever
+- Night sweats
+- Bleeding/bruising
+- Bone pain
+- Fatigue
+
+CHRONIC:
+- Fatigue
+- Fullness under left ribs (splenomegaly)
+- Early satiety
+
+RED FLAGS:
+- Persistent fever
+- Bruising
+- Recurrent infections
+
+=========================================================
+SECTION 11 — LYMPHOMA
+=========================================================
+
+HODGKIN:
+- Neck/armpit lymph nodes
+- Night sweats
+- Fever
+- Weight loss
+
+NON-HODGKIN:
+- Enlarging painless nodes
+- Fatigue
+- Chest/abdominal fullness
+
+RED FLAGS:
+- Lump growing >4 weeks
+- Night sweats + weight loss
+- Itching + lymph node swelling
+
+=========================================================
+SECTION 12 — HYPERCOAGULABILITY SYNDROMES
+=========================================================
+
+Q1. History of clots?
+A:
+- "Had DVT at young age."
+
+Q2. Family history?
+A:
+- "Mother had clots."
+
+Q3. Pregnancy-related issues?
+A:
+- "Miscarriages."
+
+RED FLAGS:
+- Clots in unusual sites
+- Recurrent miscarriages
+
+=========================================================
+SECTION 13 — DVT EXTENDED
+=========================================================
+
+Q1. Unilateral swelling?
+A:
+- "Right leg swollen."
+
+Q2. Pain?
+A:
+- "Calf pain when walking."
+
+Q3. Risk factors?
+A:
+- "Recent long flight."
+- "Recent surgery."
+
+RED FLAGS:
+- Swelling + shortness of breath (possible PE)
+
+=========================================================
+SECTION 14 — PULMONARY EMBOLISM EXTENDED
+=========================================================
+
+Q1. Chest pain?
+A:
+- "Sharp, worse with breathing."
+
+Q2. SOB?
+A:
+- "Sudden shortness of breath."
+
+Q3. Leg symptoms?
+A:
+- "Leg swelling."
+
+RED FLAGS:
+- Hemodynamic instability
+- Severe SOB
+
+=========================================================
+SECTION 15 — MYELOPROLIFERATIVE DISORDERS
+=========================================================
+
+POLYCYTHEMIA VERA:
+A:
+- "Headaches."
+- "Itching after hot showers."
+- "Red face."
+
+ESSENTIAL THROMBOCYTHEMIA:
+A:
+- "Headaches."
+- "Vision changes."
+
+MYELOFIBROSIS:
+A:
+- "Fatigue."
+- "Fullness under ribs."
+
+RED FLAGS:
+- Very high platelets
+- Severe headaches
+- Blood clots
+
+=========================================================
+SECTION 16 — HEMOCHROMATOSIS
+=========================================================
+
+Q1. Skin changes?
+A:
+- "Skin looks bronze."
+
+Q2. Joint pain?
+A:
+- "Hand joint pain."
+
+Q3. Family history?
+A:
+- "Family liver disease."
+
+RED FLAGS:
+- Liver pain
+- Diabetes symptoms + skin changes
+
+=========================================================
+SECTION 17 — MULTIPLE MYELOMA
+=========================================================
+
+CRAB (high-level symptom cues):
+- Calcium high → "Thirst, confusion"
+- Renal failure → "Fatigue, swelling"
+- Anemia → "Tired"
+- Bone pain → "Back pain, worse at night"
+
+RED FLAGS:
+- Bone pain + weight loss
+- Recurrent infections
+- New fractures without trauma
+
+=========================================================
+SECTION 18 — TRANSFUSION REACTIONS
+=========================================================
+
+MILD:
+- Itching
+- Rash
+
+MODERATE:
+- Fever
+- Chills
+
+SEVERE:
+- Back pain
+- Hypotension
+- Dark urine
+
+RED FLAGS:
+- Fever + back pain + dark urine during transfusion
+
+=========================================================
+SECTION 19 — ANTICOAGULATION COMPLICATIONS
+=========================================================
+
+Q1. Bleeding?
+A:
+- "Nosebleeds."
+- "Bruising easily."
+
+Q2. GI bleeding?
+A:
+- "Black stools."
+- "Vomiting blood."
+
+RED FLAGS:
+- Severe bleeding
+- Headache in anticoagulated patient
+
+=========================================================
+SECTION 20 — GLOBAL HEMATOLOGY RED FLAGS
+=========================================================
+- Fatigue + fever + bruising (possible leukemia)
+- Night sweats + weight loss + lymph nodes
+- Leg swelling + SOB (possible PE)
+- Chest pain + severe anemia
+- Dark urine + jaundice
+- Bone pain at night
+- Unexplained recurrent infections
+- Black or bloody stools
+- Sudden severe headache on anticoagulation
+
+=========================================================
+END OF HEMATOLOGY EXTENDED FILE
+=========================================================

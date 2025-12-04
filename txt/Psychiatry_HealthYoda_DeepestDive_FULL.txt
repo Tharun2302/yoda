@@ -1,0 +1,327 @@
+PSYCHIATRY — HealthYoda RAG DEEPEST DIVE
+=========================================================
+FULL VERSION WITH QUESTIONS + REALISTIC ANSWERS + RED FLAGS
+Developer-Ready RAG / Intake Knowledge Base File
+=========================================================
+
+PSYCH COMPLAINT CLUSTERS
+------------------------
+1. Anxiety
+2. Panic attacks
+3. Depression (low mood)
+4. Suicidal ideation (SI)
+5. Self-harm thoughts/behaviors
+6. Mania / hypomania
+7. Psychosis (hallucinations & delusions)
+8. Sleep problems / insomnia
+9. Stress / acute crisis
+10. PTSD / trauma symptoms
+11. OCD symptoms
+12. ADHD-related concerns
+13. Substance use concerns
+14. Cognitive concerns / memory issues
+15. Eating disorders
+16. Somatic symptom presentations
+
+=========================================================
+SECTION 1 — UNIVERSAL PSYCH HPI STRUCTURE
+=========================================================
+
+ONSET:
+- "Started recently."
+- "Gradual over months."
+- "Sudden episode."
+
+DURATION:
+- Hours
+- Days
+- Weeks
+- Chronic
+
+SEVERITY:
+- Mild
+- Moderate
+- Severe — affects daily life
+
+PATTERN:
+- Intermittent episodes
+- Constant symptoms
+- Triggered by stress
+
+ASSOCIATED SYMPTOMS:
+- Sleep issues
+- Appetite changes
+- Concentration difficulty
+- Fatigue
+- Palpitations (psych origin)
+- GI upset
+- Irritability
+
+RISK FACTORS:
+- Stressful events
+- Trauma history
+- Substance use
+- Prior psych conditions
+- Family history
+
+=========================================================
+SECTION 2 — ANXIETY
+=========================================================
+
+Q1. What symptoms do you feel?
+A: "Racing thoughts." / "Chest tightness." / "Constant worry."
+
+Q2. Onset?
+A: "Started weeks ago."
+
+Q3. Physical symptoms?
+A: "Sweaty." / "Shaky." / "Heart races."
+
+Q4. Triggers?
+A: "Stress at work." / "No obvious trigger."
+
+Q5. Affecting daily life?
+A: "Hard to focus at work."
+
+ANXIETY RED FLAGS:
+- Anxiety + chest pain (rule out cardiac)
+- Anxiety + fainting
+- Anxiety + inability to function
+
+=========================================================
+SECTION 3 — PANIC ATTACKS
+=========================================================
+
+Q1. Describe the episode.
+A: "Sudden fear." / "Heart pounding." / "Thought I would die."
+
+Q2. Duration?
+A: "10 minutes." / "30 minutes."
+
+Q3. Recurrent?
+A: "Yes multiple times."
+
+Q4. Triggers?
+A: "Crowded places."
+
+PANIC RED FLAGS:
+- Chest pain
+- Shortness of breath
+- Fainting
+
+=========================================================
+SECTION 4 — DEPRESSION (LOW MOOD)
+=========================================================
+
+Q1. Feeling sad/down?
+A: "Sad every day." / "Lost interest."
+
+Q2. Sleep changes?
+A: "Can't sleep." / "Sleeping too much."
+
+Q3. Appetite?
+A: "Lost appetite." / "Eating more."
+
+Q4. Energy?
+A: "No energy."
+
+Q5. Concentration?
+A: "Hard to concentrate."
+
+Q6. Suicidal thoughts? (Required)
+A: "No." / "Yes sometimes." / "Yes with a plan."
+
+DEPRESSION RED FLAGS:
+- Suicidal thoughts
+- Severe functional decline
+- Not eating/drinking
+
+=========================================================
+SECTION 5 — SUICIDAL IDEATION (SI)
+=========================================================
+
+**This section is critical for safety logic (not for diagnosis)**
+
+Q1. Are you having thoughts of hurting yourself?
+A: "Yes." / "Sometimes." / "No."
+
+Q2. Do you have a plan?
+A: "Yes I have a plan." (RED FLAG)
+A: "No plan."
+
+Q3. Intent?
+A: "I might act on it." (RED FLAG)
+
+Q4. Past attempts?
+A: "Yes in past." (RED FLAG)
+
+SI RED FLAGS (IMMEDIATE ELEVATION):
+- SI with plan
+- SI with intent
+- Recent attempt
+- Access to means
+- Severe agitation/confusion
+
+=========================================================
+SECTION 6 — SELF-HARM BEHAVIORS
+=========================================================
+
+Q1. Any recent self-harm?
+A: "Cut myself." / "Hit myself."
+
+Q2. Intent to die?
+A: "No intent." / "Yes intent." (RED FLAG)
+
+=========================================================
+SECTION 7 — MANIA / HYPOMANIA
+=========================================================
+
+Q1. Feeling unusually energetic?
+A: "Yes too much energy."
+
+Q2. Decreased need for sleep?
+A: "Sleeping 2 hours but feel fine."
+
+Q3. Risky behaviors?
+A: "Overspending." / "Reckless driving."
+
+Q4. Racing thoughts?
+A: "Yes nonstop thoughts."
+
+MANIA RED FLAGS:
+- Risk-taking behaviors
+- Not sleeping for days
+- Agitation/aggression
+
+=========================================================
+SECTION 8 — PSYCHOSIS (HALLUCINATIONS / DELUSIONS)
+=========================================================
+
+Q1. Hearing voices?
+A: "Yes hearing voices."
+
+Q2. Seeing things others don't?
+A: "Shadows or figures."
+
+Q3. Delusions?
+A: "People watching me."
+
+Q4. Paranoia?
+A: "Feel in danger."
+
+PSYCHOSIS RED FLAGS:
+- Command hallucinations
+- Paranoia with safety concerns
+- Violence/agitation
+
+=========================================================
+SECTION 9 — SLEEP PROBLEMS
+=========================================================
+
+Q1. Trouble falling asleep?
+A: "Yes takes hours."
+
+Q2. Staying asleep?
+A: "Wake up many times."
+
+Q3. Nightmares?
+A: "Frequent nightmares."
+
+=========================================================
+SECTION 10 — PTSD SYMPTOMS
+=========================================================
+
+Q1. Trauma exposure?
+A: "Yes recent trauma."
+
+Q2. Re-experiencing?
+A: "Flashbacks."
+
+Q3. Avoidance?
+A: "Avoid reminders."
+
+Q4. Hypervigilance?
+A: "Always on edge."
+
+=========================================================
+SECTION 11 — OCD SYMPTOMS
+=========================================================
+
+Q1. Intrusive thoughts?
+A: "Unwanted thoughts."
+
+Q2. Compulsions?
+A: "Wash hands repeatedly."
+
+=========================================================
+SECTION 12 — ADHD SYMPTOMS (ADULT)
+=========================================================
+
+Q1. Focus issues?
+A: "Hard to focus."
+
+Q2. Organization?
+A: "Can't stay organized."
+
+=========================================================
+SECTION 13 — SUBSTANCE USE
+=========================================================
+
+Q1. Alcohol?
+A: "Drink daily."
+
+Q2. Drugs?
+A: "Occasional marijuana." / "Cocaine."
+
+Q3. Withdrawal symptoms?
+A: "Shaky without alcohol."
+
+SUBSTANCE RED FLAGS:
+- Withdrawal symptoms
+- Delirium
+- Suicidal thoughts while intoxicated
+
+=========================================================
+SECTION 14 — COGNITIVE / MEMORY ISSUES
+=========================================================
+
+Q1. Memory problems?
+A: "Forgetting conversations."
+
+Q2. Onset?
+A: "Gradual."
+
+Q3. Associated confusion?
+A: "Sometimes confused."
+
+=========================================================
+SECTION 15 — EATING DISORDERS
+=========================================================
+
+Q1. Restricting food?
+A: "Skipping meals."
+
+Q2. Binging/purging?
+A: "Episodes of binge eating."
+
+EATING DISORDER RED FLAGS:
+- Fainting
+- Severe weight loss
+- Recurrent vomiting
+
+=========================================================
+PSYCHIATRY GLOBAL RED FLAGS
+=========================================================
+- Suicidal thoughts with plan or intent
+- Self-harm with intent to die
+- Homicidal thoughts
+- Severe agitation/aggression
+- Hallucinations with commands
+- Delirium / acute confusion
+- Not eating or drinking
+- Severe withdrawal symptoms
+- Complete functional impairment
+
+=========================================================
+END OF PSYCHIATRY DEEPEST DIVE FILE
+=========================================================

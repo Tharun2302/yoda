@@ -1,0 +1,441 @@
+ADVANCED INFECTIOUS DISEASE — HealthYoda RAG DEEPEST DIVE
+=============================================================
+FULL VERSION WITH QUESTIONS + REALISTIC PATIENT ANSWERS + RED FLAGS
+Developer-Ready RAG / Intake Knowledge Base File
+=============================================================
+
+ADVANCED ID CLUSTERS
+--------------------
+1. Fever patterns (continuous, intermittent, relapsing)
+2. Travel-related infections
+3. Vector-borne diseases (ticks, mosquitoes)
+4. Zoonotic infections (animals, farms, exposures)
+5. Healthcare-associated infections
+6. Opportunistic infections (immunocompromised)
+7. TB (pulmonary & extrapulmonary)
+8. HIV acute & advanced disease patterns
+9. Hepatitis A/B/C symptoms
+10. CNS infections (meningitis, encephalitis)
+11. Endocarditis symptom clusters
+12. Osteomyelitis & septic arthritis
+13. Abdominal infections (abscess, cholangitis, peritonitis)
+14. Skin/soft tissue advanced infections (nec fasc, cellulitis patterns)
+15. Respiratory severe infections (COVID, influenza, atypicals)
+16. Sepsis / septic shock symptom patterns
+17. ID red flags (consolidated)
+
+=============================================================
+SECTION 1 — FEVER PATTERNS
+=============================================================
+
+CONTINUOUS FEVER:
+- Typhoid
+- Endocarditis
+- Pneumonia
+
+INTERMITTENT FEVER:
+- Malaria
+- Sepsis spikes
+
+RELAPSING FEVER:
+- Borrelia
+- Tick-borne relapsing fever
+
+Q1. How high is the fever?
+A: “102–104°F.”
+
+Q2. Pattern?
+A: “Comes and goes every day around evening.”
+
+RED FLAGS:
+- Fever >104°F
+- Fever + confusion
+- Fever + stiff neck
+- Fever + rash spreading rapidly
+
+=============================================================
+SECTION 2 — TRAVEL-RELATED INFECTIONS
+=============================================================
+
+REGIONS:
+- Africa → malaria, dengue, typhoid
+- South Asia → typhoid, dengue, hepatitis
+- Latin America → Zika, dengue, Chagas
+- Middle East → MERS, brucellosis
+
+Q1. Where did you travel?
+A: “Nigeria / India / Brazil / UAE.”
+
+Q2. Mosquito bites?
+A: “Many.”
+
+Q3. Water/food exposure?
+A: “Street food daily.”
+
+Q4. Symptoms?
+A:
+- “Fever, chills”
+- “Headache”
+- “Severe body aches”
+
+RED FLAGS:
+- Fever after returning from malaria-endemic region
+- Rash + fever + bleeding
+- Severe abdominal pain + travel history
+
+=============================================================
+SECTION 3 — VECTOR-BORNE DISEASES
+=============================================================
+
+TICK-BORNE:
+- Lyme: fatigue, joint pain, rash (not always)
+- Babesiosis: fever + dark urine
+- Anaplasma/Ehrlichia: fever + low WBC + headache
+
+MOSQUITO-BORNE:
+- Dengue: severe body pain, retro-orbital pain, bleeding gums
+- Zika: rash + conjunctivitis + mild fever
+- Malaria: cyclic fevers, chills, sweating
+
+Q1. Any tick bites?
+A: “Found tick on leg last week.”
+
+Q2. Rash?
+A: “None / circular red rash / small red spots.”
+
+Q3. Severe body aches?
+A: “Feels like bones breaking.” (dengue clue)
+
+RED FLAGS:
+- Bleeding
+- Severe abdominal pain in dengue
+- Dark urine + fever (possible hemolysis)
+
+=============================================================
+SECTION 4 — ZOONOTIC INFECTIONS
+=============================================================
+
+EXPOSURES:
+- Cats (Bartonella)
+- Dogs (rabies)
+- Farm animals (Q fever, brucellosis)
+- Rodents (leptospirosis, hantavirus)
+- Birds (psittacosis)
+
+Q1. Animal exposures?
+A: “Work on farm / bitten / scratched.”
+
+Q2. Symptoms?
+A:
+- “Fever, chills”
+- “Headache”
+- “Muscle pain”
+
+RED FLAGS:
+- Fever + jaundice + red eyes (leptospirosis)
+- Fever + severe shortness of breath (hantavirus)
+- Neurologic symptoms after animal bite (rabies risk)
+
+=============================================================
+SECTION 5 — HEALTHCARE-ASSOCIATED INFECTIONS
+=============================================================
+
+COMMON:
+- MRSA
+- C. diff
+- Line infections
+- Post-op infections
+
+Q1. Recent hospitalization?
+A: “Yes, last month.”
+
+Q2. Diarrhea?
+A: “Watery, bad smell.” (C. diff)
+
+Q3. Wound symptoms?
+A: “Red, hot, draining fluid.”
+
+RED FLAGS:
+- High fever + surgical wound drainage
+- Worsening infection with antibiotics
+- Bloody diarrhea + dehydration
+
+=============================================================
+SECTION 6 — IMMUNOCOMPROMISED INFECTIONS
+=============================================================
+
+CAUSES:
+- HIV/AIDS
+- Chemotherapy
+- Chronic steroids
+- Transplant patients
+
+COMMON INFECTIONS:
+- Pneumocystis pneumonia (PCP)
+- Fungal infections
+- CMV
+- Disseminated TB
+
+Q1. Immune system issues?
+A: “On chemo / transplant meds.”
+
+Q2. Symptoms?
+A:
+- “Low-grade fever”
+- “Shortness of breath”
+- “Dry cough”
+
+RED FLAGS:
+- Fever + neutropenia
+- Chest pain + cough in HIV patient
+- Severe fungal infection patterns
+
+=============================================================
+SECTION 7 — TUBERCULOSIS (TB)
+=============================================================
+
+PULMONARY:
+- Chronic cough
+- Night sweats
+- Weight loss
+- Fever
+
+EXTRAPULMONARY:
+- Lymph nodes
+- Spine pain
+- Abdominal pain
+
+Q1. Cough duration?
+A: “More than 3 weeks.”
+
+Q2. Night sweats?
+A: “Soaking sheets.”
+
+RED FLAGS:
+- Coughing blood
+- Severe weight loss
+
+=============================================================
+SECTION 8 — HIV (ACUTE & ADVANCED)
+=============================================================
+
+ACUTE INFECTION:
+- Fever
+- Rash
+- Sore throat
+- Body aches
+
+ADVANCED:
+- Weight loss
+- Chronic diarrhea
+- Thrush
+- Recurrent infections
+
+Q1. When symptoms started?
+A: “2–3 weeks after exposure.”
+
+Q2. Rash?
+A: “Pink rash on chest.”
+
+RED FLAGS:
+- Confusion
+- Severe headache
+- Vision changes
+- Difficulty breathing
+
+=============================================================
+SECTION 9 — HEPATITIS A/B/C
+=============================================================
+
+CLUES:
+Hep A:
+- Nausea
+- Fatigue
+- Jaundice
+- Dark urine
+
+Hep B/C:
+- Fatigue
+- RUQ pain
+- Joint aches (B)
+- Chronic liver symptoms (C)
+
+Q1. Urine color?
+A: “Dark yellow/brown.”
+
+Q2. Appetite?
+A: “Poor.”
+
+RED FLAGS:
+- Severe abdominal pain
+- Confusion (possible liver failure)
+- Bleeding
+
+=============================================================
+SECTION 10 — CNS INFECTIONS (MENINGITIS / ENCEPHALITIS)
+=============================================================
+
+MENINGITIS:
+- Fever
+- Headache
+- Neck stiffness
+- Photophobia
+
+ENCEPHALITIS:
+- Confusion
+- Seizures
+- Behavior changes
+
+RED FLAGS:
+- Fever + neck stiffness
+- Severe headache
+- Seizure
+- Rapid confusion
+
+=============================================================
+SECTION 11 — ENDOCARDITIS
+=============================================================
+
+CLUES:
+- Fever
+- Night sweats
+- Fatigue
+- New murmur (history-level)
+- IV drug use
+- Dental work
+
+Q1. Symptoms?
+A:
+- “Low-grade fever for weeks.”
+- “Weight loss.”
+
+RED FLAGS:
+- Stroke symptoms
+- Shortness of breath
+- Chest pain
+
+=============================================================
+SECTION 12 — OSTEOMYELITIS / SEPTIC ARTHRITIS
+=============================================================
+
+OSTEOMYELITIS:
+- Localized bone pain
+- Fevers
+- Overlying redness
+
+SEPTIC ARTHRITIS:
+- Red, hot, swollen joint
+- Severe pain
+- Trouble moving joint
+
+RED FLAGS:
+- Fever + swollen joint
+- Red hot knee/hip with inability to walk
+
+=============================================================
+SECTION 13 — ABDOMINAL INFECTIONS
+=============================================================
+
+APPENDICITIS:
+- RLQ pain
+- Nausea
+- Fever
+
+CHOLANGITIS:
+- RUQ pain
+- Fever
+- Jaundice (Charcot triad)
+
+PERITONITIS:
+- Severe abdominal pain
+- Guarding/rigidity
+
+RED FLAGS:
+- Severe abdominal pain + fever
+- Jaundice + fever
+
+=============================================================
+SECTION 14 — SKIN / SOFT TISSUE — ADVANCED
+=============================================================
+
+CELLULITIS:
+- Red, warm, painful skin
+- Fever
+
+NECROTIZING FASCIITIS:
+- Severe pain out of proportion
+- Bullae
+- Rapid spread
+- Fever
+
+Q1. Pain level?
+A: “10/10 but skin doesn’t look that bad.” (nec fasc clue)
+
+RED FLAGS:
+- Rapid spreading redness
+- Severe pain + fever
+
+=============================================================
+SECTION 15 — RESPIRATORY SEVERE INFECTIONS
+=============================================================
+
+COVID:
+- Fever, cough, SOB
+- Loss of smell
+
+INFLUENZA:
+- Sudden fever
+- Body aches
+
+ATYPICAL PNA:
+- Dry cough
+- Fatigue
+- Headache
+
+RED FLAGS:
+- SOB at rest
+- Chest pain
+- Confusion
+- Cyanosis
+
+=============================================================
+SECTION 16 — SEPSIS / SEPTIC SHOCK
+=============================================================
+
+CLUES:
+- Fever or low temp
+- Confusion
+- Fast breathing
+- Fast HR
+- Low BP
+- Cold extremities
+
+Q1. How do you feel?
+A:
+- “Very weak.”
+- “Confused.”
+
+RED FLAGS:
+- Confusion
+- Low blood pressure
+- Blue/cold extremities
+
+=============================================================
+SECTION 17 — INFECTIOUS DISEASE GLOBAL RED FLAGS
+=============================================================
+- Fever + confusion
+- Fever + rash + rapid spread
+- Fever + neck stiffness
+- Fever after recent travel
+- Red, hot, swollen joint
+- Severe abdominal pain + fever
+- Shortness of breath + fever
+- Coughing blood
+- Dark urine + fever after tick bite
+- Jaundice + fever
+- Seizure with fever
+- Shock symptoms (cold, clammy, confused)
+
+=============================================================
+END OF ADVANCED INFECTIOUS DISEASE FILE
+=============================================================

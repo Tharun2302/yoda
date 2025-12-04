@@ -1,0 +1,46 @@
+OPENAI_API_KEY=your_openai_api_key_here
+
+# For local development: use server IP
+OLLAMA_BASE_URL=http://68.183.88.5:11434
+
+OLLAMA_MODEL=alibayram/medgemma:4b
+OLLAMA_API_KEY=ollama
+
+# Default model for chat (optional - defaults to gpt-4o-mini)
+# Set to your preferred starting model
+DEFAULT_MODEL=gpt-4o-mini
+
+HEALTHBENCH_GRADER_MODEL=alibayram/medgemma:4b
+HELM_JUDGE_MODEL=alibayram/medgemma:4b
+
+# ========================================
+# Langfuse Configuration (Optional)
+# ========================================
+LANGFUSE_ENABLED=false
+
+# ========================================
+# MongoDB Configuration (Optional)
+# ========================================
+MONGODB_URI=mongodb+srv://sudityanimmala_db_user:Arss_2025@cluster0.sgqafxp.mongodb.net/?appName=Cluster0
+MONGODB_DB=Healthyoda
+
+# ========================================
+# CORS Configuration
+# ========================================
+# Update with your server IP
+ALLOWED_ORIGINS=http://68.183.88.5,http://68.183.88.5:8002,http://localhost:8002,http://127.0.0.1:8002
+
+# ========================================
+# Rate Limiting
+# ========================================
+RATE_LIMIT_REQUESTS=100
+RATE_LIMIT_WINDOW=3600
+
+# ========================================
+# Voice Processing (Optional)
+# ========================================
+MAX_AUDIO_SIZE=10485760
+
+VOICE_ENABLED=true
+WHISPER_MODEL=tiny.en
+PIPER_VOICE=en_US-lessac-medium

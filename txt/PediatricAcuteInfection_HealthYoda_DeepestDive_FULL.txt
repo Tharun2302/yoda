@@ -1,0 +1,268 @@
+PEDIATRIC ACUTE INFECTION — HealthYoda RAG DEEPEST DIVE
+=====================================================================
+FULL VERSION WITH QUESTIONS + REALISTIC ANSWERS + RED FLAGS
+Developer-Ready RAG / Intake Knowledge Base File
+=====================================================================
+
+PEDIATRIC ACUTE INFECTION CLUSTERS
+----------------------------------
+1. Fever origin discrimination
+2. Upper respiratory infections
+3. Lower respiratory infections
+4. Ear infections
+5. Throat infections
+6. GI infections
+7. Urinary infections
+8. Skin & soft tissue infections
+9. Sepsis indicators in children
+10. Neonatal infection patterns
+11. Immune-compromised child infections
+12. Global pediatric infection red flags
+13. Pediatric acute infection triage logic
+
+=====================================================================
+SECTION 1 — FEVER ORIGIN DISCRIMINATION
+=====================================================================
+
+Q1. Fever onset?
+A:
+- “Started suddenly last night.”
+
+Q2. Highest temperature?
+A:
+- “39.5°C (103°F).”
+
+Q3. Behavior?
+A:
+- “Not playing normally.”
+- “Still playful.”
+
+RED FLAGS:
+- Fever + lethargy
+- Fever + poor intake
+- Fever >5 days
+
+=====================================================================
+SECTION 2 — UPPER RESPIRATORY INFECTIONS
+=====================================================================
+
+COMMON:
+- Viral URI
+- Influenza
+- RSV
+- Common cold
+
+CLUES:
+- Runny nose
+- Cough
+- Congestion
+- Sore throat
+
+Q:
+- “Any nose congestion?”
+A:
+- “Yes constant.”
+
+RED FLAGS:
+- Cyanosis
+- Breathing pauses
+
+=====================================================================
+SECTION 3 — LOWER RESPIRATORY INFECTIONS
+=====================================================================
+
+PNEUMONIA:
+- Fever
+- Productive cough or chest pain
+- Fast breathing
+
+BRONCHIOLITIS (RSV):
+- Wheezing
+- Retractions
+- Feeding difficulty
+
+Q1. Breathing fast?
+A:
+- “Yes.”
+
+RED FLAGS:
+- Nasal flaring
+- Retractions
+- Grunting
+- Blue lips
+
+=====================================================================
+SECTION 4 — EAR INFECTIONS
+=====================================================================
+
+ACUTE OTITIS MEDIA:
+- Ear pain
+- Fever
+- Irritability
+- Tugging ear
+
+OTITIS EXTERNA:
+- Ear canal pain
+- Pain with pulling ear
+
+RED FLAGS:
+- Mastoid swelling
+
+=====================================================================
+SECTION 5 — THROAT INFECTIONS
+=====================================================================
+
+VIRAL:
+- Cough
+- Congestion
+
+STREP:
+- Fever
+- Sore throat
+- No cough
+- Swollen glands
+
+RED FLAGS:
+- Drooling + neck stiffness
+- Difficulty swallowing
+
+=====================================================================
+SECTION 6 — GI INFECTIONS
+=====================================================================
+
+VIRAL:
+- Diarrhea
+- Vomiting
+- Low-grade fever
+
+BACTERIAL:
+- Bloody diarrhea
+- Severe abdominal pain
+
+RED FLAGS:
+- Bloody diarrhea
+- Severe dehydration
+
+=====================================================================
+SECTION 7 — URINARY INFECTIONS
+=====================================================================
+
+CLUES:
+- Fever without source
+- Abdominal pain
+- Vomiting
+- Strong-smelling urine
+
+Q:
+- “Bathroom accidents?”
+
+RED FLAGS:
+- Fever + vomiting + abdominal pain
+
+=====================================================================
+SECTION 8 — SKIN & SOFT TISSUE INFECTIONS
+=====================================================================
+
+IMPETIGO:
+- Honey crust lesions
+
+CELLULITIS:
+- Red
+- Warm
+- Painful
+
+ABSCESS:
+- Fluctuance
+- Tender swelling
+
+RED FLAGS:
+- Rapid spreading redness
+- Fever + swelling
+
+=====================================================================
+SECTION 9 — PEDIATRIC SEPSIS
+=====================================================================
+
+CLUES:
+- Fast breathing
+- Poor feeding
+- Cool extremities
+- Lethargic
+- ↓ urine output
+
+RED FLAGS:
+- ANY lethargy
+- ANY mottled skin
+- Poor perfusion
+- Weak cry
+
+=====================================================================
+SECTION 10 — NEONATAL PATTERNS
+=====================================================================
+
+0-28 DAYS:
+- Hypothermia
+- Poor feeding
+- Jaundice
+- Lethargy
+- Irritability
+
+RED FLAGS:
+- Fever OR low temperature
+- Weak cry
+
+=====================================================================
+SECTION 11 — IMMUNE-COMPROMISED KIDS
+=====================================================================
+
+CLUES:
+- Fever with no URI symptoms
+- Thrush
+- Recurrent infections
+
+RED FLAGS:
+- Fever + chemo
+- Fever + transplant
+
+=====================================================================
+SECTION 12 — GLOBAL PEDIATRIC INFECTION RED FLAGS
+=====================================================================
+- Breathing difficulty
+- Blue lips
+- Severe dehydration
+- Bloody diarrhea
+- Drooling
+- Neck stiffness
+- Lethargy
+- Persistent fever >5 days
+- Rash + fever
+- Inability to keep fluids
+- Seizure with infection
+
+=====================================================================
+SECTION 13 — HEALTHYODA PEDIATRIC INFECTION TRIAGE LOGIC
+=====================================================================
+
+ASK:
+1. Duration of fever?
+2. Eating/drinking?
+3. Breathing?
+4. Urination?
+5. Vomiting/diarrhea?
+6. Rash?
+7. Ear pain?
+8. Neck stiffness?
+9. Infant <28 days?
+10. Immunocompromise?
+
+ROUTE:
+- Fever + cough → URI or pneumonia
+- Fever + wheezing → bronchiolitis
+- Fever + vomiting → GI vs UTI
+- Fever + sore throat + no cough → strep
+- Fever + lethargy → sepsis
+- Fever in neonate → emergency
+
+=====================================================================
+END OF FILE
+=====================================================================

@@ -1,0 +1,341 @@
+RARE & LOW-FREQUENCY SYMPTOMS — HealthYoda RAG DEEPEST DIVE
+=========================================================
+FULL VERSION WITH QUESTIONS + REALISTIC ANSWERS + RED FLAGS
+Developer-Ready RAG / Intake Knowledge Base File
+=========================================================
+
+RARE / LOW-FREQUENCY SYMPTOM CLUSTERS
+-------------------------------------
+1. Unexplained syncope
+2. Recurrent fainting spells
+3. Unilateral limb swelling (non-DVT causes)
+4. Chronic unexplained fevers
+5. Unexplained bruising without anemia
+6. Neurologic red-flag patterns
+7. Dysautonomia / POTS-like symptoms
+8. Severe unintentional weight gain/loss (non-organic)
+9. Unexplained pruritus without rash
+10. Metallic taste / odd sensory symptoms
+11. Recurrent hives without clear allergy
+12. Chronic cough with normal imaging
+13. Burning mouth syndrome
+14. Chronic fatigue syndrome-like patterns
+15. Migratory joint pains (non-rheumatic)
+16. Peripheral neuropathy without diabetes
+17. Tinnitus with balance issues
+18. Recurrent nosebleeds in adults
+19. Persistent night sweats with normal labs
+20. Unexplained back pain + systemic signals
+
+=========================================================
+SECTION 1 — UNEXPLAINED SYNCOPE
+=========================================================
+
+Q1. Before fainting, what did you feel?
+A:
+- "Lightheaded"
+- "Tunnel vision"
+- "Nothing, just collapsed"
+
+Q2. Triggers?
+A:
+- "Standing long time"
+- "Heat"
+- "Pain"
+
+Q3. Heart symptoms?
+A: "Heart racing."
+
+SYNCOPE RED FLAGS:
+- Occurred during exertion
+- Occurred while lying down
+- Associated chest pain
+- Family history of sudden cardiac death
+
+=========================================================
+SECTION 2 — RECURRENT FAINTING
+=========================================================
+
+Q1. Frequency?
+A: "Once a week."
+
+Q2. Injuries from falls?
+A: "Hit head once."
+
+RED FLAGS:
+- Seizure features
+- Loss of consciousness >2 minutes
+- Urinary incontinence with episode
+
+=========================================================
+SECTION 3 — UNILATERAL LIMB SWELLING (NON-DVT)
+=========================================================
+
+Q1. Swelling duration?
+A: "Months."
+
+Q2. Pain?
+A: "No pain."
+
+Q3. History?
+A:
+- "Had lymph nodes removed"
+- "Old injury"
+
+RED FLAGS:
+- Rapid painful swelling
+- Fever
+- Red streaks
+
+=========================================================
+SECTION 4 — CHRONIC UNEXPLAINED FEVERS
+=========================================================
+
+Q1. Duration?
+A: "Weeks of intermittent fever."
+
+Q2. Associated?
+A:
+- "Night sweats"
+- "Weight loss"
+
+RED FLAGS:
+- Fever + weight loss
+- Fever + lymph nodes
+- Fever + rash (vasculitis)
+
+=========================================================
+SECTION 5 — UNEXPLAINED BRUISING WITH NORMAL ENERGY
+=========================================================
+
+Q1. Any trauma?
+A: "No injuries."
+
+Q2. Medications?
+A: "No blood thinners."
+
+RED FLAGS:
+- Bruising + fever
+- Bruising + gum bleeding
+- Bruising + fatigue
+
+=========================================================
+SECTION 6 — NEUROLOGIC RED-FLAG PATTERNS
+=========================================================
+
+Examples:
+- Vision loss + headache
+- New asymmetric weakness
+- New numbness in face + arm/leg
+- Difficulty speaking
+
+RED FLAGS:
+- Any stroke-like symptom
+- Progressive neurologic decline
+
+=========================================================
+SECTION 7 — DYSAUTONOMIA / POTS-LIKE SYMPTOMS
+=========================================================
+
+Q1. Symptoms upon standing?
+A:
+- "Heart racing when standing"
+- "Dizziness when upright"
+
+Q2. Duration?
+A: "Months to years."
+
+Q3. Hydration status?
+A: "Not drinking enough water."
+
+RED FLAGS:
+- Syncope with palpitations
+- Chest pain
+
+=========================================================
+SECTION 8 — SEVERE UNINTENTIONAL WEIGHT LOSS/GAIN (NON-ORGANIC)
+=========================================================
+
+Q1. Changes?
+A: "Lost 20 lbs with normal eating."
+
+RED FLAGS:
+- Weight loss + night sweats
+- Weight loss + chronic cough
+
+=========================================================
+SECTION 9 — UNEXPLAINED PRURITUS WITHOUT RASH
+=========================================================
+
+Q1. Worse at night?
+A: "Yes"
+
+Q2. Other symptoms?
+A: "Fatigue" / "Jaundice"
+
+RED FLAGS:
+- Severe itching + jaundice
+- Itching + weight loss
+
+=========================================================
+SECTION 10 — ODD SENSORY SYMPTOMS
+=========================================================
+
+Q1. Metallic taste?
+A: "Every day for weeks."
+
+Possible causes:
+- Medication effects
+- GERD
+- Viral illness
+
+RED FLAGS:
+- Metallic taste + facial numbness
+- Metallic taste + neuro deficits
+
+=========================================================
+SECTION 11 — RECURRENT HIVES WITHOUT CLEAR ALLERGEN
+=========================================================
+
+Q1. Duration of hives?
+A: "Daily for weeks."
+
+Q2. Trigger?
+A: "No clear trigger."
+
+RED FLAGS:
+- Hives + swelling of lips/tongue
+- Hives + dizziness
+
+=========================================================
+SECTION 12 — CHRONIC COUGH WITH NORMAL IMAGING
+=========================================================
+
+Q1. Duration?
+A: "Cough for months."
+
+Possible causes:
+- Post-nasal drip
+- GERD
+- Asthma variant
+
+RED FLAGS:
+- Cough + weight loss
+- Cough + hemoptysis
+
+=========================================================
+SECTION 13 — BURNING MOUTH SYNDROME
+=========================================================
+
+Q1. Describe?
+A: "Burning sensation on tongue."
+
+Q2. Duration?
+A: "Months."
+
+=========================================================
+SECTION 14 — CHRONIC FATIGUE SYNDROME-LIKE
+=========================================================
+
+Q1. Fatigue severity?
+A: "Debilitating."
+
+Q2. Post-exertional crash?
+A: "Feel worse after activity."
+
+RED FLAGS:
+- Chest pain + fatigue
+- Weight loss + fatigue
+
+=========================================================
+SECTION 15 — MIGRATORY JOINT PAINS
+=========================================================
+
+Q1. Joints affected?
+A: "Moves from one joint to another."
+
+RED FLAGS:
+- Joint pain + fever
+- Joint pain + rash
+
+=========================================================
+SECTION 16 — PERIPHERAL NEUROPATHY WITHOUT DIABETES
+=========================================================
+
+Q1. Symptoms?
+A:
+- "Burning feet"
+- "Numb toes"
+
+RED FLAGS:
+- Weakness + numbness
+- Foot drop
+
+=========================================================
+SECTION 17 — TINNITUS WITH BALANCE ISSUES
+=========================================================
+
+Q1. Dizziness?
+A: "Vertigo."
+
+RED FLAGS:
+- Hearing loss + persistent vertigo
+- Neurologic deficits
+
+=========================================================
+SECTION 18 — RECURRENT NOSEBLEEDS
+=========================================================
+
+Q1. Frequency?
+A: "Weekly."
+
+Q2. Medications?
+A: "Not on blood thinners."
+
+RED FLAGS:
+- Nosebleeds + easy bruising
+- Nosebleeds + anemia symptoms
+
+=========================================================
+SECTION 19 — PERSISTENT NIGHT SWEATS W/ NORMAL LABS
+=========================================================
+
+Q1. Duration?
+A: "Months."
+
+RED FLAGS:
+- Sweats + weight loss
+- Sweats + lymph nodes
+
+=========================================================
+SECTION 20 — UNEXPLAINED BACK PAIN + SYSTEMIC SIGNALS
+=========================================================
+
+Q1. Associated?
+A:
+- "Night pain"
+- "Weight loss"
+- "Leg weakness"
+
+RED FLAGS:
+- Back pain + weakness
+- Back pain + difficulty urinating
+- Back pain + fever
+
+=========================================================
+GENERAL RARE-SYMPTOM GLOBAL RED FLAGS
+=========================================================
+- Any neurologic deficit
+- Trouble breathing
+- Syncope with exertion
+- Unexplained weight loss
+- Persistent night sweats
+- Severe bruising or bleeding
+- Chest pain
+- Hemoptysis
+- New focal weakness
+- Back pain + bladder or bowel changes
+
+=========================================================
+END OF RARE & LOW-FREQUENCY SYMPTOMS DEEPEST DIVE FILE
+=========================================================

@@ -1,0 +1,332 @@
+GENITOURINARY (GU) SYSTEM — HealthYoda RAG DEEPEST DIVE
+=========================================================
+FULL VERSION WITH QUESTIONS + ANSWERS + RED FLAGS
+Developer-Ready RAG / Intake Knowledge Base File
+=========================================================
+
+GU COMPLAINT CLUSTERS
+----------------------
+1. Dysuria (painful urination)
+2. Urinary frequency / urgency
+3. Hematuria (blood in urine)
+4. Flank pain / kidney stones
+5. Suprapubic pain
+6. Urinary retention
+7. Incontinence
+8. Penile symptoms
+9. Testicular pain
+10. Erectile dysfunction
+11. Vaginal symptoms
+12. Pelvic pain
+13. Pregnancy-related urinary symptoms
+14. STI concerns
+15. Prostate-related issues
+
+=========================================================
+SECTION 1 — UNIVERSAL GU HPI STRUCTURE
+=========================================================
+
+ONSET:
+- "Started today."
+- "Gradual over a week."
+- "Sudden onset."
+
+DURATION:
+- Hours
+- Days
+- Weeks
+
+PATTERN:
+- Every void
+- Intermittent
+- Worse at night
+
+SEVERITY:
+- "Mild burning."
+- "Severe sharp pain."
+- "Can't urinate."
+
+LOCATION:
+- Urethral
+- Suprapubic
+- Flank
+- Pelvic region
+
+TRIGGERS:
+- After sex
+- After holding urine
+- Dehydration
+
+RELIEVING FACTORS:
+- Hydration
+- Rest
+- None
+
+ASSOCIATED SYMPTOMS:
+- Fever
+- Vomiting
+- Back pain
+- Hematuria
+- Vaginal discharge
+- Testicular pain
+- Pelvic pressure
+
+=========================================================
+SECTION 2 — DYSURIA (PAINFUL URINATION)
+=========================================================
+
+Q1. Describe the sensation.
+A: "Burning." / "Stinging." / "Sharp at end of stream."
+
+Q2. Onset?
+A: "Yesterday." / "Three days ago."
+
+Q3. Timing?
+A: "Hurts at the start." / "Hurts throughout." / "Hurts at end."
+
+Q4. Frequency?
+A: "Going every 20 minutes."
+
+Q5. Urgency?
+A: "Strong urge."
+
+Q6. Hematuria?
+A: "Pink urine." / "Bright red."
+
+Q7. Fever/flank pain?
+A: "Fever and back pain." / "No fever."
+
+Q8. Discharge?
+A: "Yellow discharge." / "White discharge." / "No discharge."
+
+DYSURIA RED FLAGS:
+- Fever + flank pain
+- Hematuria
+- Severe suprapubic pain
+- Unable to urinate
+
+=========================================================
+SECTION 3 — FREQUENCY / URGENCY
+=========================================================
+
+Q1. How often?
+A: "Every 10 minutes." / "Every hour."
+
+Q2. Volume?
+A: "Small amounts." / "Normal amount."
+
+Q3. Burning?
+A: "Yes." / "No."
+
+Q4. Leakage?
+A: "Leak with cough." / "Sudden urge leaks."
+
+=========================================================
+SECTION 4 — HEMATURIA
+=========================================================
+
+Q1. What did you see?
+A: "Pink urine." / "Bright red blood."
+
+Q2. Clots?
+A: "Yes clots." / "No clots."
+
+Q3. Flank pain?
+A: "Severe flank pain." / "Mild back pain."
+
+Q4. Trauma/exercise?
+A: "Ran marathon." / "No trauma."
+
+HEMATURIA RED FLAGS:
+- Gross hematuria
+- Hematuria + flank pain
+- Blood clots
+
+=========================================================
+SECTION 5 — FLANK PAIN / KIDNEY STONES
+=========================================================
+
+Q1. Location?
+A: "Right flank." / "Left side."
+
+Q2. Radiation?
+A: "To groin." / "Into testicle."
+
+Q3. Onset?
+A: "Sudden severe pain." / "Intermittent waves."
+
+Q4. Severity?
+A: "10/10."
+
+Q5. Nausea/vomiting?
+A: "Vomited twice."
+
+Q6. Hematuria?
+A: "Yes blood."
+
+KIDNEY STONE RED FLAGS:
+- Fever + flank pain
+- Persistent vomiting
+- Unable to hydrate
+- Suspected obstruction
+
+=========================================================
+SECTION 6 — SUPRAPUBIC PAIN
+=========================================================
+
+Q1. Pain location?
+A: "Right above pubic bone."
+
+Q2. Worse with full bladder?
+A: "Yes."
+
+Q3. Relief after urinating?
+A: "Instant relief."
+
+=========================================================
+SECTION 7 — URINARY RETENTION
+=========================================================
+
+Q1. Difficulty starting flow?
+A: "Hard to start." / "Weak stream."
+
+Q2. Abdominal fullness?
+A: "Feels full."
+
+Q3. New medications?
+A: "Antihistamines." / "Antidepressants."
+
+RETENTION RED FLAGS:
+- Unable to urinate
+- Severe lower abdominal pain
+- Fever (infection + obstruction)
+
+=========================================================
+SECTION 8 — INCONTINENCE
+=========================================================
+
+Q1. Type of leakage?
+A: "Leak when coughing." (Stress)
+   "Sudden urge then leak." (Urge)
+
+Q2. Frequency?
+A: "Daily."
+
+=========================================================
+SECTION 9 — PENILE SYMPTOMS
+=========================================================
+
+Q1. Discharge?
+A: "Yellow discharge." / "White discharge."
+
+Q2. Burning?
+A: "Burning at tip."
+
+Q3. Sores or lumps?
+A: "Small ulcer." / "Red bumps."
+
+=========================================================
+SECTION 10 — TESTICULAR PAIN
+=========================================================
+
+Q1. Side?
+A: "Right testicle."
+
+Q2. Onset?
+A: "Sudden severe pain." / "Gradual ache."
+
+Q3. Swelling?
+A: "Looks swollen."
+
+Q4. Trauma?
+A: "Sports injury."
+
+TESTICULAR RED FLAGS:
+- Sudden severe pain
+- High-riding testicle
+- Nausea + testicular pain
+
+=========================================================
+SECTION 11 — PROSTATE SYMPTOMS
+=========================================================
+
+Q1. Weak stream?
+A: "Stream is slow."
+
+Q2. Dribbling?
+A: "Yes drips."
+
+Q3. Night urination?
+A: "3–4 times nightly."
+
+=========================================================
+SECTION 12 — VAGINAL SYMPTOMS
+=========================================================
+
+Q1. Discharge?
+A: "White thick." / "Yellow." / "Bad odor."
+
+Q2. Itching?
+A: "Yes."
+
+Q3. Pelvic pain?
+A: "Dull pelvic pressure."
+
+=========================================================
+SECTION 13 — PELVIC PAIN (FEMALE)
+=========================================================
+
+Q1. Location?
+A: "Deep pelvic." / "Lower abdomen."
+
+Q2. Relation to cycle?
+A: "Worse during period."
+
+Q3. Associated?
+A: "Fever." / "Discharge." / "Pain with sex."
+
+PELVIC PAIN RED FLAGS:
+- Fever + pelvic pain
+- Severe unilateral pain (torsion)
+- Pregnancy + pain (ectopic)
+
+=========================================================
+SECTION 14 — PREGNANCY-RELATED URINARY SYMPTOMS
+=========================================================
+
+Q1. Pregnant?
+A: "Yes 8 weeks." / "Possibly."
+
+Q2. Vomiting?
+A: "Can't keep fluids."
+
+Q3. Pain/bleeding?
+A: "Lower abdominal pain." / "Spotting."
+
+=========================================================
+SECTION 15 — STI SUSPICION
+=========================================================
+
+Q1. New partner?
+A: "Yes."
+
+Q2. Discharge?
+A: "Yellow discharge."
+
+Q3. Pain?
+A: "Pelvic pressure." / "Testicle pain."
+
+=========================================================
+GU GLOBAL RED FLAGS
+=========================================================
+- Fever + flank pain
+- Sudden testicular pain
+- Complete inability to urinate
+- Gross hematuria
+- Pregnancy + abdominal pain
+- Severe dehydration
+- Testicular swelling + nausea
+
+=========================================================
+END OF GU DEEPEST DIVE FILE
+=========================================================

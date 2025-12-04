@@ -1,0 +1,270 @@
+FEMALE SEXUAL HEALTH — HealthYoda RAG DEEPEST DIVE
+=============================================================
+FULL VERSION WITH QUESTIONS + REAL PATIENT ANSWERS + RED FLAGS
+Developer-Ready RAG / Intake Knowledge Base File
+=============================================================
+
+FEMALE SEXUAL HEALTH CLUSTERS
+-----------------------------
+1. Female sexual pain disorders
+2. Female sexual arousal disorders
+3. Female orgasm disorders
+4. Vaginismus / pelvic floor spasm
+5. Vulvodynia
+6. Vaginal dryness
+7. Hormonal causes (perimenopause, menopause)
+8. Medication-related dysfunction
+9. Psychological/relationship factors
+10. Sexual trauma intake patterns
+11. STI symptom patterns
+12. Obstetric/gynecologic red flags
+13. HealthYoda triage logic
+
+=============================================================
+SECTION 1 — FEMALE SEXUAL PAIN DISORDERS
+=============================================================
+
+Dyspareunia:
+- Pain with penetration
+- Superficial vs deep pain
+
+Q1. Where is the pain felt?
+A:
+- “External, right at entry.”
+- “Deep inside.”
+
+If deep pain → consider:
+- Endometriosis
+- PID
+- Ovarian cysts
+- Uterine fibroids
+
+If superficial:
+- Vaginismus
+- Vulvodynia
+- Dryness
+
+RED FLAGS:
+- Pain with fever  
+- Pain + bleeding  
+- New severe pain  
+
+=============================================================
+SECTION 2 — FEMALE SEXUAL AROUSAL DISORDER
+=============================================================
+
+CLUES:
+- Difficulty becoming lubricated
+- Difficulty becoming physically aroused
+- Decreased genital sensitivity
+
+Q1. Arousal difficulty?
+A:
+- “Hard to get turned on physically.”
+
+ADDITIONAL CLUES:
+- Medications
+- Hormone loss
+- Stress
+
+=============================================================
+SECTION 3 — FEMALE ORGASM DISORDER
+=============================================================
+
+CLUES:
+- Delayed or absent orgasm
+- Normal desire but difficulty climaxing
+- Medication-induced
+
+Q1. Difficulty reaching orgasm?
+A:
+- “Takes very long / doesn’t happen.”
+
+MEDICATION CAUSES:
+- SSRIs
+- Antipsychotics
+
+=============================================================
+SECTION 4 — VAGINISMUS / PELVIC FLOOR SPASM
+=============================================================
+
+CLUES:
+- Tightness
+- Pain with insertion
+- Avoidance
+- Anxiety linked
+
+Q1. Does insertion feel impossible?
+A:
+- “Feels like closing shut.”
+
+RED FLAGS:
+- Severe pain preventing penetration  
+
+=============================================================
+SECTION 5 — VULVODYNIA
+=============================================================
+
+CLUES:
+- Burning
+- Stinging
+- Pain at touch/light pressure
+
+Q1. Burning even without sex?
+A:
+- “Yes.”
+
+=============================================================
+SECTION 6 — VAGINAL DRYNESS
+=============================================================
+
+CAUSES:
+- Menopause
+- Perimenopause
+- Breastfeeding
+- Medications
+- Autoimmune
+
+Q1. Lubrication problems?
+A:
+- “Very dry during sex.”
+
+RED FLAGS:
+- Pain + bleeding in menopause  
+
+=============================================================
+SECTION 7 — HORMONAL PATTERNS
+=============================================================
+
+Menopause-related:
+- Hot flashes
+- Dryness
+- Low libido
+- Mood swings
+
+Perimenopause patterns:
+- Irregular cycles
+- Variable symptoms
+
+Low Estrogen:
+- Vaginal dryness
+- Pain
+- Low libido
+
+Low Testosterone:
+- Low desire
+- Fatigue
+- Loss of strength
+
+=============================================================
+SECTION 8 — MEDICATION-INDUCED FEMALE SEXUAL DYSFUNCTION
+=============================================================
+
+Common culprits:
+- SSRIs
+- Oral contraceptives
+- Antihistamines
+- Antipsychotics
+- Opioids
+- Alcohol
+
+Q:
+- “Did symptoms start after new medication?”
+A:
+- “Yes.”
+
+=============================================================
+SECTION 9 — PSYCHOLOGICAL & RELATIONSHIP FACTORS
+=============================================================
+
+CLUES:
+- Anxiety
+- Depression
+- Stress flare
+- Relationship strain
+
+Q1. Relationship changes?
+A:
+- “Lots of stress recently.”
+
+=============================================================
+SECTION 10 — SEXUAL TRAUMA
+=============================================================
+
+CLUES:
+- Avoidance
+- Fear of intercourse
+- Flashbacks
+- Pain with intercourse
+
+Q1. Feeling safe?
+A:
+- “Not always.”
+
+=============================================================
+SECTION 11 — STI-RELATED PRESENTATIONS
+=============================================================
+
+SYMPTOMS:
+- Pelvic pain
+- Fever
+- Vaginal discharge
+- Odor change
+- Bleeding after sex
+- Burning urination
+- Ulcers/sores
+
+Consider:
+- Chlamydia
+- Gonorrhea
+- Trichomonas
+- HSV
+- Syphilis
+
+RED FLAGS:
+- Fever + pelvic pain  
+- Severe abdominal/pelvic pain  
+- Purulent discharge  
+
+=============================================================
+SECTION 12 — OB/GYN RED FLAGS (CRITICAL)
+=============================================================
+- Severe pelvic pain  
+- Pain with fever  
+- Sudden bleeding  
+- Pain + fainting  
+- Ulcers  
+- Vaginal discharge + fever  
+- Severe lower abdominal pain  
+- Positive pregnancy + pain  
+- Pain after childbirth  
+
+=============================================================
+SECTION 13 — TRIAGE LOGIC FOR HEALTHYODA
+=============================================================
+
+ASK:
+1. Pain or no pain?
+2. Where is pain located?
+3. Is dryness present?
+4. Is arousal difficult?
+5. Is orgasm difficult?
+6. Any trauma?
+7. Any discharge?
+8. Bleeding?
+9. Fever?
+10. Medications?
+11. New stress or relationship issue?
+
+ROUTE:
+- Pain + fever → PID  
+- Pain + deep pelvic pain → endometriosis  
+- External burning → vulvodynia  
+- Dryness + menopause signs → low estrogen  
+- Difficulty orgasming + SSRI → med-induced  
+- Pain with penetration → vaginismus  
+- Desire loss + fatigue → hormonal  
+
+=============================================================
+END OF FEMALE SEXUAL HEALTH FILE
+=============================================================

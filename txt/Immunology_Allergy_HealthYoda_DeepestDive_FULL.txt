@@ -1,0 +1,385 @@
+IMMUNOLOGY & ALLERGY — HealthYoda RAG DEEPEST DIVE
+=========================================================
+FULL VERSION WITH QUESTIONS + REALISTIC ANSWERS + RED FLAGS
+Developer-Ready RAG / Intake Knowledge Base File
+=========================================================
+
+IMMUNOLOGY / ALLERGY COMPLAINT CLUSTERS
+---------------------------------------
+1. Allergic rhinitis (sneezing, itchy eyes, congestion)
+2. Urticaria (hives)
+3. Angioedema (lip/tongue/face swelling)
+4. Anaphylaxis patterns
+5. Asthma/allergic wheeze
+6. Atopic dermatitis (eczema)
+7. Drug allergy reactions
+8. Food allergy reactions
+9. Insect sting reactions
+10. Latex allergy
+11. Chronic cough/post-nasal drip (allergic component)
+12. Chronic sinusitis with allergic features
+13. Recurrent infections (possible immunodeficiency)
+14. Autoimmune-type complaints (joint pain, rash, fatigue) – high level
+15. Vaccination reactions (common vs concerning)
+
+=========================================================
+SECTION 1 — UNIVERSAL ALLERGY/IMMUNOLOGY HPI STRUCTURE
+=========================================================
+
+ONSET:
+- Sudden (minutes to hours)
+- Subacute (hours to days)
+- Chronic/recurrent (weeks to months)
+
+TRIGGERS:
+- Foods
+- Medications
+- Insect stings
+- Environmental (pollen, pets, dust, mold)
+- Latex
+- Exercise
+- Cold or heat
+
+SYMPTOMS:
+- Itching
+- Hives
+- Swelling
+- Sneezing, runny nose, nasal congestion
+- Itchy/watery eyes
+- Cough/wheeze/shortness of breath
+- GI symptoms (nausea, vomiting, pain, diarrhea)
+- Dizziness, faintness
+
+RISK FACTORS:
+- Prior allergic reactions
+- Asthma history
+- Atopic history (eczema, allergic rhinitis)
+- Family history of allergy
+- Immunosuppressive meds
+
+=========================================================
+SECTION 2 — ALLERGIC RHINITIS
+=========================================================
+
+Q1. Main nasal symptoms?
+A: "Sneezing a lot." / "Runny nose." / "Stuffy nose."
+
+Q2. Eye symptoms?
+A: "Itchy watery eyes."
+
+Q3. Timing?
+A: "Worse in spring." / "All year around."
+
+Q4. Triggers?
+A: "Around cats." / "Outdoors."
+
+Q5. Associated symptoms?
+A: "Post-nasal drip and cough."
+
+RED FLAGS (NON-EMERGENT BUT NOTE):
+- Severe sinus pain
+- Recurrent sinus infections
+- Asthma flares with allergy
+
+=========================================================
+SECTION 3 — URTICARIA (HIVES)
+=========================================================
+
+Q1. Describe the rash.
+A: "Raised, red, itchy welts."
+
+Q2. Onset after exposure?
+A: "Started 30 minutes after eating shrimp."
+
+Q3. Duration of each lesion?
+A: "Each spot lasts less than a day and moves around."
+
+Q4. Associated swelling?
+A: "Lips slightly swollen."
+
+Q5. Breathing issues?
+A: "Breathing is normal." / "A bit tight."
+
+HIVES RED FLAGS:
+- Hives + trouble breathing
+- Hives + lip/tongue/throat swelling
+- Hives + dizziness/faintness
+
+=========================================================
+SECTION 4 — ANGIOEDEMA
+=========================================================
+
+Q1. What is swollen?
+A: "Lips." / "Tongue." / "Eyelids." / "Face."
+
+Q2. Onset?
+A: "Sudden swelling."
+
+Q3. Associated with?
+A: "New blood pressure medicine (ACE inhibitor)." / "Food exposure."
+
+Q4. Breathing/swallowing?
+A: "Hard to swallow." / "No trouble swallowing."
+
+ANGIOEDEMA RED FLAGS:
+- Tongue or throat swelling
+- Trouble breathing or swallowing
+- Change in voice/stridor
+- Angioedema on ACE inhibitor
+
+=========================================================
+SECTION 5 — ANAPHYLAXIS PATTERNS
+=========================================================
+
+Typical combination:
+- Skin/mucosa (hives, flushing, swelling)
+- Respiratory (wheeze, throat tightness)
+- GI (vomiting, cramps)
+- Cardiovascular (dizziness, low BP)
+
+Q1. What triggered it?
+A: "Peanut." / "Bee sting." / "Medication."
+
+Q2. Time from exposure to symptoms?
+A: "Within 10–20 minutes."
+
+Q3. Skin symptoms?
+A: "Diffuse hives."
+
+Q4. Breathing?
+A: "Wheezing." / "Throat feels tight."
+
+Q5. Circulation?
+A: "Feeling faint."
+
+ANAPHYLAXIS RED FLAGS (CRITICAL):
+- Any respiratory compromise
+- Any cardiovascular compromise
+- Rapid symptom progression
+- History of prior anaphylaxis
+
+=========================================================
+SECTION 6 — ASTHMA / ALLERGIC WHEEZE
+=========================================================
+
+Q1. Cough or wheeze?
+A: "Wheezing and tight chest."
+
+Q2. Triggered by?
+A: "Dust." / "Pollen." / "Animals." / "Exercise."
+
+Q3. Nighttime symptoms?
+A: "Worse at night."
+
+Q4. Prior asthma diagnosis?
+A: "Yes asthma as a child."
+
+ASTHMA RED FLAGS:
+- Speaking in short phrases only
+- Using accessory muscles
+- Not responding to inhaler
+- Blue lips or nail beds
+
+=========================================================
+SECTION 7 — ATOPIC DERMATITIS (ECZEMA)
+=========================================================
+
+Q1. Rash description?
+A: "Dry, itchy, scaly patches."
+
+Q2. Locations?
+A: "Flexural creases (elbows, knees)." / "Hands."
+
+Q3. Chronic or intermittent?
+A: "Since childhood, flares in winter."
+
+Q4. Triggers?
+A: "Soaps, weather, stress."
+
+ECZEMA RED FLAGS (LOW-ACUITY BUT NOTE):
+- Weeping, crusted lesions (possible infection)
+- Extensive body surface involvement
+
+=========================================================
+SECTION 8 — DRUG ALLERGY REACTIONS
+=========================================================
+
+Q1. What medication and when started?
+A: "Amoxicillin started 5 days ago."
+
+Q2. Symptoms?
+A:
+- "Itchy rash."
+- "Hives."
+- "Facial swelling."
+
+Q3. Timing vs dose?
+A: "Rash started after second dose."
+
+Q4. Respiratory or GI symptoms?
+A: "Throat itching." / "Vomiting."
+
+DRUG ALLERGY RED FLAGS:
+- Hives + breathing difficulty
+- Facial/tongue swelling
+- Blistering rash, mucosal involvement (SJS/TEN pattern)
+- Hypotension/fainting
+
+=========================================================
+SECTION 9 — FOOD ALLERGY REACTIONS
+=========================================================
+
+Q1. Suspected food?
+A: "Peanuts." / "Shellfish." / "Eggs." / "Milk."
+
+Q2. Time from eating to symptoms?
+A: "Within minutes." / "Within 1 hour."
+
+Q3. Symptoms?
+A:
+- "Itchy mouth."
+- "Hives."
+- "Vomiting."
+- "Wheeze."
+
+FOOD ALLERGY RED FLAGS:
+- Throat tightness
+- Tongue/lip swelling
+- Repeated vomiting
+- Wheezing or shortness of breath
+- Dizziness/faintness
+
+=========================================================
+SECTION 10 — INSECT STING REACTIONS
+=========================================================
+
+Q1. Local vs generalized?
+A:
+- "Large local swelling around sting."
+- "Hives all over."
+
+Q2. Breathing symptoms?
+A: "Wheezing." / "No breathing issues."
+
+Q3. Prior reactions?
+A: "Previous mild reaction."
+
+INSECT STING RED FLAGS:
+- Systemic symptoms (hives away from sting)
+- Breathing difficulty
+- Lip/tongue/throat swelling
+- Dizziness
+
+=========================================================
+SECTION 11 — LATEX ALLERGY
+=========================================================
+
+Q1. Reactions to gloves or balloons?
+A: "Hands itchy and red with gloves."
+
+Q2. Respiratory symptoms?
+A: "Sneezing and wheeze in hospital."
+
+LATEX RED FLAGS:
+- Generalized hives
+- Respiratory symptoms
+- Anaphylaxis history with latex
+
+=========================================================
+SECTION 12 — CHRONIC COUGH / POST-NASAL DRIP (ALLERGIC)
+=========================================================
+
+Q1. Duration?
+A: "Several weeks."
+
+Q2. Nasal or throat symptoms?
+A: "Post-nasal drip, throat clearing."
+
+Q3. Triggers?
+A: "Worse around dust or pets."
+
+=========================================================
+SECTION 13 — CHRONIC SINUSITIS WITH ALLERGIC FEATURES
+=========================================================
+
+Q1. Facial pressure?
+A: "Pressure around eyes and cheeks."
+
+Q2. Duration?
+A: "More than 12 weeks."
+
+Q3. Associated?
+A: "Nasal congestion and thick mucus."
+
+SINUS RED FLAGS:
+- High fever
+- Eye swelling
+- Severe frontal headache
+- Vision changes
+
+=========================================================
+SECTION 14 — RECURRENT INFECTIONS (IMMUNODEFICIENCY FLAGS)
+=========================================================
+
+Q1. How many infections per year?
+A: "Multiple sinus and chest infections."
+
+Q2. Need for repeated antibiotics?
+A: "Yes frequent antibiotics."
+
+Q3. Type of infections?
+A: "Sinusitis, pneumonia, ear infections."
+
+IMMUNODEFICIENCY RED FLAGS:
+- Recurrent severe infections
+- Unusual organisms
+- Poor growth in children
+- Infections not responding to usual treatment
+
+=========================================================
+SECTION 15 — AUTOIMMUNE-TYPE COMPLAINTS (HIGH LEVEL)
+=========================================================
+
+Q1. Joint pain or swelling?
+A: "Morning stiffness in hands."
+
+Q2. Rashes?
+A: "Butterfly-like rash on face." / "Sun-sensitive rash."
+
+Q3. Mouth ulcers?
+A: "Recurrent mouth sores."
+
+AUTOIMMUNE RED FLAGS (for escalation):
+- Joint pain + prolonged morning stiffness
+- Rash + systemic symptoms (fever, weight loss)
+- Hematuria or frothy urine with systemic complaints
+
+=========================================================
+SECTION 16 — VACCINATION REACTIONS
+=========================================================
+
+COMMON:
+- Sore arm
+- Low-grade fever
+- Mild fatigue
+
+CONCERNING:
+- Immediate hives
+- Lip/tongue swelling
+- Trouble breathing
+- High fever and ill appearance
+
+=========================================================
+IMMUNOLOGY / ALLERGY GLOBAL RED FLAGS
+=========================================================
+- Any trouble breathing
+- Wheezing or stridor
+- Lip, tongue, or throat swelling
+- Hives with dizziness/faintness
+- Recurrent severe infections
+- Blistering skin + mucosal involvement after new drug
+- Persistent high fever with rash and systemic symptoms
+
+=========================================================
+END OF IMMUNOLOGY & ALLERGY DEEPEST DIVE FILE
+=========================================================

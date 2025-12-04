@@ -1,0 +1,347 @@
+GERIATRIC SYNDROMES — HealthYoda RAG DEEPEST DIVE
+====================================================================
+FULL VERSION WITH QUESTIONS + REAL PATIENT ANSWERS + RED FLAGS
+Developer-Ready RAG / Intake Knowledge Base File
+====================================================================
+
+CORE GERIATRIC SYNDROME CLUSTERS
+--------------------------------
+1. Frailty patterns
+2. Falls / instability
+3. Delirium
+4. Dementia patterns
+5. Polypharmacy effects
+6. Urinary incontinence types
+7. Constipation syndromes
+8. Malnutrition / weight loss
+9. Pain in the elderly
+10. Depression vs cognitive decline
+11. Geriatric sleep disturbance patterns
+12. Skin breakdown & pressure injuries
+13. Elder abuse and neglect
+14. Global geriatric red flags
+15. Triage logic for HealthYoda
+
+====================================================================
+SECTION 1 — FRAILTY
+====================================================================
+
+CLUES:
+- Low strength
+- Slow walking
+- Exhaustion
+- Weight loss
+- Frequent illness
+- Reduced activity
+
+Q1. Energy?
+A:
+- “Feel weak and tired all day.”
+
+Q2. Walking?
+A:
+- “Slow, need to stop often.”
+
+RED FLAGS:
+- Rapid functional decline  
+- Weight loss without trying  
+
+====================================================================
+SECTION 2 — FALLS
+====================================================================
+
+COMMON CAUSES:
+- Gait instability
+- Weakness
+- Medication effects
+- Dehydration
+- Vision problems
+- Neurologic disease
+
+Q1. Why did you fall?
+A:
+- “Lost balance.”
+
+Q2. How many falls?
+A:
+- “Three this month.”
+
+RED FLAGS:
+- Falls + head injury  
+- Falls + anticoagulants  
+
+====================================================================
+SECTION 3 — DELIRIUM (ACUTE CONFUSION)
+====================================================================
+
+CLUES:
+- Sudden confusion
+- Fluctuates day to day
+- Hallucinations
+- Sleep-wake cycle change
+
+Q1. When did confusion start?
+A:
+- “Suddenly yesterday.”
+
+COMMON TRIGGERS:
+- Infection
+- Medications
+- Dehydration
+- Pain
+- Hospitalization
+
+RED FLAGS:
+- Fever + confusion  
+- Inability to wake  
+- New hallucinations  
+
+====================================================================
+SECTION 4 — DEMENTIA
+====================================================================
+
+Alzheimer’s:
+- Memory loss first
+- Repetition
+- Word finding issues
+
+Vascular:
+- Stepwise decline
+- Stroke history
+
+Lewy Body:
+- Fluctuating alertness
+- Hallucinations
+- Parkinson-like
+
+Frontotemporal:
+- Personality change
+- Behavior issues
+
+Q:
+- “What changed recently?”
+A:
+- “Memory slipping over months.”
+
+RED FLAGS:
+- Sudden major change  
+- Difficulty swallowing  
+
+====================================================================
+SECTION 5 — POLYPHARMACY
+====================================================================
+
+High-risk indicators:
+- >5 medications
+- Sedatives
+- Sleeping pills
+- Anticholinergics
+- Opioids
+- Benzos
+
+Q1. Any new medications?
+A:
+- “Started two new pills.”
+
+RED FLAGS:
+- Confusion after med change  
+- Falls after med change  
+
+====================================================================
+SECTION 6 — URINARY INCONTINENCE
+====================================================================
+
+STRESS:
+- Leakage with cough/laugh
+
+URGE:
+- Sudden urge
+
+OVERFLOW:
+- Dribbling
+- Weak stream
+
+FUNCTIONAL:
+- Can’t reach toilet
+
+Q1. When do leaks happen?
+A:
+- “When coughing.”
+
+RED FLAGS:
+- Blood in urine  
+- Fever + abdominal pain  
+
+====================================================================
+SECTION 7 — CONSTIPATION
+====================================================================
+
+CLUES:
+- Hard stool
+- Straining
+- Inability to evacuate
+- Pain
+- Decreased appetite
+
+COMMON CAUSES:
+- Medications
+- Dehydration
+- Immobility
+
+RED FLAGS:
+- Constipation + vomiting  
+- Black stools  
+
+====================================================================
+SECTION 8 — MALNUTRITION & WEIGHT LOSS
+====================================================================
+
+CAUSES:
+- Depression
+- Dementia
+- Oral pain
+- Poor access
+- Medication effects
+
+Q1. Appetite?
+A:
+- “Eating less lately.”
+
+RED FLAGS:
+- Rapid weight loss  
+- Difficulty swallowing  
+
+====================================================================
+SECTION 9 — PAIN PRESENTATIONS
+====================================================================
+
+Elder pain differs:
+- Vague complaints
+- Fatigue
+- Functional decline
+
+Common causes:
+- Osteoarthritis
+- Neuropathic pain
+- Spinal stenosis
+
+RED FLAGS:
+- Severe back pain + weakness  
+- Pain + confusion  
+
+====================================================================
+SECTION 10 — DEPRESSION IN ELDERLY
+====================================================================
+
+CLUES:
+- Low interest
+- Sleep change
+- Appetite change
+- Withdrawal
+
+Often misdiagnosed as dementia
+
+Q1. Mood?
+A:
+- “Feel sad most days.”
+
+RED FLAGS:
+- Suicidal thoughts  
+
+====================================================================
+SECTION 11 — SLEEP DISTURBANCE
+====================================================================
+
+CAUSES:
+- Medications
+- Pain
+- Anxiety
+- Urinary frequency
+- Sleep apnea
+
+Q:
+- “Up often at night?”
+
+A:
+- “Yes, several times.”
+
+====================================================================
+SECTION 12 — SKIN BREAKDOWN
+====================================================================
+
+CLUES:
+- Pain on pressure points
+- Redness
+- Breakdown
+
+Risk factors:
+- Immobility
+- Incontinence
+- Malnutrition
+
+RED FLAGS:
+- Rapid spreading redness  
+- Fever  
+
+====================================================================
+SECTION 13 — ELDER ABUSE/NEGLECT
+====================================================================
+
+TYPES:
+- Physical
+- Emotional
+- Financial
+- Neglect
+
+CLUES:
+- Bruises
+- Withdrawal
+- Poor hygiene
+- Fear of caregiver
+
+Q1. Do you feel safe?
+A:
+- “Sometimes no.”
+
+====================================================================
+SECTION 14 — GLOBAL GERIATRIC RED FLAGS
+====================================================================
+- Sudden confusion  
+- Falls + head injury  
+- Rapid decline  
+- Fever + confusion  
+- Black/tarry stools  
+- Blood in urine  
+- Inability to stand  
+- Inability to eat or drink  
+- Severe dehydration  
+- New severe pain  
+- Suicidal thoughts  
+
+====================================================================
+SECTION 15 — GERIATRIC TRIAGE LOGIC (for HealthYoda)
+====================================================================
+
+ASK:
+1. Any falls recently?
+2. Confusion sudden or gradual?
+3. Appetite / weight?
+4. Pain anywhere?
+5. Med changes?
+6. Ability to walk?
+7. Urinary symptoms?
+8. Mood?
+9. Sleep?
+10. Support at home?
+
+ROUTE:
+- Sudden confusion → delirium  
+- Falls + meds → polypharmacy  
+- Weight loss + withdrawal → depression/neglect  
+- Urinary urgency + incontinence → urge type  
+- Weakness + falls → frailty  
+- Pressure pain + immobility → skin breakdown risk  
+
+====================================================================
+END OF FILE
+====================================================================

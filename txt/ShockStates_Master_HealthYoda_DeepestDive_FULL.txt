@@ -1,0 +1,342 @@
+SHOCK STATES — MASTER DEEP DIVE (HealthYoda RAG)
+=======================================================
+FULL VERSION WITH QUESTIONS + REALISTIC PATIENT ANSWERS + RED FLAGS
+Developer-Ready RAG / Intake Knowledge Base File
+=======================================================
+
+SHOCK STATE CLUSTERS
+--------------------
+1. Hypovolemic shock
+2. Hemorrhagic shock
+3. Cardiogenic shock
+4. Obstructive shock (PE, tamponade, tension PTX)
+5. Distributive shock (sepsis, anaphylaxis)
+6. Neurogenic shock
+7. Adrenal crisis “shock”
+8. Mixed/undifferentiated shock
+9. Global shock recognition logic
+10. Ultra-high-risk red flags
+
+=======================================================
+SECTION 1 — UNIVERSAL SHOCK RECOGNITION (SYMPTOMS ONLY)
+=======================================================
+
+CORE SYMPTOMS:
+- Severe weakness
+- Dizziness/lightheadedness
+- Confusion
+- Feeling faint
+- Shortness of breath
+- Cold/clammy or hot/flushed skin
+- Rapid heart rate or very slow
+- Low urine output (“not peeing much”)
+- Sense of doom
+
+Q1. How do you feel?
+A:
+- “Very weak and dizzy.”
+- “Feel like I’m going to pass out.”
+
+Q2. Breathing?
+A:
+- “Hard to breathe.”
+- “Breathing fast.”
+
+Q3. Skin temperature?
+A:
+- “Cold and sweaty.”
+- “Hot and flushed.”
+
+Q4. Urine?
+A:
+- “Barely peed today.”
+
+RED FLAGS:
+- Fainting + cold/clammy skin  
+- Confusion  
+- Fast breathing + dizziness  
+- Very little pee  
+- Severe chest/abdominal pain with faintness  
+
+=======================================================
+SECTION 2 — HYPOVOLEMIC SHOCK
+=======================================================
+
+CAUSES:
+- Dehydration (vomiting/diarrhea)
+- Severe burns
+- Diabetes insipidus
+
+CLUES:
+- Dry mouth, extreme thirst
+- Weakness
+- Dizziness on standing
+- Cold hands/feet
+- History of fluid losses
+
+Q1. Fluid loss?
+A:
+- “Been vomiting nonstop.”
+- “Severe diarrhea for days.”
+
+Q2. Thirst?
+A:
+- “Extremely thirsty.”
+
+RED FLAGS:
+- Confusion  
+- Fast breathing  
+- Inability to keep fluids down  
+
+=======================================================
+SECTION 3 — HEMORRHAGIC SHOCK
+=======================================================
+
+CAUSES:
+- GI bleeding
+- Trauma
+- Postpartum bleeding
+- Ruptured AAA
+- Ruptured ectopic pregnancy
+
+CLUES:
+- Sudden weakness
+- Dizziness/fainting
+- Paleness
+- Rapid heartbeat
+- Black/tarry stools or vomiting blood
+- Severe abdominal/pelvic pain
+
+Q1. Bleeding?
+A:
+- “Black stools.”
+- “Vomited blood.”
+- “Heavy vaginal bleeding.”
+
+Q2. Pain?
+A:
+- “Severe lower abdominal pain.”
+
+RED FLAGS:
+- Fainting + abdominal/back pain  
+- Vomiting blood  
+- Maroon/black stools  
+- Heavy vaginal bleeding  
+
+=======================================================
+SECTION 4 — CARDIOGENIC SHOCK
+=======================================================
+
+CAUSES:
+- Severe heart attack
+- Advanced heart failure
+- Arrhythmias
+- Cardiomyopathy
+
+CLUES:
+- Severe shortness of breath
+- Chest pain or heaviness
+- Palpitations
+- Cold/clammy skin
+- Swelling
+- History of CHF/heart disease
+
+Q1. Chest symptoms?
+A:
+- “Heavy pressure in chest.”
+
+Q2. Breathing?
+A:
+- “Can’t catch my breath.”
+
+RED FLAGS:
+- Chest pain + fainting  
+- Pink frothy sputum  
+- Blue lips/fingers  
+
+=======================================================
+SECTION 5 — OBSTRUCTIVE SHOCK
+=======================================================
+
+A. **PULMONARY EMBOLISM (massive)**
+- Sudden SOB
+- Chest pain
+- Fainting
+- Cold/clammy skin
+
+B. **TAMPONADE**
+- Weakness
+- Trouble lying flat
+- Chest pressure
+- Dizziness
+
+C. **TENSION PNEUMOTHORAX**
+- Sudden chest pain
+- Severe SOB
+- Anxiety
+- Collapsed lung history-level
+
+Q1. Sudden breathing changes?
+A:
+- “Felt like I couldn’t breathe out of nowhere.”
+
+RED FLAGS:
+- Sudden SOB + fainting  
+- Chest pain + cold/clammy skin  
+- Trouble lying flat + dizziness  
+
+=======================================================
+SECTION 6 — DISTRIBUTIVE SHOCK (SEPSIS / ANAPHYLAXIS)
+=======================================================
+
+A. **SEPSIS**
+- Fever or very low temperature
+- Confusion
+- Fast breathing
+- Fast HR
+- Weakness
+- Recent infection/illness
+
+Q1. Infection?
+A:
+- “Had fever/cough for days.”
+
+RED FLAGS:
+- Confusion + fever  
+- Rapid breathing  
+- Very low BP symptoms  
+
+B. **ANAPHYLAXIS**
+- Hives
+- Throat tightness
+- Wheezing
+- Swelling of lips/tongue
+- Vomiting
+
+Q1. New food/med/exposure?
+A:
+- “Ate peanuts / new antibiotic.”
+
+RED FLAGS:
+- Trouble breathing  
+- Throat closing  
+- Swollen lips/tongue  
+
+=======================================================
+SECTION 7 — NEUROGENIC SHOCK
+=======================================================
+
+CAUSES:
+- Spinal cord injury
+- Trauma
+
+CLUES:
+- Warm, dry skin
+- Low heart rate
+- Dizziness
+- Weakness/paralysis
+
+Q1. Recent trauma?
+A:
+- “Fell and hit my back.”
+
+RED FLAGS:
+- Weakness below injury  
+- Loss of bowel/bladder control  
+
+=======================================================
+SECTION 8 — ADRENAL CRISIS “SHOCK”
+=======================================================
+
+CAUSES:
+- Addison’s
+- Steroid withdrawal
+- Severe infection in adrenal-insufficient patient
+
+CLUES:
+- Severe fatigue
+- Nausea/vomiting
+- Abdominal pain
+- Salt craving
+- Dizziness on standing
+- Darkened skin (history-level)
+
+Q1. Steroid use?
+A:
+- “Stopped steroids recently.”
+
+Q2. Nausea/vomiting?
+A:
+- “Can’t keep anything down.”
+
+RED FLAGS:
+- Severe vomiting + dizziness  
+- Confusion  
+- Very low energy + fainting  
+
+=======================================================
+SECTION 9 — MIXED/UNDIFFERENTIATED SHOCK
+=======================================================
+
+CLUES:
+- Severe illness with multiple organ symptoms
+- Unclear cause
+- Very low energy
+- Confusion
+- Cold/clammy or flushed skin
+- Fast breathing
+
+Q1. What changed suddenly?
+A:
+- “Suddenly felt extremely weak.”
+
+RED FLAGS:
+- Confusion  
+- Severe SOB  
+- Rapid heart rate  
+- Not urinating  
+
+=======================================================
+SECTION 10 — SHOCK TRIAGE LOGIC FOR HEALTHYODA
+=======================================================
+
+ASK:
+1. Chest pain?
+2. Shortness of breath?
+3. Abdominal pain?
+4. Bleeding?
+5. Fever?
+6. Trauma?
+7. Leg swelling?
+8. Vomiting/diarrhea?
+9. Allergic reaction?
+10. Recent illness?
+
+ROUTE:
+- Chest pain + fainting → cardiogenic or dissection  
+- Sudden SOB + fainting → massive PE  
+- Abdominal pain + fainting → ruptured AAA / hemorrhage  
+- Fever + confusion → septic shock  
+- Hives + trouble breathing → anaphylaxis  
+- Trauma + paralysis → neurogenic shock  
+- Vomiting/diarrhea + dizziness → hypovolemic  
+- Stopped steroids + dizziness → adrenal crisis  
+
+=======================================================
+SECTION 11 — GLOBAL SHOCK RED FLAGS (PATIENT-LEVEL)
+=======================================================
+- Fainting or near-fainting  
+- Confusion  
+- Cold, sweaty, grayish skin  
+- Severe shortness of breath  
+- Chest pain  
+- Rapid heartbeat  
+- Weak pulse  
+- Barely urinating  
+- Severe abdominal/back pain  
+- Sudden leg swelling + SOB  
+- Seizures or unresponsiveness  
+
+=======================================================
+END OF SHOCK STATES MASTER FILE
+=======================================================

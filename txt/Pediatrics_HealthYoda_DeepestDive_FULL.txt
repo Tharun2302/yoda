@@ -1,0 +1,340 @@
+PEDIATRICS — HealthYoda RAG DEEPEST DIVE
+=========================================================
+FULL VERSION WITH QUESTIONS + REALISTIC ANSWERS + RED FLAGS
+Developer-Ready RAG / Intake Knowledge Base File
+=========================================================
+
+PEDIATRIC AGE GROUPS (For symptom interpretation)
+-------------------------------------------------
+1. Infant: 0–12 months
+2. Toddler: 1–3 years
+3. Young child: 4–8 years
+4. Older child: 9–12 years
+5. Adolescent: 13–17 years
+
+=========================================================
+PEDIATRIC COMPLAINT CLUSTERS
+---------------------------------------------------------
+1. Fever (infant vs child rules)
+2. Poor feeding
+3. Vomiting / diarrhea
+4. Abdominal pain
+5. Cough / congestion / wheezing
+6. Sore throat
+7. Ear pain
+8. Rash
+9. Lethargy vs irritability
+10. Dehydration
+11. Breathing difficulty
+12. Seizures / febrile seizures
+13. Urinary symptoms
+14. Limping child
+15. Injuries / trauma patterns
+16. Behavioral changes
+17. School-related concerns
+18. Vaccination reactions
+19. Newborn-specific symptoms
+20. Red-flag pediatric emergencies
+
+=========================================================
+SECTION 1 — FEVER (AGE-SPECIFIC LOGIC)
+=========================================================
+
+Q1. Child’s age?
+A: "6 months." / "2 years." / "8 years."
+
+Q2. Highest temperature?
+A: "102°F." / "104°F."
+
+Q3. Duration?
+A: "Started today." / "3 days."
+
+Q4. Symptoms?
+A: "Cough." / "Vomiting." / "Rash."
+
+INFANT FEVER RED FLAGS (0–3 months):
+- Fever ≥100.4°F in infant <3 months (emergent)
+- Poor feeding
+- Lethargy
+- Weak cry
+- Trouble breathing
+
+CHILD FEVER RED FLAGS:
+- Fever >105°F
+- Stiff neck
+- Purple rash
+- Severe headache
+- Breathing difficulty
+
+=========================================================
+SECTION 2 — POOR FEEDING
+=========================================================
+
+Q1. Amount eaten compared to usual?
+A: "Drinking half usual milk."
+
+Q2. Wet diapers?
+A: "Only 2 today."
+
+Q3. Vomiting?
+A: "Spits up everything."
+
+POOR FEEDING RED FLAGS:
+- <3 wet diapers/day
+- Refuses all feeds
+- Lethargy
+- Dry mouth, no tears
+
+=========================================================
+SECTION 3 — VOMITING / DIARRHEA
+=========================================================
+
+Q1. Vomiting frequency?
+A: "5 times today."
+
+Q2. Diarrhea?
+A: "Loose watery."
+
+Q3. Able to keep fluids?
+A: "Vomits even sips."
+
+Q4. Urine output?
+A: "Few wet diapers."
+
+GI RED FLAGS:
+- Bloody stools
+- Bilious (green) vomiting
+- Severe abdominal pain
+- No urine output
+- Lethargy
+
+=========================================================
+SECTION 4 — ABDOMINAL PAIN
+=========================================================
+
+Q1. Pain location?
+A: "Around belly button." / "Right side."
+
+Q2. Severity?
+A: "Crying in pain."
+
+Q3. Vomiting?
+A: "Vomited once."
+
+Q4. Walking?
+A: "Doesn’t want to walk."
+
+ABD PAIN RED FLAGS:
+- RLQ pain + fever (appendicitis)
+- Severe pain + vomiting
+- Blood in stools
+- Inability to walk
+- Pain + testicular pain (torsion)
+
+=========================================================
+SECTION 5 — COUGH / CONGESTION / WHEEZING
+=========================================================
+
+Q1. Cough type?
+A: "Barking cough." (croup)
+A: "Wet cough."
+A: "Dry cough."
+
+Q2. Breathing difficulty?
+A: "Struggling to breathe."
+
+Q3. Wheezing?
+A: "Yes wheezing."
+
+COUGH RED FLAGS:
+- Stridor (croup severe)
+- Retractions
+- Bluish lips
+- Fast breathing (age-specific)
+- Poor feeding + cough (infant)
+
+=========================================================
+SECTION 6 — SORE THROAT
+=========================================================
+
+Q1. Fever?
+A: "101°F."
+
+Q2. Swallowing?
+A: "Hurts to swallow."
+
+Q3. Drooling?
+A: "Drooling a lot."
+
+RED FLAGS:
+- Drooling + neck stiffness
+- Severe unilateral throat pain
+- Muffled voice
+
+=========================================================
+SECTION 7 — EAR PAIN
+=========================================================
+
+Q1. Pulling at ear?
+A: "Pulling right ear."
+
+Q2. Fever?
+A: "Yes mild fever."
+
+=========================================================
+SECTION 8 — RASH
+=========================================================
+
+Q1. Rash type?
+A: "Red bumps." / "Flat red spots."
+
+Q2. Itchy?
+A: "Yes itchy."
+
+Q3. Fever?
+A: "Fever with rash."
+
+RASH RED FLAGS:
+- Purple rash not blanching (meningococcemia)
+- Rash + fever + neck stiffness
+- Rash + trouble breathing (allergy)
+
+=========================================================
+SECTION 9 — LETHARGY VS IRRITABILITY
+=========================================================
+
+Q1. Hard to wake?
+A: "Very hard to wake."
+
+Q2. Crying?
+A: "Inconsolable crying."
+
+RED FLAGS:
+- Lethargy
+- Inconsolable cry
+- Bulging fontanelle (infants)
+
+=========================================================
+SECTION 10 — BREATHING DIFFICULTY
+=========================================================
+
+Q1. Breathing fast?
+A: "Breathing very fast."
+
+Q2. Retractions?
+A: "Ribs visible when breathing."
+
+Q3. Lips blue?
+A: "Yes slight bluish lips."
+
+RED FLAGS:
+- Retractions
+- Cyanosis
+- Grunting (infant)
+- Nasal flaring (infant)
+
+=========================================================
+SECTION 11 — SEIZURES / FEBRILE SEIZURES
+=========================================================
+
+Q1. Duration?
+A: "Lasted 1 minute."
+
+Q2. Fever?
+A: "Yes fever before seizure."
+
+RED FLAGS:
+- Seizure >5 minutes
+- Repeated seizures
+- No return to baseline
+
+=========================================================
+SECTION 12 — URINARY SYMPTOMS
+=========================================================
+
+Q1. Pain with urination?
+A: "Hurts when peeing."
+
+Q2. Frequency?
+A: "Goes very often."
+
+UTI RED FLAGS:
+- Fever + back pain
+- Vomiting + urinary symptoms
+
+=========================================================
+SECTION 13 — LIMPING CHILD
+=========================================================
+
+Q1. Onset?
+A: "Started today."
+
+Q2. Pain?
+A: "Hip pain."
+
+RED FLAGS:
+- Refuses to walk
+- Fever + limp (septic joint)
+- Severe hip pain
+
+=========================================================
+SECTION 14 — HEADACHE IN CHILDREN
+=========================================================
+
+Q1. New or recurrent?
+A: "New severe headache."
+
+Q2. Fever?
+A: "Yes fever."
+
+RED FLAGS:
+- Morning vomiting
+- Fever + neck stiffness
+- Vision changes
+
+=========================================================
+SECTION 15 — BEHAVIORAL CHANGES
+=========================================================
+
+Q1. School performance?
+A: "Doing worse."
+
+Q2. Sleep?
+A: "Poor sleep."
+
+=========================================================
+SECTION 16 — NEWBORN-SPECIFIC SYMPTOMS
+=========================================================
+
+Q1. Feeding?
+A: "Feeding poorly."
+
+Q2. Wet diapers?
+A: "Only 2 today."
+
+NEWBORN RED FLAGS:
+- Fever <3 months
+- Poor feeding
+- Lethargy
+- Vomiting green (bilious)
+
+=========================================================
+SECTION 17 — PEDIATRIC EMERGENCY RED FLAGS
+=========================================================
+- Fever <3 months
+- Trouble breathing / retractions
+- Blue lips
+- Unresponsiveness
+- Seizure >5 minutes
+- Stiff neck
+- Petechial/purpuric rash
+- Not drinking + no urine
+- Severe abdominal pain
+- Testicular pain
+- Bulging fontanelle
+- High-pitched cry
+- Head injury with vomiting
+
+=========================================================
+END OF PEDIATRICS DEEPEST DIVE FILE
+=========================================================

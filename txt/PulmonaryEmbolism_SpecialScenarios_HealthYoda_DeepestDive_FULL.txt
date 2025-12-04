@@ -1,0 +1,417 @@
+PULMONARY EMBOLISM — SPECIAL SCENARIOS DEEP DIVE (HealthYoda RAG)
+===================================================================
+FULL VERSION WITH QUESTIONS + REALISTIC PATIENT ANSWERS + RED FLAGS
+Developer-Ready RAG / Intake Knowledge Base File
+===================================================================
+
+PE SCENARIO CLUSTERS
+--------------------
+1. Classic PE presentation
+2. Massive vs submassive vs low-risk PE (symptom-level)
+3. Atypical PE presentations
+4. PE with minimal or no chest pain
+5. PE in pregnancy & postpartum
+6. PE in cancer patients
+7. Post-operative and immobilization-related PE
+8. PE associated with DVT symptoms
+9. Chronic thromboembolic pulmonary hypertension (CTEPH)
+10. Recurrent PE / hypercoagulable states
+11. PE mimics and differentials (symptom discrimination)
+12. Syncope and shock with PE
+13. PE in young, “healthy” patients
+14. PE after COVID-19 or severe infection
+15. Global PE red-flag symptom patterns
+
+===================================================================
+SECTION 1 — CLASSIC PE PRESENTATION
+===================================================================
+
+CORE TRIAD (NOT ALWAYS ALL PRESENT):
+- Sudden onset shortness of breath
+- Pleuritic chest pain (sharp, worse on deep breath)
+- Tachycardia (+/- cough, hemoptysis)
+
+Q1. When did your symptoms start?
+A:
+- “Very suddenly a few hours ago.”
+- “Came on quickly this morning.”
+
+Q2. Describe your breathing.
+A:
+- “Feels like I can’t get enough air.”
+- “Short of breath, even at rest.”
+
+Q3. Chest pain?
+A:
+- “Sharp pain when I take a deep breath.”
+- “Pain on the side of my chest.”
+
+Q4. Cough or blood?
+A:
+- “Dry cough.”
+- “Saw streaks of blood in my sputum.”
+
+CLASSIC PE RED FLAGS:
+- Sudden SOB of unclear cause
+- Pleuritic chest pain + risk factors
+- Tachycardia + hypoxia
+- Hemoptysis with SOB
+
+===================================================================
+SECTION 2 — MASSIVE VS SUBMASSIVE VS LOW-RISK PE (SYMPTOM-LEVEL)
+===================================================================
+
+MASSIVE PE (hemodynamic instability):
+- Hypotension
+- Syncope
+- Shock
+- Confusion
+- Cold, clammy skin
+- Severe SOB
+
+Q1. Any fainting or near-fainting?
+A:
+- “Passed out briefly.”
+- “Almost blacked out.”
+
+SUBMASSIVE PE (RV strain, but normal BP):
+- SOB at rest
+- Chest pain
+- Tachycardia
+- Anxiety, sense of doom
+
+LOW-RISK PE:
+- Stable vitals
+- Pleuritic pain + SOB on exertion
+- Mild or no hypoxia
+
+RED FLAGS FOR MASSIVE PE:
+- Low blood pressure
+- Confusion or altered mental status
+- Chest pain + severe SOB
+- Cold, sweaty, grayish appearance
+
+===================================================================
+SECTION 3 — ATYPICAL PE PRESENTATIONS
+===================================================================
+
+ATYPICAL SYMPTOMS:
+- Isolated mild dyspnea
+- Unexplained tachycardia
+- Isolated syncope without chest pain
+- Epigastric or back pain instead of chest pain
+- Anxiety/panic-like sensation
+
+Q1. Any history of recent travel, surgery, or immobilization?
+A:
+- “Long flight.”
+- “Recent surgery.”
+
+Q2. Any leg swelling or pain?
+A:
+- “One calf hurts and is bigger.”
+
+RED FLAGS:
+- “Panic attack” with risk factors and unexplained tachycardia
+- Syncope in presence of DVT risk
+- Unexplained worsening SOB in cancer/pregnancy/post-op patients
+
+===================================================================
+SECTION 4 — PE WITH MINIMAL OR NO CHEST PAIN
+===================================================================
+
+CLUES:
+- Progressive breathlessness
+- Unexplained tachycardia
+- Lightheadedness
+- Anxiety or “air hunger”
+- Sometimes only fatigue and decreased exercise tolerance
+
+Q1. Do you have chest pain?
+A:
+- “No, just very short of breath.”
+
+Q2. Can you climb usual stairs?
+A:
+- “No, I have to stop halfway now.”
+
+RED FLAGS:
+- Rapid drop in exercise tolerance
+- Resting SOB without known lung/heart disease
+- Tachycardia at rest with SOB
+
+===================================================================
+SECTION 5 — PE IN PREGNANCY & POSTPARTUM
+===================================================================
+
+CLUES:
+- Pregnancy or within 6 weeks postpartum
+- SOB beyond expected for pregnancy
+- Pleuritic chest pain
+- Tachycardia not explained by pregnancy alone
+- Leg swelling or pain
+
+Q1. Stage of pregnancy / postpartum?
+A:
+- “Third trimester.”
+- “3 weeks after delivery.”
+
+Q2. Symptoms?
+A:
+- “Suddenly out of breath just walking across room.”
+- “Sharp chest pain with deep breath.”
+
+Q3. Leg symptoms?
+A:
+- “One calf is painful and swollen.”
+
+RED FLAGS:
+- Sudden SOB + pleuritic pain in pregnancy/postpartum
+- Syncope in pregnancy
+- Severe tachycardia + hypoxia
+
+===================================================================
+SECTION 6 — PE IN CANCER PATIENTS
+===================================================================
+
+CLUES:
+- Known malignancy
+- Recent chemo or hormonal therapy
+- Central venous catheters
+- Immobility
+- New or worsening SOB/chest pain
+
+Q1. Current cancer or treatment?
+A:
+- “On chemo.”
+- “Recent surgery for tumor.”
+
+Q2. Symptoms?
+A:
+- “New shortness of breath.”
+- “Chest discomfort on breathing.”
+
+RED FLAGS:
+- Acute SOB in known cancer patient
+- Chest pain + hemoptysis in cancer
+- New tachycardia
+
+===================================================================
+SECTION 7 — POST-OPERATIVE & IMMOBILIZATION-RELATED PE
+===================================================================
+
+RISK CONTEXTS:
+- Surgery (especially orthopedic, abdominal, pelvic)
+- Long flights/car rides
+- Bed rest/hospitalization
+- Casting of limbs
+
+Q1. Recent surgery or prolonged travel?
+A:
+- “Had knee replacement 1 week ago.”
+- “Returned from 10-hour flight yesterday.”
+
+Q2. Symptoms onset?
+A:
+- “Shortly after I got home.”
+- “Day after the long trip.”
+
+RED FLAGS:
+- SOB + chest pain within days of surgery/travel
+- Syncope post-op
+- New unilateral leg swelling + SOB
+
+===================================================================
+SECTION 8 — PE ASSOCIATED WITH DVT SYMPTOMS
+===================================================================
+
+DVT CLUES:
+- Unilateral leg swelling
+- Calf or thigh pain
+- Leg warmth or discoloration
+- Tightness feeling
+
+Q1. Any leg swelling or pain?
+A:
+- “Right leg more swollen and sore.”
+
+Q2. When did leg symptoms start?
+A:
+- “A few days before breathing got worse.”
+
+RED FLAGS:
+- New SOB in patient with known DVT
+- DVT symptoms + chest pain/SOB
+
+===================================================================
+SECTION 9 — CHRONIC THROMBOEMBOLIC PULMONARY HYPERTENSION (CTEPH)
+===================================================================
+
+CLUES:
+- History of prior PE
+- Persistent or progressive exertional dyspnea months after PE
+- Fatigue
+- Leg swelling
+- Syncope or presyncope with exertion
+
+Q1. Prior PE history?
+A:
+- “Had a clot in lung last year.”
+
+Q2. Current symptoms?
+A:
+- “Still short of breath walking up stairs.”
+- “Get lightheaded with exertion.”
+
+RED FLAGS:
+- Exertional syncope
+- Worsening exercise tolerance after prior PE
+- Signs of right heart strain (edema, abdominal distension)
+
+===================================================================
+SECTION 10 — RECURRENT PE / HYPERCOAGULABLE STATES
+===================================================================
+
+RISK FACTORS:
+- Unprovoked PE at young age
+- Family history of clots
+- Recurrent miscarriages
+- Known thrombophilia (history-level)
+
+Q1. Prior clots?
+A:
+- “This is my second PE.”
+- “Had DVT in the past.”
+
+Q2. Family history?
+A:
+- “Mother and sister had clots.”
+
+Q3. Pregnancy history (for women)?
+A:
+- “Multiple miscarriages.”
+
+RED FLAGS:
+- Recurrent episodes of unexplained SOB and chest pain
+- Clot events at very young age
+
+===================================================================
+SECTION 11 — PE MIMICS & DIFFERENTIALS (SYMPTOM DISCRIMINATION)
+===================================================================
+
+MI (MYOCARDIAL INFARCTION):
+- Chest pressure, radiates to arm/jaw
+- Nausea, sweating
+- Less pleuritic
+- Often not positional
+
+PNEUMONIA:
+- Fever, productive cough
+- Gradual onset
+- Pleuritic pain but with infectious symptoms
+
+PNEUMOTHORAX:
+- Sudden unilateral pleuritic pain
+- Decreased breath sounds on one side (exam-level)
+- Often in tall slender or COPD
+
+AORTIC DISSECTION:
+- Tearing pain to back
+- Neuro deficits
+- Different BP in arms
+
+PE CLUES VS MIMICS:
+- Pleuritic pain + risk factors + tachycardia = PE higher concern
+- Normal CXR with severe SOB and pleuritic pain → think PE
+
+===================================================================
+SECTION 12 — SYNCOPE AND SHOCK WITH PE
+===================================================================
+
+CLUES:
+- Sudden collapse
+- Very short of breath
+- Tachycardia
+- Hypotension
+- Cold, clammy skin
+
+Q1. Did you pass out?
+A:
+- “Yes, briefly lost consciousness.”
+
+Q2. Before fainting?
+A:
+- “Felt very short of breath and chest tight.”
+
+RED FLAGS:
+- Syncope with SOB and chest pain
+- Hypotension
+- Low oxygen saturations
+
+===================================================================
+SECTION 13 — PE IN YOUNG “HEALTHY” PATIENTS
+===================================================================
+
+CLUES:
+- OCP use / hormonal therapy
+- Smoking
+- Travel
+- Recent minor surgery or injury
+- Family history of clots
+
+Q1. Medications?
+A:
+- “On birth control pills.”
+
+Q2. Recent travel?
+A:
+- “Long car ride or flight.”
+
+Q3. Symptoms?
+A:
+- “Sudden SOB and side chest pain.”
+
+RED FLAGS:
+- Sudden SOB in young patient on OCPs
+- Pleuritic chest pain + tachycardia
+
+===================================================================
+SECTION 14 — PE AFTER COVID-19 OR SEVERE INFECTION
+===================================================================
+
+CLUES:
+- Recent COVID or severe infection
+- New/worsening SOB after initial improvement
+- Chest pain
+- Leg swelling
+
+Q1. Recent illness?
+A:
+- “Had COVID a couple of weeks ago, was improving.”
+
+Q2. Now?
+A:
+- “Breathing suddenly worse again.”
+
+RED FLAGS:
+- Worsening SOB after initial improvement from infection
+- Chest pain + tachycardia in post-COVID phase
+
+===================================================================
+SECTION 15 — GLOBAL PE RED-FLAG SYMPTOM PATTERNS (CONSOLIDATED)
+===================================================================
+- Sudden onset shortness of breath, especially with:
+  - Pleuritic chest pain
+  - Tachycardia
+  - Hypoxia
+- Syncope or near-syncope with SOB or chest pain
+- Unexplained tachycardia at rest + risk factors (surgery, travel, cancer, pregnancy, OCPs)
+- Unilateral leg swelling or pain + new SOB
+- Hemoptysis + pleuritic chest pain
+- Shock signs (low BP, confusion, cold/clammy skin) with respiratory distress
+- Persistent exertional SOB after prior PE (CTEPH suspicion)
+- New severe SOB in cancer or postpartum patient
+
+===================================================================
+END OF PULMONARY EMBOLISM SPECIAL SCENARIOS FILE
+===================================================================

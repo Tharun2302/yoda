@@ -1,0 +1,280 @@
+ONCOLOGY — HealthYoda RAG DEEPEST DIVE
+=========================================================
+FULL VERSION WITH QUESTIONS + REALISTIC ANSWERS + RED FLAGS
+Developer-Ready RAG / Intake Knowledge Base File
+=========================================================
+
+ONCOLOGY COMPLAINT CLUSTERS
+---------------------------
+1. Unintentional weight loss
+2. Night sweats
+3. Fatigue (cancer-related patterns)
+4. Persistent pain (bone, abdominal, back)
+5. Lymph node enlargement
+6. Fever of unknown origin
+7. New lumps or masses
+8. Breast symptoms (lumps, discharge, skin changes)
+9. Lung-related symptoms (cough, hemoptysis)
+10. GI symptoms (bleeding, pain, early satiety)
+11. GU symptoms (hematuria, testicular mass)
+12. Neurologic symptoms (headache, weakness)
+13. Skin changes (moles, lesions)
+14. Paraneoplastic symptoms
+15. Cancer treatment complications
+
+=========================================================
+SECTION 1 — CONSTITUTIONAL SYMPTOMS (B SYMPTOMS)
+=========================================================
+
+WEIGHT LOSS
+-----------
+Q1. How much weight have you lost?
+A: "About 15 pounds."
+
+Q2. Over what time?
+A: "2 months."
+
+Q3. Intentional?
+A: "No I’m eating normally."
+
+RED FLAGS:
+- >10% body weight over 6 months
+- Weight loss + night sweats
+- Weight loss + lymph nodes
+
+NIGHT SWEATS
+------------
+Q1. How severe?
+A: "Sheets soaked."
+
+Q2. Fever?
+A: "Low fevers."
+
+RED FLAGS:
+- Drenching sweats
+- Sweats + weight loss + nodes (lymphoma pattern)
+
+FATIGUE
+-------
+Q1. Severity?
+A: "Severe fatigue."
+
+Q2. Impacting daily life?
+A: "Can’t perform usual tasks."
+
+=========================================================
+SECTION 2 — LYMPH NODE ENLARGEMENT
+=========================================================
+
+Q1. Where?
+A: "Neck." / "Armpit." / "Groin."
+
+Q2. Painful or painless?
+A: "Painless lump."
+
+Q3. Duration?
+A: "Present for weeks."
+
+Q4. Growing?
+A: "Getting bigger."
+
+RED FLAGS:
+- Painless enlarging nodes
+- Nodes in multiple regions
+- Night sweats + weight loss
+- Hard, fixed masses
+
+=========================================================
+SECTION 3 — NEW LUMPS / MASSES (SOFT TISSUE + SOLID)
+=========================================================
+
+Q1. Location?
+A: "Breast." / "Abdomen." / "Leg."
+
+Q2. Growth?
+A: "Growing over weeks."
+
+Q3. Pain?
+A: "No pain."
+
+RED FLAGS:
+- Hard, fixed mass
+- Rapid growth
+- Mass + systemic symptoms
+
+=========================================================
+SECTION 4 — BREAST SYMPTOMS
+=========================================================
+
+LUMP:
+Q1. Lump size?
+A: "Pea-sized." / "Walnut-sized."
+
+Q2. Painful?
+A: "Painless."
+
+NIPPLE DISCHARGE:
+Q1. Color?
+A: "Bloody discharge."
+
+SKIN CHANGES:
+A: "Skin looks dimpled."
+
+RED FLAGS:
+- Hard fixed lump
+- Skin dimpling
+- Nipple retraction
+- Bloody discharge
+
+=========================================================
+SECTION 5 — LUNG-RELATED SYMPTOMS
+=========================================================
+
+COUGH:
+Q1. Duration?
+A: "3 months cough."
+
+Q2. Smokers?
+A: "Yes 20 years."
+
+HEMOPTYSIS:
+Q1. Coughing blood?
+A: "Streaks of blood."
+
+SOB:
+A: "Shortness of breath."
+
+RED FLAGS:
+- Persistent cough >6 weeks
+- Coughing blood
+- Weight loss + cough
+- Chest pain + cough
+
+=========================================================
+SECTION 6 — GI-RELATED SYMPTOMS
+=========================================================
+
+ABDOMINAL PAIN:
+Q1. Duration?
+A: "Persistent dull pain."
+
+EARLY SATIETY:
+A: "Get full very quickly."
+
+CHANGES IN BOWEL HABITS:
+Q1. New constipation/diarrhea?
+A: "Constipation for weeks."
+
+HEMATOCHEZIA / MELENA:
+Q1. Blood?
+A: "Red blood." / "Black stools."
+
+RED FLAGS:
+- Black stools
+- Unexplained abdominal pain
+- Persistent vomiting
+- Blood in stool
+
+=========================================================
+SECTION 7 — GU SYMPTOMS
+=========================================================
+
+HEMATURIA:
+A: "Blood in urine."
+
+TESTICULAR MASS:
+Q1. Painless?
+A: "Painless lump."
+
+RED FLAGS:
+- Painless testicular lump
+- Hematuria without pain
+- Difficulty urinating + back pain
+
+=========================================================
+SECTION 8 — NEUROLOGICAL SYMPTOMS
+=========================================================
+
+HEADACHE:
+Q1. New severe headache?
+A: "New persistent headache."
+
+FOCAL WEAKNESS:
+A: "Weak arm."
+
+SEIZURES:
+A: "New seizure."
+
+BACK PAIN:
+A: "Back pain + leg weakness."
+
+RED FLAGS:
+- Morning vomiting
+- Focal neurologic deficits
+- Headache + weight loss
+- Back pain + weakness/incontinence
+
+=========================================================
+SECTION 9 — SKIN SYMPTOMS (MELANOMA/OTHER)
+=========================================================
+
+ABCDE:
+- Asymmetry
+- Border irregular
+- Color variation
+- Diameter >6mm
+- Evolution
+
+RED FLAGS:
+- Rapid changes
+- Bleeding mole
+- Irregular borders
+
+=========================================================
+SECTION 10 — PARANEOPLASTIC SYNDROMES
+=========================================================
+
+Possible symptoms:
+- Muscle weakness
+- Neuropathy
+- Hyponatremia symptoms (confusion)
+- Hypercalcemia (constipation, kidney stones)
+
+=========================================================
+SECTION 11 — CANCER TREATMENT COMPLICATIONS
+=========================================================
+
+CHEMOTHERAPY:
+- Fever (neutropenia)
+- Severe nausea
+- Mouth sores
+- Diarrhea
+
+IMMUNOTHERAPY:
+- Rash
+- Diarrhea
+- Cough/SOB (pneumonitis)
+
+SURGERY:
+- Pain
+- Infection signs
+
+=========================================================
+ONCOLOGY GLOBAL RED FLAGS
+=========================================================
+- Unintentional weight loss >10%
+- Drenching night sweats
+- Painless enlarged lymph nodes
+- Persistent cough >6 weeks
+- Hemoptysis
+- Black stools or bloody stools
+- Painless testicular lump
+- Severe persistent headaches
+- Focal neurologic deficits
+- Fever in chemo patient
+- Shortness of breath + chest pain
+- Breast lump with skin/nipple changes
+
+=========================================================
+END OF ONCOLOGY DEEPEST DIVE FILE
+=========================================================

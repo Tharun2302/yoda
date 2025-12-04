@@ -1,0 +1,338 @@
+CRITICAL ILLNESS — HealthYoda RAG DEEPEST DIVE
+===========================================================
+FULL VERSION WITH QUESTIONS + REALISTIC PATIENT ANSWERS + RED FLAGS
+Developer-Ready RAG / Intake Knowledge Base File
+===========================================================
+
+CRITICAL ILLNESS CLUSTERS
+-------------------------
+1. Sepsis spectrum (early → septic shock)
+2. Acute respiratory failure (hypoxic vs hypercapnic)
+3. Acute metabolic crisis (DKA, HHS, lactic acidosis)
+4. Multi-organ dysfunction syndrome (MODS)
+5. Severe electrolyte derangements
+6. Acute neurologic collapse
+7. Acute hepatic failure
+8. Acute renal failure & uremic crisis
+9. ICU-level GI emergencies
+10. Immune dysregulation & cytokine storm
+11. Global critical illness red flags
+12. Rapid triage logic
+
+===========================================================
+SECTION 1 — SEPSIS SPECTRUM (EARLY → SEVERE → SEPTIC SHOCK)
+===========================================================
+
+EARLY SEPSIS CLUES:
+- Fever or chills
+- Body aches
+- Cough, UTI symptoms, GI symptoms
+- Fast heart rate
+- Fatigue
+
+Q1. Recent infection?
+A:
+- “Had a fever/cough for days.”
+- “Pain when peeing.”
+
+Q2. Breathing?
+A:
+- “Breathing faster than normal.”
+
+SEVERE SEPSIS CLUES:
+- Confusion (“not thinking clearly”)
+- Very fast breathing
+- Low urine output
+- Severe weakness
+
+SEPTIC SHOCK CLUES:
+- “Feel faint”
+- Cold/clammy skin
+- Very fast or very weak pulse
+- Severe abdominal/chest pain
+- Skin mottling
+
+RED FLAGS:
+- Fever + confusion
+- Fast breathing + weakness
+- “Not peeing”
+- Any fainting with infection
+
+===========================================================
+SECTION 2 — ACUTE RESPIRATORY FAILURE
+===========================================================
+
+A. HYPOXIC FAILURE (low oxygen)
+CAUSES:
+- Pneumonia
+- PE
+- Pulmonary edema
+- ARDS
+- Severe asthma
+
+CLUES:
+- SOB at rest
+- Can't finish sentences
+- Blue lips/fingers
+- Anxiety
+
+Q1. Describe breathing?
+A:
+- “Feels like suffocating.”
+
+B. HYPERCAPNIC FAILURE (high CO2)
+CAUSES:
+- COPD flare
+- Neuromuscular weakness
+- Drug overdose
+
+CLUES:
+- Extreme fatigue
+- Confusion
+- Sleepiness
+- Headache
+
+RED FLAGS:
+- Can't speak full sentences
+- Blue lips
+- Confusion
+- Very drowsy
+
+===========================================================
+SECTION 3 — METABOLIC CRISIS (DKA, HHS, LACTIC ACID)
+===========================================================
+
+A. DKA
+CLUES:
+- Thirst
+- Frequent urination
+- Abdominal pain
+- Nausea/vomiting
+- Fruity breath
+- Deep rapid breathing
+
+Q1. Thirst?
+A:
+- “Extremely thirsty.”
+
+B. HHS
+CLUES:
+- Severe dehydration
+- Confusion
+- Lethargy
+- High sugar history
+
+C. LACTIC ACIDOSIS
+CLUES:
+- Rapid breathing
+- Severe infection
+- Shock signs
+- Weakness
+
+RED FLAGS:
+- Vomiting + deep breathing
+- Confusion + dehydration
+
+===========================================================
+SECTION 4 — MULTI-ORGAN DYSFUNCTION SYNDROME (MODS)
+===========================================================
+
+CLUES:
+- Extreme fatigue
+- Confusion
+- Jaundice
+- No urine output
+- Severe SOB
+- Cold extremities
+
+Q1. Mental state?
+A:
+- “Feel out of it.”
+
+RED FLAGS:
+- Confusion
+- Blue extremities
+- Not urinating
+
+===========================================================
+SECTION 5 — SEVERE ELECTROLYTE DERANGEMENTS
+===========================================================
+
+A. HYPERKALEMIA
+- Palpitations
+- Weakness
+- Nausea
+- History of kidney disease
+
+B. HYPOKALEMIA
+- Leg cramps
+- Weakness
+- Palpitations
+
+C. HYPONATREMIA
+- Confusion
+- Headache
+- Nausea
+- Seizure risk
+
+Q1. Mental state?
+A:
+- “Feeling foggy.”
+
+RED FLAGS:
+- Confusion
+- Palpitations
+- Seizures
+
+===========================================================
+SECTION 6 — ACUTE NEUROLOGIC COLLAPSE
+===========================================================
+
+CLUES:
+- Sudden weakness/paralysis
+- Severe headache
+- Confusion
+- Seizures
+- Fever + neuro symptoms (meningitis)
+
+Q1. Headache?
+A:
+- “Worst headache ever.”
+
+Q2. Weakness?
+A:
+- “One side weaker.”
+
+RED FLAGS:
+- Sudden neurologic deficit
+- Seizures
+- Confusion + fever
+
+===========================================================
+SECTION 7 — ACUTE HEPATIC FAILURE
+===========================================================
+
+CLUES:
+- Jaundice
+- Confusion (hepatic encephalopathy)
+- Abdominal swelling
+- Nausea/vomiting
+- GI bleeding
+
+Q1. Behavior changes?
+A:
+- “Feeling confused.”
+
+RED FLAGS:
+- Jaundice + confusion
+- Vomiting blood
+
+===========================================================
+SECTION 8 — ACUTE RENAL FAILURE & UREMIC CRISIS
+===========================================================
+
+CLUES:
+- No urine output
+- Swelling
+- Confusion
+- Nausea
+- Itching
+- Shortness of breath
+
+Q1. Urination?
+A:
+- “Barely passed any urine.”
+
+RED FLAGS:
+- Not urinating
+- Confusion + nausea
+- Severe shortness of breath
+
+===========================================================
+SECTION 9 — ICU-LEVEL GI EMERGENCIES
+===========================================================
+
+A. ACUTE MESENTERIC ISCHEMIA
+- Severe abdominal pain “out of proportion”
+- Nausea/vomiting
+- Blood in stool
+
+B. GI BLEEDING
+- Black stools
+- Vomiting blood
+- Dizziness
+
+C. BOWEL OBSTRUCTION
+- Severe abdominal pain
+- No gas/stool
+- Vomiting
+
+RED FLAGS:
+- Severe abdominal pain + faintness
+- Blood in vomit/stool
+
+===========================================================
+SECTION 10 — IMMUNE DYSREGULATION & CYTOKINE STORM
+===========================================================
+
+CAUSES:
+- Severe infection
+- CAR-T therapy
+- Hyperinflammatory states
+
+CLUES:
+- High fever
+- Extreme fatigue
+- Confusion
+- Low blood pressure
+- Rapid breathing
+
+RED FLAGS:
+- Fever + confusion
+- Very low energy
+- Fast breathing + dizziness
+
+===========================================================
+SECTION 11 — GLOBAL CRITICAL ILLNESS RED FLAGS
+===========================================================
+- Confusion or reduced responsiveness
+- Blue lips
+- Not breathing normally
+- Not peeing
+- Severe abdominal/chest pain
+- Vomiting blood or black stools
+- Severe dehydration
+- Seizure
+- Sudden paralysis
+- Extreme weakness
+- Cold/clammy or mottled skin
+- Fainting
+
+===========================================================
+SECTION 12 — CRITICAL ILLNESS TRIAGE LOGIC
+===========================================================
+
+ASK:
+1. Infection symptoms?
+2. Breathing difficulty?
+3. Chest pain?
+4. Abdominal pain?
+5. Bleeding?
+6. Urination?
+7. Mental status?
+8. Fluid intake ability?
+9. Trauma?
+10. New medications/exposures?
+
+ROUTE:
+- Fever + confusion → sepsis/septic shock  
+- Chest pain + weakness → cardiogenic/ischemia  
+- Sudden SOB → PE/pneumonia/ARDS  
+- Abdominal pain + faintness → ischemia/bleed  
+- Nausea/vomiting + deep breathing → DKA  
+- Not urinating → renal failure  
+- Severe weakness + paralysis → neurologic emergency  
+
+===========================================================
+END OF CRITICAL ILLNESS DEEPEST DIVE FILE
+===========================================================

@@ -1,0 +1,341 @@
+ENDOCRINE & METABOLIC SYSTEM — HealthYoda RAG DEEPEST DIVE
+=========================================================
+FULL VERSION WITH QUESTIONS + REALISTIC ANSWERS + RED FLAGS
+Developer-Ready RAG / Intake Knowledge Base File
+=========================================================
+
+ENDOCRINE COMPLAINT CLUSTERS
+----------------------------
+1. Increased thirst & urination (polydipsia/polyuria)
+2. Unexplained weight loss
+3. Weight gain / obesity
+4. Heat intolerance (hyperthyroidism)
+5. Cold intolerance (hypothyroidism)
+6. Fatigue (endocrine-related)
+7. Hair loss
+8. Palpitations (thyroid/adrenal causes)
+9. Tremors
+10. Menstrual irregularities
+11. Sexual dysfunction / low libido
+12. Hypoglycemia symptoms
+13. Hyperglycemia symptoms
+14. Thyroid swelling / neck fullness
+15. Adrenal symptoms (Addison’s / Cushing’s)
+16. Parathyroid symptoms (calcium imbalance)
+17. Diabetes-related symptoms (follow-up)
+18. Medication-related endocrine issues
+
+=========================================================
+SECTION 1 — UNIVERSAL ENDOCRINE HPI STRUCTURE
+=========================================================
+
+ONSET:
+- "Started a few days ago."
+- "Gradual over months."
+- "Worsening slowly."
+
+DURATION:
+- Intermittent
+- Persistent
+- Fluctuating with stress
+
+SEVERITY:
+- "Mild but noticeable."
+- "Moderate and affecting daily tasks."
+- "Severe — interfering with routine."
+
+PATTERN:
+- Worse in mornings
+- Worse after meals
+- Worse in heat/cold
+- Cyclic or triggered
+
+ASSOCIATED SYMPTOMS:
+- Fatigue
+- Weight change
+- Tremors
+- Palpitations
+- Heat/cold sensitivity
+- Hair/skin changes
+- GI changes (diarrhea/constipation)
+- Mood changes
+
+RISK FACTORS:
+- Diabetes
+- Thyroid disorders
+- Family history
+- Steroid use
+- Amiodarone/lithium use
+- Pregnancy
+
+=========================================================
+SECTION 2 — POLYURIA / POLYDIPSIA (THIRST + URINATION)
+=========================================================
+
+Q1. How often do you urinate?
+A: "Every hour." / "All night long."
+
+Q2. Amount?
+A: "Large amounts." / "Little dribbles."
+
+Q3. How thirsty do you feel?
+A: "Constantly thirsty."
+
+Q4. Any weight loss?
+A: "Lost 10–15 pounds."
+
+Q5. Blurry vision?
+A: "Vision gets blurry sometimes."
+
+Q6. Nausea/vomiting?
+A: "Feeling nauseous."
+
+POLYURIA RED FLAGS:
+- Vomiting + severe thirst (possible DKA)
+- Confusion
+- Unable to drink fluids
+
+=========================================================
+SECTION 3 — UNEXPLAINED WEIGHT LOSS
+=========================================================
+
+Q1. How much lost?
+A: "15 pounds in a month."
+
+Q2. Intentional?
+A: "Was not trying."
+
+Q3. Eating more or less?
+A: "Eating more than usual." / "Poor appetite."
+
+Q4. Heat sensitivity?
+A: "Always hot."
+
+Q5. Urination changes?
+A: "Peeing more often."
+
+WEIGHT LOSS RED FLAGS:
+- Weight loss + palpitations (hyperthyroid)
+- Weight loss + polyuria (diabetes)
+- Weight loss + neck mass
+
+=========================================================
+SECTION 4 — WEIGHT GAIN
+=========================================================
+
+Q1. How fast did it happen?
+A: "Sudden in 2 months." / "Slowly over years."
+
+Q2. Appetite changes?
+A: "Always hungry." / "No changes."
+
+Q3. Cold intolerance?
+A: "Feel cold all day."
+
+Q4. Swelling?
+A: "Puffy face." / "Swollen ankles."
+
+WEIGHT GAIN RED FLAGS:
+- Rapid weight gain + swelling (hypothyroid/adrenal)
+- Purple stretch marks + mood swings
+
+=========================================================
+SECTION 5 — HEAT INTOLERANCE (HYPERTHYROIDISM)
+=========================================================
+
+Symptoms:
+- Sweating
+- Palpitations
+- Tremors
+- Anxiety
+- Weight loss
+- Diarrhea
+
+Q1. Feel unusually hot?
+A: "Yes always warm."
+
+Q2. Tremors?
+A: "Hands shaking."
+
+Q3. Palpitations?
+A: "Heart racing randomly."
+
+Q4. Weight loss?
+A: "Lost weight without trying."
+
+RED FLAGS:
+- Severe palpitations
+- Eye bulging or pain
+
+=========================================================
+SECTION 6 — COLD INTOLERANCE (HYPOTHYROIDISM)
+=========================================================
+
+Symptoms:
+- Fatigue
+- Weight gain
+- Dry skin
+- Hair loss
+- Constipation
+
+Q1. Feel cold?
+A: "Always cold even in warm rooms."
+
+Q2. Hair or skin changes?
+A: "Dry skin." / "Hair falling out."
+
+Q3. Bowel changes?
+A: "Very constipated."
+
+RED FLAGS:
+- Severe fatigue + confusion (myxedema)
+- Very low heart rate
+
+=========================================================
+SECTION 7 — FATIGUE (ENDOCRINE PATTERN)
+=========================================================
+
+Q1. Describe fatigue.
+A: "Always tired." / "Worse after waking."
+
+Q2. Weight change?
+A: "Gained weight." / "Lost weight."
+
+Q3. Thirst/urination?
+A: "Peeing often."
+
+Q4. Mood changes?
+A: "Feeling anxious." / "Feeling depressed."
+
+RED FLAGS:
+- Fatigue + vomiting (adrenal crisis)
+- Fatigue + shortness of breath
+
+=========================================================
+SECTION 8 — HAIR LOSS
+=========================================================
+
+Q1. Sudden or gradual?
+A: "Gradual thinning." / "Clumps coming out."
+
+Q2. Associated symptoms?
+A: "Weight change." / "Heat/cold sensitivity."
+
+=========================================================
+SECTION 9 — PALPITATIONS (ENDOCRINE)
+=========================================================
+
+Q1. Associated with heat sensitivity?
+A: "Yes, worse when hot."
+
+Q2. Tremors?
+A: "Hands shaking."
+
+=========================================================
+SECTION 10 — TREMORS
+=========================================================
+
+Q1. When?
+A: "At rest." / "When lifting things."
+
+Q2. Associated anxiety or sweating?
+A: "Yes."
+
+=========================================================
+SECTION 11 — MENSTRUAL CHANGES
+=========================================================
+
+Q1. Irregular or heavy?
+A: "Irregular." / "Very heavy."
+
+Q2. Hair/weight changes?
+A: "Hair thinning." / "Weight gain."
+
+=========================================================
+SECTION 12 — HYPOGLYCEMIA
+=========================================================
+
+Symptoms:
+- Sweating
+- Shaking
+- Confusion
+- Hunger
+- Dizziness
+
+Q1. When does it occur?
+A: "If I skip meals." / "After meds."
+
+RED FLAGS:
+- Confusion
+- Loss of consciousness
+
+=========================================================
+SECTION 13 — HYPERGLYCEMIA
+=========================================================
+
+Symptoms:
+- Thirst
+- Frequent urination
+- Blurry vision
+- Fatigue
+
+RED FLAGS:
+- Nausea/vomiting (DKA)
+- Deep rapid breathing
+- Confusion
+
+=========================================================
+SECTION 14 — THYROID SWELLING / NECK FULLNESS
+=========================================================
+
+Q1. When noticed?
+A: "A few weeks ago."
+
+Q2. Trouble swallowing?
+A: "Hard to swallow."
+
+Q3. Voice changes?
+A: "Voice hoarse."
+
+RED FLAGS:
+- Trouble breathing
+- Rapidly growing mass
+
+=========================================================
+SECTION 15 — ADRENAL SYMPTOMS
+=========================================================
+
+Addison-pattern:
+- Fatigue
+- Salt cravings
+- Dizziness standing up
+
+Cushing-pattern:
+- Weight gain
+- Purple stretch marks
+- Mood swings
+
+=========================================================
+SECTION 16 — PARATHYROID SYMPTOMS (CALCIUM)
+=========================================================
+
+Symptoms:
+- Muscle cramps
+- Kidney stones
+- Constipation
+- Bone pain
+
+=========================================================
+ENDOCRINE GLOBAL RED FLAGS
+=========================================================
+- Confusion + hypoglycemia/hyperglycemia
+- Severe vomiting + fatigue (adrenal crisis)
+- SOB + thyroid storm signs
+- Severe dehydration
+- Thyroid mass with airway symptoms
+- Rapid weight loss + palpitations
+- Very low HR + cold intolerance
+
+=========================================================
+END OF ENDOCRINE DEEPEST DIVE FILE
+=========================================================

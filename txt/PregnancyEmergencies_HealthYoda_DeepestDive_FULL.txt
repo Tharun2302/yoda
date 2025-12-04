@@ -1,0 +1,271 @@
+PREGNANCY EMERGENCIES & URGENT ISSUES — HealthYoda RAG DEEPEST DIVE
+=====================================================================
+FULL VERSION WITH QUESTIONS + REAL ANSWERS + RED FLAGS
+Developer-Ready RAG / Intake Knowledge Base File
+=====================================================================
+
+PREGNANCY EMERGENCY CLUSTERS
+----------------------------
+1. Early pregnancy emergencies
+2. Bleeding in pregnancy
+3. Severe abdominal pain patterns
+4. Hyperemesis gravidarum emergencies
+5. Pre-eclampsia spectrum
+6. Eclampsia
+7. HELLP syndrome
+8. DVT / PE & hypercoagulability in pregnancy
+9. Preterm labor
+10. Premature rupture of membranes (PROM/PPROM)
+11. Fetal movement emergencies
+12. Infection emergencies
+13. Rh incompatibility concerns
+14. Trauma in pregnancy
+15. Global pregnancy RED FLAGS
+16. HealthYoda pregnancy triage logic
+
+=====================================================================
+SECTION 1 — EARLY PREGNANCY EMERGENCIES
+=====================================================================
+
+Ectopic pregnancy:
+- Severe pain
+- Bleeding
+- Dizziness
+- Shoulder pain
+- Collapsing episodes
+
+Threatened miscarriage:
+- Bleeding + closed cervix
+
+Q:
+- “Bleeding or cramps?”
+A:
+- “Yes both.”
+
+RED FLAGS:
+- Severe unilateral pain
+- Shoulder pain
+- Syncope
+
+=====================================================================
+SECTION 2 — BLEEDING IN PREGNANCY
+=====================================================================
+
+FIRST TRIMESTER:
+- Implantation
+- Miscarriage
+- Ectopic
+
+SECOND TRIMESTER:
+- Placenta previa
+- Placental abruption
+
+THIRD TRIMESTER:
+- Placental abruption
+- Previa
+
+RED FLAGS:
+- Heavy bleeding
+- Clots
+- Abdominal pain
+
+=====================================================================
+SECTION 3 — SEVERE ABDOMINAL PAIN
+=====================================================================
+
+CAUSES:
+- Ectopic
+- Miscarriage
+- Abruption
+- Appendicitis
+- Ovarian torsion
+- Gallstones
+- Pancreatitis
+
+RED FLAGS:
+- Pain + bleeding
+- Pain + fainting
+- Pain + vomiting
+
+=====================================================================
+SECTION 4 — HYPEREMESIS GRAVIDARUM
+=====================================================================
+
+CLUES:
+- Severe vomiting
+- Weight loss
+- Dehydration
+- Ketones in urine
+
+RED FLAGS:
+- Unable to keep liquids down
+- Weakness
+- Confusion
+
+=====================================================================
+SECTION 5 — PRE-ECLAMPSIA
+=====================================================================
+
+SIGNS:
+- Headache
+- Vision changes
+- Swelling
+- RUQ pain
+- High BP
+
+RED FLAGS:
+- Severe headache
+- Vision loss
+- RUQ pain
+- Seizure
+
+=====================================================================
+SECTION 6 — ECLAMPSIA
+=====================================================================
+EMERGENCY
+
+SIGNS:
+- Seizures during pregnancy
+- Severe headache before
+
+=====================================================================
+SECTION 7 — HELLP SYNDROME
+=====================================================================
+
+Hemolysis
+Elevated Liver enzymes
+Low Platelets
+
+CLUES:
+- RUQ pain
+- Nausea
+- Jaundice
+- Malaise
+
+=====================================================================
+SECTION 8 — DVT / PE IN PREGNANCY
+=====================================================================
+
+DVT:
+- Leg pain
+- Swelling
+- Tenderness
+
+PE:
+- Shortness of breath
+- Chest pain
+- Dizziness
+- Rapid HR
+
+RED FLAGS:
+- Sudden breathlessness
+- Severe chest pain
+
+=====================================================================
+SECTION 9 — PRETERM LABOR
+=====================================================================
+
+CLUES:
+- Contractions <37 wks
+- Pelvic pressure
+- Back pain
+- Fluid loss
+
+=====================================================================
+SECTION 10 — PROM / PPROM
+=====================================================================
+
+SIGNS:
+- Sudden gush of fluid
+- Continuous leakage
+
+RED FLAGS:
+- Fever + fluid leak
+
+=====================================================================
+SECTION 11 — FETAL MOVEMENT EMERGENCIES
+=====================================================================
+
+RED FLAGS:
+- Markedly ↓ movements
+- No movements
+
+=====================================================================
+SECTION 12 — INFECTION EMERGENCIES
+=====================================================================
+
+Chorioamnionitis:
+- Fever
+- Uterine tenderness
+- Foul discharge
+
+UTI/Pyelo:
+- Fever
+- Back pain
+- Vomiting
+
+=====================================================================
+SECTION 13 — RH INCOMPATIBILITY
+=====================================================================
+
+RED FLAGS:
+- Bleeding + known Rh-negative status
+
+=====================================================================
+SECTION 14 — TRAUMA IN PREGNANCY
+=====================================================================
+
+CLUES:
+- Falls
+- MVC
+- Abuse
+
+RED FLAGS:
+- Abdominal pain
+- Bleeding
+- ↓ fetal movement
+
+=====================================================================
+SECTION 15 — GLOBAL PREGNANCY RED FLAGS
+=====================================================================
+- Bleeding
+- Severe pain
+- Vomiting unable to drink
+- Fainting
+- Chest pain
+- Shortness of breath
+- Severe headache
+- Vision changes
+- RUQ pain
+- No fetal movement
+- Sudden swelling
+- Fever
+
+=====================================================================
+SECTION 16 — HEALTHYODA TRIAGE LOGIC
+=====================================================================
+
+ASK:
+1. Gestational age?
+2. Bleeding?
+3. Pain?
+4. Vomiting?
+5. Fluid loss?
+6. Headache?
+7. Vision?
+8. Swelling?
+9. Fetal movement?
+10. Chest symptoms?
+11. Fever?
+
+ROUTE:
+- Pain + bleeding → miscarriage / ectopic / abruption
+- Severe headache + vision → pre-eclampsia
+- ↓ fetal movement → fetal distress
+- Vomiting unable to drink → hyperemesis
+- CP/SOB → PE
+- Fever + tenderness → infection
+
+=====================================================================
+END OF FILE
+=====================================================================

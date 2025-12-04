@@ -1,0 +1,385 @@
+DERMATOLOGY — HealthYoda RAG DEEPEST DIVE
+=========================================================
+FULL VERSION WITH QUESTIONS + REALISTIC ANSWERS + RED FLAGS
+Developer-Ready RAG / Intake Knowledge Base File
+=========================================================
+
+DERMATOLOGY COMPLAINT CLUSTERS
+------------------------------
+1. Rash (acute or chronic)
+2. Itching (pruritus)
+3. Hives / allergic reactions
+4. Eczema / dry skin flares
+5. Psoriasis-like plaques
+6. Red, warm, painful skin (cellulitis)
+7. Skin swelling / angioedema
+8. Blistering lesions
+9. Pustules (acne, folliculitis)
+10. Skin infections (abscess, impetigo)
+11. Changing moles (melanoma screening)
+12. Hair loss (alopecia)
+13. Nail changes
+14. Bruising
+15. Burns / chemical exposure
+16. Wound issues (drainage, infection)
+17. Bug bites / stings
+18. Lumps or soft-tissue masses
+
+=========================================================
+SECTION 1 — UNIVERSAL DERM HPI STRUCTURE
+=========================================================
+
+ONSET:
+- Sudden
+- Gradual
+- After exposure
+- After medication
+
+DURATION:
+- Hours
+- Days
+- Weeks
+- Chronic recurrent
+
+LOCATION:
+- Face
+- Trunk
+- Arms/legs
+- Scalp
+- Folds (axilla, groin)
+- Hands/feet
+- Entire body
+
+SPREADING?
+- Localized
+- Spreading slowly
+- Rapidly spreading
+
+APPEARANCE:
+- Red
+- Raised
+- Flat
+- Itchy
+- Blistered
+- Scaly
+- Oozing/crusting
+- Painful
+
+ASSOCIATED SYMPTOMS:
+- Fever
+- Itching
+- Burning
+- Pain
+- Swelling
+- Shortness of breath
+
+RISK FACTORS:
+- New soaps/lotions
+- New medications
+- Outdoor exposures
+- Travel
+- Sick contacts
+- Insect bites
+- Immunosuppression
+
+=========================================================
+SECTION 2 — RASH (GENERAL)
+=========================================================
+
+Q1. When did the rash start?
+A: "Started yesterday." / "Started 2 weeks ago."
+
+Q2. Where did it start?
+A: "On my arms." / "On my face."
+
+Q3. Has it spread?
+A: "Spreading rapidly." / "Staying in one spot."
+
+Q4. Itchy or painful?
+A:
+- "Very itchy."
+- "Painful burning."
+- "Not itchy."
+
+Q5. Any new products?
+A:
+- "New detergent."
+- "New lotion."
+
+Q6. Any new medications?
+A:
+- "Started antibiotics 5 days ago."
+
+Q7. Fever or chills?
+A:
+- "No fever."
+- "Had fever last night."
+
+RASH RED FLAGS:
+- Fever + spreading rash
+- Mucosal involvement
+- Painful red rash + rapid spread
+- New medication + rash (SJS/TEN concern)
+- Rash + trouble breathing (anaphylaxis)
+
+=========================================================
+SECTION 3 — ITCHING (PRURITUS)
+=========================================================
+
+Q1. Where is the itching?
+A: "All over." / "Just arms."
+
+Q2. Worse at night?
+A: "Yes worse at night."
+
+Q3. Any rash with it?
+A: "Small bumps." / "No rash."
+
+Q4. New exposures?
+A: "New soap."
+
+PRURITUS RED FLAGS:
+- Severe itching + jaundice
+- Severe itching + rash spreading fast
+- Itching + trouble breathing
+
+=========================================================
+SECTION 4 — HIVES (URTICARIA) / ALLERGIC REACTIONS
+=========================================================
+
+Q1. When did it start?
+A: "1 hour ago."
+
+Q2. New foods / meds?
+A: "Ate shrimp." / "Took new medication."
+
+Q3. Swelling?
+A: "Lips swelling." / "Eyes swollen."
+
+Q4. Trouble breathing?
+A: "Hard to breathe." (Red flag)
+
+HIVES RED FLAGS (ANAPHYLAXIS):
+- Lip/tongue swelling
+- Wheezing
+- Trouble breathing
+- Dizziness
+
+=========================================================
+SECTION 5 — ECZEMA / DRY SKIN
+=========================================================
+
+Q1. Chronic or new?
+A: "Chronic eczema."
+
+Q2. Location?
+A: "Behind knees." / "Elbows."
+
+Q3. Trigger?
+A: "Cold weather."
+
+Q4. Itchy?
+A: "Very itchy."
+
+=========================================================
+SECTION 6 — PSORIASIS
+=========================================================
+
+Q1. Scaly patches?
+A: "Thick scaly patches."
+
+Q2. Locations?
+A: "Elbows and scalp."
+
+Q3. Pain/cracking?
+A: "Cracks and bleeds."
+
+=========================================================
+SECTION 7 — RED, HOT, PAINFUL SKIN (CELLULITIS)
+=========================================================
+
+Q1. Pain?
+A: "Very painful."
+
+Q2. Warm to touch?
+A: "Hot to touch."
+
+Q3. Fever?
+A: "101° fever."
+
+Q4. Spreading?
+A: "Redness spreading."
+
+CELLULITIS RED FLAGS:
+- Fever + spreading redness
+- Severe pain
+- Red streaks (lymphangitis)
+- Confusion
+
+=========================================================
+SECTION 8 — BLISTERING LESIONS
+=========================================================
+
+Q1. Sudden blisters?
+A: "Blisters appeared overnight."
+
+Q2. Painful?
+A: "Very painful."
+
+Q3. New medications?
+A: "Yes, started medication last week."
+
+BLISTER RED FLAGS:
+- Blisters + fever
+- Mucosal blisters
+- New drug exposure (SJS/TEN)
+
+=========================================================
+SECTION 9 — PUSTULES (ACNE / FOLLICULITIS)
+=========================================================
+
+Q1. Location?
+A: "Chest and back." / "Scalp."
+
+Q2. Painful?
+A: "Some painful bumps."
+
+=========================================================
+SECTION 10 — SKIN INFECTIONS (ABSCESS, IMPETIGO)
+=========================================================
+
+Q1. Lump painful?
+A: "Painful firm lump."
+
+Q2. Drainage?
+A: "Yellow pus."
+
+ABSCESS RED FLAGS:
+- Rapidly enlarging lump
+- Fever
+- Spreading redness
+
+=========================================================
+SECTION 11 — CHANGING MOLES (MALIGNANCY SCREEN)
+=========================================================
+
+ABCDE questions:
+- Asymmetry?  
+- Border irregular?  
+- Color changes?  
+- Diameter >6mm?  
+- Evolving?  
+
+Q1. What changed?
+A: "Darker and larger."
+
+Q2. Itching/bleeding?
+A: "Yes it bleeds."
+
+MOLE RED FLAGS:
+- Growing rapidly
+- Multiple colors
+- Bleeding
+- Irregular borders
+
+=========================================================
+SECTION 12 — HAIR LOSS (ALOPECIA)
+=========================================================
+
+Q1. Patchy or diffuse?
+A: "Patchy bald spots." / "Thinning."
+
+Q2. Sudden or gradual?
+A: "Sudden clumps falling out."
+
+=========================================================
+SECTION 13 — NAIL CHANGES
+=========================================================
+
+Q1. Nail discoloration?
+A: "Yellow thick nails."
+
+Q2. Pain?
+A: "Toenail hurts."
+
+=========================================================
+SECTION 14 — BRUISING
+=========================================================
+
+Q1. Easy bruising?
+A: "Bruising easily."
+
+Q2. New medications?
+A: "On blood thinners."
+
+=========================================================
+SECTION 15 — BURNS / CHEMICAL EXPOSURE
+=========================================================
+
+Q1. Type of burn?
+A: "Hot water burn." / "Chemical splash."
+
+Q2. Blisters?
+A: "Yes blistered."
+
+BURN RED FLAGS:
+- Large burns
+- Face burns
+- Chemical burns
+- Burns with fever
+
+=========================================================
+SECTION 16 — WOUND PROBLEMS
+=========================================================
+
+Q1. Drainage?
+A: "Yellow drainage."
+
+Q2. Redness spreading?
+A: "Yes spreading."
+
+=========================================================
+SECTION 17 — BUG BITES / STINGS
+=========================================================
+
+Q1. Itchy or painful?
+A: "Very itchy."
+
+Q2. Swelling?
+A: "Large swelling area."
+
+BUG BITE RED FLAGS:
+- Trouble breathing
+- Lip/tongue swelling
+- Fever + spreading redness
+
+=========================================================
+SECTION 18 — LUMPS / SOFT-TISSUE MASSES
+=========================================================
+
+Q1. Growing?
+A: "Getting bigger."
+
+Q2. Painful?
+A: "No pain."
+
+MASS RED FLAGS:
+- Rapid growth
+- Hard fixed mass
+- Painful mass with fever
+
+=========================================================
+DERMATOLOGY GLOBAL RED FLAGS
+=========================================================
+- Fever + rash
+- Rapid spreading redness
+- Trouble breathing + rash
+- Lip or tongue swelling
+- Blisters + mucosal involvement
+- Painful red rash after new meds
+- Chemical burns
+- New mole with major changes
+
+=========================================================
+END OF DERMATOLOGY DEEPEST DIVE FILE
+=========================================================

@@ -1,0 +1,362 @@
+TOXICOLOGY — HealthYoda RAG DEEPEST DIVE
+=========================================================
+FULL VERSION WITH QUESTIONS + REALISTIC ANSWERS + RED FLAGS
+Developer-Ready RAG / Intake Knowledge Base File
+=========================================================
+
+TOXICOLOGY COMPLAINT CLUSTERS
+-----------------------------
+1. Medication overdose (accidental or intentional)
+2. Polypharmacy interactions
+3. Alcohol intoxication / withdrawal
+4. Opioid exposure
+5. Stimulant exposure (cocaine, meth, ADHD meds)
+6. Sedative overdose (benzodiazepines)
+7. Carbon monoxide exposure
+8. Food poisoning (toxin-mediated)
+9. Household chemical ingestion
+10. Pesticide/organophosphate exposure
+11. Heavy metal exposure
+12. Plant/mushroom ingestion
+13. Envenomation (snake/spider/bites)
+14. Toxic alcohols (methanol/ethylene glycol)
+15. Withdrawal syndromes
+
+=========================================================
+SECTION 1 — UNIVERSAL TOXICOLOGY HPI STRUCTURE
+=========================================================
+
+ONSET:
+- Sudden (minutes to hours)
+- Subacute (hours to days)
+- Chronic exposure (days to months)
+
+EXPOSURE DETAILS:
+- What substance?
+- How much?
+- When?
+- Intentional or accidental?
+- Pills counted? (If meds)
+- Alcohol amount?
+- Inhaled or swallowed?
+
+SYMPTOMS:
+- Nausea/vomiting
+- Confusion
+- Dizziness
+- Chest pain
+- Breathing difficulty
+- Tremors
+- Seizure
+- Abdominal pain
+- Visual changes
+- Urinary symptoms
+
+RISK FACTORS:
+- Polypharmacy
+- Chronic alcohol use
+- Mental health history
+- Young children in household
+- Poor ventilation (CO)
+
+=========================================================
+SECTION 2 — MEDICATION OVERDOSE (ALL TYPES)
+=========================================================
+
+Q1. What medication?
+A: "Took too many Tylenol." / "Extra anxiety pills."
+
+Q2. How many pills?
+A: "Six pills." / "Don't remember."
+
+Q3. When?
+A: "1 hour ago." / "Last night."
+
+Q4. Intent?
+A: "Accidental." / "Trying to sleep." / "Not sure."
+
+OVERDOSE RED FLAGS:
+- Confusion
+- Vomiting
+- Seizure
+- Breathing issues
+- Unknown amount/time
+- Intentional ingestion (suicide pathway)
+
+=========================================================
+SECTION 3 — ACETAMINOPHEN (TYLENOL) OVERDOSE
+=========================================================
+
+Q1. How many mg?
+A: "8 extra-strength pills."
+
+Q2. Any nausea?
+A: "Yes nausea."
+
+Q3. Abdominal pain?
+A: "Pain in upper right side."
+
+TYLENOL RED FLAGS:
+- Unknown ingestion time
+- Large ingestion (>150 mg/kg)
+- Vomiting + abdominal pain
+
+=========================================================
+SECTION 4 — NSAID OVERDOSE
+=========================================================
+
+Q1. Symptoms?
+A: "Stomach pain." / "Nausea."
+
+RED FLAGS:
+- Bloody stools
+- Vomiting blood
+- Severe abdominal pain
+
+=========================================================
+SECTION 5 — OPIOID EXPOSURE
+=========================================================
+
+Q1. Breathing slow?
+A: "Breathing is shallow."
+
+Q2. Responsive?
+A: "Hard to wake."
+
+Q3. Substance?
+A: "Took oxycodone." / "Heroin exposure."
+
+OPIOID RED FLAGS:
+- RR <12
+- Pinpoint pupils
+- Unresponsive
+- Blue lips
+
+=========================================================
+SECTION 6 — STIMULANT EXPOSURE (COCAINE/METH/ADHD MEDS)
+=========================================================
+
+Q1. Symptoms?
+A: "Heart racing." / "Chest pain." / "Anxious."
+
+STIMULANT RED FLAGS:
+- Chest pain
+- Severe agitation
+- Seizures
+- Very high BP
+- Very fast HR
+
+=========================================================
+SECTION 7 — SEDATIVE OVERDOSE (BENZODIAZEPINES)
+=========================================================
+
+Q1. Drowsy?
+A: "Very sleepy."
+
+Q2. Breathing?
+A: "Slower than usual."
+
+RED FLAGS:
+- Slow breathing
+- Unresponsiveness
+- Alcohol + benzo combination
+
+=========================================================
+SECTION 8 — ALCOHOL INTOXICATION
+=========================================================
+
+Q1. How much?
+A: "Half a bottle of vodka."
+
+Q2. Vomiting?
+A: "Vomited twice."
+
+ALCOHOL RED FLAGS:
+- Confusion
+- Seizures
+- Slow breathing
+- Hypothermia
+
+=========================================================
+SECTION 9 — ALCOHOL WITHDRAWAL
+=========================================================
+
+Q1. Last drink?
+A: "24 hours ago."
+
+Q2. Symptoms?
+A:
+- Tremors
+- Anxiety
+- Sweats
+- Hallucinations
+
+WITHDRAWAL RED FLAGS:
+- Seizures
+- Visual hallucinations
+- Severe tremors
+- High HR + high BP
+
+=========================================================
+SECTION 10 — CARBON MONOXIDE (CO) EXPOSURE
+=========================================================
+
+Q1. Headache?
+A: "Bad headache."
+
+Q2. Exposure?
+A: "Heater not working well."
+
+Q3. Other symptoms?
+A: "Dizzy and nauseous."
+
+CO RED FLAGS:
+- Multiple household members sick
+- Confusion
+- Cherry-red lips (rare but classic)
+- House heater/generator use
+
+=========================================================
+SECTION 11 — FOOD POISONING / TOXIN-MEDIATED
+=========================================================
+
+Q1. Onset after meal?
+A: "2 hours after eating."
+
+Q2. Vomiting or diarrhea?
+A: "Severe vomiting."
+
+RED FLAGS:
+- Bloody diarrhea
+- Severe dehydration
+- High fever + abdominal pain
+
+=========================================================
+SECTION 12 — HOUSEHOLD CHEMICAL INGESTION
+=========================================================
+
+Q1. What chemical?
+A: "Bleach." / "Cleaner."
+
+Q2. Vomiting?
+A: "Vomited once."
+
+RED FLAGS:
+- Trouble breathing
+- Drooling
+- Severe pain swallowing
+- Blood in vomit
+
+=========================================================
+SECTION 13 — ORGANOPHOSPHATE/PARASYMPATHETIC TOXICITY
+=========================================================
+
+SYMPTOMS (SLUDGE):
+- Salivation
+- Lacrimation
+- Urination
+- Defecation
+- GI upset
+- Emesis
+
+RED FLAGS:
+- Trouble breathing
+- Seizure
+- Extreme secretions
+
+=========================================================
+SECTION 14 — HEAVY METAL EXPOSURE
+=========================================================
+
+Q1. Exposure?
+A: "Old house (lead)." / "Workplace exposure."
+
+Q2. Symptoms?
+A:
+- Numbness
+- Abdominal pain
+- Fatigue
+
+=========================================================
+SECTION 15 — PLANT/MUSHROOM INGESTION
+=========================================================
+
+Q1. Type?
+A: "Wild mushrooms."
+
+Q2. Symptoms?
+A: "Vomiting + abdominal pain."
+
+RED FLAGS:
+- Severe vomiting
+- Yellowing eyes (liver)
+- Confusion
+
+=========================================================
+SECTION 16 — SNAKE/SPIDER BITES
+=========================================================
+
+Q1. When?
+A: "Bitten 1 hour ago."
+
+Q2. Symptoms?
+A:
+- Severe pain
+- Swelling
+- Nausea
+
+RED FLAGS:
+- Rapid swelling
+- Trouble breathing
+- Black widow abdominal pain
+- Brown recluse necrosis
+
+=========================================================
+SECTION 17 — TOXIC ALCOHOLS (METHANOL/ETHYLENE GLYCOL)
+=========================================================
+
+Q1. Vision changes?
+A: "Blurred vision." (Methanol)
+
+Q2. Abdominal pain?
+A: "Severe stomach pain."
+
+RED FLAGS:
+- Vision loss
+- Acidic breathing
+- Confusion
+- Kidney pain
+
+=========================================================
+SECTION 18 — WITHDRAWAL SYNDROMES (NON-ALCOHOL)
+=========================================================
+
+Opioids:
+- Muscle aches
+- Runny nose
+- Anxiety
+
+Benzos:
+- Tremors
+- Seizures (red flag)
+
+Stimulants:
+- Crashing, hypersomnia
+
+=========================================================
+TOXICOLOGY GLOBAL RED FLAGS
+=========================================================
+- Trouble breathing
+- Seizures
+- Unresponsiveness
+- Very slow or very fast HR
+- Chest pain
+- Persistent vomiting
+- Vision loss
+- Confusion or agitation
+- Children ingesting unknown substances
+- Intentional overdose indicated
+
+=========================================================
+END OF TOXICOLOGY DEEPEST DIVE FILE
+=========================================================

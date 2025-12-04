@@ -1,0 +1,260 @@
+NEONATAL EMERGENCIES — HealthYoda RAG DEEPEST DIVE
+=====================================================================
+FULL VERSION WITH QUESTIONS + REAL ANSWERS + RED FLAGS
+Developer-Ready RAG / Intake Knowledge Base File
+=====================================================================
+
+NEONATAL EMERGENCY CLUSTERS
+---------------------------
+1. Neonatal infection / sepsis
+2. Neonatal fever vs hypothermia
+3. Respiratory distress patterns
+4. Neonatal jaundice emergencies
+5. Feeding failure emergencies
+6. Hypoglycemia
+7. Neonatal dehydration
+8. Cardiac emergencies
+9. GI emergencies
+10. CNS / seizure patterns
+11. Birth trauma emergencies
+12. Congenital anomalies presenting emergently
+13. Global neonatal emergency RED FLAGS
+14. HealthYoda neonatal triage logic
+
+=====================================================================
+SECTION 1 — NEONATAL SEPSIS
+=====================================================================
+
+CLUES:
+- Poor feeding
+- Lethargy
+- Weak cry
+- Low temperature OR fever
+- Irritability
+- Rapid breathing
+
+Q:
+- “How is feeding?”
+A:
+- “Barely taking anything.”
+
+RED FLAGS:
+- Feeding refusal
+- Hypothermia
+- Grunting
+- Lethargy
+
+=====================================================================
+SECTION 2 — FEVER vs LOW TEMP
+=====================================================================
+
+FEVER:
+>38.0°C (100.4°F)
+
+LOW TEMP:
+<36°C (96.8°F)
+
+Q:
+- “Temp reading?”
+
+A:
+- “Cold to touch, 35.7°C”
+
+Hypothermia may indicate sepsis.
+
+RED FLAGS:
+- Any fever in newborn
+- Any low temp in newborn
+
+=====================================================================
+SECTION 3 — NEONATAL RESPIRATORY DISTRESS
+=====================================================================
+
+SIGNS:
+- Retractions
+- Nasal flaring
+- Grunting
+- Rapid RR
+- Poor feeding
+- Cyanosis
+
+Consider:
+- TTN
+- RDS
+- Pneumonia
+- Pneumothorax
+- Congenital heart disease
+
+RED FLAGS:
+- Blue lips
+- Pauses in breathing
+
+=====================================================================
+SECTION 4 — NEONATAL JAUNDICE EMERGENCIES
+=====================================================================
+
+RED FLAGS:
+- Jaundice within first 24 hrs
+- Rapid rise
+- Poor feeding
+- Lethargy
+- Arching
+- High-pitched cry
+
+Consider:
+- Hemolysis
+- Sepsis
+- Breastfeeding failure jaundice
+
+=====================================================================
+SECTION 5 — FEEDING FAILURE EMERGENCIES
+=====================================================================
+
+CLUES:
+- Poor latch
+- Weak suck
+- Falling asleep during feeds
+- Vomiting
+- No stool/urine
+
+RED FLAGS:
+- No urine for >12 hrs
+- No stool for 48 hrs
+- Lethargy + poor feeding
+
+=====================================================================
+SECTION 6 — HYPOGLYCEMIA
+=====================================================================
+
+CLUES:
+- Jitteriness
+- Lethargy
+- Poor feeding
+- Hypothermia
+
+RED FLAGS:
+- Jittery + poor feeding
+
+=====================================================================
+SECTION 7 — NEONATAL DEHYDRATION
+=====================================================================
+
+CLUES:
+- Few wet diapers
+- Dry mouth
+- Poor feeding
+- Weight loss >10%
+
+RED FLAGS:
+- Sunken fontanelle
+- No wet diaper >12 hrs
+
+=====================================================================
+SECTION 8 — CARDIAC EMERGENCIES
+=====================================================================
+
+CLUES:
+- Cyanosis
+- Poor feeding
+- Fast breathing
+- Sweating
+
+Consider:
+- Congenital heart disease
+- Ductal-dependent lesions
+
+RED FLAGS:
+- Cyanosis unresponsive to oxygen
+
+=====================================================================
+SECTION 9 — GI EMERGENCIES
+=====================================================================
+
+CAUSES:
+- Pyloric stenosis
+- Malrotation
+- NEC
+- Intestinal obstruction
+
+CLUES:
+- Bilious vomiting
+- Bloody stools
+- Abdominal distension
+
+RED FLAGS:
+- Bilious vomit
+- Bloody stool
+- Severe abdominal distention
+
+=====================================================================
+SECTION 10 — SEIZURES in NEONATES
+=====================================================================
+
+CLUES:
+- Lip smacking
+- Eye deviation
+- Tremors not suppressed
+
+RED FLAGS:
+- ANY seizure activity
+
+=====================================================================
+SECTION 11 — BIRTH TRAUMA COMPLICATIONS
+=====================================================================
+
+CLUES:
+- Irritability
+- Poor feeding
+- Asymmetry
+- Reduced movement
+- Bruising/swelling
+
+=====================================================================
+SECTION 12 — CONGENITAL ANOMALIES
+=====================================================================
+
+EMERGENCY SIGNS:
+- Cyanosis
+- Inability to feed
+- Vomiting
+- Abnormal breathing noises
+
+=====================================================================
+SECTION 13 — GLOBAL NEONATAL EMERGENCY RED FLAGS
+=====================================================================
+- Fever ANY
+- Hypothermia ANY
+- Weak cry
+- Poor feeding
+- Lethargy
+- Gasping / rapid breathing
+- Blue lips
+- Bilious vomiting
+- Bloody stool
+- No wet diapers
+- Seizures
+
+=====================================================================
+SECTION 14 — HEALTHYODA TRIAGE LOGIC
+=====================================================================
+
+ASK:
+1. Feeding?
+2. Urine?
+3. Stools?
+4. Breathing?
+5. Temp?
+6. Color?
+7. Cry strength?
+8. Awake/responsive?
+
+ROUTE:
+- Fever OR hypothermia → sepsis pathway
+- Poor feeding + low urine → dehydration
+- Cyanosis + distress → cardiac/resp
+- Bilious vomiting → GI obstruction
+- Seizure → immediate escalation
+
+=====================================================================
+END OF FILE
+=====================================================================

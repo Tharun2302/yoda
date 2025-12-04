@@ -1,0 +1,358 @@
+OB/GYN — HealthYoda RAG DEEPEST DIVE
+=========================================================
+FULL VERSION WITH QUESTIONS + REALISTIC ANSWERS + RED FLAGS
+Developer-Ready RAG / Intake Knowledge Base File
+=========================================================
+
+OB/GYN COMPLAINT CLUSTERS
+-------------------------
+1. Pelvic pain
+2. Vaginal discharge
+3. Vaginal bleeding (non‑pregnant)
+4. Early pregnancy symptoms
+5. Pregnancy abdominal pain
+6. Pregnancy bleeding
+7. Menstrual irregularities
+8. Dysmenorrhea (painful periods)
+9. Amenorrhea
+10. Dyspareunia (pain with sex)
+11. UTI vs vaginitis differentiation
+12. STI concerns
+13. Breast pain / lumps
+14. Postpartum symptoms
+15. Contraception issues
+16. Menopause symptoms
+
+=========================================================
+SECTION 1 — UNIVERSAL OB/GYN HPI STRUCTURE
+=========================================================
+
+ONSET:
+- Sudden
+- Gradual
+- At cycle midpoint
+- After intercourse
+- During pregnancy
+
+DURATION:
+- Hours
+- Days
+- Weeks
+
+SEVERITY:
+- Mild
+- Moderate
+- Severe — limiting activity
+
+LOCATION:
+- Lower abdomen
+- Deep pelvic
+- Unilateral (L/R)
+- Suprapubic
+- Low back + pelvic radiation
+
+ASSOCIATED SYMPTOMS:
+- Bleeding
+- Discharge
+- Fever
+- Urinary symptoms
+- Nausea/vomiting
+- Shoulder pain (ectopic sign)
+- Dizziness
+
+RISK FACTORS:
+- Recent intercourse
+- STI exposure
+- Pregnancy possibility
+- Prior ectopic pregnancy
+- Fertility treatment
+- IUD in place
+
+=========================================================
+SECTION 2 — PELVIC PAIN
+=========================================================
+
+Q1. When did the pain start?
+A: "Started this morning." / "Worsening 3 days."
+
+Q2. Sudden or gradual?
+A: "Sudden sharp pain." / "Dull ache."
+
+Q3. Location?
+A: "Right lower pelvis." / "Both sides."
+
+Q4. Radiation?
+A: "To back." / "To groin."
+
+Q5. Pain relation to cycle?
+A: "Mid-cycle pain." / "Worse on period."
+
+Q6. Pregnancy possibility?
+A: "Yes could be pregnant." / "No chance."
+
+Q7. Fever?
+A: "No fever." / "Low-grade fever."
+
+Q8. Discharge?
+A: "Yellow discharge." / "None."
+
+PELVIC PAIN RED FLAGS:
+- Sudden severe unilateral pain
+- Pain + dizziness/syncope (ectopic)
+- Fever + pelvic pain (PID)
+- Pain + heavy bleeding
+- Pain during pregnancy
+
+=========================================================
+SECTION 3 — VAGINAL DISCHARGE
+=========================================================
+
+Q1. Color?
+A: "White thick." / "Yellow." / "Green." / "Gray."
+
+Q2. Odor?
+A: "Fishy smell." / "No odor."
+
+Q3. Itching/burning?
+A: "Severe itching." / "Burning with urination."
+
+Q4. Pain with intercourse?
+A: "Yes painful."
+
+Q5. Fever?
+A: "No fever." / "Low fever."
+
+Common patterns:
+- Cottage-cheese + itching → Yeast
+- Thin gray + odor → BV
+- Yellow/green + pelvic pain → STI / PID
+
+DISCHARGE RED FLAGS:
+- Fever + pelvic pain (PID)
+- Severe abdominal pain
+- Pregnancy + discharge + bleeding
+
+=========================================================
+SECTION 4 — VAGINAL BLEEDING (NON-PREGNANT)
+=========================================================
+
+Q1. Cycle timing?
+A: "Between periods." / "After missed period."
+
+Q2. Flow?
+A: "Light spotting." / "Heavy bleeding with clots."
+
+Q3. Pain?
+A: "Cramping." / "Sharp pain."
+
+Q4. Pregnancy possibility?
+A: "Maybe pregnant."
+
+RED FLAGS:
+- Soaking >1 pad/hr
+- Dizziness
+- Severe pain
+- Postmenopausal bleeding
+
+=========================================================
+SECTION 5 — EARLY PREGNANCY SYMPTOMS
+=========================================================
+
+Q1. Missed period?
+A: "Yes 1 week late."
+
+Q2. Nausea?
+A: "Morning nausea."
+
+Q3. Breast tenderness?
+A: "Yes very tender."
+
+Q4. Cramping?
+A: "Mild cramping."
+
+=========================================================
+SECTION 6 — PREGNANCY ABDOMINAL PAIN
+=========================================================
+
+Q1. How far along?
+A: "6 weeks." / "12 weeks."
+
+Q2. Pain type?
+A: "Sharp right-sided." / "Cramping."
+
+Q3. Bleeding?
+A: "Light spotting." / "Heavy bleeding."
+
+Q4. Dizziness?
+A: "Yes dizzy."
+
+RED FLAGS:
+- Severe unilateral pain + dizziness → ectopic
+- Heavy bleeding
+- Shoulder pain
+- Seizures (late pregnancy)
+
+=========================================================
+SECTION 7 — PREGNANCY BLEEDING
+=========================================================
+
+Q1. Amount?
+A: "Spotting." / "Heavy bleeding."
+
+Q2. Clots?
+A: "Small clots."
+
+Q3. Associated pain?
+A: "Cramping."
+
+RED FLAGS:
+- Heavy bleeding
+- Pain + bleeding early pregnancy
+- Dizziness/syncope
+
+=========================================================
+SECTION 8 — MENSTRUAL IRREGULARITIES
+=========================================================
+
+Q1. Irregular cycles?
+A: "Sometimes skip months."
+
+Q2. Cycle length?
+A: "35–40 days."
+
+Q3. Weight changes?
+A: "Recent weight gain."
+
+Q4. Hair/skin changes?
+A: "Acne and hair growth." (PCOS pattern)
+
+=========================================================
+SECTION 9 — DYSMENORRHEA (PAINFUL PERIODS)
+=========================================================
+
+Q1. Cramps severity?
+A: "Severe first 2 days."
+
+Q2. Passing clots?
+A: "Yes clots."
+
+Q3. Interference with life?
+A: "Miss school/work."
+
+=========================================================
+SECTION 10 — AMENORRHEA
+=========================================================
+
+Q1. Last period?
+A: "3 months ago."
+
+Q2. Pregnancy possibility?
+A: "Maybe pregnant."
+
+Q3. Weight/exercise changes?
+A: "Intense exercise."
+
+=========================================================
+SECTION 11 — DYSPAREUNIA
+=========================================================
+
+Q1. Pain during sex?
+A: "Deep pain." / "Burning at entry."
+
+Q2. Discharge?
+A: "Yellow discharge."
+
+Q3. Post-coital bleeding?
+A: "Yes spotting."
+
+=========================================================
+SECTION 12 — STI CONCERNS
+=========================================================
+
+Q1. New partner?
+A: "Yes new partner."
+
+Q2. Discharge?
+A: "Yellow discharge."
+
+Q3. Pelvic pain?
+A: "Yes dull pain."
+
+STI RED FLAGS:
+- Fever + pelvic pain (PID)
+- Severe pain during sex
+- Heavy bleeding
+
+=========================================================
+SECTION 13 — BREAST PAIN / LUMPS
+=========================================================
+
+Q1. Lump noticed?
+A: "Small lump."
+
+Q2. Painful or painless?
+A: "Painless."
+
+Q3. Relation to cycle?
+A: "Worse before period."
+
+RED FLAGS:
+- Hard fixed lump
+- Skin dimpling
+- Nipple discharge (bloody)
+- Rapid growth
+
+=========================================================
+SECTION 14 — POSTPARTUM SYMPTOMS
+=========================================================
+
+Q1. Bleeding?
+A: "Bleeding slowing down."
+
+Q2. Fever?
+A: "No fever." / "Fever + chills." (endometritis concern)
+
+Q3. Breast symptoms?
+A: "Painful breast." (mastitis)
+
+POSTPARTUM RED FLAGS:
+- Fever + uterine pain
+- Chest pain/SOB (PE)
+- Severe headache (preeclampsia postpartum)
+- Heavy bleeding
+
+=========================================================
+SECTION 15 — CONTRACEPTION ISSUES
+=========================================================
+
+Q1. Using what method?
+A: "IUD." / "Pill."
+
+Q2. Side effects?
+A: "Irregular bleeding."
+
+=========================================================
+SECTION 16 — MENOPAUSE SYMPTOMS
+=========================================================
+
+Q1. Hot flashes?
+A: "Daily hot flashes."
+
+Q2. Vaginal dryness?
+A: "Painful dryness."
+
+=========================================================
+OB/GYN GLOBAL RED FLAGS
+=========================================================
+- Severe unilateral pelvic pain
+- Dizziness or fainting (ectopic)
+- Heavy vaginal bleeding
+- Fever + pelvic pain (PID)
+- Pregnancy + pain + bleeding
+- Shoulder pain in pregnancy
+- Postmenopausal bleeding
+- Breast lump with concerning features
+
+=========================================================
+END OF OB/GYN DEEPEST DIVE FILE
+=========================================================

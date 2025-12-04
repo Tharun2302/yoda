@@ -1,0 +1,399 @@
+ABDOMINAL PAIN — HealthYoda RAG DEEPEST DIVE
+===========================================================
+FULL VERSION WITH QUESTIONS + REALISTIC PATIENT ANSWERS + RED FLAGS
+Developer-Ready RAG / Intake Knowledge Base File
+===========================================================
+
+ABDOMINAL PAIN CLUSTERS (HIGH-YIELD)
+------------------------------------
+1. Quadrant-based pain logic
+2. Peritonitis vs non-peritonitis patterns
+3. Surgical emergencies
+4. GI obstruction spectrum
+5. Vascular abdominal emergencies
+6. Biliary + pancreatic disorders
+7. GI bleeding presentations
+8. Infectious GI
+9. Renal/urinary causes
+10. Reproductive system causes (male + female)
+11. Metabolic/endocrine abdominal pain
+12. Pediatric abdominal pain clusters
+13. Chronically recurring abdominal pain patterns
+14. Global abdominal red flags
+15. Abdominal triage logic for HealthYoda
+
+===========================================================
+SECTION 1 — QUADRANT-BASED PAIN DISCRIMINATION
+===========================================================
+
+RUQ PAIN:
+- Gallstones, cholecystitis
+- Hepatitis
+- Liver congestion
+- Pulmonary (RLL pneumonia)
+
+Q:
+- “Pain gets worse after fatty foods?”
+A:
+- “Yes, after meals.”
+
+Epigastric pain:
+- Gastritis, PUD
+- Pancreatitis
+- MI equivalent
+
+RLQ PAIN:
+- Appendicitis
+- Ovarian torsion
+- Ectopic pregnancy
+- Kidney stones
+- Crohn’s flare
+
+LLQ PAIN:
+- Diverticulitis
+- Ovarian cyst
+- Constipation
+
+RED FLAGS:
+- Rebound tenderness
+- Severe RUQ pain + fever (cholecystitis)
+- RLQ pain + fever (appendicitis)
+- LLQ pain + fever (diverticulitis)
+
+===========================================================
+SECTION 2 — PERITONITIS VS NON-PERITONITIS
+===========================================================
+
+PERITONITIS CLUES:
+- Severe pain with movement
+- Guarding
+- Rigidity (history-level)
+- Pain worse with bumps in car
+
+Q:
+- “Does moving make it worse?”
+A:
+- “Yes, even bumps hurt.”
+
+NON-PERITONITIS:
+- Crampy pain
+- Spasms
+- Waves of pain (colicky)
+
+===========================================================
+SECTION 3 — SURGICAL ABDOMINAL EMERGENCIES
+===========================================================
+
+APPENDICITIS:
+- RLQ pain
+- Loss of appetite
+- Nausea
+- Fever
+
+Q:
+- “Starts around belly button then moves?”
+A:
+- “Yes.”
+
+PERFORATION:
+- Sudden severe pain
+- Shoulder tip pain (diaphragm irritation)
+- Rigidity
+
+BOWEL ISCHEMIA:
+- Pain out of proportion
+- Bloody stools
+
+ECTOPIC PREGNANCY:
+- Early pregnancy + pain + bleeding
+- Shoulder pain
+
+Torsion (ovarian/testicular):
+- Sudden severe lower abdominal/groin pain
+- Nausea/vomiting
+
+RED FLAGS:
+- Sudden severe abdominal pain  
+- Pain + fainting  
+- Severe pain + vaginal bleeding  
+- Pain out of proportion  
+
+===========================================================
+SECTION 4 — GI OBSTRUCTION SPECTRUM
+===========================================================
+
+SMALL BOWEL OBSTRUCTION:
+- Cramping
+- Vomiting
+- Abdominal distension
+- No gas/stool
+
+LARGE BOWEL OBSTRUCTION:
+- Constipation
+- Progressive distension
+- Pain milder at first
+
+Q:
+- “Passing gas?”
+A:
+- “No.”
+
+RED FLAGS:
+- Severe distension + no stool  
+- Persistent vomiting  
+
+===========================================================
+SECTION 5 — VASCULAR ABDOMINAL EMERGENCIES
+===========================================================
+
+AAA RUPTURE:
+- Sudden back/abdominal pain
+- Dizziness/fainting
+- Pulsating sensation
+
+AORTIC DISSECTION:
+- Tearing chest/back/abdominal pain
+
+MESENTERIC ISCHEMIA:
+- Pain out of proportion
+- Vomiting
+- Blood in stool
+
+RED FLAGS:
+- Pain + faintness  
+- Pain out of proportion  
+- Older + smoker + sudden pain  
+
+===========================================================
+SECTION 6 — BILIARY + PANCREATIC DISORDERS
+===========================================================
+
+CHOLECYSTITIS:
+- RUQ pain radiating to shoulder/back
+- Fever
+- Pain after fatty meals
+
+PANCREATITIS:
+- Severe epigastric pain radiating to back
+- Worse after food
+- Nausea/vomiting
+- History alcohol/gallstones
+
+Q:
+- “Does pain go to the back?”
+A:
+- “Yes.”
+
+RED FLAGS:
+- RUQ pain + fever  
+- Severe epigastric pain + vomiting  
+- Pain radiating to back  
+
+===========================================================
+SECTION 7 — GI BLEEDING PRESENTATIONS
+===========================================================
+
+UPPER GI BLEED:
+- Vomiting blood
+- Black stools
+- Dizziness
+
+LOWER GI BLEED:
+- Bright blood
+- Cramping
+- Diarrhea
+
+Q:
+- “What color is stool?”
+A:
+- “Black / bright red.”
+
+RED FLAGS:
+- Vomiting blood  
+- Black stools + dizziness  
+
+===========================================================
+SECTION 8 — INFECTIOUS GI
+===========================================================
+
+GASTROENTERITIS:
+- Diarrhea
+- Nausea/vomiting
+- Cramping
+
+C. DIFF:
+- Profuse diarrhea
+- Recent antibiotics
+- Abdominal tenderness
+
+DIVERTICULITIS:
+- LLQ pain
+- Fever
+- Constipation/diarrhea
+
+Q:
+- “Any recent antibiotics?”
+A:
+- “Yes recently.”
+
+===========================================================
+SECTION 9 — RENAL/URINARY ABDOMINAL PAIN
+===========================================================
+
+KIDNEY STONES:
+- Severe flank pain
+- Radiates to groin
+- Nausea/vomiting
+- Blood in urine
+
+UTI/PYELONEPHRITIS:
+- Fever
+- Back pain
+- Burning urination
+
+Q:
+- “Burning or frequency?”
+A:
+- “Yes.”
+
+RED FLAGS:
+- Fever + flank pain  
+- Severe flank pain  
+
+===========================================================
+SECTION 10 — REPRODUCTIVE CAUSES
+===========================================================
+
+OVARIAN TORSION:
+- Sudden pain
+- Nausea/vomiting
+
+ECTOPIC PREGNANCY:
+- Early pregnancy
+- Pain + bleeding
+- Shoulder pain
+
+PELVIC INFLAMMATORY DISEASE (PID):
+- Pelvic pain
+- Fever
+- Vaginal discharge
+
+TESTICULAR TORSION:
+- Sudden groin pain
+- Nausea
+- Radiates to abdomen
+
+RED FLAGS:
+- Early pregnancy + pain  
+- Sudden pelvic/groin pain  
+
+===========================================================
+SECTION 11 — METABOLIC / ENDOCRINE ABDOMINAL PAIN
+===========================================================
+
+DKA:
+- Abdominal pain + vomiting
+- Thirst
+- Deep breathing
+
+ADRENAL CRISIS:
+- Abdominal pain
+- Vomiting
+- Weakness
+- Dizziness
+
+RED FLAGS:
+- Abdominal pain + fainting  
+- Vomiting + deep breathing  
+
+===========================================================
+SECTION 12 — PEDIATRIC ABDOMINAL PAIN
+===========================================================
+
+INTUSSUSCEPTION:
+- Severe crampy pain
+- Episodes of crying
+- Red currant jelly stools
+
+APPENDICITIS:
+- RLQ pain
+- Fever
+
+CONSTIPATION:
+- Chronic
+- Decreased appetite
+
+MECKEL’S:
+- Painless bleeding
+
+RED FLAGS:
+- Severe crying/colic episodes  
+- Bloody stools  
+
+===========================================================
+SECTION 13 — CHRONIC ABDOMINAL PAIN PATTERNS
+===========================================================
+
+IBS:
+- Cramping relieved by stool
+- Alternating diarrhea/constipation
+
+IBD:
+- Bloody stools
+- Weight loss
+- Fever
+
+CELIAC:
+- Bloating
+- Diarrhea
+- Weight loss
+
+ULCER DISEASE:
+- Epigastric pain, worse at night
+
+===========================================================
+SECTION 14 — GLOBAL ABDOMINAL PAIN RED FLAGS
+===========================================================
+- Sudden severe abdominal pain  
+- Pain + fainting  
+- Pain out of proportion  
+- Vomiting blood  
+- Black stools  
+- Severe distension  
+- Fever + abdominal pain  
+- Pain in pregnancy  
+- Bloody stool  
+- Not passing gas or stool  
+- Jaundice + abdominal pain  
+
+===========================================================
+SECTION 15 — ABDOMINAL PAIN TRIAGE LOGIC FOR HEALTHYODA
+===========================================================
+
+ASK:
+1. Location of pain?
+2. Onset?
+3. Nausea/vomiting?
+4. Diarrhea/constipation?
+5. Blood in stool?
+6. Passing gas?
+7. Fever?
+8. Urinary symptoms?
+9. Pregnancy?
+10. Chest pain/SOB?
+11. Radiation (back, shoulder, groin)?
+
+ROUTE:
+- RLQ pain + fever → appendicitis  
+- RUQ pain + fever → cholecystitis  
+- Severe epigastric pain → pancreatitis  
+- Severe flank pain → kidney stone  
+- Sudden pain + fainting → AAA/ectopic  
+- Pain + no gas/stool → obstruction  
+- Pain out of proportion → ischemia  
+- Pain + black stools → GI bleed  
+- Pain in pregnancy → ectopic/PID/UTI  
+
+===========================================================
+END OF ABDOMINAL PAIN MASTER FILE
+===========================================================

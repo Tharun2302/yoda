@@ -1,0 +1,258 @@
+MUSCULOSKELETAL SYSTEM — HealthYoda RAG DEEPEST DIVE
+=========================================================
+FULL VERSION WITH QUESTIONS + ANSWERS + RED FLAGS
+Developer-Ready RAG / Intake Knowledge Base File
+=========================================================
+
+MSK COMPLAINT CLUSTERS
+----------------------
+1. Joint pain (mono- or poly-articular)
+2. Muscle pain (myalgia)
+3. Back pain (neck, thoracic, lumbar)
+4. Knee pain
+5. Shoulder pain
+6. Hip pain
+7. Hand/wrist pain
+8. Foot/ankle pain
+9. Swelling / warmth / redness of joints
+10. Stiffness
+11. Injury / trauma-related pain
+12. Limited range of motion
+13. Weakness (true vs pain-limited)
+14. Gait difficulty / limping
+15. Sciatica / radicular pain
+
+=========================================================
+SECTION 1 — UNIVERSAL MSK HPI STRUCTURE
+=========================================================
+
+ONSET:
+- "Started suddenly lifting something."
+- "Gradual over weeks."
+- "Started this morning."
+
+DURATION:
+- Constant
+- Intermittent
+- Worsening
+- Improving
+
+LOCATION:
+- "Lower back."
+- "Right knee."
+- "Left shoulder."
+- "Neck radiating to arm."
+
+QUALITY:
+- Sharp
+- Aching
+- Burning
+- Cramping
+- Shooting
+- Stabbing
+- "Feels tight"
+
+SEVERITY:
+- "2/10 mild."
+- "6/10 moderate."
+- "10/10 severe."
+
+TIMING:
+- Morning stiffness
+- End-of-day worsening
+- Worse after activity
+- Worse after rest
+
+RADIATION:
+- "Down leg."
+- "Into shoulder blade."
+- "Down arm to fingers."
+
+AGGRAVATING FACTORS:
+- Movement
+- Standing
+- Sitting
+- Walking
+- Bending
+- Lifting
+
+RELIEVING FACTORS:
+- Rest
+- Heat
+- Ice
+- Stretching
+- Massage
+
+ASSOCIATED SYMPTOMS:
+- Swelling
+- Redness
+- Bruising
+- Numbness
+- Tingling
+- Weakness
+- Locking
+- Clicking
+
+=========================================================
+SECTION 2 — BACK PAIN
+=========================================================
+
+Q1. Where is the pain?
+A: "Lower back." / "Neck." / "Mid-back."
+
+Q2. Sudden or gradual?
+A: "Sudden lifting box." / "Gradual."
+
+Q3. Radiation?
+A: "Down right leg." / "Into shoulder."
+
+Q4. Numbness or tingling?
+A: "Pins and needles." / "Numb toes."
+
+Q5. Weakness?
+A: "Leg feels weak." / "Difficulty lifting foot."
+
+Q6. Bowel/bladder issues?
+A: "Can't hold urine." / "Hard to urinate." / "No issues."
+
+Q7. Trauma?
+A: "Fell." / "Gym injury." / "No trauma."
+
+Q8. Better or worse with movement?
+A: "Walking helps." / "Sitting worsens." / "Bending painful."
+
+BACK PAIN RED FLAGS:
+- Saddle anesthesia
+- Urinary retention/incontinence
+- Progressive leg weakness
+- Trauma + severe pain
+- Fever + back pain
+- Night pain + weight loss
+
+=========================================================
+SECTION 3 — JOINT PAIN (MONO/POLY)
+=========================================================
+
+Q1. Which joint?
+A: "Right knee." / "Left shoulder." / "Finger joints."
+
+Q2. Swelling/redness/warmth?
+A: "Hot swollen joint." / "Mild swelling."
+
+Q3. Movement vs rest?
+A: "Pain with walking." / "Constant ache."
+
+Q4. Morning stiffness?
+A: "10 minutes." / "Over 1 hour."
+
+Q5. Locking/giving out?
+A: "Knee gives out." / "Clicking."
+
+Q6. Recent infection/tick bite?
+A: "Had flu." / "Tick bite."
+
+JOINT RED FLAGS:
+- Hot, red joint
+- Fever + joint swelling
+- Inability to bear weight
+- Deformity after trauma
+
+=========================================================
+SECTION 4 — KNEE PAIN
+=========================================================
+
+Q1. Exact location?
+A: "Inner knee." / "Back of knee." / "Front near kneecap."
+
+Q2. Swelling?
+A: "Significant swelling." / "Mild."
+
+Q3. Locking/giving way?
+A: "Locks." / "Gives out."
+
+Q4. Stairs?
+A: "Worse descending stairs."
+
+=========================================================
+SECTION 5 — SHOULDER PAIN
+=========================================================
+
+Q1. Where is pain?
+A: "Top." / "Front biceps area." / "Deep inside."
+
+Q2. Raise arm?
+A: "Can't raise above shoulder."
+
+Q3. Clicking?
+A: "Clicks when rotating."
+
+Q4. Neck involvement?
+A: "Pain down arm."
+
+=========================================================
+SECTION 6 — HIP PAIN
+=========================================================
+
+Q1. Location?
+A: "Groin." / "Outer hip." / "Buttock."
+
+=========================================================
+SECTION 7 — HAND/WRIST PAIN
+=========================================================
+
+Q1. Numbness/tingling?
+A: "Thumb + index finger numb."
+
+Q2. Swelling?
+A: "Finger swelling."
+
+Q3. Triggering?
+A: "Finger gets stuck."
+
+=========================================================
+SECTION 8 — FOOT/ANKLE PAIN
+=========================================================
+
+Q1. Trauma?
+A: "Twisted ankle."
+
+Q2. Location?
+A: "Outer ankle." / "Heel pain."
+
+=========================================================
+SECTION 9 — MUSCLE PAIN
+=========================================================
+
+Q1. Which muscles?
+A: "Leg muscles." / "All over body."
+
+Q2. Activity-related?
+A: "After working out."
+
+Q3. Swelling?
+A: "Feels swollen."
+
+=========================================================
+SECTION 10 — GAIT DIFFICULTY
+=========================================================
+
+Q1. Describe walking.
+A: "Limping." / "Dragging foot."
+
+Q2. Pain or weakness?
+A: "Pain." / "Weakness."
+
+=========================================================
+MSK GLOBAL RED FLAGS
+=========================================================
+- Inability to bear weight
+- Hot, swollen joint + fever
+- Visible deformity after trauma
+- Bowel/bladder dysfunction
+- Rapidly progressive weakness
+- Nighttime pain + weight loss
+- Sudden severe back pain with neuro symptoms
+
+=========================================================
+END OF MSK DEEPEST DIVE FILE
+=========================================================

@@ -1,0 +1,383 @@
+VASCULAR EMERGENCIES — HealthYoda RAG DEEPEST DIVE
+=========================================================
+FULL VERSION WITH QUESTIONS + REALISTIC PATIENT ANSWERS + RED FLAGS
+Developer-Ready RAG / Intake Knowledge Base File
+=========================================================
+
+VASCULAR EMERGENCY CLUSTERS
+---------------------------
+1. Aortic dissection (chest/back/abdominal variants)
+2. Ruptured and symptomatic abdominal aortic aneurysm (AAA)
+3. Acute limb ischemia
+4. Critical limb ischemia (chronic → acute worsening)
+5. Compartment syndrome (limb, trauma, exertional)
+6. Acute mesenteric ischemia
+7. Acute carotid/vertebral artery syndromes (TIA/stroke warning from vascular lens)
+8. Acute DVT with high-risk features
+9. Acute ischemic vs hemorrhagic limb pain mimics
+10. Vascular trauma (penetrating/blunt)
+11. Acute peripheral arterial occlusion in special groups (AFib, hypercoagulable)
+12. Global vascular emergency red-flag symptom patterns
+
+=========================================================
+SECTION 1 — AORTIC DISSECTION (SYMPTOM-LEVEL)
+=========================================================
+
+CORE CLUES:
+- Sudden onset, severe pain
+- Described as tearing, ripping, or shearing
+- Pain may migrate (chest → back → abdomen)
+- Unequal pulses (exam-level; symptom-level: “one arm weaker/cooler”)
+- History of hypertension, connective tissue disorder, bicuspid valve, pregnancy, stimulant use
+
+Q1. Describe your pain in your own words.
+A:
+- “Sudden tearing pain in my chest going through to my back.”
+- “Feels like something ripped inside.”
+
+Q2. Where did it start and where is it now?
+A:
+- “Started in chest, now in my back.”
+- “Started between shoulder blades.”
+
+Q3. Onset?
+A:
+- “Came out of nowhere, all at once.”
+
+Q4. Any neurologic symptoms?
+A:
+- “One leg feels weak.”
+- “Trouble speaking.”
+- “Vision changes.”
+
+Q5. Any history of high blood pressure or known aneurysm?
+A:
+- “Yes, long-standing high blood pressure.”
+- “Was told I had an enlarged aorta.”
+
+AORTIC DISSECTION RED FLAGS:
+- Sudden severe chest or back pain, maximal at onset
+- Tearing or ripping quality
+- Pain with neurologic symptoms (weakness, speech trouble, vision loss)
+- Fainting or near-fainting with severe pain
+- Chest/back pain in known Marfan/Ehlers-Danlos/known aneurysm patient
+
+=========================================================
+SECTION 2 — ABDOMINAL AORTIC ANEURYSM (AAA) — RUPTURED & SYMPTOMATIC
+=========================================================
+
+CLUES FOR RUPTURED/LEAKING AAA:
+- Sudden or worsening severe abdominal, back, or flank pain
+- Pain sometimes radiates to groin
+- “Tearing” or pulsating sensation in abdomen
+- Hypotension, dizziness, collapse
+- Older age, smoker, male, known aneurysm
+
+Q1. Where is the worst pain?
+A:
+- “Deep in my belly.”
+- “In my back and lower abdomen.”
+
+Q2. Onset and progression?
+A:
+- “Started suddenly and keeps getting worse.”
+- “Pain came on while lifting or straining.”
+
+Q3. Any dizziness or fainting?
+A:
+- “Feel like I’m going to pass out.”
+
+Q4. Any sense of a pulsating mass?
+A:
+- “Feels like a heartbeat in my belly.”
+
+AAA RED FLAGS:
+- Sudden severe abdominal or back pain in older patient
+- Pain + dizziness/fainting
+- Known AAA + new/worsening pain
+- Abdominal pain after lifting/straining in older smoker
+
+=========================================================
+SECTION 3 — ACUTE LIMB ISCHEMIA (6 P’s)
+=========================================================
+
+CLASSIC 6 P’s:
+- Pain (sudden, severe, distal)
+- Pallor (pale)
+- Pulselessness (exam-level)
+- Paresthesia (numbness/tingling)
+- Paralysis (weakness)
+- Poikilothermia (cold limb)
+
+Q1. When did limb pain start?
+A:
+- “Suddenly about an hour ago.”
+
+Q2. Which limb and where exactly?
+A:
+- “Right foot and lower leg.”
+
+Q3. Any numbness or tingling?
+A:
+- “Foot feels numb and pins-and-needles.”
+
+Q4. Any weakness?
+A:
+- “Hard to move toes or foot.”
+
+Q5. Limb temperature change?
+A:
+- “Feels much colder than the other side.”
+
+RISK CONTEXT:
+- AFib
+- Recent MI
+- Known peripheral artery disease
+- Aneurysm
+- Hypercoagulable state
+
+ACUTE LIMB ISCHEMIA RED FLAGS:
+- Sudden onset severe limb pain
+- Pale, cold limb compared to other side
+- Numbness or weakness developing
+- Loss of function or inability to move limb
+
+=========================================================
+SECTION 4 — CRITICAL LIMB ISCHEMIA (CHRONIC → ACUTE WORSENING)
+=========================================================
+
+CLUES:
+- Long-standing claudication (pain with walking, relieved by rest)
+- Now pain at rest, especially at night
+- Non-healing wounds on toes/feet
+- Color change (dependent rubor, pallor on elevation)
+- Diabetes, smoking, PAD history
+
+Q1. How long have you had leg pain with walking?
+A:
+- “Months to years; used to just hurt when walking far.”
+
+Q2. Do you now have pain even at rest?
+A:
+- “Yes, feet hurt even lying down; need to hang leg off bed.”
+
+Q3. Any sores on toes or feet?
+A:
+- “Yes, a sore that won't heal.”
+
+CRITICAL LIMB ISCHEMIA RED FLAGS:
+- New rest pain in a leg with prior claudication
+- Dark or black toes
+- Non-healing ulcers with increasing pain
+
+=========================================================
+SECTION 5 — COMPARTMENT SYNDROME
+=========================================================
+
+COMMON CONTEXTS:
+- Fracture or crush injury
+- Tight casts/bandages
+- Vigorous exercise (less common)
+- Anticoagulation with bleeding into muscle
+
+CLINICAL P’S (severe end):
+- Pain out of proportion
+- Pain with passive stretch (exam-level)
+- Paresthesia
+- Pallor
+- Paralysis (late)
+- Pulselessness (very late)
+
+Q1. Recent injury or surgery?
+A:
+- “Broke my leg.”
+- “Had surgery on arm.”
+
+Q2. Pain description?
+A:
+- “Excruciating pain, way worse than expected.”
+
+Q3. Tightness?
+A:
+- “Feels like the muscle is going to burst.”
+
+Q4. Numbness or tingling?
+A:
+- “Fingers/toes feel tingly.”
+
+COMPARTMENT SYNDROME RED FLAGS:
+- Severe, escalating pain out of proportion to injury
+- Pain not relieved by meds, worse with movement
+- Tense, tight feeling in muscle compartment
+- New numbness or weakness after injury
+
+=========================================================
+SECTION 6 — ACUTE MESENTERIC ISCHEMIA
+=========================================================
+
+CLUES:
+- Sudden severe abdominal pain
+- “Pain out of proportion” to relatively benign exam
+- Risk factors: AFib, recent MI, heart failure, atherosclerosis, hypercoagulable state
+- Possible bloody stools, nausea, vomiting
+
+Q1. Describe your abdominal pain.
+A:
+- “Very severe cramping pain all over.”
+
+Q2. Onset?
+A:
+- “Came on suddenly.”
+
+Q3. Any heart rhythm issues?
+A:
+- “Have atrial fibrillation.”
+
+Q4. Stool changes?
+A:
+- “Some blood in stool.”
+- “Diarrhea.”
+
+MESENTERIC ISCHEMIA RED FLAGS:
+- Sudden, severe abdominal pain with minimal tenderness
+- History of AFib or known embolic risk
+- Abdominal pain + bloody stools
+- Severe pain in older patient with vascular disease history
+
+=========================================================
+SECTION 7 — CAROTID / VERTEBRAL ARTERY SYNDROMES (VASCULAR LENS)
+=========================================================
+
+CLUES:
+- TIA or stroke-like symptoms
+- Sudden unilateral weakness
+- Facial droop
+- Speech difficulty
+- Transient monocular blindness (“curtain over one eye”)
+- Neck trauma (vertebral dissection)
+
+Q1. What changed suddenly?
+A:
+- “Arm and leg on one side went weak.”
+- “Face drooped.”
+- “Couldn’t get words out.”
+
+Q2. Visual symptoms?
+A:
+- “Vision went dark in one eye for a few minutes.”
+
+Q3. Any neck injury or sudden neck pain?
+A:
+- “Sudden neck pain after turning head or minor trauma.”
+
+RED FLAGS:
+- Any new focal neurologic deficit
+- Sudden monocular vision loss
+- Sudden severe neck pain with neurologic symptoms
+
+=========================================================
+SECTION 8 — ACUTE DVT WITH HIGH-RISK FEATURES
+=========================================================
+
+DVT CLUES:
+- Unilateral leg swelling
+- Calf/thigh pain
+- Warmth, redness
+- Recent immobility, surgery, cancer, pregnancy, OCPs
+
+HIGH-RISK CONTEXT:
+- Known clotting disorders
+- Prior PE or DVT
+- Massive swelling or phlegmasia (limb-threatening venous occlusion)
+
+Q1. Which leg and where is the swelling?
+A:
+- “Left calf and thigh.”
+
+Q2. When did it start?
+A:
+- “Over last 1–2 days.”
+
+Q3. Associated symptoms?
+A:
+- “Leg feels tight and painful.”
+- “Skin looks dark or bluish.” (phlegmasia clue)
+
+DVT RED FLAGS (FOR PE / LIMB THREAT):
+- DVT symptoms + new SOB or chest pain (possible PE)
+- Massive painful swelling with color change (phlegmasia)
+- DVT in patient with cancer, pregnancy, or recent major surgery
+
+=========================================================
+SECTION 9 — VASCULAR TRAUMA (PENETRATING / BLUNT)
+=========================================================
+
+POTENTIAL SITES:
+- Neck
+- Axilla/arm
+- Groin
+- Leg
+
+HARD SIGNS (symptom-level proxies):
+- History of massive bleeding at scene
+- Pulsatile bleeding (reported)
+- Expanding hematoma
+- Ischemic limb signs (cold, pale, weak, numb)
+
+Q1. What kind of injury?
+A:
+- “Stab wound to thigh.”
+- “High-speed collision, hit leg hard.”
+
+Q2. Bleeding?
+A:
+- “Heavy bleeding initially.”
+
+Q3. Limb symptoms?
+A:
+- “Now foot feels cold and numb.”
+
+TRAUMA VASCULAR RED FLAGS:
+- History of severe bleeding
+- Rapidly enlarging swelling/hematoma
+- Limb feeling cold, numb, or weak after trauma
+
+=========================================================
+SECTION 10 — SPECIAL CONTEXTS: AFIB, HYPERCOAGULABLE STATES
+=========================================================
+
+EMBOLIC OCCLUSION CLUES:
+- Sudden limb pain (acute limb ischemia)
+- Sudden abdominal pain (mesenteric ischemia)
+- Sudden neurologic deficit (stroke)
+
+Q1. Known AFib or clotting disorder?
+A:
+- “Yes, irregular heartbeat.”
+- “Told I have factor V Leiden / other.”
+
+Q2. Symptom pattern?
+A:
+- “Symptoms came on very suddenly and severely.”
+
+RED FLAGS:
+- Sudden “out of nowhere” ischemic symptoms in any territory
+- Young patients with repeated clotting events
+
+=========================================================
+SECTION 11 — VASCULAR EMERGENCY GLOBAL RED FLAGS (CONSOLIDATED)
+=========================================================
+- Sudden severe chest, back, or abdominal pain (especially “tearing”)
+- Sudden severe limb pain with cold, pale, or numb limb
+- Severe pain out of proportion to exam (limb or abdomen)
+- Fainting or near-fainting with pain
+- New focal neurologic deficits (weakness, speech trouble, vision loss)
+- Sudden monocular vision loss (“curtain coming down”)
+- Massive unilateral leg swelling, especially with color change
+- History of trauma with rapidly enlarging swelling and distal numbness
+- Rest pain in a limb with non-healing ulcers or black toes
+- Any combination of: low blood pressure, confusion, cold/clammy skin, and severe pain
+
+=========================================================
+END OF VASCULAR EMERGENCIES DEEPEST DIVE FILE
+=========================================================

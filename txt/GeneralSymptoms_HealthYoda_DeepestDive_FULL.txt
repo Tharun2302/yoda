@@ -1,0 +1,307 @@
+GENERAL SYMPTOMS — HealthYoda RAG DEEPEST DIVE
+=========================================================
+FULL VERSION WITH QUESTIONS + REALISTIC ANSWERS + RED FLAGS
+Developer-Ready RAG / Intake Knowledge Base File
+=========================================================
+
+GENERAL SYMPTOM CLUSTERS
+------------------------
+1. Fever
+2. Chills / sweats
+3. Fatigue / weakness
+4. Unintentional weight loss
+5. Weight gain
+6. Appetite changes
+7. Night sweats
+8. Dizziness / lightheadedness
+9. Headache (non-focal)
+10. Generalized body aches
+11. Swollen lymph nodes
+12. Dehydration symptoms
+13. Exercise intolerance
+14. "Not feeling well" / vague malaise
+15. Pallor / general anemia clues
+
+=========================================================
+SECTION 1 — UNIVERSAL GENERAL-SYMPTOMS HPI STRUCTURE
+=========================================================
+
+ONSET:
+- Sudden (hours)
+- Subacute (days)
+- Gradual (weeks to months)
+
+DURATION:
+- Constant
+- Intermittent
+- Worsening
+
+SEVERITY:
+- Mild
+- Moderate
+- Severe — affecting functioning
+
+ASSOCIATED SYMPTOMS:
+- Fever
+- Cough
+- Weight changes
+- Appetite changes
+- GI issues
+- Joint pain
+- Night sweats
+- Fatigue
+- Headache
+- Dizziness
+
+RISK FACTORS:
+- Recent illness
+- Travel
+- Sick contacts
+- Immunosuppression
+- Stress or lifestyle changes
+
+=========================================================
+SECTION 2 — FEVER (GENERAL)
+=========================================================
+
+Q1. Highest temp?
+A: "101°F." / "103°F." / "Low-grade."
+
+Q2. Duration?
+A: "Today only." / "3 days." / "Week-long."
+
+Q3. Pattern?
+A: "On and off." / "Constant."
+
+Q4. Chills?
+A: "Yes shaking chills."
+
+Q5. Associated symptoms?
+A: "Cough." / "Sore throat." / "Abdominal pain."
+
+FEVER RED FLAGS:
+- Fever + confusion
+- Fever >103°F without cause
+- Fever + rash
+- Fever + low BP
+- Fever + stiff neck
+
+=========================================================
+SECTION 3 — CHILLS / SWEATS
+=========================================================
+
+Q1. Rigors?
+A: "Intense shaking chills."
+
+Q2. Night sweats?
+A: "Wake up drenched."
+
+RED FLAGS:
+- Night sweats + weight loss (malignancy/TB)
+- Rigors + fever (bacteremia)
+
+=========================================================
+SECTION 4 — FATIGUE / WEAKNESS
+=========================================================
+
+Q1. Describe fatigue.
+A: "Drained all day." / "Wake up tired."
+
+Q2. Mental or physical fatigue?
+A: "Both." / "Mostly physical."
+
+Q3. Duration?
+A: "Weeks."
+
+Q4. Sleep?
+A: "Poor sleep."
+
+Q5. Weight/appetite changes?
+A: "Lost appetite." / "Gained weight."
+
+FATIGUE RED FLAGS:
+- Fatigue + chest pain
+- Fatigue + shortness of breath
+- Fatigue + severe weight loss
+- Fatigue + dizziness/syncope
+
+=========================================================
+SECTION 5 — UNINTENTIONAL WEIGHT LOSS
+=========================================================
+
+Q1. How much weight?
+A: "Lost 15 lbs."
+
+Q2. Over what time?
+A: "2 months."
+
+Q3. Appetite?
+A: "Eating normally." / "Poor appetite."
+
+Q4. Symptoms?
+A: "Night sweats." / "Chronic cough."
+
+RED FLAGS:
+- Weight loss + fever
+- Weight loss + lymph node swelling
+- Weight loss + persistent cough
+- Weight loss + abdominal pain
+
+=========================================================
+SECTION 6 — WEIGHT GAIN
+=========================================================
+
+Q1. How fast?
+A: "Gained 10 lbs in a month."
+
+Q2. Appetite?
+A: "Eating more."
+
+Q3. Fluid retention?
+A: "Swollen legs."
+
+RED FLAGS:
+- Rapid weight gain + swelling (CHF/renal issues)
+
+=========================================================
+SECTION 7 — APPETITE CHANGES
+=========================================================
+
+Q1. Increased or decreased?
+A: "Decreased appetite." / "Always hungry."
+
+Q2. Associated?
+A: "Nausea." / "Fatigue."
+
+=========================================================
+SECTION 8 — NIGHT SWEATS
+=========================================================
+
+Q1. Severity?
+A: "Bedsheets soaked."
+
+Q2. Weight loss?
+A: "Yes losing weight."
+
+NIGHT SWEATS RED FLAGS:
+- Night sweats + cough (TB)
+- Night sweats + weight loss (malignancy)
+- Night sweats + fever (infection)
+
+=========================================================
+SECTION 9 — DIZZINESS / LIGHTHEADEDNESS
+=========================================================
+
+Q1. Describe feeling.
+A: "Lightheaded." / "Room spinning."
+
+Q2. Triggered by standing?
+A: "Yes when standing."
+
+Q3. Associated?
+A: "Chest pain." / "Palpitations."
+
+RED FLAGS:
+- Dizziness + chest pain
+- Dizziness + shortness of breath
+- Dizziness + weakness (stroke concerns)
+
+=========================================================
+SECTION 10 — HEADACHE (GENERAL)
+=========================================================
+
+Q1. When did it start?
+A: "Started today." / "Weeks of headaches."
+
+Q2. Severity?
+A: "7/10."
+
+Q3. Location?
+A: "Both sides." / "Back of head."
+
+Q4. Associated symptoms?
+A: "Light sensitivity." / "Nausea."
+
+HEADACHE RED FLAGS:
+- Worst headache of life (SAH)
+- Fever + neck stiffness
+- Vision changes
+- Neurologic deficits
+
+=========================================================
+SECTION 11 — BODY ACHES / MYALGIAS
+=========================================================
+
+Q1. Widespread or localized?
+A: "All over." / "Mostly legs."
+
+Q2. Fever?
+A: "Yes fever with aches."
+
+=========================================================
+SECTION 12 — LYMPH NODES
+=========================================================
+
+Q1. Location?
+A: "Neck lump." / "Groin lump."
+
+Q2. Painful or painless?
+A: "Tender." / "Painless."
+
+RED FLAGS:
+- Painless growing nodes
+- Night sweats + weight loss
+- Nodes in multiple areas
+
+=========================================================
+SECTION 13 — DEHYDRATION
+=========================================================
+
+Q1. Drinking enough?
+A: "Not much."
+
+Q2. Symptoms?
+A: "Dizzy when standing."
+
+RED FLAGS:
+- Confusion
+- Rapid heart rate
+- Low urine output
+
+=========================================================
+SECTION 14 — EXERCISE INTOLERANCE
+=========================================================
+
+Q1. Describe difficulty.
+A: "Get tired easily."
+
+Q2. Chest pain?
+A: "Yes chest tightness."
+
+=========================================================
+SECTION 15 — VAGUE MALAISE / "NOT FEELING WELL"
+=========================================================
+
+Questions:
+- Onset?
+- Fever?
+- Weight changes?
+- Recent illness?
+- Medications?
+- Stress?
+
+=========================================================
+GENERAL SYMPTOMS — GLOBAL RED FLAGS
+=========================================================
+- Fever + confusion
+- Chest pain + shortness of breath
+- Severe dehydration
+- Weight loss + night sweats
+- Neurologic changes
+- Syncope
+- Severe abdominal pain
+- Unexplained lymph node enlargement
+
+=========================================================
+END OF GENERAL SYMPTOMS DEEPEST DIVE FILE
+=========================================================

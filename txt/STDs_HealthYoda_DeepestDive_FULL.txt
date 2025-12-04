@@ -1,0 +1,283 @@
+SEXUALLY TRANSMITTED DISEASES — HealthYoda RAG DEEPEST DIVE
+=====================================================================
+FULL VERSION WITH QUESTIONS + REAL ANSWERS + RED FLAGS
+Developer-Ready RAG / Intake Knowledge Base File
+=====================================================================
+
+STD MASTER CLUSTERS
+-------------------
+1. Urethral discharge syndromes
+2. Genital ulcer syndromes
+3. Cervicitis syndromes
+4. PID progression logic
+5. Epididymo-orchitis patterns
+6. Proctitis (STI-related)
+7. Systemic STI clusters
+8. Chronic STI sequelae
+9. HIV acute + chronic symptomology
+10. Hepatitis B & C STI patterns
+11. Oral STI symptom patterns
+12. Rare + high-concern STIs
+13. STI red-flag signs
+14. STI triage logic for HealthYoda
+
+=====================================================================
+SECTION 1 — URETHRAL DISCHARGE SYNDROMES
+=====================================================================
+
+CLUES:
+- Urethral discharge
+- Burning urination
+- Penile/vaginal itching
+- Odor changes
+
+Likely:
+- Chlamydia
+- Gonorrhea
+- Trichomonas
+
+Q:
+- “Color of discharge?”
+A:
+- “Yellow/green/white.”
+- “Thin/clear.”
+
+RED FLAGS:
+- Fever + discharge + testicular pain
+
+=====================================================================
+SECTION 2 — GENITAL ULCER SYNDROMES
+=====================================================================
+
+Causes:
+- Herpes (HSV)
+- Syphilis
+- Chancroid
+- Behçet mimicker
+
+CLUES:
+- Painful vs painless ulcers
+- Recurrent vs first time
+- Multiple or single
+
+Painful ulcers:
+→ HSV, chancroid
+
+Painless ulcers:
+→ syphilis
+
+RED FLAGS:
+- Fever + ulcers
+- Rapid spreading ulcers
+- Severe pain preventing urination
+
+=====================================================================
+SECTION 3 — CERVICITIS PATTERNS
+=====================================================================
+
+CLUES (female):
+- Vaginal discharge
+- Bleeding after sex
+- Pelvic pain
+- Burning urination
+
+Likely:
+- Chlamydia
+- Gonorrhea
+- Trichomonas
+- Mycoplasma genitalium
+
+RED FLAGS:
+- Pain + fever
+- Bleeding + fever
+
+=====================================================================
+SECTION 4 — PELVIC INFLAMMATORY DISEASE (PID)
+=====================================================================
+
+CLUES:
+- Pelvic pain
+- Fever
+- Vaginal discharge
+- Pain with sex
+- Pain with movement
+
+High-risk:
+- Untreated chlamydia/gonorrhea
+
+Q1:
+- “Lower abdominal pain?”
+
+A:
+- “Yes, sharp.”
+
+RED FLAGS:
+- Fever + pelvic pain
+- Severe pain + fainting
+
+=====================================================================
+SECTION 5 — EPIDIDYMO-ORCHITIS
+=====================================================================
+
+CLUES:
+- Testicular pain
+- Swelling
+- Dysuria
+- Fever
+
+Common STI causes:
+- Chlamydia
+- Gonorrhea
+
+RED FLAGS:
+- Sudden severe pain (torsion risk)
+- High fever
+
+=====================================================================
+SECTION 6 — PROCTITIS (STI RELATED)
+=====================================================================
+
+CLUES:
+- Rectal pain
+- Bleeding
+- Mucus discharge
+- Painful defecation
+
+Likely:
+- Gonorrhea
+- Chlamydia
+- HSV
+- Syphilis
+
+=====================================================================
+SECTION 7 — SYSTEMIC STI CLUSTERS
+=====================================================================
+
+Disseminated Gonorrhea:
+- Fever
+- Rash
+- Joint pain
+
+Secondary Syphilis:
+- Rash on palms/soles
+- Lymph nodes
+- Fever
+
+Acute HIV:
+- Fever
+- Sore throat
+- Night sweats
+- Rash
+
+=====================================================================
+SECTION 8 — CHRONIC STI SEQUELAE
+=====================================================================
+
+Female:
+- Infertility
+- Ectopic risk
+- Chronic pelvic pain
+
+Male:
+- Infertility
+- Chronic prostatitis
+
+=====================================================================
+SECTION 9 — HIV (ACUTE + CHRONIC)
+=====================================================================
+
+ACUTE:
+- Fever
+- Rash
+- Night sweats
+- Sore throat
+- Swollen nodes
+
+CHRONIC:
+- Weight loss
+- Fatigue
+- Opportunistic infections
+
+RED FLAGS:
+- Fever + rash + high-risk exposure
+
+=====================================================================
+SECTION 10 — HEPATITIS B & C AS STI
+=====================================================================
+
+CLUES:
+- Fatigue
+- Jaundice
+- Dark urine
+- Pale stools
+- Nausea
+
+=====================================================================
+SECTION 11 — ORAL STI PATTERNS
+=====================================================================
+
+CLUES:
+- Mouth ulcers
+- Sore throat
+- White patches
+- Swollen nodes
+
+Consider:
+- Gonorrhea
+- Chlamydia
+- HSV
+- Syphilis
+
+=====================================================================
+SECTION 12 — RARE HIGH-CONCERN STIs
+=====================================================================
+
+- LGV (lymphogranuloma venereum)
+- Donovanosis
+- Mpox (monkeypox)
+- Mycoplasma genitalium
+
+Signs:
+- Severe ulcers
+- Necrotic lesions
+- Lymph node swelling
+
+=====================================================================
+SECTION 13 — GLOBAL STI RED FLAGS
+=====================================================================
+- Fever + pelvic pain
+- Painful ulcers
+- Bleeding after sex
+- Testicular swelling
+- Abdominal pain + discharge
+- Rash + fever
+- Unable to urinate
+- Severe rectal pain
+
+=====================================================================
+SECTION 14 — TRIAGE LOGIC FOR HEALTHYODA
+=====================================================================
+
+ASK:
+1. Discharge?
+2. Ulcers?
+3. Pain? where?
+4. Fever?
+5. Bleeding after sex?
+6. Testicular pain?
+7. Pain with sex?
+8. Rectal pain?
+9. Systemic symptoms?
+10. HIV exposure risk?
+
+ROUTE:
+- Fever + pelvic pain → PID
+- Fever + ulcers → severe HSV
+- Penile discharge + burning → GC/CT
+- Testicular pain + dysuria → epididymitis
+- Mouth ulcers + rash → secondary syphilis
+- Fever + rash → acute HIV
+
+=====================================================================
+END OF FILE
+=====================================================================

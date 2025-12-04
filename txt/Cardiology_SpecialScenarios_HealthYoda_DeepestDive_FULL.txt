@@ -1,0 +1,398 @@
+CARDIOLOGY — SPECIAL SCENARIOS DEEP DIVE (HealthYoda RAG)
+==============================================================
+FULL VERSION WITH QUESTIONS + REALISTIC PATIENT ANSWERS + RED FLAGS
+Developer-Ready RAG / Intake Knowledge Base File
+==============================================================
+
+SPECIAL CARDIAC SCENARIO CLUSTERS
+---------------------------------
+1. Myocarditis
+2. Pericarditis
+3. Pericardial effusion → tamponade
+4. Aortic dissection
+5. Pulmonary hypertension symptom patterns
+6. Heart failure exacerbation (acute & chronic)
+7. Cardiogenic shock
+8. Arrhythmias (AFib with RVR, SVT, VT, bradyarrhythmias)
+9. Syncope: cardiac red-flag patterns
+10. Hypertrophic cardiomyopathy (HCM)
+11. Takotsubo (stress cardiomyopathy)
+12. Endocarditis (advanced patterns)
+13. Cardiac ischemia atypical presentations
+14. Aortic stenosis symptoms + exertional issues
+15. Adult congenital heart disease patterns
+16. Cardio-oncology complications (chemo-related)
+17. Global cardiology red flags
+
+==============================================================
+SECTION 1 — MYOCARDITIS
+==============================================================
+
+CLUES:
+- Chest pain (often sharp, dull, or pressure)
+- Recent viral illness
+- Palpitations
+- Shortness of breath
+- Fatigue
+- Worse with exertion
+
+Q1. Recent infection?
+A:
+- “Had flu-like illness last week.”
+
+Q2. Chest pain?
+A:
+- “Dull chest ache, gets worse with activity.”
+
+Q3. Palpitations?
+A:
+- “Heart racing suddenly.”
+
+RED FLAGS:
+- Fainting
+- Severe shortness of breath
+- Rapid heart rate with dizziness
+
+==============================================================
+SECTION 2 — PERICARDITIS
+==============================================================
+
+CLUES:
+- Sharp chest pain
+- Worse lying flat
+- Better sitting up / leaning forward
+- May follow viral illness
+- Pain may radiate to shoulders
+
+Q1. What makes pain better or worse?
+A:
+- “Worse when lying down; better when sitting up.”
+
+Q2. Fever?
+A:
+- “Low fever for days.”
+
+RED FLAGS:
+- Increasing SOB
+- Low blood pressure
+- Lightheadedness (possible evolving tamponade)
+
+==============================================================
+SECTION 3 — PERICARDIAL EFFUSION → TAMPONADE
+==============================================================
+
+CLUES:
+- Shortness of breath
+- Chest pressure
+- Difficulty lying flat
+- Lightheadedness
+- History of cancer, infection, or autoimmune condition
+
+Q1. Breathing?
+A:
+- “Hard to breathe when lying flat.”
+
+Q2. Energy levels?
+A:
+- “Very weak and dizzy.”
+
+RED FLAGS:
+- Low BP
+- Fast HR
+- Confusion (shock)
+
+==============================================================
+SECTION 4 — AORTIC DISSECTION
+==============================================================
+
+CLUES:
+- Sudden, severe chest or back pain
+- Tearing/ripping sensation
+- Migrating pain
+- Unequal pulses
+- History of hypertension or connective tissue disorders
+
+Q1. Describe the pain?
+A:
+- “Sudden tearing pain in chest going to my back.”
+
+Q2. Any neurologic symptoms?
+A:
+- “Weakness in one leg.”
+
+RED FLAGS:
+- Sudden severe chest/back pain
+- Fainting
+- Speech/vision changes
+
+==============================================================
+SECTION 5 — PULMONARY HYPERTENSION
+==============================================================
+
+CLUES:
+- Progressive shortness of breath
+- Fatigue
+- Edema
+- Chest discomfort
+- Syncope with exertion
+
+Q1. SOB timeline?
+A:
+- “Getting worse over months.”
+
+Q2. Chest symptoms?
+A:
+- “Tightness with exertion.”
+
+RED FLAGS:
+- Fainting with exertion
+- Blue lips
+- Severe swelling
+
+==============================================================
+SECTION 6 — HEART FAILURE EXACERBATION
+==============================================================
+
+ACUTE DECOMPENSATED HF:
+- Sudden SOB
+- Waking up at night gasping
+- Leg swelling
+- Weight gain
+- Fatigue
+
+Q1. Weight gain?
+A:
+- “5 pounds in a few days.”
+
+Q2. Waking up breathless?
+A:
+- “Yes, need to sit up.”
+
+RED FLAGS:
+- Severe SOB at rest
+- Chest pain
+- Pink frothy sputum
+
+==============================================================
+SECTION 7 — CARDIOGENIC SHOCK
+==============================================================
+
+CLUES:
+- Severe SOB
+- Cold/clammy skin
+- Confusion
+- Low urine output
+- Chest pain history or severe CHF
+
+Q1. How do you feel?
+A:
+- “Very weak, dizzy.”
+
+RED FLAGS:
+- Low BP
+- Confusion
+- Blue lips/fingers
+
+==============================================================
+SECTION 8 — ARRHYTHMIAS
+==============================================================
+
+AFIB WITH RVR:
+- Palpitations
+- SOB
+- Dizziness
+- Fatigue
+
+SVT:
+- Sudden racing heart
+- Chest tightness
+- Lightheadedness
+
+VT:
+- Palpitations + near-syncope
+- History of heart disease
+
+BRADYCARDIA:
+- Fatigue
+- Dizziness
+- Fainting
+
+RED FLAGS:
+- Syncope
+- Chest pain + palpitations
+- Pale/sweaty appearance
+
+==============================================================
+SECTION 9 — CARDIAC SYNCOPE RED-FLAG PATTERNS
+==============================================================
+
+CLUES:
+- Fainting during exertion
+- Fainting without warning
+- Palpitations before fainting
+- Family history of sudden cardiac death
+
+Q1. What were you doing when you fainted?
+A:
+- “Exercising.”
+
+RED FLAGS:
+- Exertional syncope
+- Chest pain before fainting
+- Family history of sudden death
+
+==============================================================
+SECTION 10 — HYPERTROPHIC CARDIOMYOPATHY (HCM)
+==============================================================
+
+CLUES:
+- Family history of sudden death
+- Exertional chest pain
+- Exertional syncope
+- Palpitations
+
+Q1. Family history?
+A:
+- “Yes, uncle died suddenly young.”
+
+RED FLAGS:
+- Syncope with exercise
+- Sudden chest pain
+
+==============================================================
+SECTION 11 — TAKOTSUBO (STRESS CARDIOMYOPATHY)
+==============================================================
+
+CLUES:
+- Severe emotional stress
+- Chest pain
+- Shortness of breath
+- Often post-menopausal woman
+
+Q1. Recent stress?
+A:
+- “Lost a loved one.”
+
+RED FLAGS:
+- Severe SOB
+- Persistent chest pain
+
+==============================================================
+SECTION 12 — ADVANCED ENDOCARDITIS PATTERNS
+==============================================================
+
+CLUES:
+- Fever for weeks
+- Night sweats
+- Fatigue
+- New murmur (history-level)
+- IVDU
+- Stroke symptoms
+
+Q1. Symptoms?
+A:
+- “Weak for weeks, sweating at night.”
+
+Q2. Dental work?
+A:
+- “Had dental work recently.”
+
+RED FLAGS:
+- Stroke symptoms
+- Severe headache
+- SOB
+
+==============================================================
+SECTION 13 — ATYPICAL ISCHEMIA PRESENTATIONS
+==============================================================
+
+CLUES:
+- Epigastric pain
+- Jaw pain
+- Back pain
+- Fatigue
+- No classic chest pain
+- Common in women, elderly, diabetics
+
+Q1. What is the discomfort like?
+A:
+- “Pressure in upper stomach.”
+- “Jaw aches.”
+
+RED FLAGS:
+- SOB + nausea
+- Sudden fatigue + sweating
+
+==============================================================
+SECTION 14 — AORTIC STENOSIS SYMPTOMS
+==============================================================
+
+TRIAD:
+- Exertional chest pain
+- Exertional syncope
+- Exertional shortness of breath
+
+Q1. Exercise symptoms?
+A:
+- “Feel dizzy when climbing stairs.”
+
+RED FLAGS:
+- Syncope during exertion
+- Chest pain with exertion
+
+==============================================================
+SECTION 15 — ADULT CONGENITAL HEART DISEASE
+==============================================================
+
+CLUES:
+- Cyanosis
+- Clubbing
+- Exercise intolerance
+- Palpitations
+- Murmur history
+
+Q1. Childhood heart problems?
+A:
+- “Had heart surgery as a baby.”
+
+RED FLAGS:
+- Blue lips
+- Fainting
+
+==============================================================
+SECTION 16 — CARDIO-ONCOLOGY COMPLICATIONS
+==============================================================
+
+CHEMO-RELATED:
+- SOB
+- Fatigue
+- Chest pain
+- Edema
+
+Q1. Recent chemotherapy?
+A:
+- “Yes, on anthracycline.”
+
+RED FLAGS:
+- Severe SOB
+- New chest pain
+
+==============================================================
+SECTION 17 — GLOBAL CARDIOLOGY RED FLAGS
+==============================================================
+- Chest pain with SOB, sweating, nausea
+- Chest pain radiating to jaw/arm/back
+- Sudden tearing chest or back pain
+- Palpitations + dizziness or fainting
+- Syncope during exercise
+- Blue lips, cyanosis
+- Rapid swelling + SOB
+- Pink frothy sputum
+- New confusion with low blood pressure
+- Severe tachycardia or bradycardia
+- History of cancer + new SOB/chest pain
+- Fever + murmur + weight loss (endocarditis)
+
+==============================================================
+END OF CARDIOLOGY SPECIAL SCENARIOS FILE
+==============================================================

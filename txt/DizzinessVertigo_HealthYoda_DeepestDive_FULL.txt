@@ -1,0 +1,345 @@
+DIZZINESS & VERTIGO — HealthYoda RAG DEEPEST DIVE
+===========================================================
+FULL VERSION WITH QUESTIONS + REALISTIC PATIENT ANSWERS + RED FLAGS
+Developer-Ready RAG / Intake Knowledge Base File
+===========================================================
+
+DIZZINESS / VERTIGO CLUSTERS
+----------------------------
+1. Distinguish dizziness vs vertigo vs presyncope vs imbalance
+2. True vertigo (peripheral vs central)
+3. BPPV pattern recognition
+4. Vestibular neuritis / labyrinthitis
+5. Ménière’s disease
+6. Acoustic neuroma red flags
+7. Central vertigo (stroke, MS, tumor)
+8. Cardiac/presyncope dizziness
+9. Anemia/metabolic dizziness
+10. Orthostatic dizziness
+11. Psychiatric/functional dizziness
+12. Global dizziness red flags
+13. HealthYoda dizziness triage logic
+
+===========================================================
+SECTION 1 — WHAT TYPE OF “DIZZINESS”?
+===========================================================
+
+VERTIGO = spinning sensation.
+PRESYNCOPE = feeling faint.
+IMBALANCE = off-balance, unsteady.
+NON-SPECIFIC = can’t describe, floating.
+
+Q1. What does it feel like?
+A:
+- “Room spinning.” → TRUE VERTIGO
+- “Feel like I’ll pass out.” → PRESYNCOPE
+- “Unsteady on feet.” → IMBALANCE
+- “Floating sensation.” → NON-SPECIFIC
+
+Q2. Triggers?
+A:
+- “Turning my head.”
+- “Standing up.”
+
+RED FLAGS:
+- Difficulty walking  
+- Falling to one side  
+- Trouble speaking  
+
+===========================================================
+SECTION 2 — TRUE VERTIGO (PERIPHERAL VS CENTRAL)
+===========================================================
+
+PERIPHERAL (inner ear):
+- Sudden onset
+- Intense spinning
+- Nausea/vomiting
+- Worse with head movement
+- Hearing symptoms (sometimes)
+
+CENTRAL (brainstem/cerebellum):
+- Mild to moderate spinning
+- Severe imbalance
+- Neurologic symptoms (double vision, numbness)
+- Headache
+
+Q1. Head movement worsen symptoms?
+A:
+- “Yes, turning head makes it worse.” (Peripheral)
+
+Q2. Neurologic symptoms?
+A:
+- “Double vision.” (Central)
+- “Numbness/weakness.” (Central)
+
+RED FLAGS:
+- Severe imbalance unable to walk  
+- Double vision  
+- Weakness or numbness  
+- New headache + vertigo  
+
+===========================================================
+SECTION 3 — BPPV (Benign Paroxysmal Positional Vertigo)
+===========================================================
+
+CLUES:
+- Sudden vertigo lasting seconds
+- Triggered by rolling in bed, looking up
+- No hearing loss
+- No ear fullness
+
+Q1. What triggers dizziness?
+A:
+- “Rolling over in bed.”
+- “Looking up.”
+
+Q2. Duration?
+A:
+- “Only lasts a few seconds.”
+
+RED FLAGS:
+- None typical unless atypical symptoms present  
+
+===========================================================
+SECTION 4 — VESTIBULAR NEURITIS / LABYRINTHITIS
+===========================================================
+
+VESTIBULAR NEURITIS:
+- Sudden, severe vertigo lasting hours–days
+- Nausea/vomiting
+- Usually after viral illness
+- No hearing loss
+
+LABYRINTHITIS:
+- Same as neuritis + hearing loss
+
+Q1. Duration?
+A:
+- “Hours to days.”
+
+Q2. Recent illness?
+A:
+- “Had a cold last week.”
+
+Q3. Hearing loss?
+A:
+- “Yes, muffled.” (Labyrinthitis)
+
+RED FLAGS:
+- Persistent vomiting  
+- Severe imbalance  
+
+===========================================================
+SECTION 5 — MÉNIÈRE’S DISEASE
+===========================================================
+
+CLUES:
+- Episodic vertigo (20 min – hours)
+- Hearing loss (fluctuating)
+- Tinnitus (ringing)
+- Ear fullness/pressure
+
+Q1. Ringing in ears?
+A:
+- “Yes, loud ringing.”
+
+Q2. Hearing problems?
+A:
+- “Comes and goes.”
+
+RED FLAGS:
+- Progressive hearing loss  
+
+===========================================================
+SECTION 6 — ACOUSTIC NEUROMA (VESTIBULAR SCHWANNOMA)
+===========================================================
+
+CLUES:
+- Gradually progressive one-sided hearing loss
+- Persistent imbalance
+- Tinnitus
+- Mild chronic dizziness (not episodic)
+- Facial numbness (late)
+
+Q1. Hearing?
+A:
+- “Left ear hearing worse over months.”
+
+RED FLAGS:
+- Slowly progressive one-sided hearing loss  
+- Facial numbness  
+
+===========================================================
+SECTION 7 — CENTRAL VERTIGO (STROKE, MS, TUMOR)
+===========================================================
+
+STROKE-LEVEL CLUES:
+- Sudden vertigo
+- Severe imbalance
+- Can’t walk or stand
+- Double vision
+- Slurred speech
+- Weakness
+- New severe headache
+- Age >60 or vascular risk
+
+MS/DEMYELINATION:
+- Episodic vertigo
+- Eye movement abnormalities
+- Numbness/tingling
+
+TUMOR/CEREBELLAR LESIONS:
+- Progressive imbalance
+- Headache
+- Nausea/vomiting
+
+Q1. Any vision problems?
+A:
+- “Double vision.”
+
+Q2. Balance?
+A:
+- “Can’t walk straight.”
+
+RED FLAGS:
+- Inability to walk or stand  
+- Weakness  
+- Double vision  
+- Slurred speech  
+- Sudden severe headache  
+
+===========================================================
+SECTION 8 — CARDIAC/PRESYNCOPE DIZZINESS
+===========================================================
+
+CLUES:
+- Lightheadedness
+- Tunnel vision
+- Palpitations
+- Chest discomfort
+- Occurs with exertion
+- History of heart issues
+
+Q1. Did you fully pass out?
+A:
+- “Almost passed out.”
+
+Q2. Palpitations?
+A:
+- “Heart suddenly racing.”
+
+RED FLAGS:
+- Chest pain  
+- Syncope with exertion  
+
+===========================================================
+SECTION 9 — ANEMIA / METABOLIC DIZZINESS
+===========================================================
+
+ANEMIA:
+- Fatigue
+- Pallor
+- Weakness
+- Heavy menstrual bleeding
+- Black stools
+
+METABOLIC:
+- Low blood sugar
+- Dehydration
+- Electrolyte imbalance
+
+Q1. Bleeding?
+A:
+- “Heavy periods.”
+- “Black stools.”
+
+Q2. Eating?
+A:
+- “Skipped meals.”
+
+RED FLAGS:
+- Black stools  
+- Severe vomiting/diarrhea  
+
+===========================================================
+SECTION 10 — ORTHOSTATIC DIZZINESS
+===========================================================
+
+CLUES:
+- Happens on standing
+- Dizziness improves when lying down
+- Dehydration
+- Medications (BP meds, diuretics)
+- Blood loss
+
+Q1. Position?
+A:
+- “Got dizzy when standing up.”
+
+RED FLAGS:
+- Standing dizziness + fainting  
+- Standing dizziness + black stools  
+
+===========================================================
+SECTION 11 — PSYCHIATRIC / FUNCTIONAL DIZZINESS
+===========================================================
+
+ANXIETY:
+- Lightheadedness
+- Tingling
+- Feeling detached
+
+PERSISTENT POSTURAL-PERCEPTUAL DIZZINESS (PPPD):
+- Chronic rocking sensation
+- Worse with visual motion
+
+Q1. Any panic or anxiety?
+A:
+- “Yes, episodes of panic.”
+
+===========================================================
+SECTION 12 — GLOBAL DIZZINESS & VERTIGO RED FLAGS
+===========================================================
+- Inability to walk or stand  
+- Double vision  
+- Weakness or numbness  
+- Slurred speech  
+- Severe headache  
+- Hearing loss in one ear  
+- Chest pain  
+- Palpitations  
+- Fainting  
+- Black stools  
+- Vomiting blood  
+- Fever + neck stiffness  
+- Sudden, severe vertigo with neurologic symptoms  
+
+===========================================================
+SECTION 13 — HEALTHYODA DIZZINESS TRIAGE LOGIC
+===========================================================
+
+ASK:
+1. Spinning or faint feeling?
+2. Can you walk?
+3. Any weakness/numbness?
+4. Double vision or speech problems?
+5. Hearing loss or ringing?
+6. Chest pain or palpitations?
+7. Head movement worsen symptoms?
+8. Any fever, neck pain/stiffness?
+9. Position relationship (standing/sitting/lying)?
+10. Recent illness or ear symptoms?
+
+ROUTE:
+- Spinning + head movement triggers → BPPV  
+- Spinning + hearing loss → labyrinthitis/Ménière’s  
+- Sudden vertigo + imbalance → central vertigo / stroke  
+- Dizziness + chest pain/palpitations → cardiac  
+- Dizziness + standing → orthostatic  
+- Dizziness + black stools → anemia  
+- Dizziness + fever + neck stiffness → meningitis  
+- Gradual hearing loss + imbalance → acoustic neuroma  
+
+===========================================================
+END OF DIZZINESS & VERTIGO DEEPEST DIVE FILE
+===========================================================

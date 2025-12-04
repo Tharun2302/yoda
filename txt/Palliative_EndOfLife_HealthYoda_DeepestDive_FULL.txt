@@ -1,0 +1,430 @@
+END-OF-LIFE / PALLIATIVE SYMPTOM PATTERNS — HealthYoda RAG DEEPEST DIVE
+======================================================================
+FULL VERSION WITH QUESTIONS + REALISTIC PATIENT ANSWERS + RED FLAGS  
+Developer-Ready RAG / Intake Knowledge Base File
+======================================================================
+
+PALLIATIVE / END-OF-LIFE SYMPTOM CLUSTERS
+-----------------------------------------
+1. Pain (nociceptive, neuropathic, visceral)
+2. Dyspnea (air hunger, terminal secretions)
+3. Fatigue & weakness
+4. Appetite loss / cachexia
+5. Nausea & vomiting
+6. Anxiety / terminal restlessness
+7. Depression & existential distress
+8. Delirium (hyperactive, hypoactive)
+9. Sleep disturbances
+10. Constipation (opioid-induced & disease-related)
+11. Diarrhea
+12. Edema / ascites
+13. Bleeding (GI, respiratory, tumor-related)
+14. Seizures (brain mets, metabolic)
+15. Cognitive decline
+16. End-of-life trajectory clues (final weeks/days/hours)
+
+======================================================================
+SECTION 1 — UNIVERSAL PALLIATIVE HISTORY STRUCTURE
+======================================================================
+
+Q1. What symptoms are most troubling right now?
+A:
+- “Breathing is hard.”
+- “My pain is bad today.”
+- “Too weak to stand.”
+- “No appetite.”
+
+Q2. How long have these symptoms been getting worse?
+A:
+- “Past few weeks.”
+- “Rapid worsening in 2–3 days.”
+
+Q3. Any recent hospitalizations or major changes?
+A:
+- “Was hospitalized last month.”
+
+Q4. Can you get out of bed?
+A:
+- “Mostly bedbound.”
+- “Only for short times.”
+
+Q5. Eating/drinking?
+A:
+- “Very little.”
+
+Q6. What helps or worsens symptoms?
+A:
+- “Sitting up helps breathing.”
+- “Pain worse when moving.”
+
+GLOBAL END-OF-LIFE RED FLAGS:
+- New severe dyspnea  
+- Sudden change in mental status  
+- Minimal intake + profound weakness  
+- Rapid functional decline  
+- Restlessness/agitation with confusion  
+- Terminal secretions (“death rattle”)  
+- Somnolence → unresponsiveness  
+
+======================================================================
+SECTION 2 — PAIN IN END-OF-LIFE CONTEXT
+======================================================================
+
+TYPES:
+- Nociceptive (bone, muscle)
+A: “Deep aching pain.”
+- Neuropathic
+A: “Burning, shooting pain.”
+- Visceral
+A: “Cramping pressure in abdomen.”
+
+Q1. Where is the pain?
+A:
+- “Back and ribs.”
+- “Cancer site pain.”
+
+Q2. Constant or comes and goes?
+A:
+- “Constant with sharp spikes.”
+
+Q3. Does it wake you from sleep?
+A:
+- “Yes.”
+
+RED FLAGS:
+- Sudden new severe pain  
+- Pain + confusion (possibly undertreated or delirium)  
+- Pain with new neurologic deficits  
+
+======================================================================
+SECTION 3 — DYSPNEA / BREATHING DIFFICULTY
+======================================================================
+
+COMMON CAUSES:
+- Cancer progression
+- Fluid overload
+- Weak respiratory muscles
+- Anxiety overlay
+- Terminal secretions
+
+Q1. When is breathing worst?
+A:
+- “When lying flat.”
+- “All the time, worse with movement.”
+
+Q2. Cough?
+A:
+- “Dry cough.”
+- “Wet rattling.”
+
+Q3. Associated symptoms?
+A:
+- “Chest tightness.”
+- “Anxiety.”
+
+RED FLAGS:
+- Rapid increase in work of breathing  
+- Gasps or pauses  
+- Cyanosis  
+
+======================================================================
+SECTION 4 — TERMINAL SECRETIONS (“DEATH RATTLE”)
+======================================================================
+
+Q1. Noise when breathing?
+A:
+- “Rattling sound in throat.”
+
+Q2. Consciousness level?
+A:
+- “Sleeping most of time.”
+
+RED FLAGS:
+- Distress despite position changes  
+- Cyanosis  
+
+======================================================================
+SECTION 5 — FATIGUE & WEAKNESS
+======================================================================
+
+Q1. How is your energy?
+A:
+- “Almost none.”
+
+Q2. Activities?
+A:
+- “Can’t walk to bathroom.”
+- “Mostly in bed.”
+
+Q3. Any dizziness or fainting?
+A:
+- “Lightheaded when sitting up.”
+
+RED FLAGS:
+- Inability to swallow  
+- Sudden collapse  
+
+======================================================================
+SECTION 6 — APPETITE LOSS / CACHEXIA
+======================================================================
+
+Q1. Eating?
+A:
+- “Only a few bites.”
+
+Q2. Weight loss?
+A:
+- “Lost a lot in past month.”
+
+Q3. Nausea?
+A:
+- “Feel full quickly.”
+
+RED FLAGS:
+- No intake + dehydration signs  
+- Vomiting blood  
+
+======================================================================
+SECTION 7 — NAUSEA & VOMITING
+======================================================================
+
+CAUSE CATEGORIES:
+- Medication/opioid
+- GI obstruction
+- Metabolic disturbances
+- Brain metastases
+- Infection
+
+Q1. How often do you feel nauseous?
+A:
+- “All day.”
+- “Worse after meds.”
+
+Q2. Vomiting?
+A:
+- “Occasional.”
+- “Frequent.”
+
+Q3. Type?
+A:
+- “Green/yellow.”
+- “Undigested food.”
+
+RED FLAGS:
+- Coffee-ground vomit  
+- Projectile vomiting  
+- Inability to keep liquids  
+
+======================================================================
+SECTION 8 — ANXIETY & TERMINAL RESTLESSNESS
+======================================================================
+
+Q1. Feeling nervous or restless?
+A:
+- “Can’t stay still.”
+- “Feeling uneasy.”
+
+Q2. Breathing changes?
+A:
+- “Breathing fast.”
+
+Q3. Sleep?
+A:
+- “Hard to settle.”
+
+RED FLAGS:
+- Agitation + confusion  
+- Hallucinations + rapid decline  
+
+======================================================================
+SECTION 9 — DEPRESSION & EXISTENTIAL DISTRESS
+======================================================================
+
+Q1. Mood?
+A:
+- “Sad.”
+- “Overwhelmed.”
+
+Q2. Loss of interest?
+A:
+- “No interest in anything.”
+
+Q3. Fears?
+A:
+- “Afraid of dying.”
+
+RED FLAGS:
+- Suicidal thoughts  
+- New severe withdrawal  
+
+======================================================================
+SECTION 10 — DELIRIUM (HYPERACTIVE & HYPOACTIVE)
+======================================================================
+
+HYPERACTIVE:
+- Agitation
+- Hallucinations
+- Confusion
+
+HYPOACTIVE:
+- Sleepy
+- Hard to wake
+- Less responsive
+
+Q1. Mental clarity?
+A:
+- “Feels confused.”
+
+Q2. Visual hallucinations?
+A:
+- “Seeing things.”
+
+Q3. Awake level?
+A:
+- “Sleeping most of time.”
+
+RED FLAGS:
+- Sudden onset  
+- Delirium + fever (infection)  
+- Delirium + new pain  
+
+======================================================================
+SECTION 11 — SLEEP DISTURBANCE
+======================================================================
+
+Q1. Hours slept?
+A:
+- “Sleeping most of day.”
+
+Q2. Trouble falling asleep?
+A:
+- “Racing thoughts.”
+
+Q3. Loud snoring / pauses?
+A:
+- “Breathing pauses.”
+
+RED FLAGS:
+- Sudden unresponsiveness  
+- Recurrent apnea episodes  
+
+======================================================================
+SECTION 12 — CONSTIPATION (COMMON IN OPIOIDS)
+======================================================================
+
+Q1. Bowel movements?
+A:
+- “None for days.”
+
+Q2. Abdominal pain?
+A:
+- “Cramping.”
+
+Q3. Using opioids?
+A:
+- “Yes, daily.”
+
+RED FLAGS:
+- Severe abdominal pain  
+- Vomiting + constipation (possible obstruction)  
+
+======================================================================
+SECTION 13 — EDEMA / ASCITES
+======================================================================
+
+Q1. Swelling?
+A:
+- “Legs very swollen.”
+
+Q2. Abdominal fullness?
+A:
+- “Feels tight.”
+
+Q3. Difficulty breathing?
+A:
+- “Yes, worse when full.”
+
+RED FLAGS:
+- Severe abdominal distention  
+- Breathing difficulty  
+
+======================================================================
+SECTION 14 — BLEEDING
+======================================================================
+
+Q1. Any bleeding?
+A:
+- “Nosebleeds.”
+- “Gum bleeding.”
+
+Q2. Stool color?
+A:
+- “Black stools.”
+- “Red blood.”
+
+RED FLAGS:
+- Vomiting blood  
+- Large-volume rectal bleeding  
+
+======================================================================
+SECTION 15 — SEIZURES
+======================================================================
+
+Q1. History?
+A:
+- “Brain tumors.”
+
+Q2. Any episodes?
+A:
+- “Shaking.”
+- “Blank staring.”
+
+RED FLAGS:
+- Status epilepticus  
+- Seizures + fever  
+
+======================================================================
+SECTION 16 — COGNITIVE DECLINE
+======================================================================
+
+Q1. Memory?
+A:
+- “Forgetting names.”
+
+Q2. Confusion?
+A:
+- “Confused at times.”
+
+Q3. Orientation?
+A:
+- “Doesn’t know location.”
+
+RED FLAGS:
+- Rapid decline  
+- New difficulty swallowing  
+
+======================================================================
+SECTION 17 — END-OF-LIFE TRAJECTORY CLUES
+======================================================================
+
+FINAL WEEKS:
+- Profound fatigue  
+- Limited intake  
+- Increasing sleep  
+- Weakness  
+
+FINAL DAYS:
+- Very little intake  
+- Sleeping most of time  
+- Cool extremities  
+- Irregular breathing  
+
+FINAL HOURS:
+- Cheyne–Stokes breathing  
+- Terminal secretions  
+- Minimal responsiveness  
+- Hands/feet mottled  
+
+======================================================================
+END OF END-OF-LIFE / PALLIATIVE SYMPTOM PATTERNS FILE
+======================================================================

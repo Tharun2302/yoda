@@ -1,0 +1,329 @@
+SYNCOPE — HealthYoda RAG DEEPEST DIVE
+=========================================================
+FULL VERSION WITH QUESTIONS + REALISTIC PATIENT ANSWERS + RED FLAGS
+Developer-Ready RAG / Intake Knowledge Base File
+=========================================================
+
+SYNCOPE CLUSTERS
+----------------
+1. True syncope vs presyncope discrimination
+2. Cardiac syncope (arrhythmia, structural, ischemic)
+3. Reflex/vasovagal syncope
+4. Orthostatic syncope
+5. Situational syncope
+6. Neurologic mimics (seizure, TIA)
+7. Metabolic/toxic causes
+8. Syncope in pregnancy
+9. Syncope in kids/young adults
+10. High-risk syncope decision logic
+11. Global syncope red flags
+
+=========================================================
+SECTION 1 — TRUE SYNCOPE VS PRESYNCOPE
+=========================================================
+
+TRUE SYNCOPE CLUES:
+- Complete loss of consciousness
+- Sudden collapse
+- Rapid recovery after fall
+
+Q1. Did you fully pass out?
+A:
+- “Yes, everything went black.”
+
+Q2. How long?
+A:
+- “Maybe seconds to a minute.”
+
+PRESYNCOPE CLUES:
+- Lightheadedness
+- Tunnel vision
+- Feeling faint but did not fully lose consciousness
+
+Q1. Did you fall fully?
+A:
+- “No, I sat down before passing out.”
+
+=========================================================
+SECTION 2 — CARDIAC SYNCOPE (MOST DANGEROUS)
+=========================================================
+
+CLUES:
+- Exertional syncope
+- Syncope without warning
+- Palpitations before passing out
+- Chest pain
+- Family history of sudden death
+- Heart disease known
+
+Q1. What were you doing?
+A:
+- “Collapsed while exercising.”
+
+Q2. Heart symptoms?
+A:
+- “Heart racing before I fainted.”
+
+Q3. Any chest pain?
+A:
+- “Pressure in chest before collapse.”
+
+RED FLAGS:
+- Syncope during exercise  
+- Syncope with chest pain  
+- Syncope without prodrome  
+- Family history of sudden death  
+
+=========================================================
+SECTION 3 — ARRHYTHMIC SYNCOPE
+=========================================================
+
+TACHYARRHYTHMIA CLUES:
+- Sudden palpitations
+- No warning
+- Collapse
+- Rapid breathing on waking
+
+BRADYARRHYTHMIA CLUES:
+- Fatigue
+- Dizziness
+- Slow pulse feeling
+
+Q1. Any palpitations?
+A:
+- “Felt my heart racing suddenly.”
+
+RED FLAGS:
+- Sudden collapse without warning  
+- Palpitations + fainting  
+
+=========================================================
+SECTION 4 — STRUCTURAL CARDIAC SYNCOPE
+=========================================================
+
+CAUSES:
+- Aortic stenosis
+- Hypertrophic cardiomyopathy (HCM)
+- Pulmonary hypertension
+- Severe cardiomyopathy
+
+CLUES:
+- Exertional dizziness or faint
+- Shortness of breath
+- Chest pain
+- Fatigue
+
+Q1. Symptoms on exertion?
+A:
+- “Dizzy climbing stairs.”
+
+RED FLAGS:
+- Syncope with exertion  
+- Chest pain with exertion  
+
+=========================================================
+SECTION 5 — REFLEX / VASOVAGAL SYNCOPE
+=========================================================
+
+CLUES:
+- Trigger: standing long, hot environments, fear, pain
+- Nausea before fainting
+- Sweating
+- Vision dimming
+
+Q1. Any warning before fainting?
+A:
+- “Felt nauseous and sweaty.”
+
+Q2. Setting?
+A:
+- “Standing in hot room.”
+
+REFLEX PROTECTIVE SIGNS:
+- Clear trigger
+- Prodrome (nausea, sweating)
+
+=========================================================
+SECTION 6 — ORTHOSTATIC SYNCOPE
+=========================================================
+
+CAUSES:
+- Dehydration
+- Blood loss
+- Medications (BP meds, diuretics)
+- Prolonged bedrest
+- Autonomic failure
+
+CLUES:
+- Happens when standing
+- Improves when lying down
+- Lightheadedness on rising
+
+Q1. Position?
+A:
+- “Got up from bed and fainted.”
+
+Q2. Fluid losses?
+A:
+- “Been having diarrhea.”
+
+RED FLAGS:
+- Syncope + black stools  
+- Syncope + severe vomiting/diarrhea  
+
+=========================================================
+SECTION 7 — SITUATIONAL SYNCOPE
+=========================================================
+
+TRIGGERS:
+- Coughing (tussive)
+- Urination (micturition)
+- Defecation
+- Swallowing
+- Pain
+
+Q1. What were you doing?
+A:
+- “Coughed hard and blacked out.”
+- “Fainted after peeing.”
+
+=========================================================
+SECTION 8 — NEUROLOGIC MIMICS
+=========================================================
+
+SEIZURE CLUES:
+- Tongue biting
+- Jerking movements
+- Post-event confusion
+- Loss of bladder control
+
+Q1. Any shaking?
+A:
+- “People said I shook.”
+
+Q2. Confusion afterward?
+A:
+- “Took minutes to feel normal.”
+
+TIA CLUES:
+- Focal weakness
+- Speech difficulty
+
+RED FLAGS:
+- Confusion lasting minutes  
+- Tongue biting  
+- Weakness after event  
+
+=========================================================
+SECTION 9 — METABOLIC / TOXIC CAUSES
+=========================================================
+
+LOW SUGAR:
+- Sweating
+- Shaking
+- Confusion
+- Hunger
+
+ANEMIA:
+- Fatigue
+- SOB
+- Black stools
+
+Q1. Eating pattern?
+A:
+- “Skipped meals.”
+
+Q2. Bleeding?
+A:
+- “Black stools.”
+
+RED FLAGS:
+- Black stools + fainting  
+- Severe vomiting + faintness  
+
+=========================================================
+SECTION 10 — SYNCOPE IN PREGNANCY
+=========================================================
+
+CAUSES:
+- Vasovagal
+- Orthostatic
+- PE
+- Ectopic rupture
+
+CLUES:
+- Dizziness when standing
+- Nausea
+- Heavy bleeding (danger)
+
+Q1. Pregnant?
+A:
+- “Yes, early pregnancy.”
+
+Q2. Bleeding?
+A:
+- “Light / heavy bleeding.”
+
+RED FLAGS:
+- Severe abdominal pain + fainting  
+- Heavy bleeding  
+- Sudden SOB  
+
+=========================================================
+SECTION 11 — SYNCOPE IN CHILDREN & YOUNG ADULTS
+=========================================================
+
+CLUES:
+- Mostly vasovagal
+- Dehydration
+- OCP-related clots (PE risk)
+- HCM risk in athletes
+
+RED FLAGS:
+- Syncope during exercise  
+- Palpitations  
+- Family history of SCD  
+
+=========================================================
+SECTION 12 — HIGH-RISK SYNCOPE DECISION LOGIC
+=========================================================
+
+ASK:
+1. Was there any warning?
+2. Occurred during exertion?
+3. Associated chest pain?
+4. Palpitations?
+5. Family history sudden death?
+6. Bleeding?
+7. Pregnancy?
+8. Position at onset?
+9. Confusion after event?
+10. SOB?
+
+ROUTE:
+- During exertion → structural/cardiac  
+- No warning → arrhythmic  
+- Chest pain → ischemia/dissection/PE  
+- Palpitations → arrhythmia  
+- Black stools → GI bleed  
+- Early pregnancy + pain → ectopic  
+- Sudden SOB → PE  
+
+=========================================================
+SECTION 13 — GLOBAL SYNCOPE RED FLAGS
+=========================================================
+- Syncope DURING exercise  
+- Syncope WITHOUT prodrome  
+- Chest pain before fainting  
+- Palpitations before fainting  
+- Family history of sudden death  
+- SOB or chest pain afterward  
+- Black stools or vomiting blood  
+- Severe abdominal pain + fainting  
+- Confusion post-event  
+- Pregnancy with abdominal pain  
+- Elderly with sudden collapse  
+
+=========================================================
+END OF SYNCOPE DEEPEST DIVE FILE
+=========================================================

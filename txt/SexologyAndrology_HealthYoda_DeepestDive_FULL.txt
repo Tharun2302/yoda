@@ -1,0 +1,324 @@
+SEXOLOGY & ANDROLOGY — HealthYoda RAG DEEPEST DIVE
+============================================================
+FULL VERSION WITH QUESTIONS + REAL PATIENT ANSWERS + RED FLAGS
+Developer-Ready RAG / Intake Knowledge Base File
+============================================================
+
+SEXUAL HEALTH CLUSTERS
+----------------------
+1. Erectile dysfunction (ED)
+2. Low libido / sexual desire disorders
+3. Ejaculatory disorders
+4. Penile pain & deformity (Peyronie’s)
+5. Penile discharge & infections
+6. Testicular pain disorders
+7. Male infertility patterns
+8. Endocrine causes of sexual dysfunction
+9. Medication-induced sexual dysfunction
+10. Psychological/relationship sexual dysfunction
+11. Sexual trauma patterns
+12. STI symptom patterns
+13. Global sexual health red flags
+14. Triage logic for HealthYoda
+
+============================================================
+SECTION 1 — ERECTILE DYSFUNCTION (ED)
+============================================================
+
+CLUES:
+- Difficulty achieving or maintaining erection
+- Sudden vs gradual onset
+- Morning erections present?
+- Situational vs universal
+- Pain or curve?
+
+Q1. Problem getting or keeping erection?
+A:
+- “I can’t keep it hard.”
+
+Q2. Morning erections?
+A:
+- “Still have some.” → psychogenic
+- “None anymore.” → organic
+
+COMMON CAUSES:
+- Vascular disease
+- Diabetes
+- Hypertension
+- Medications (SSRIs, beta-blockers)
+- Low testosterone
+
+RED FLAGS:
+- Sudden complete ED after trauma  
+- ED + penile pain + curve  
+
+============================================================
+SECTION 2 — LOW LIBIDO
+============================================================
+
+CLUES:
+- Decreased sexual desire
+- Fatigue
+- Depression
+- Partner-related stress
+- Hormonal symptoms
+
+Endocrine associations:
+- Low testosterone
+- Hypothyroid
+- Hyperprolactinemia
+
+Q1. Interest level?
+A:
+- “No desire lately.”
+
+RED FLAGS:
+- Abrupt major libido loss  
+- Libido loss + testicular pain  
+
+============================================================
+SECTION 3 — EJACULATORY DISORDERS
+============================================================
+
+Premature Ejaculation:
+- < 2 min consistently
+- Lack of control
+
+Delayed Ejaculation:
+- Difficulty finishing
+- Medication side effects
+
+Retrograde Ejaculation:
+- “Dry orgasm”
+- Diabetes
+- Alpha blockers
+
+Q:
+- “Does ejaculation happen too fast or not at all?”
+
+A:
+- “Happens too early.”
+- “Takes forever, sometimes not at all.”
+- “Very little comes out.”
+
+============================================================
+SECTION 4 — PENILE PAIN & PEYRONIE’S DISEASE
+============================================================
+
+CLUES:
+- Curvature developing slowly
+- Pain with erection
+- Difficulty with penetration
+- Shortening
+
+Q1. Pain with erection?
+A:
+- “Yes painful curve.”
+
+RED FLAGS:
+- Severe curvature + pain  
+- Sudden trauma with cracking sound  
+
+============================================================
+SECTION 5 — PENILE DISCHARGE & INFECTIONS
+============================================================
+
+CLUES:
+- Discharge
+- Burning urination
+- Itching
+- Swelling
+- Ulcers/lesions
+
+STIs to consider:
+- Gonorrhea
+- Chlamydia
+- Herpes
+- Syphilis
+- Trichomonas
+
+Q:
+- “Color of discharge?”
+A:
+- “Yellow/green/white.”
+
+RED FLAGS:
+- Fever + swelling of penis  
+- Painful ulcers  
+- Scrotal swelling + fever  
+
+============================================================
+SECTION 6 — TESTICULAR PAIN DISORDERS
+============================================================
+
+TESTICULAR TORSION:
+- Sudden pain
+- Nausea
+- Swelling
+- High-riding testicle
+
+EPIDIDYMITIS:
+- Pain/swelling
+- Gradual onset
+- STI or UTI
+
+VARICOCELE:
+- “Bag of worms”
+- Dull ache
+
+HYDROCELE:
+- Heavy sensation
+
+Q:
+- “Sudden or gradual?”
+
+RED FLAGS:
+- Sudden severe pain  
+- Pain + fever  
+- Trauma + severe swelling  
+
+============================================================
+SECTION 7 — MALE INFERTILITY PATTERNS
+============================================================
+
+CLUES:
+- Difficulty conceiving >12 months
+- Low ejaculation volume
+- Testicular atrophy
+- Mumps history
+- Varicocele
+- Undescended testes history
+
+Q1. Trying to conceive?
+A:
+- “Yes, for over a year.”
+
+============================================================
+SECTION 8 — ENDOCRINE CAUSES
+============================================================
+
+PRIMARY:
+- Low testosterone
+- Klinefelter syndrome
+- Testicular failure
+
+SECONDARY:
+- Pituitary dysfunction
+- Hyperprolactinemia
+
+Associated features:
+- Fatigue
+- Low energy
+- Loss of muscle mass
+- Breast enlargement
+
+RED FLAGS:
+- Testicular atrophy  
+- Gynecomastia  
+- Severe fatigue  
+
+============================================================
+SECTION 9 — MEDICATION-INDUCED SEXUAL DYSFUNCTION
+============================================================
+
+Common culprits:
+- SSRIs
+- Beta-blockers
+- Opioids
+- Finasteride
+- Antipsychotics
+- Alcohol
+- Antihypertensives
+
+Q1. New medications?
+A:
+- “Started antidepressants recently.”
+
+============================================================
+SECTION 10 — PSYCHOLOGICAL / RELATIONSHIP
+============================================================
+
+CLUES:
+- Performance anxiety
+- Recent breakup
+- Stress
+- Depression
+- Self-confidence issues
+
+Q:
+- “Has anything changed in relationship?”
+
+A:
+- “Yes, increased tension with partner.”
+
+============================================================
+SECTION 11 — SEXUAL TRAUMA
+============================================================
+
+CLUES:
+- Avoidance
+- Flashbacks
+- Fear of intimacy
+- Pain with intercourse
+
+Q1. Feeling safe?
+A:
+- “Not always.”
+
+============================================================
+SECTION 12 — STI-Focused Symptom Patterns
+============================================================
+
+Symptoms:
+- Burning while urinating
+- Discharge
+- Pain with ejaculation
+- Fever
+- Ulcers/sores
+
+Highest concern patterns:
+- Discharge + fever + testicular pain
+- Painful penile ulcers
+
+============================================================
+SECTION 13 — GLOBAL RED FLAGS
+============================================================
+- Sudden severe testicular pain  
+- Penile fracture sound (“popping”)  
+- Testicular swelling + fever  
+- Painful ulcers  
+- Inability to urinate  
+- Testicular atrophy  
+- Severe curvature with pain  
+- Penile gangrene  
+- Penile black discoloration  
+
+============================================================
+SECTION 14 — TRIAGE LOGIC FOR HEALTHYODA
+============================================================
+
+ASK:
+1. Erection issues?
+2. Libido changes?
+3. Pain anywhere?
+4. Discharge?
+5. Timing of pain?
+6. Testicular position?
+7. Trauma?
+8. Fever?
+9. Urinary symptoms?
+10. Low mood/anxiety?
+11. Medication changes?
+
+ROUTE:
+- Sudden testicular pain → torsion  
+- ED + low morning erections → organic ED  
+- ED + morning erections intact → psychological  
+- Discharge + burning → STI  
+- Curvature + pain → Peyronie’s  
+- Libido loss + fatigue → endocrine  
+- Dry orgasm → retrograde ejaculation  
+
+============================================================
+END OF FILE
+============================================================

@@ -1,0 +1,324 @@
+NEUROMUSCULAR — HealthYoda RAG DEEPEST DIVE
+=========================================================
+FULL VERSION WITH QUESTIONS + REALISTIC ANSWERS + RED FLAGS
+Developer-Ready RAG / Intake Knowledge Base File
+=========================================================
+
+NEUROMUSCULAR COMPLAINT CLUSTERS
+--------------------------------
+1. Muscle weakness (focal vs generalized)
+2. Fatigability (myasthenia pattern)
+3. Muscle pain (myalgias)
+4. Muscle cramps/spasms
+5. Numbness/tingling (peripheral neuropathy)
+6. Burning pain (neuropathic)
+7. Gait abnormalities
+8. Balance/coordination problems
+9. Tremor (neuromuscular vs neuro)
+10. Falls
+11. Fasciculations (muscle twitching)
+12. Acute paralysis (stroke mimic exclusion)
+13. Rhabdomyolysis symptoms
+14. Neuropathy patterns (diabetic, toxic, compressive)
+15. Motor neuron disease symptoms
+16. Neuromuscular junction disorders
+
+=========================================================
+SECTION 1 — UNIVERSAL NEUROMUSCULAR HPI STRUCTURE
+=========================================================
+
+ONSET:
+- Sudden (stroke mimic, trauma, GBS)
+- Subacute (myositis, MG)
+- Gradual (neuropathy, MND)
+
+DURATION:
+- Hours
+- Days
+- Weeks
+- Months
+
+WEAKNESS PATTERN:
+- Proximal (hip/shoulder) → myopathy
+- Distal (feet/hands) → neuropathy
+- Fluctuating → MG
+- Asymmetric → radiculopathy
+- Symmetric → polyneuropathy
+
+ASSOCIATED SYMPTOMS:
+- Numbness
+- Tingling
+- Pain
+- Cramps
+- Vision changes
+- Difficulty chewing/swallowing
+- Shortness of breath
+
+RISK FACTORS:
+- Diabetes
+- Alcohol use
+- Medications (statins, steroids)
+- Recent illness
+- Exposure to toxins
+- Autoimmune history
+
+=========================================================
+SECTION 2 — MUSCLE WEAKNESS
+=========================================================
+
+Q1. When did weakness start?
+A: "A few days ago." / "Months ago."
+
+Q2. Progression?
+A: "Getting worse."
+
+Q3. Pattern?
+A:
+- "Trouble climbing stairs." (proximal)
+- "Can't open jars." (distal)
+- "Legs give out." (general)
+
+Q4. Any numbness/tingling?
+A: "Yes feet tingling." / "No numbness."
+
+Q5. Trouble swallowing/breathing?
+A: "Hard to swallow." / "Short of breath."
+
+MUSCLE WEAKNESS RED FLAGS:
+- Rapid progression (hours–days)
+- Weakness + trouble breathing
+- Unable to stand
+- Facial droop + slurred speech (stroke)
+- Weakness + dark urine (rhabdo)
+
+=========================================================
+SECTION 3 — FATIGABILITY (MYASTHENIA GRAVIS)
+=========================================================
+
+Q1. Symptoms worsen with use?
+A: "Worse at end of day."
+
+Q2. Eyelid drooping?
+A: "Yes eyelids get heavy."
+
+Q3. Double vision?
+A: "Double vision by evening."
+
+Q4. Chewing/swallowing fatigue?
+A: "Jaw gets tired eating."
+
+MG RED FLAGS:
+- Trouble breathing
+- Severe swallowing difficulty
+- Rapid progression
+
+=========================================================
+SECTION 4 — MUSCLE PAIN (MYALGIAS)
+=========================================================
+
+Q1. Location?
+A: "Thighs." / "Shoulders."
+
+Q2. Severity?
+A: "Very sore."
+
+Q3. Trigger?
+A: "Started after statin." / "After exercise."
+
+MYALGIA RED FLAGS:
+- Severe pain + dark urine (rhabdomyolysis)
+- Fever + muscle pain (viral myositis)
+- Difficulty walking
+
+=========================================================
+SECTION 5 — MUSCLE CRAMPS / SPASMS
+=========================================================
+
+Q1. When do cramps occur?
+A: "At night." / "After exercise."
+
+Q2. Hydration status?
+A: "Not drinking much."
+
+=========================================================
+SECTION 6 — NUMBNESS / TINGLING
+=========================================================
+
+Q1. Location?
+A: "Feet tingling." / "Hands numb."
+
+Q2. Distribution?
+A:
+- "Glove and stocking." (polyneuropathy)
+- "One hand only." (median/ulnar)
+- "One leg only." (radiculopathy)
+
+Q3. Weakness associated?
+A: "Foot drop." (peroneal nerve)
+
+SENSORY RED FLAGS:
+- Sudden one-sided numbness (stroke)
+- Saddle anesthesia (cauda equina)
+- Numbness + incontinence
+
+=========================================================
+SECTION 7 — BURNING NEUROPATHIC PAIN
+=========================================================
+
+Q1. Describe pain.
+A: "Burning." / "Electric shocks."
+
+Q2. Worse at night?
+A: "Yes worse at night."
+
+=========================================================
+SECTION 8 — GAIT ABNORMALITIES
+=========================================================
+
+Q1. Describe walking difficulty.
+A:
+- "Dragging foot."
+- "Unsteady."
+- "Wide-based walking."
+
+GAIT RED FLAGS:
+- Unable to walk
+- Progressive ataxia
+- Gait change + bladder issues
+
+=========================================================
+SECTION 9 — BALANCE / COORDINATION
+=========================================================
+
+Q1. Feeling unsteady?
+A: "Yes losing balance."
+
+Q2. Falling?
+A: "Yes fell twice."
+
+=========================================================
+SECTION 10 — TREMOR (NEUROMUSCULAR PATTERN)
+=========================================================
+
+Q1. When does tremor occur?
+A: "At rest." / "When reaching."
+
+=========================================================
+SECTION 11 — FALLS
+=========================================================
+
+Q1. How many falls?
+A: "Several in past week."
+
+FALL RED FLAGS:
+- Head injury
+- Loss of consciousness
+- Weakness + falls
+
+=========================================================
+SECTION 12 — FASCICULATIONS (MUSCLE TWITCHES)
+=========================================================
+
+Q1. Where?
+A: "Calves twitching."
+
+Q2. Weakness?
+A: "No weakness." / "Some weakness."
+
+RED FLAGS:
+- Fasciculations + weakness (MND concern)
+
+=========================================================
+SECTION 13 — ACUTE PARALYSIS (GBS / STROKE MIMIC)
+=========================================================
+
+Q1. Spread?
+A: "Started in feet now in thighs." (GBS)
+
+Q2. Recent illness?
+A: "Had a cold 2 weeks ago."
+
+PARALYSIS RED FLAGS:
+- Rapid ascending weakness
+- Trouble breathing
+- Facial weakness + slurred speech
+
+=========================================================
+SECTION 14 — RHABDOMYOLYSIS
+=========================================================
+
+Q1. Muscle pain severity?
+A: "Severe muscle pain."
+
+Q2. Urine color?
+A: "Dark brown urine."
+
+Q3. Exercise or statins?
+A: "After intense workout." / "On statins."
+
+RHABDO RED FLAGS:
+- Dark urine
+- Severe muscle swelling
+- Weakness + vomiting
+
+=========================================================
+SECTION 15 — NEUROPATHY PATTERNS
+=========================================================
+
+Diabetic:
+- Burning feet
+- Numbness
+- Night pain
+
+Compressive:
+- Numbness in fingers (CTS)
+- Foot drop (peroneal)
+
+Toxic:
+- Alcohol use
+- Chemotherapy history
+
+=========================================================
+SECTION 16 — MOTOR NEURON DISEASE (ALS-LIKE)
+=========================================================
+
+Q1. Progressive weakness?
+A: "Getting weaker for months."
+
+Q2. Fasciculations?
+A: "Yes twitching muscles."
+
+Q3. Bulbar symptoms?
+A: "Slurred speech." / "Choking on water."
+
+MND RED FLAGS:
+- Progressive weakness
+- Bulbar symptoms
+- Fasciculations + atrophy
+
+=========================================================
+SECTION 17 — NEUROMUSCULAR JUNCTION DISORDERS
+=========================================================
+
+Q1. Fatigue with use?
+A: "Arms tired with lifting."
+
+Q2. Swallowing issues?
+A: "Hard to swallow by evening."
+
+=========================================================
+NEUROMUSCULAR GLOBAL RED FLAGS
+=========================================================
+- Rapid progressive weakness
+- Weakness + breathing issues
+- Sudden numbness/weakness (stroke)
+- Saddle anesthesia / urinary retention
+- Fasciculations + weakness (MND)
+- Dark urine + severe muscle pain (rhabdo)
+- Paralysis after viral illness (GBS)
+- Repeated falls
+- Ataxia + vomiting + headache
+
+=========================================================
+END OF NEUROMUSCULAR DEEPEST DIVE FILE
+=========================================================

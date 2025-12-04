@@ -1,0 +1,409 @@
+OCCUPATIONAL MEDICINE — HealthYoda RAG DEEPEST DIVE
+=========================================================
+FULL VERSION WITH QUESTIONS + REALISTIC PATIENT ANSWERS + RED FLAGS
+Developer-Ready RAG / Intake Knowledge Base File
+=========================================================
+
+OCCUPATIONAL EXPOSURE CLUSTERS
+------------------------------
+1. Respiratory exposures (dust, silica, asbestos, fumes)
+2. Chemical exposures (solvents, cleaners, industrial chemicals)
+3. Heavy metals (lead, mercury, arsenic)
+4. Repetitive-strain injuries (carpal tunnel, tendinopathy)
+5. Back/neck strain from occupational posture
+6. Noise exposure (hearing loss, tinnitus)
+7. Heat/cold exposure at work
+8. Radiation exposure (medical/industrial)
+9. Biological exposures (bloodborne pathogens)
+10. Occupational skin diseases (dermatitis, chemical burns)
+11. Stress-related occupational illness (burnout)
+12. Shift-work sleep disorder
+13. Occupational asthma
+14. Sick-building syndrome
+15. Ergonomic injuries
+16. Vibration exposure (hand-arm vibration syndrome)
+17. Long-term low-level toxin exposure (chronic poisoning)
+
+=========================================================
+SECTION 1 — UNIVERSAL OCCUPATIONAL HPI STRUCTURE
+=========================================================
+
+WORK ROLE:
+- “Factory worker”
+- “Healthcare worker”
+- “Construction”
+- “Office job”
+- “Painter”
+- “Mechanic”
+
+TASK-BASED EXPOSURE:
+- Grinding/cutting
+- Painting
+- Welding
+- Chemical handling
+- Prolonged desk work
+- Repetitive hand motions
+
+DURATION:
+- Acute (today)
+- Subacute (days to weeks)
+- Chronic (months/years)
+
+PROTECTION:
+- Mask?
+- Gloves?
+- Ventilation?
+- Hearing protection?
+
+CO-WORKERS:
+- Anyone else sick?
+- Similar symptoms among team?
+
+SYMPTOMS:
+- Cough, wheeze
+- Rash
+- Eye/skin irritation
+- Nausea/headache
+- Pain (back, wrist, elbow)
+- Tingling/numbness
+- Hearing loss
+- Fatigue
+
+=========================================================
+SECTION 2 — RESPIRATORY EXPOSURES
+=========================================================
+
+Dust (silica, coal, construction):
+Q1. Type of dust?
+A: “Concrete dust”, “wood dust”, “silica.”
+
+Q2. Symptoms?
+A:
+- “Chronic cough”
+- “Short of breath at work”
+- “Chest tightness”
+
+Fumes (welding, painting, industrial chemicals):
+Q1. Chemical exposure?
+A: “Welding fumes.” / “Paint thinner.”
+
+Q2. Symptoms?
+A:
+- “Burning throat”
+- “Coughing”
+- “Headache”
+
+ASBESTOS:
+Q1. Renovation work?
+A: “Removing old insulation.”
+
+Chronic symptoms:
+- Dry cough
+- SOB
+- Chest pain
+
+RED FLAGS:
+- SOB at rest
+- Hemoptysis
+- Progressive cough
+- Weight loss
+
+=========================================================
+SECTION 3 — CHEMICAL EXPOSURE
+=========================================================
+
+Solvents (paint thinner, acetone, MEK):
+Q1. Ventilation?
+A: “Poor ventilation.”
+
+Symptoms:
+- Headache
+- Nausea
+- Confusion
+
+Cleaners (ammonia, bleach):
+Symptoms:
+- Eye irritation
+- Chest tightness
+
+RED FLAGS:
+- Trouble breathing
+- Vomiting
+- Confusion
+- Severe eye pain
+
+=========================================================
+SECTION 4 — HEAVY METALS (WORKPLACE)
+=========================================================
+
+Lead:
+Q1. Job?
+A: “Battery plant / painting old houses.”
+
+Symptoms:
+- Fatigue
+- Abdominal pain
+- Memory issues
+
+Mercury:
+Q1. Broken thermometers/spills?
+A: “Work with mercury equipment.”
+
+Symptoms:
+- Tremor
+- Irritability
+- Metallic taste
+
+Arsenic:
+Q1. Industrial exposure?
+A: “Metallurgy / pesticide handling.”
+
+Symptoms:
+- Vomiting
+- Abdominal pain
+- Numbness/tingling
+
+RED FLAGS:
+- Neurologic changes
+- Severe abdominal pain
+- Confusion
+
+=========================================================
+SECTION 5 — REPETITIVE STRAIN INJURIES (RSI)
+=========================================================
+
+Carpal tunnel:
+Q1. Repetitive typing/hand tools?
+A: “Type 8 hours/day.”
+
+Symptoms:
+- Numbness in thumb/index
+- Nighttime tingling
+- Weak grip
+
+Tendinopathy:
+A:
+- “Elbow pain from lifting”
+- “Shoulder pain from repetitive overhead work”
+
+RED FLAGS:
+- Weakness + numbness
+- Severe swelling
+- Loss of function
+
+=========================================================
+SECTION 6 — BACK & NECK STRAIN
+=========================================================
+
+Q1. Job involves lifting?
+A: “Heavy lifting warehouse job.”
+
+Q2. Posture?
+A: "Sit at desk all day."
+
+Symptoms:
+- Low back pain
+- Neck pain
+- Stiffness
+
+RED FLAGS:
+- Leg weakness
+- Loss of bowel/bladder control
+- Pain with fever
+
+=========================================================
+SECTION 7 — NOISE EXPOSURE
+=========================================================
+
+Q1. Loud environment?
+A: “Factory floor.”
+
+Symptoms:
+- Tinnitus
+- Temporary hearing loss
+
+RED FLAGS:
+- Persistent hearing loss
+- Vertigo + hearing loss
+
+=========================================================
+SECTION 8 — HEAT & COLD EXPOSURE
+=========================================================
+
+Heat:
+Symptoms:
+- Heavy sweating
+- Headache
+- Confusion (severe)
+
+Cold:
+Symptoms:
+- Numbness/tingling
+- Pale fingers/toes
+
+RED FLAGS:
+- Confusion
+- Frostbite blisters
+- Heat stroke: no sweating + temp >103°F
+
+=========================================================
+SECTION 9 — RADIATION EXPOSURE (OCCUPATIONAL)
+=========================================================
+
+Healthcare/industrial:
+Symptoms:
+- Nausea
+- Fatigue
+
+RED FLAGS:
+- Vomiting within 1 hour
+- Confusion
+- Skin redness
+
+=========================================================
+SECTION 10 — BIOLOGICAL EXPOSURES (HEALTHCARE, LAB WORK)
+=========================================================
+
+Q1. Needle stick?
+A: “Accidental needle stick.”
+
+Q2. Body fluid exposure?
+A: “Blood splashed into eye.”
+
+RED FLAGS:
+- Fever after needle exposure
+- Severe rash
+- New neurologic symptoms
+
+=========================================================
+SECTION 11 — OCCUPATIONAL SKIN DISEASE
+=========================================================
+
+Contact dermatitis:
+Q1. New chemicals?
+A: “New cleaning agent.”
+
+Symptoms:
+- Itchy rash
+- Redness
+- Dry skin
+
+Chemical burns:
+Q1. What substance?
+A: “Strong cleaner splashed on skin.”
+
+RED FLAGS:
+- Blistering
+- Spreading redness
+- Facial involvement
+
+=========================================================
+SECTION 12 — STRESS-RELATED OCCUPATIONAL ILLNESS
+=========================================================
+
+Q1. Job stress?
+A: “High workload.”
+
+Symptoms:
+- Insomnia
+- Anxiety
+- Headaches
+- Fatigue
+
+RED FLAGS:
+- Suicidal thoughts
+- Severe panic attacks
+- Inability to function at work
+
+=========================================================
+SECTION 13 — SHIFT-WORK SLEEP DISORDER
+=========================================================
+
+Q1. Work schedule?
+A: “Night shift.”
+
+Symptoms:
+- Insomnia
+- Fatigue
+- Difficulty concentrating
+
+RED FLAGS:
+- Falling asleep while driving
+
+=========================================================
+SECTION 14 — OCCUPATIONAL ASTHMA
+=========================================================
+
+Q1. Symptoms better away from work?
+A: “Better on weekends.”
+
+Symptoms:
+- Wheeze
+- Chest tightness
+- Cough
+
+RED FLAGS:
+- SOB at rest
+- Cyanosis
+- Not responding to inhaler
+
+=========================================================
+SECTION 15 — SICK BUILDING SYNDROME
+=========================================================
+
+Q1. Symptoms only at workplace?
+A: “Feel sick at office only.”
+
+Symptoms:
+- Headache
+- Eye irritation
+- Fatigue
+
+RED FLAGS:
+- Breathing difficulty
+- Multiple coworkers sick
+
+=========================================================
+SECTION 16 — VIBRATION EXPOSURE (TOOLS/MACHINERY)
+=========================================================
+
+Symptoms:
+- Numbness
+- Tingling
+- Reduced grip strength
+
+RED FLAGS:
+- Persistent numbness
+- Hand weakness
+
+=========================================================
+SECTION 17 — CHRONIC LOW-LEVEL TOXIN EXPOSURE
+=========================================================
+
+Symptoms:
+- Fatigue
+- Cognitive changes
+- Mood changes
+- Neuropathy
+
+RED FLAGS:
+- Severe neurologic symptoms
+- Rapid worsening
+
+=========================================================
+OCCUPATIONAL MEDICINE GLOBAL RED FLAGS
+=========================================================
+- Trouble breathing (any exposure)
+- Chest pain
+- Confusion, fainting
+- Hemoptysis
+- Severe abdominal pain (toxin concern)
+- Neurologic changes (weakness, seizures)
+- High fever with exposure
+- Children exposed to workplace toxins carried home
+- Radiation exposure with vomiting early
+- Electrical injuries at work
+
+=========================================================
+END OF OCCUPATIONAL MEDICINE DEEPEST DIVE FILE
+=========================================================

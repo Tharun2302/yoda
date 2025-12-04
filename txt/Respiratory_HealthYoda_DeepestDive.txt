@@ -1,0 +1,319 @@
+RESPIRATORY SYSTEM — HealthYoda RAG DEEPEST DIVE
+===============================================================
+WITH FULL QUESTION SETS + REAL PATIENT-STYLE ANSWERS
+Developer-Ready Notepad File for RAG / Intake Logic
+===============================================================
+
+RESPIRATORY COMPLAINT CLUSTERS
+------------------------------
+1. Shortness of breath (dyspnea)
+2. Cough (acute, chronic, dry, productive)
+3. Hemoptysis (coughing up blood)
+4. Wheezing / chest tightness
+5. Chest congestion / mucus issues
+6. Pleuritic chest pain (pain with breathing)
+7. Upper respiratory infection (URI) symptoms
+8. Noisy breathing / stridor
+9. Nighttime breathing issues (PND, OSA suspicion)
+10. Asthma / COPD exacerbation check-ins
+11. General respiratory distress (triage)
+
+===============================================================
+SECTION 1 — UNIVERSAL RESPIRATORY HPI STRUCTURE
+===============================================================
+
+ONSET — Possible Answers:
+- "Started suddenly an hour ago."
+- "Woke up with it this morning."
+- "Gradually worsening over a week."
+- "Has been happening on and off for months."
+
+DURATION — Possible Answers:
+- "A few minutes."
+- "Episodes last seconds."
+- "Constant since yesterday."
+- "Weeks of coughing."
+
+SEVERITY — Possible Answers:
+- "Mild, but annoying."
+- "Feels like I can’t get air in."
+- "Severe — I can't talk in full sentences."
+
+TRIGGERS — Possible Answers:
+- "Walking or stairs."
+- "Cold air."
+- "Dust, pollen."
+- "Lying flat."
+- "After meals."
+
+RELIEVING FACTORS — Possible Answers:
+- "Rest helps."
+- "Inhaler seems to help."
+- "Sitting up helps."
+- "Nothing makes it better."
+
+ASSOCIATED SYMPTOMS — Possible Answers:
+- Chest pain
+- Wheezing
+- Cough
+- Fever
+- Sputum
+- Nasal congestion
+- Fatigue
+- Leg swelling
+
+RISK HISTORY — Possible Answers:
+- "I smoke."
+- "I have asthma."
+- "I have COPD."
+- "Just had a cold."
+- "I work around chemicals."
+
+===============================================================
+SECTION 2 — SHORTNESS OF BREATH (DYSPNEA)
+===============================================================
+
+Q1. When did the shortness of breath start?
+- "Suddenly 20 minutes ago."
+- "Yesterday morning."
+- "Gradually worsening for weeks."
+
+Q2. Is it worse with activity, rest, or both?
+- "Only when I walk."
+- "Happens even when sitting."
+- "Mostly at night."
+
+Q3. How far can you walk before getting breathless?
+- "Only a few steps."
+- "One flight of stairs."
+- "I can walk a block."
+
+Q4. Can you lie flat comfortably? (Orthopnea)
+- "No, I need 3 pillows."
+- "I sleep sitting upright."
+- "Yes, lying down is fine."
+
+Q5. Any waking up gasping? (PND)
+- "Happens nightly."
+- "A few times a week."
+- "No, sleep is fine."
+
+Q6. Any chest pain with SOB?
+- "Tightness when breathing deep."
+- "Sharp right-sided pain."
+- "No chest pain."
+
+Q7. Any cough or sputum?
+- "Clear mucus."
+- "Yellow-green phlegm."
+- "Pink frothy sputum."
+- "Dry cough."
+
+Q8. Any fever?
+- "Had fever yesterday."
+- "Low-grade fever."
+- "No fever."
+
+Q9. Any recent travel or long immobility?
+- "9-hour flight."
+- "10-hour car ride."
+- "No travel."
+
+RED FLAGS — Severe dyspnea, can't speak full sentences, blue lips, pink frothy sputum,
+sudden SOB + chest pain, SOB + unilateral leg swelling.
+
+===============================================================
+SECTION 3 — COUGH (ACUTE / CHRONIC)
+===============================================================
+
+Q1. How long have you had the cough?
+- "Started this morning."
+- "2 weeks."
+- "2 months ongoing."
+
+Q2. Dry or productive?
+- "Dry and tickly."
+- "Thick yellow mucus."
+- "Green phlegm in morning."
+- "Clear sputum."
+
+Q3. Worse at night or day?
+- "Worse at night."
+- "In the morning."
+- "Constant all day."
+
+Q4. Fever, chills, body aches?
+- "Fever last night."
+- "Mild chills."
+- "No fever."
+
+Q5. Any wheezing?
+- "Yes, whistling sound."
+- "Sometimes when exhaling."
+- "No wheezing."
+
+Q6. Any blood in the cough?
+- "Streaks of blood."
+- "Teaspoon of bright red blood."
+- "No blood."
+
+Q7. Chest pain with coughing?
+- "Sharp right-sided pain."
+- "Just sore from coughing."
+
+Q8. Sick contacts?
+- "Kids had a cold."
+- "Coworker sick."
+- "No exposures."
+
+Q9. On ACE-inhibitors?
+- "Yes, started lisinopril."
+- "No new meds."
+
+RED FLAGS — Hemoptysis, fever + chest pain + SOB, immunocompromise, new wheezing + speech difficulty.
+
+===============================================================
+SECTION 4 — HEMOPTYSIS (COUGHING BLOOD)
+===============================================================
+
+Q1. Amount of blood?
+- "Just streaks."
+- "Teaspoon amount."
+- "Large bright red blood."
+
+Q2. Mixed with mucus or pure blood?
+- "Mixed with sputum."
+- "Pure blood this morning."
+
+Q3. Fever / weight loss / night sweats?
+- "Fever and cough."
+- "Lost weight unintentionally."
+- "Night sweats."
+
+RED FLAGS — Large hemoptysis, hemoptysis + SOB, hemoptysis + weight loss.
+
+===============================================================
+SECTION 5 — WHEEZING / CHEST TIGHTNESS
+===============================================================
+
+Q1. When did wheezing start?
+- "During my cold."
+- "During exercise."
+- "Suddenly last night."
+
+Q2. Any known asthma/COPD?
+- "I have asthma."
+- "Smoked 20 years."
+- "No prior lung issues."
+
+Q3. Triggers?
+- "Cold air."
+- "Dust or pollen."
+- "Exercise."
+- "Lying down."
+
+Q4. Does inhaler help?
+- "Yes, right away."
+- "Helps a little."
+- "No help."
+
+Q5. Chest tightness?
+- "Feels like a band squeezing."
+- "Heavy pressure."
+
+RED FLAGS — Can't speak, blue lips, wheezing unrelieved by inhaler.
+
+===============================================================
+SECTION 6 — PLEURITIC CHEST PAIN
+===============================================================
+
+Q1. Worse with deep breaths?
+- "Sharp pain when breathing in."
+- "Hurts when coughing."
+
+Q2. Where is the pain?
+- "Right side."
+- "Under ribs."
+
+Q3. Fever / cough?
+- "Fever + cough."
+- "No fever."
+
+Q4. Recent travel?
+- "Long flight."
+- "No."
+
+RED FLAGS — Sudden pleuritic pain + SOB, pleuritic pain + hemoptysis.
+
+===============================================================
+SECTION 7 — URI SYMPTOMS
+===============================================================
+
+Q1. Congestion/runny nose?
+- "Stuffy nose."
+- "Yellow discharge."
+
+Q2. Sinus pressure?
+- "Yes, forehead pressure."
+
+Q3. Sore throat?
+- "Burning throat."
+
+Q4. Ear symptoms?
+- "Fullness."
+- "Mild pain."
+
+===============================================================
+SECTION 8 — NOISY BREATHING / STRIDOR
+===============================================================
+
+Q1. Noise on breathing?
+- "High-pitched noise on inhale."
+
+Q2. Sudden onset?
+- "Started after choking."
+
+RED FLAGS — Stridor, drooling, inability to swallow.
+
+===============================================================
+SECTION 9 — NIGHTTIME BREATHING ISSUES
+===============================================================
+
+Q1. Snoring?
+- "Loud snoring for years."
+
+Q2. Apneas?
+- "Partner says I stop breathing."
+
+Q3. Wake up gasping?
+- "Yes, nightly."
+
+===============================================================
+SECTION 10 — ASTHMA / COPD EXACERBATION
+===============================================================
+
+Q1. More inhaler use?
+- "Using inhaler 5 times a day."
+
+Q2. More mucus?
+- "More yellow mucus lately."
+
+Q3. Exposure to triggers?
+- "Dust from cleaning."
+- "Cold weather."
+
+===============================================================
+GLOBAL RESPIRATORY RED FLAGS
+===============================================================
+- Severe SOB
+- Unable to speak full sentences
+- Blue lips/nails
+- High fever + chest pain
+- Large hemoptysis
+- Sudden SOB + leg swelling
+- Severe retractions
+- Altered mental status
+
+===============================================================
+END OF FILE — READY FOR DEVELOPMENT
+===============================================================

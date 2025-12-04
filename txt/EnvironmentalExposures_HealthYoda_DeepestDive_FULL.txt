@@ -1,0 +1,400 @@
+ENVIRONMENTAL EXPOSURES — HealthYoda RAG DEEPEST DIVE
+=========================================================
+FULL VERSION WITH QUESTIONS + REALISTIC PATIENT ANSWERS + RED FLAGS
+Developer-Ready RAG / Intake Knowledge Base File
+=========================================================
+
+ENVIRONMENTAL EXPOSURE CLUSTERS
+-------------------------------
+1. Air quality / pollution exposure
+2. Smoke inhalation (fire, wildfire, indoor smoke)
+3. Mold exposure (acute & chronic patterns)
+4. Chemical fumes (cleaners, industrial solvents)
+5. Asbestos exposure
+6. Lead exposure (children & adults)
+7. Carbon monoxide (CO) exposure
+8. Pesticide exposure (organophosphates, others)
+9. Radiation exposure (medical, occupational, accidental)
+10. Water contamination exposures
+11. Heat illness (heat exhaustion, heat stroke)
+12. Cold exposure (hypothermia, frostbite)
+13. Noise exposure (hearing loss, tinnitus)
+14. Occupational particulate exposure (silica, coal)
+15. Sick building syndrome (office/environmental)
+16. Environmental allergies (dust, pollen, dander)
+17. Environmental heavy metals (mercury, arsenic)
+18. Indoor air issues (gas leaks, ventilation failure)
+
+=========================================================
+SECTION 1 — UNIVERSAL ENVIRONMENTAL EXPOSURE HPI STRUCTURE
+=========================================================
+
+TIMING:
+- Immediate
+- Hours later
+- Chronic exposure over months/years
+
+DURATION:
+- Single event
+- Repeated exposure
+- Continuous exposure
+
+SETTING:
+- Workplace
+- Home
+- Outdoor environment
+- Industrial facility
+- Car/garage
+- Recent travel
+
+SYMPTOMS:
+- Headache
+- Nausea
+- Breathing difficulty
+- Chest tightness
+- Dizziness
+- Eye/nose/throat irritation
+- Skin rash or irritation
+- Neurologic changes
+- GI symptoms
+- Fatigue
+
+EXPOSURE QUESTIONS:
+- What were you doing?
+- For how long?
+- Protective equipment?
+- Anyone else affected?
+- Changes in environment (new cleaners, construction)?
+
+=========================================================
+SECTION 2 — AIR QUALITY / POLLUTION EXPOSURE
+=========================================================
+
+Q1. What exposure?
+A: “Construction dust.” / “Industrial fumes.”
+
+Q2. Symptoms?
+A:
+- “Coughing”
+- “Burning throat”
+- “Headache”
+
+RED FLAGS:
+- Trouble breathing
+- Chest tightness
+- Cyanosis
+- Severe coughing fits
+
+=========================================================
+SECTION 3 — SMOKE INHALATION (FIRE/WILDFIRE)
+=========================================================
+
+Q1. Indoors or outdoors?
+A: “Smoke inside house.”
+
+Q2. Soot in mouth/nose?
+A: “Black soot when coughing.”
+
+Q3. Symptoms?
+A:
+- “Headache”
+- “Chest tightness”
+- “Coughing”
+
+SMOKE RED FLAGS:
+- Carbon monoxide symptoms (headache, nausea)
+- Confusion
+- Burns around nose/mouth
+- Hoarseness
+- Difficulty breathing
+
+=========================================================
+SECTION 4 — MOLD EXPOSURE
+=========================================================
+
+Q1. Visible mold?
+A: “Black mold in bathroom.”
+
+Q2. Symptoms?
+A:
+- “Chronic cough”
+- “Worse in house”
+- “Fatigue”
+- “Nasal congestion”
+
+RED FLAGS:
+- Wheezing
+- Fever + shortness of breath
+- Immunocompromised patient
+
+=========================================================
+SECTION 5 — CHEMICAL FUMES (CLEANERS/SOLVENTS)
+=========================================================
+
+Q1. What chemical?
+A: “Bleach + ammonia.” / “Paint thinner.”
+
+Q2. Ventilation?
+A: “Poor ventilation.”
+
+Q3. Symptoms?
+A:
+- “Burning eyes”
+- “Chest tightness”
+- “Coughing”
+
+CHEMICAL RED FLAGS:
+- Difficulty breathing
+- Persistent chest pain
+- Severe eye irritation
+- Vomiting
+
+=========================================================
+SECTION 6 — ASBESTOS EXPOSURE
+=========================================================
+
+Q1. Exposure setting?
+A: “Home renovation.” / “Old building.”
+
+Q2. Duration?
+A: “Weeks of exposure.”
+
+Typical symptoms (chronic):
+- Dry cough
+- Shortness of breath
+- Chest tightness
+
+RED FLAGS:
+- Progressive SOB
+- Chest pain
+- Weight loss
+- Hemoptysis
+
+=========================================================
+SECTION 7 — LEAD EXPOSURE
+=========================================================
+
+CHILD:
+Q1. Home age?
+A: “Built before 1978.”
+
+Q2. Symptoms?
+A:
+- “Behavior changes”
+- “Poor appetite”
+
+ADULT:
+Q1. Occupation?
+A: “Battery factory.”
+
+RED FLAGS:
+- Severe abdominal pain
+- Neurologic changes
+- Seizures
+
+=========================================================
+SECTION 8 — CARBON MONOXIDE (CO)
+=========================================================
+
+Q1. Headache?
+A: “Worse indoors.”
+
+Q2. Others sick?
+A: “Whole family sick.”
+
+Q3. Source?
+A: “Heater malfunction.”
+
+CO RED FLAGS:
+- Confusion
+- Chest pain
+- Fainting
+- Cherry-red lips (rare classic)
+
+=========================================================
+SECTION 9 — PESTICIDE EXPOSURE (ORGANOPHOSPHATES)
+=========================================================
+
+SYMPTOMS (SLUDGE):
+- Salivation
+- Lacrimation
+- Urination
+- Defecation
+- GI upset
+- Emesis
+
+RED FLAGS:
+- Difficulty breathing
+- Seizures
+- Confusion
+
+=========================================================
+SECTION 10 — RADIATION EXPOSURE
+=========================================================
+
+Low-dose symptoms:
+- Fatigue
+- Nausea
+
+High-dose symptoms:
+- Vomiting within 1–2 hours
+- Skin redness
+- Confusion
+
+RED FLAGS:
+- Vomiting within 1 hour of exposure
+- Neurologic changes
+- Bleeding/bruising
+
+=========================================================
+SECTION 11 — WATER CONTAMINATION
+=========================================================
+
+Possible contaminants:
+- Bacteria
+- Parasites
+- Heavy metals
+
+Symptoms:
+- Diarrhea
+- Abdominal pain
+- Fatigue
+- Metallic taste
+
+RED FLAGS:
+- Bloody diarrhea
+- Severe dehydration
+- Fever + abdominal pain
+
+=========================================================
+SECTION 12 — HEAT ILLNESS (HEAT EXHAUSTION/STROKE)
+=========================================================
+
+Q1. Activity?
+A: “Working outside.”
+
+Symptoms:
+- Heavy sweating → exhaustion
+- No sweating → stroke
+- Confusion
+- Throbbing headache
+
+RED FLAGS:
+- Confusion
+- Body temp >103°F
+- No sweating
+- Seizure
+
+=========================================================
+SECTION 13 — COLD EXPOSURE (HYPOTHERMIA/FROSTBITE)
+=========================================================
+
+Symptoms:
+- Shivering → early
+- Confusion
+- Numb fingers/toes
+- Pale/mottled skin
+
+RED FLAGS:
+- Confusion
+- Frostbite blistering
+- Core temp <95°F
+
+=========================================================
+SECTION 14 — NOISE EXPOSURE
+=========================================================
+
+Q1. Duration?
+A: “Concert last night.”
+
+Symptoms:
+- Ringing ears
+- Temporary hearing loss
+
+RED FLAGS:
+- Persistent hearing loss
+- Vertigo + hearing loss
+
+=========================================================
+SECTION 15 — OCCUPATIONAL PARTICULATE EXPOSURE
+=========================================================
+
+Examples:
+- Silica
+- Coal dust
+- Metal dust
+
+Symptoms:
+- Chronic cough
+- SOB
+- Fatigue
+
+RED FLAGS:
+- SOB at rest
+- Hemoptysis
+- Weight loss
+
+=========================================================
+SECTION 16 — SICK BUILDING SYNDROME
+=========================================================
+
+Q1. Symptoms only at workplace?
+A: “Feel sick only at office.”
+
+Symptoms:
+- Headache
+- Fatigue
+- Eye irritation
+- Cough
+
+RED FLAGS:
+- Breathing difficulty
+- Severe headaches
+
+=========================================================
+SECTION 17 — HEAVY METAL EXPOSURES (NON-LEAD)
+=========================================================
+
+Mercury:
+- Burning mouth sensation
+- Tremor
+- Irritability
+
+Arsenic:
+- Vomiting
+- Abdominal pain
+- Numbness/tingling
+
+RED FLAGS:
+- GI bleeding
+- Severe weakness
+
+=========================================================
+SECTION 18 — GAS LEAKS / VENTILATION FAILURE
+=========================================================
+
+Symptoms:
+- Headache
+- Dizziness
+- Nausea
+
+RED FLAGS:
+- Confusion
+- Fainting
+- Multiple people sick
+
+=========================================================
+ENVIRONMENTAL EXPOSURE GLOBAL RED FLAGS
+=========================================================
+- Breathing difficulty or wheezing
+- Confusion, fainting, or altered mental status
+- Vomiting + exposure to chemicals
+- Cyanosis or blue lips
+- Severe chest pain
+- High fever with environmental exposure
+- Children exposed to chemicals, CO, or heavy metals
+- Multiple people symptomatic simultaneously
+
+=========================================================
+END OF ENVIRONMENTAL EXPOSURES DEEPEST DIVE FILE
+=========================================================

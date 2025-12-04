@@ -130,6 +130,9 @@ helm_evaluator = None
 langfuse_scorer = None
 results_storage = None
 
+# Session-based evaluation control (for UI toggle)
+evaluation_enabled_sessions = {}  # Track which sessions have evaluations enabled
+
 def initialize_rag_system():
     """Initialize RAG system (called once, not on reload)"""
     global rag_system
@@ -137,9 +140,9 @@ def initialize_rag_system():
         try:
             # Initialize RAG with model manager and OpenAI client for embeddings
             if model_manager:
-                rag_system = QuestionBookRAG('docx/Question BOOK.docx', model_manager=model_manager, openai_client=client)
+                rag_system = QuestionBookRAG('docx/Question BOOK.docx', txt_folder='txt', model_manager=model_manager, openai_client=client)
             elif client:
-                rag_system = QuestionBookRAG('docx/Question BOOK.docx', openai_client=client)
+                rag_system = QuestionBookRAG('docx/Question BOOK.docx', txt_folder='txt', openai_client=client)
                 print(f"✅ RAG System loaded: {len(rag_system.questions)} questions available")
                 if rag_system.collection is not None:
                     try:
@@ -779,9 +782,9 @@ def extract_and_store_data(session_id, user_response, rag_question_info):
     if not rag_question_info:
         return
     
-    category = rag_question_info.get('category', '')
-    system = rag_question_info.get('system', '')
-    question_text = rag_question_info.get('question', '')
+    category = rag_question_info.get('category', '') or rag_question_info.get('content_type', '')
+    system = rag_question_info.get('system', '') or rag_question_info.get('medical_domain', '')
+    question_text = rag_question_info.get('question', '') or rag_question_info.get('bot_question', '')
     
     field_path, data_type = map_category_to_data_field(category, system)
     if not field_path:
@@ -816,7 +819,8 @@ def extract_and_store_data(session_id, user_response, rag_question_info):
     elif data_type == 'red_flags':
         red_flags = session_data.get('red_flags', [])
         # Check if this red flag already recorded
-        if not any(rf.get('question') == question_text for rf in red_flags):
+        # Support both old and new schema field names
+        if not any(rf.get('question') == question_text or rf.get('bot_question') == question_text for rf in red_flags):
             red_flags.append({
                 'question': question_text,
                 'response': user_response,
@@ -1167,9 +1171,10 @@ def chat_greeting():
                     )
                     if rag_question_info:
                         rag_context = f"\n\n[RELEVANT QUESTION FROM QUESTION BOOK]\n"
-                        rag_context += f"Question: {rag_question_info['question']}\n"
-                        if rag_question_info.get('possible_answers'):
-                            rag_context += f"Possible answers: {', '.join(rag_question_info['possible_answers'][:5])}\n"
+                        rag_context += f"Question: {rag_question_info.get('question') or rag_question_info.get('bot_question', '')}\n"
+                        if rag_question_info.get('possible_answers') or rag_question_info.get('expected_patient_responses'):
+                            answers = rag_question_info.get('possible_answers') or rag_question_info.get('expected_patient_responses', [])
+                            rag_context += f"Possible answers: {', '.join(answers[:5])}\n"
                 except Exception as e:
                     print(f"[RAG] Error getting initial question: {e}")
             
@@ -1356,9 +1361,9 @@ def chat_stream():
             
             # Check MongoDB: Skip this question if data is already collected
             if rag_question_info:
-                category = rag_question_info.get('category', '')
-                system = rag_question_info.get('system', '')
-                question_text = rag_question_info.get('question', '')
+                category = rag_question_info.get('category', '') or rag_question_info.get('content_type', '')
+                system = rag_question_info.get('system', '') or rag_question_info.get('medical_domain', '')
+                question_text = rag_question_info.get('question', '') or rag_question_info.get('bot_question', '')
                 
                 if is_data_already_collected(session_id, category, system, question_text):
                     print(f"[MongoDB] Data already collected for category '{category}' (system: {system}), skipping question: {question_text[:50]}...")
@@ -1366,9 +1371,10 @@ def chat_stream():
                     # Try to get a different question (you could enhance RAG to exclude collected categories)
                 else:
                     rag_context = f"\n\n[RELEVANT QUESTION FROM QUESTION BOOK]\n"
-                    rag_context += f"Question: {rag_question_info['question']}\n"
-                    if rag_question_info.get('possible_answers'):
-                        rag_context += f"Possible answers: {', '.join(rag_question_info['possible_answers'][:5])}\n"
+                    rag_context += f"Question: {rag_question_info.get('question') or rag_question_info.get('bot_question', '')}\n"
+                    if rag_question_info.get('possible_answers') or rag_question_info.get('expected_patient_responses'):
+                        answers = rag_question_info.get('possible_answers') or rag_question_info.get('expected_patient_responses', [])
+                        rag_context += f"Possible answers: {', '.join(answers[:5])}\n"
                     
                     # Log the question tree branch being used
                     tree_path = rag_question_info.get('tree_path', 'Unknown')
@@ -1376,7 +1382,7 @@ def chat_stream():
                     print(f"\n{'='*80}")
                     print(f"[RAG] Question Tree Branch: {tree_path}")
                     print(f"[RAG] Tags: {', '.join(tags)}")
-                    print(f"[RAG] Question: {rag_question_info['question']}")
+                    print(f"[RAG] Question: {rag_question_info.get('question') or rag_question_info.get('bot_question', 'N/A')}")
                     print(f"{'='*80}\n")
         
         # Prepare messages for OpenAI (include system prompt + RAG context + collected data)
@@ -1474,11 +1480,15 @@ def chat_stream():
                 # Prepare tree branch info for frontend (quick operation)
                 tree_branch_info = {}
                 if rag_question_info:
+                    # Debug: log what fields are available
+                    print(f"[DEBUG] RAG question info keys: {list(rag_question_info.keys())}")
+                    
                     tree_branch_info = {
                         'tree_branch': rag_question_info.get('tree_path', 'Unknown'),
                         'tags': rag_question_info.get('tags', []),
-                        'rag_question': rag_question_info.get('question', 'N/A')
+                        'rag_question': rag_question_info.get('question') or rag_question_info.get('bot_question', 'N/A')
                     }
+                    print(f"[DEBUG] tree_branch_info created: {tree_branch_info}")
                 else:
                     tree_branch_info = {
                         'tree_branch': 'No RAG question found (using general system prompt)',
@@ -1530,8 +1540,12 @@ def chat_stream():
                 # Get medical context from RAG
                 medical_context = rag_question_info.get('tree_path') if rag_question_info else None
                 
+                # Check if evaluations are enabled for this session
+                eval_enabled_for_session = evaluation_enabled_sessions.get(session_id, False)
+                print(f"[DEBUG] Session: {session_id}, Eval enabled: {eval_enabled_for_session}")
+                
                 # HEALTHBENCH EVALUATION
-                if live_evaluator and live_evaluator.enabled:
+                if live_evaluator and live_evaluator.enabled and eval_enabled_for_session:
                     try:
                         print("[EVALUATION] Starting HealthBench evaluation...")
                         
@@ -1586,7 +1600,7 @@ def chat_stream():
                         traceback.print_exc()
                 
                 # HELM EVALUATION (in parallel)
-                if helm_evaluator and helm_evaluator.enabled:
+                if helm_evaluator and helm_evaluator.enabled and eval_enabled_for_session:
                     try:
                         print("[HELM] Starting HELM evaluation...")
                         
@@ -1619,7 +1633,7 @@ def chat_stream():
                 
                 # Send evaluation complete event with timing to frontend
                 # Note: This is sent after 'done' signal, but frontend should still be reading
-                if (live_evaluator and live_evaluator.enabled) or (helm_evaluator and helm_evaluator.enabled):
+                if eval_enabled_for_session and ((live_evaluator and live_evaluator.enabled) or (helm_evaluator and helm_evaluator.enabled)):
                     try:
                         yield f"data: {json.dumps({'type': 'evaluation_complete', 'duration': round(eval_duration, 2)})}\n\n"
                     except:
@@ -1832,6 +1846,37 @@ def set_active_model():
             'success': False,
             'error': f'Model {model_id} not available'
         }), 400
+
+@app.route('/evaluation/toggle', methods=['POST'])
+def toggle_evaluation():
+    """Toggle evaluation for a specific session"""
+    data = request.get_json()
+    if not data:
+        return jsonify({'error': 'No data provided'}), 400
+    
+    session_id = data.get('session_id', 'default')
+    enabled = data.get('enabled', False)
+    
+    evaluation_enabled_sessions[session_id] = enabled
+    
+    print(f"[EVALUATION TOGGLE] Session {session_id}: {'Enabled' if enabled else 'Disabled'}")
+    
+    return jsonify({
+        'success': True,
+        'session_id': session_id,
+        'evaluations_enabled': enabled
+    })
+
+@app.route('/evaluation/status', methods=['GET'])
+def evaluation_status():
+    """Get evaluation status for a session"""
+    session_id = request.args.get('session_id', 'default')
+    enabled = evaluation_enabled_sessions.get(session_id, False)
+    
+    return jsonify({
+        'session_id': session_id,
+        'evaluations_enabled': enabled
+    })
 
 @app.route('/health', methods=['GET'])
 def health_check():

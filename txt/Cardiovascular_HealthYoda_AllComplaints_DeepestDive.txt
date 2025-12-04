@@ -1,0 +1,540 @@
+CARDIOVASCULAR SYSTEM — HealthYoda RAG DEEPEST DIVE
+================================================================
+WITH FULL QUESTION SETS + IN-DEPTH POSSIBLE PATIENT ANSWERS
+(Developer-ready Notepad file for RAG rulebook / prompt-engineering)
+================================================================
+
+OVERVIEW: CARDIOVASCULAR COMPLAINT CLUSTERS
+-------------------------------------------
+1) Chest pain / chest discomfort
+2) Shortness of breath (dyspnea), orthopnea, PND
+3) Palpitations (fast / irregular / pounding / skipping)
+4) Syncope / near-syncope (passing out / almost passing out)
+5) Leg swelling (edema)
+6) Exertional leg pain (claudication)
+7) Atypical anginal equivalents (jaw pain, epigastric pain, “indigestion”, isolated dyspnea)
+8) Known heart failure / “fluid overload” check-ins
+9) “High blood pressure” visits (hypertensive symptoms screen)
+10) “Fast heart rate” / tachycardia noted on device
+11) “Skipped beats” / extra beats felt by patient
+
+NOTE:
+- These questions + answers are to guide HealthYoda’s structured intake.
+- HealthYoda MUST NOT diagnose or suggest treatment.
+- Use these to normalize and structure what patients say.
+
+
+================================================================
+SECTION 1 — UNIVERSAL CARDIO HPI STRUCTURE (WITH ANSWER EXAMPLES)
+================================================================
+
+ONSET — “When did this start? Did it begin suddenly or gradually?”
+- “It started suddenly about 20 minutes ago.”
+- “I woke up with this feeling this morning.”
+- “It’s been gradually getting worse over the past 3 weeks.”
+- “It’s been on and off for months.”
+- “It started in the middle of my workout.”
+
+DURATION — “How long does each episode last?”
+- “Only a few seconds at a time.”
+- “Each episode lasts about 10 minutes.”
+- “It’s constant all day but has ups and downs.”
+- “It comes and goes randomly through the day.”
+
+SEVERITY — “On a scale from 0 to 10, how bad is it at its worst?”
+- “Around a 2, mild.”
+- “About a 6 out of 10.”
+- “When it’s bad, it’s 9 out of 10.”
+- “Constant 4, but sometimes shoots up to 8.”
+
+TRIGGERS / CONTEXT — “What seems to bring it on or make it worse?”
+- “Walking or climbing stairs makes it worse.”
+- “It gets worse when I’m stressed or anxious.”
+- “It seems to happen after big meals.”
+- “It’s worse when I lie flat.”
+- “Happens when I bend over.”
+- “Sometimes seems random.”
+
+RELIEVING FACTORS — “What makes it better?”
+- “Resting for a few minutes helps.”
+- “Sitting up helps.”
+- “Leaning forward makes it a bit better.”
+- “Antacids help slightly.”
+- “Nothing seems to help.”
+
+ASSOCIATED SYMPTOMS — “When this happens, do any of these occur?”
+- “I get sweaty.”
+- “I feel nauseated.”
+- “I feel lightheaded, like I might pass out.”
+- “My left arm gets numb or heavy.”
+- “I feel short of breath.”
+- “My heart feels like it’s racing or pounding.”
+
+RISK FACTORS (simple yes/no screening)
+- “I have high blood pressure.”
+- “I have diabetes.”
+- “My cholesterol is high.”
+- “I smoke / I used to smoke.”
+- “I had a heart attack before.”
+- “My father had a heart attack in his 40s.”
+- “I don’t have any known medical problems.”
+
+
+===============================================================
+SECTION 2 — CHEST PAIN / CHEST DISCOMFORT
+===============================================================
+
+Q1. “When did this chest discomfort or pain start?”
+- “About 20 minutes ago while I was walking.”
+- “Yesterday evening.”
+- “A few weeks ago, off and on.”
+- “It woke me up from sleep last night.”
+
+Q2. “Where exactly do you feel it? Can you point to the main spot?”
+- “Right in the middle of my chest.”
+- “A bit to the left side.”
+- “Under my breastbone.”
+- “In the upper part of my stomach.”
+
+Q3. “Does the discomfort move anywhere, like into your arm, jaw, neck, back, or shoulder?”
+- “Yes, it goes down my left arm.”
+- “It radiates into my jaw and neck.”
+- “It shoots through to my back between my shoulder blades.”
+- “No, it stays in one place.”
+
+Q4. “How would you describe the discomfort: pressure, tightness, squeezing, sharp, stabbing, burning, or something else?”
+- “Feels like a heavy pressure.”
+- “Like someone is squeezing my chest.”
+- “Sharp stabbing pain when I take a deep breath.”
+- “Burning feeling after I eat.”
+- “Feels like a tight band around my chest.”
+
+Q5. “On a scale from 0 to 10, how bad is the pain at its worst?”
+- “Right now it’s about a 3.”
+- “At its worst it was a 7.”
+- “It shot up to a 9 earlier.”
+- “Constant 4, but spikes higher when I move.”
+
+Q6. “Does it get worse when you walk, climb stairs, or exert yourself?”
+- “Yes, walking even a short distance makes it worse.”
+- “Climbing stairs definitely triggers it.”
+- “No, it happens even when I’m resting.”
+- “Only happens when I’m exerting myself hard.”
+
+Q7. “Does it get better when you sit or rest?”
+- “Yes, it usually eases up after a few minutes of rest.”
+- “Sometimes it gets a bit better but doesn’t go away.”
+- “No, resting doesn’t change it.”
+
+Q8. “Does taking a deep breath make it worse?”
+- “Yes, the pain is sharper when I breathe in deeply.”
+- “It hurts when I cough or sneeze.”
+- “No, deep breaths don’t change it.”
+
+Q9. “Does changing your position (like lying down, rolling over, or leaning forward) make it better or worse?”
+- “Lying flat makes it worse.”
+- “Leaning forward makes it a little better.”
+- “Changing position doesn’t make a difference.”
+
+Q10. “When this pain happens, do you get sweaty, nauseated, or feel like you might pass out?”
+- “Yes, I was drenched in sweat when it started.”
+- “I felt very nauseated and thought I might vomit.”
+- “I got really lightheaded, like I was going to pass out.”
+- “No, I don’t feel any of that.”
+
+Q11. “Do you feel short of breath when the pain comes?”
+- “Yes, I can’t catch my breath.”
+- “A little bit, but not too bad.”
+- “No, breathing is normal.”
+
+Q12. “Does it seem related to food, like after big meals or certain foods?”
+- “Yes, happens mainly after heavy or spicy meals.”
+- “Worse when I lie down after eating.”
+- “No, I haven’t noticed any connection to food.”
+
+Q13. “Have you ever had a similar pain before?”
+- “Yes, I had something similar last year.”
+- “I get this pain once or twice a week.”
+- “No, this is the first time I’ve ever felt this.”
+
+Q14. “Do you have high blood pressure, diabetes, high cholesterol, or any history of heart disease or heart procedures?”
+- “I have high blood pressure and take medication.”
+- “I’m diabetic.”
+- “My cholesterol is high.”
+- “I had a stent put in two years ago.”
+- “No, I’ve never had any heart problems diagnosed.”
+
+
+RED-FLAG PATTERNS FOR CHEST PAIN (logic for the system, not spoken):
+- New chest pain that is:
+  - Pressure or squeezing
+  - Worse with exertion
+  - Better with rest
+  - With radiation to arm/jaw/back
+  - With sweating, nausea, or sense of impending doom
+- Sudden, very severe “ripping/tearing” pain radiating to the back
+- Chest pain with shortness of breath at rest, or with syncope
+
+
+===============================================================
+SECTION 3 — SHORTNESS OF BREATH / ORTHOPNEA / PND
+===============================================================
+
+Q1. “When did the shortness of breath start?”
+- “It started suddenly about an hour ago.”
+- “It’s been slowly getting worse over the last week.”
+- “I’ve noticed it for months but it’s worse now.”
+
+Q2. “Do you feel short of breath mainly when you’re at rest, when you’re active, or both?”
+- “Only when I walk or go up stairs.”
+- “I feel short of breath even when I’m just sitting.”
+- “I only notice it when I lie down.”
+
+Q3. “How far can you walk before you have to stop because of shortness of breath?”
+- “Just to the bathroom before I need to rest.”
+- “Half a flight of stairs.”
+- “I can walk around the house but not outdoors.”
+- “I can walk several blocks without a problem.”
+
+Q4. “Do you feel short of breath when you lie flat?”
+- “Yes, I can’t lie flat at all.”
+- “I need two or three pillows to sleep.”
+- “No, lying flat doesn’t bother me.”
+
+Q5. “Do you ever wake up suddenly at night feeling short of breath or gasping for air?”
+- “Yes, it happens a couple of times a week.”
+- “It happened for the first time this week.”
+- “No, I sleep fine.”
+
+Q6. “Do you have any cough? If so, what does it look like?”
+- “Yes, I cough up clear mucus.”
+- “Yes, I coughed up pink, frothy mucus once.”
+- “Just a dry cough.”
+- “No cough at all.”
+
+Q7. “Any swelling in your legs, ankles, or feet?”
+- “Yes, both ankles are swollen by the end of the day.”
+- “My right leg is more swollen than the left.”
+- “No swelling that I’ve noticed.”
+
+Q8. “Any chest pain or tightness with the shortness of breath?”
+- “Yes, I get tightness in my chest when walking.”
+- “Sometimes a mild pressure when I’m really short of breath.”
+- “No chest pain, just difficulty breathing.”
+
+Q9. “Any fever, chills, or recent illness?”
+- “I had a fever and cough last week.”
+- “No fever or chills, just breathing problems.”
+
+
+RED-FLAG PATTERNS FOR DYSPNEA:
+- Sudden severe shortness of breath at rest
+- Shortness of breath with chest pain, especially at rest
+- Shortness of breath where the patient can’t speak full sentences
+- Pink frothy sputum
+- Blue lips or fingertips (if described)
+
+
+===============================================================
+SECTION 4 — PALPITATIONS (FAST / IRREGULAR HEARTBEATS)
+===============================================================
+
+Q1. “What does your heartbeat feel like when this happens?”
+- “It feels like my heart is racing really fast.”
+- “It’s pounding out of my chest.”
+- “It flutters or skips beats.”
+- “It feels like fish flopping in my chest.”
+
+Q2. “Do these episodes start suddenly, like a light switch, or do they build up slowly?”
+- “It starts very suddenly, all at once.”
+- “It gradually speeds up.”
+- “Sometimes sudden, sometimes gradual.”
+
+Q3. “How long do the episodes usually last?”
+- “Just a few seconds.”
+- “Usually a few minutes.”
+- “Last time it went on for an hour.”
+
+Q4. “How often do you notice these episodes?”
+- “Once or twice a day.”
+- “A few times a week.”
+- “Maybe once a month.”
+
+Q5. “What seems to bring them on?”
+- “Caffeine or energy drinks.”
+- “Stress or anxiety.”
+- “Exercise.”
+- “They seem to come out of nowhere.”
+
+Q6. “When this happens, do you feel dizzy, lightheaded, or like you might pass out?”
+- “Yes, I almost blacked out once.”
+- “I feel lightheaded but don’t pass out.”
+- “No dizziness.”
+
+Q7. “Any chest discomfort or shortness of breath with the palpitations?”
+- “Yes, chest pressure when my heart races.”
+- “I feel short of breath when it’s very fast.”
+- “No chest pain and no SOB.”
+
+
+RED-FLAG PATTERNS FOR PALPITATIONS:
+- Palpitations with syncope or near syncope
+- Palpitations with chest pain
+- Very fast heart rate at rest with dizziness or confusion
+
+
+===============================================================
+SECTION 5 — SYNCOPE / NEAR-SYNCOPE
+===============================================================
+
+Q1. “Did you fully pass out (lose consciousness), or did you just feel like you were about to faint?”
+- “I completely blacked out.”
+- “I didn’t actually faint but felt like I would.”
+- “My vision went dark but I managed to sit down.”
+
+Q2. “What were you doing right before this happened?”
+- “Standing up quickly from bed.”
+- “Walking to the bathroom.”
+- “Climbing the stairs.”
+- “Just sitting watching TV.”
+
+Q3. “Did you notice any warning signs before you passed out or felt like you would?”
+- “Yes, I felt sweaty and lightheaded.”
+- “My vision started to tunnel.”
+- “My heart was racing first.”
+- “No, it happened without warning.”
+
+Q4. “Do you remember the event, or is there a gap in your memory?”
+- “There’s a blank for a few seconds.”
+- “I remember starting to fall.”
+- “I don’t remember anything until I woke up.”
+
+Q5. “How quickly did you recover once you came around?”
+- “Almost immediately, I felt okay.”
+- “I was confused for a minute or two.”
+- “I still feel weak and lightheaded.”
+
+Q6. “Did you injure yourself when you fell?”
+- “Yes, I hit my head.”
+- “I landed on my side but nothing serious.”
+- “No injury, I caught myself.”
+
+RED-FLAG PATTERNS FOR SYNCOPE:
+- Syncope during exertion
+- Syncope preceded by chest pain or palpitations
+- Syncope with no warning symptoms
+- Syncope with family history of sudden cardiac death
+
+
+===============================================================
+SECTION 6 — LEG SWELLING (EDEMA)
+===============================================================
+
+Q1. “Is one leg swollen or both?”
+- “Both ankles are swollen.”
+- “Only my right leg is swollen.”
+- “My left calf is bigger and feels tight.”
+
+Q2. “When did you first notice the swelling?”
+- “Gradually over the past few weeks.”
+- “Suddenly this morning.”
+- “I’m not sure, but my shoes feel tighter recently.”
+
+Q3. “Is the swollen area painful, red, or warm to touch?”
+- “Yes, it’s painful and warm.”
+- “Feels tight but not very painful.”
+- “No pain, just puffy.”
+
+Q4. “Does the swelling get worse as the day goes on?”
+- “Yes, it’s much worse by evening.”
+- “Stays about the same.”
+- “Hard to tell.”
+
+Q5. “Does elevating your legs help reduce the swelling?”
+- “Yes, when I put my feet up it improves.”
+- “Only a little better.”
+- “No real change.”
+
+Q6. “Any shortness of breath or chest discomfort along with the swelling?”
+- “Yes, I get short of breath, especially lying down.”
+- “I feel out of breath when walking.”
+- “No, breathing is fine.”
+
+
+RED-FLAG PATTERNS FOR LEG SWELLING:
+- Sudden one-sided swelling with pain/redness
+- Leg swelling with new or worsening shortness of breath or chest pain
+- Rapid generalized swelling with breathing difficulty
+
+
+===============================================================
+SECTION 7 — EXERTIONAL LEG PAIN (CLAUDICATION)
+===============================================================
+
+Q1. “Do you get pain in your legs when you walk?”
+- “Yes, my calves hurt when I walk a block.”
+- “My thighs cramp when I go uphill.”
+- “No leg pain with walking.”
+
+Q2. “Where do you feel the pain: calves, thighs, buttocks?”
+- “Mostly in my calves.”
+- “In my thighs.”
+- “In my buttocks when I walk far.”
+
+Q3. “Does the pain go away when you stop and rest?”
+- “Yes, it goes away after a few minutes of rest.”
+- “It eases but doesn’t fully go away.”
+- “No, the pain persists even at rest.”
+
+Q4. “Has this been getting worse over time?”
+- “Yes, I used to walk farther before it started.”
+- “About the same for months.”
+- “Just recently appeared.”
+
+
+RED-FLAG PATTERNS:
+- Leg pain at rest with cold/pale foot
+- Sudden onset severe leg pain with color change
+
+
+===============================================================
+SECTION 8 — ATYPICAL ANGINAL EQUIVALENTS
+===============================================================
+
+Examples of Anginal-Equivalent Presentations:
+- Epigastric “indigestion” type discomfort with exertion
+- Isolated jaw or neck pain with exertion
+- Isolated shortness of breath with exertion (especially in diabetics and older adults)
+
+Q1. “Does your ‘indigestion’ or stomach discomfort come on with activity and improve with rest?”
+- “Yes, it happens when I walk and settles down when I stop.”
+- “Only after I eat, not with walking.”
+- “Happens both with walking and after meals.”
+
+Q2. “Does your jaw or neck pain appear when you exert yourself and go away when you rest?”
+- “Yes, my jaw aches when I climb stairs.”
+- “Neck pain only after exercise.”
+- “No relation to exercise.”
+
+Q3. “Do you ever get short of breath with activity but no chest pain?”
+- “Yes, I only feel winded but no chest pain.”
+- “I get tired but not exactly short of breath.”
+- “No, I don’t get breathless with activity.”
+
+
+===============================================================
+SECTION 9 — KNOWN HEART FAILURE / FLUID OVERLOAD CHECK-IN
+===============================================================
+
+For patients who say “I have heart failure” or “my heart is weak”:
+
+Q1. “Have you noticed your weight increasing quickly over the last few days?”
+- “Yes, I gained 3–4 kilos in a week.”
+- “My clothes feel tighter.”
+- “No weight gain that I know of.”
+
+Q2. “Are your shoes or rings fitting tighter than usual?”
+- “Yes, my shoes are tighter at the end of the day.”
+- “My rings are hard to remove now.”
+- “No noticeable change.”
+
+Q3. “Any change in how many pillows you need to sleep comfortably?”
+- “I used to sleep flat, now I need 3 pillows.”
+- “I now have to sleep in a chair.”
+- “No change in pillows.”
+
+Q4. “Any new or worsening swelling in your legs or belly?”
+- “My legs are much more swollen.”
+- “My belly feels more bloated.”
+- “No new swelling.”
+
+
+RED-FLAG PATTERNS:
+- Rapid weight gain + marked edema + severe orthopnea/PND
+- Worsening dyspnea at rest
+
+
+===============================================================
+SECTION 10 — ‘HIGH BLOOD PRESSURE’ VISITS (SYMPTOM SCREEN)
+===============================================================
+
+If patient says: “My blood pressure is high” or “device showed high BP”:
+
+Q1. “Are you having any symptoms right now such as headache, vision changes, chest pain, or shortness of breath?”
+- “Yes, I have a severe headache.”
+- “My vision is blurry.”
+- “I have chest pressure.”
+- “I feel very short of breath.”
+- “No, I feel okay, just saw a high reading.”
+
+Q2. “Any weakness, numbness, trouble speaking, or trouble understanding others?”
+- “My right arm feels weak.”
+- “Words are hard to get out.”
+- “No, my movement and speech are normal.”
+
+Q3. “Did you measure your blood pressure more than once?”
+- “Yes, it was high three times.”
+- “Only once.”
+- “At the pharmacy it was high.”
+
+
+RED-FLAG PATTERNS:
+- High BP + chest pain
+- High BP + neurologic symptoms (weakness, speech difficulty, vision loss)
+- High BP + acute shortness of breath
+
+
+===============================================================
+SECTION 11 — ‘FAST HEART RATE’ / TACHYCARDIA ON DEVICE
+===============================================================
+
+If patient says: “My watch says my heart rate is very high.”
+
+Q1. “What heart rate number did you see?”
+- “It went up to 160.”
+- “Frequently over 120 while resting.”
+- “Only high with exercise.”
+
+Q2. “Were you resting, walking, or exercising when it was that high?”
+- “I was just sitting.”
+- “I had just walked up stairs.”
+- “I was doing a workout.”
+
+Q3. “Any chest discomfort, shortness of breath, dizziness, or near-fainting when it was fast?”
+- “Yes, I felt lightheaded.”
+- “Chest tightness and I had to sit down.”
+- “No symptoms, I just saw the number.”
+
+
+RED-FLAG PATTERNS:
+- Resting tachycardia with symptoms
+- Very high rate with chest pain, SOB, or syncope
+
+
+===============================================================
+SECTION 12 — ‘SKIPPED BEATS’ / EXTRA BEATS
+===============================================================
+
+Q1. “What does it feel like when your heart skips a beat?”
+- “Feels like a pause and then a stronger beat.”
+- “Like my heart drops for a second then thumps.”
+- “Little flutters every now and then.”
+
+Q2. “How often do you feel this?”
+- “A few times a day.”
+- “Once in a while, maybe weekly.”
+- “Many times every hour.”
+
+Q3. “Any chest pain, shortness of breath, or dizziness with these skipped beats?”
+- “No, just the sensation.”
+- “I occasionally feel slightly lightheaded.”
+- “Yes, I almost faint with them.”
+
+RED-FLAG PATTERNS:
+- Frequent skipped beats with syncope or near syncope
+- Extra beats with chest pain or significant dyspnea
+
+
+================================================================
+END OF FILE — CARDIOVASCULAR DEEPEST DIVE WITH ALL COMPLAINTS
+================================================================

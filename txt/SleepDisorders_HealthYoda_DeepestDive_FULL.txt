@@ -1,0 +1,432 @@
+SLEEP DISORDERS — HealthYoda RAG DEEPEST DIVE
+=========================================================
+FULL VERSION WITH QUESTIONS + REALISTIC PATIENT ANSWERS + RED FLAGS
+Developer-Ready RAG / Intake Knowledge Base File
+=========================================================
+
+SLEEP DISORDER COMPLAINT CLUSTERS
+---------------------------------
+1. Insomnia (difficulty falling or staying asleep)
+2. Non-restorative sleep / daytime fatigue
+3. Obstructive sleep apnea (OSA) symptoms
+4. Snoring / witnessed apneas
+5. Restless legs syndrome (RLS)
+6. Periodic limb movements / leg kicking
+7. Parasomnias (sleepwalking, sleep terrors, REM behavior disorder)
+8. Narcolepsy / sudden sleep attacks
+9. Circadian rhythm disorders (shift-work, delayed sleep phase)
+10. Nightmares vs night terrors
+11. Bruxism (teeth grinding)
+12. Sleep-related GERD symptoms
+13. Sleep disturbance secondary to pain, mood, or medical illness
+
+=========================================================
+SECTION 1 — UNIVERSAL SLEEP HPI STRUCTURE
+=========================================================
+
+Q1. What is the main problem with your sleep?
+A:
+- "Can't fall asleep."
+- "Wake up a lot."
+- "Always tired during the day."
+- "My partner says I stop breathing."
+
+Q2. Duration of problem?
+A:
+- "Weeks."
+- "Months."
+- "Years."
+
+Q3. Sleep schedule (weekdays vs weekends)?
+A:
+- "Bed at 11 pm, wake at 6 am."
+- "Very irregular schedule."
+
+Q4. Sleep environment?
+A:
+- "TV/phone in bed."
+- "Noisy/bright bedroom."
+
+Q5. Caffeine/alcohol/nicotine use?
+A:
+- "Several coffees in afternoon."
+- "Alcohol to fall asleep."
+
+Q6. Medical/psychiatric conditions?
+A:
+- "Anxiety."
+- "Depression."
+- "Chronic pain."
+
+GLOBAL RED FLAGS:
+- Falling asleep while driving
+- Witnessed apneas with choking/gasping
+- Violent movements during sleep with injury
+- Sudden muscle weakness with emotions (cataplexy)
+- New parasomnias in older adults (possible neurodegeneration)
+
+=========================================================
+SECTION 2 — INSOMNIA
+=========================================================
+
+TYPES:
+- Sleep-onset insomnia (difficulty falling asleep)
+- Sleep-maintenance insomnia (frequent awakenings)
+- Early-morning awakening
+- Mixed pattern
+
+Q1. Which is hardest: falling asleep, staying asleep, or both?
+A:
+- "Takes 2 hours to fall asleep."
+- "Wake up every 2 hours."
+- "Wake up at 4 am and can't go back to sleep."
+
+Q2. Approximate time to fall asleep?
+A:
+- "Usually more than an hour."
+
+Q3. How many times do you wake at night?
+A:
+- "3–4 times."
+
+Q4. Do you feel rested on waking?
+A:
+- "Never feel rested."
+
+Q5. Daytime effects?
+A:
+- "Very tired at work."
+- "Irritable."
+
+Q6. Bedtime routine?
+A:
+- "On phone until I fall asleep."
+- "TV on in background."
+
+Q7. Worries or racing thoughts at night?
+A:
+- "Mind won't shut off."
+
+INSOMNIA RED FLAGS:
+- Insomnia + severe depression / suicidal ideation
+- New onset insomnia with weight loss, fevers, or pain
+- Insomnia + loud snoring/apneas (screen for OSA)
+
+=========================================================
+SECTION 3 — NON-RESTORATIVE SLEEP / DAYTIME FATIGUE
+=========================================================
+
+Q1. Total hours of sleep per night?
+A:
+- "7–8 hours but still tired."
+
+Q2. Do you nap during the day?
+A:
+- "Fall asleep watching TV."
+- "Need naps daily."
+
+Q3. Snoring?
+A:
+- "Partner says I snore loudly."
+
+Q4. Medications?
+A:
+- "On sedating meds."
+
+Q5. Mood symptoms?
+A:
+- "Low mood and low motivation."
+
+RED FLAGS:
+- Falling asleep in risky situations (driving, operating machinery)
+- Sudden irresistible sleep attacks
+
+=========================================================
+SECTION 4 — OBSTRUCTIVE SLEEP APNEA (OSA)
+=========================================================
+
+KEY SYMPTOMS:
+- Loud snoring
+- Witnessed apneas
+- Gasping/choking at night
+- Morning headaches
+- Dry mouth on waking
+- Daytime sleepiness
+
+Q1. Does anyone say you snore or stop breathing in sleep?
+A:
+- "Yes, partner says I choke or stop breathing."
+
+Q2. Do you wake up gasping or choking?
+A:
+- "Yes a few times a week."
+
+Q3. Morning headaches?
+A:
+- "Often have dull headache."
+
+Q4. Daytime sleepiness?
+A:
+- "Can fall asleep easily in the afternoon."
+
+Q5. BMI / neck size pattern (history-level)?
+A:
+- "Overweight, large neck."
+
+OSA RED FLAGS:
+- Falling asleep while driving
+- Severe daytime sleepiness
+- Witnessed long pauses in breathing
+- OSA symptoms in patient with heart disease or stroke history
+
+=========================================================
+SECTION 5 — SNORING WITHOUT OVERT APNEA
+=========================================================
+
+Q1. Frequency?
+A:
+- "Every night."
+
+Q2. Positional?
+A:
+- "Worse on back."
+
+Q3. Associated symptoms?
+A:
+- "No witnessed apneas, just snoring."
+
+RED FLAGS:
+- Snoring + daytime sleepiness
+- Snoring + choking/gasping episodes
+
+=========================================================
+SECTION 6 — RESTLESS LEGS SYNDROME (RLS)
+=========================================================
+
+KEY FEATURES:
+- Urge to move legs, usually with unpleasant sensations
+- Worse at rest/in the evening
+- Relieved by movement
+- Interferes with sleep onset
+
+Q1. Any uncomfortable urges to move your legs at night?
+A:
+- "Yes, legs feel creepy-crawly."
+
+Q2. When is it worst?
+A:
+- "In the evening when sitting or lying."
+
+Q3. Does moving your legs help?
+A:
+- "Yes, walking around helps."
+
+Q4. Family history?
+A:
+- "Mother has similar symptoms."
+
+RLS RED FLAGS (underlying causes):
+- RLS + anemia symptoms (iron deficiency)
+- RLS + kidney disease
+- RLS beginning suddenly with neurologic symptoms
+
+=========================================================
+SECTION 7 — LEG KICKING / PERIODIC LIMB MOVEMENTS
+=========================================================
+
+Q1. Has anyone noticed you kick or jerk during sleep?
+A:
+- "Partner says I kick all night."
+
+Q2. Do you wake feeling unrefreshed?
+A:
+- "Yes, very tired in morning."
+
+RED FLAGS:
+- Excessive sleepiness
+- Kicking with parasomnia behaviors/injury
+
+=========================================================
+SECTION 8 — PARASOMNIAS (NREM & REM)
+=========================================================
+
+NREM PARASOMNIAS:
+- Sleepwalking
+- Sleep terrors
+- Confusional arousals
+
+REM PARASOMNIA:
+- REM behavior disorder (acting out dreams)
+
+SLEEPWALKING:
+Q1. Do you get out of bed and walk or do things in your sleep?
+A:
+- "Yes, found in kitchen with no memory."
+
+Q2. Easy or hard to wake during episodes?
+A:
+- "Very hard to wake."
+
+SLEEP TERRORS:
+Q1. Episodes of screaming in sleep?
+A:
+- "Children: sit up screaming, inconsolable."
+
+REM BEHAVIOR DISORDER:
+Q1. Acting out dreams?
+A:
+- "Punching, kicking with dreams of being attacked."
+
+PARASOMNIA RED FLAGS:
+- Behaviors causing self-injury or injury to others
+- New REM behavior disorder in older adults (possible neurodegenerative disease)
+- Parasomnia + daytime neurologic symptoms
+
+=========================================================
+SECTION 9 — NARCOLEPSY / SUDDEN SLEEP ATTACKS
+=========================================================
+
+CORE FEATURES:
+- Excessive daytime sleepiness
+- Sleep attacks
+- Cataplexy (sudden loss of muscle tone with emotion)
+- Sleep paralysis
+- Hypnagogic hallucinations
+
+Q1. Do you suddenly fall asleep during the day despite adequate sleep?
+A:
+- "Yes, fall asleep mid-conversation sometimes."
+
+Q2. Sudden muscle weakness when laughing or emotional?
+A:
+- "Knees buckle when I laugh hard."
+
+Q3. Sleep paralysis?
+A:
+- "Wake up unable to move for a few seconds."
+
+Q4. Vivid hallucinations as falling asleep or waking?
+A:
+- "See things in the room that aren’t there as I fall asleep."
+
+NARCOLEPSY RED FLAGS:
+- Sleep attacks in dangerous situations
+- Cataplexy symptoms
+- Sleep paralysis with severe fear/distress
+
+=========================================================
+SECTION 10 — CIRCADIAN RHYTHM DISORDERS
+=========================================================
+
+Delayed Sleep Phase:
+- Difficulty falling asleep until very late (e.g., 2–3 am)
+- Difficulty waking for obligations, but can sleep normally if schedule is free
+
+Q1. Typical bedtime and wake time if no obligations?
+A:
+- "Fall asleep at 3 am, wake at 11 am."
+
+Q2. Functioning when allowed to follow natural schedule?
+A:
+- "Feel fine on my own schedule."
+
+Shift-Work Disorder:
+Q1. Work schedule?
+A:
+- "Night shifts / rotating shifts."
+
+Q2. Symptoms?
+A:
+- "Exhausted during shifts and can’t sleep during the day."
+
+CIRCADIAN RED FLAGS:
+- Falling asleep while driving to/from work
+- Severe performance impairment
+
+=========================================================
+SECTION 11 — NIGHTMARES VS NIGHT TERRORS
+=========================================================
+
+NIGHTMARES:
+- Vivid, disturbing dreams
+- Fully awake and oriented upon waking
+- Occur in later half of night (REM)
+
+Q1. Recall of dream?
+A:
+- "Yes, remember the frightening dream."
+
+NIGHT TERRORS:
+- Usually in children
+- Intense screaming, autonomic signs
+- No recall of episode
+
+RED FLAGS:
+- Frequent nightmares + PTSD history
+- Night terrors in adults
+
+=========================================================
+SECTION 12 — BRUXISM (TEETH GRINDING)
+=========================================================
+
+Q1. Jaw pain or morning headaches?
+A:
+- "Jaw sore in morning."
+
+Q2. Partner reports grinding?
+A:
+- "Yes, loud grinding noises."
+
+RED FLAGS:
+- Severe jaw pain
+- Broken teeth
+
+=========================================================
+SECTION 13 — SLEEP-RELATED GERD
+=========================================================
+
+Q1. Heartburn at night?
+A:
+- "Burning in chest when lying down."
+
+Q2. Regurgitation?
+A:
+- "Sour taste in mouth waking from sleep."
+
+=========================================================
+SECTION 14 — SLEEP & MOOD / MEDICAL ILLNESS
+=========================================================
+
+Q1. Anxiety or depression?
+A:
+- "Anxious at night." / "Low mood."
+
+Q2. Chronic pain?
+A:
+- "Back pain wakes me up."
+
+Q3. Other conditions?
+A:
+- "Asthma flares at night."
+- "Frequent urination at night."
+
+RED FLAGS:
+- Insomnia with suicidal ideation
+- New sleep disturbance with systemic symptoms (fever, weight loss)
+
+=========================================================
+SLEEP DISORDER GLOBAL RED FLAGS
+=========================================================
+- Falling asleep while driving or in unsafe situations
+- Witnessed apneas with choking/gasping
+- Severe snoring + daytime sleepiness
+- Violent sleep behaviors causing injury
+- Sudden muscle weakness with emotion (cataplexy)
+- New REM behavior disorder (acting out dreams) in older adults
+- Insomnia with severe depression or suicidal thoughts
+- Unexplained rapid weight gain + OSA symptoms
+- New-onset parasomnias with neurologic signs
+
+=========================================================
+END OF SLEEP DISORDERS DEEPEST DIVE FILE
+=========================================================

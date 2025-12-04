@@ -1,0 +1,347 @@
+FEVER OF UNKNOWN ORIGIN (FUO) — HealthYoda RAG DEEPEST DIVE
+=================================================================
+FULL VERSION WITH QUESTIONS + REALISTIC PATIENT ANSWERS + RED FLAGS
+Developer-Ready RAG / Intake Knowledge Base File
+=================================================================
+
+FUO CATEGORIES (SYMPTOM-LEVEL)
+------------------------------
+1. Infectious causes (slow-burn, deep-seated)
+2. Autoimmune/inflammatory causes
+3. Malignancy-related fever
+4. Miscellaneous/metabolic causes
+5. Drug-induced fever
+6. Environmental/exposure-related fevers
+7. FUO in immunocompromised patients
+8. FUO in returning travelers
+9. FUO in children
+10. Global FUO red flags
+11. FUO structured triage logic
+
+=================================================================
+SECTION 1 — INFECTIOUS FUO (SLOW-BURN)
+=================================================================
+
+COMMON CULPRITS:
+- Tuberculosis (esp. extrapulmonary)
+- Endocarditis (subacute)
+- Abscesses (liver, spleen, pelvic, dental)
+- Osteomyelitis
+- Lyme disease
+- Viral infections (EBV, CMV, HIV acute/chronic)
+- Fungal illnesses
+
+CLUES:
+- Night sweats
+- Weight loss
+- Fatigue
+- Chronic cough or chest discomfort
+- Joint aches
+- Localized pain (spine, abdomen)
+
+Q1. Night sweats?
+A:
+- “Drenching sweats at night.”
+
+Q2. Weight loss?
+A:
+- “Lost 10 lbs unintentionally.”
+
+Q3. Travel or animal exposures?
+A:
+- “Visited farm / caves / rural area.”
+
+Q4. Dental issues?
+A:
+- “Recent dental work.”
+
+RED FLAGS:
+- Fever + night sweats + weight loss  
+- Fever + new heart murmur history-level  
+- Fever + bone/back pain (osteomyelitis)  
+- Persistent fever >3 weeks  
+
+=================================================================
+SECTION 2 — AUTOIMMUNE / INFLAMMATORY FUO
+=================================================================
+
+COMMON CAUSES:
+- Still’s disease
+- Systemic lupus (SLE)
+- Vasculitis
+- Sarcoidosis
+- Rheumatoid arthritis
+- IBD (flare)
+- Adult-onset Still’s disease (quotidian fever pattern)
+
+CLUES:
+- Rash (salmon-colored)
+- Joint swelling
+- Morning stiffness
+- Dry eyes/mouth
+- Painful swollen lymph nodes
+- Chest pain with breathing (serositis)
+
+Q1. Rashes?
+A:
+- “Faint pink rash that comes and goes.”
+
+Q2. Joint symptoms?
+A:
+- “Morning stiffness for hours.”
+
+RED FLAGS:
+- Fever + rash + joint pain  
+- Fever + visual symptoms  
+- Fever + chest pain + SOB (serositis)  
+
+=================================================================
+SECTION 3 — MALIGNANCY-RELATED FUO
+=================================================================
+
+COMMON CAUSES:
+- Lymphoma
+- Leukemia
+- Solid tumor fever
+- Paraneoplastic fevers
+
+CLUES:
+- Night sweats
+- Weight loss
+- Fatigue
+- Enlarging lymph nodes
+- Bone pain
+- Easy bruising
+
+Q1. Lymph nodes?
+A:
+- “Neck/groin nodes feel swollen.”
+
+Q2. Bruising?
+A:
+- “Bruise easily.”
+
+Q3. Bone pain?
+A:
+- “Deep aching pain at night.”
+
+RED FLAGS:
+- Fever + weight loss + night sweats  
+- Bruising + persistent fever  
+- Progressive fatigue + swollen nodes  
+
+=================================================================
+SECTION 4 — MISCELLANEOUS FUO (ENDOCRINE / METABOLIC)
+=================================================================
+
+CAUSES:
+- Thyroid storm
+- Adrenal insufficiency
+- Hyperthyroidism
+- Hyper-IgG diseases
+- Familial Mediterranean Fever (FMF)
+
+CLUES:
+- Heat intolerance
+- Sweating
+- Dizziness
+- Hair loss
+- Recurrent abdominal/chest pain episodes (FMF)
+
+Q1. Temperature intolerance?
+A:
+- “Feel hot all the time.”
+
+Q2. Recurrent abdominal episodes?
+A:
+- “Painful flare every few weeks.”
+
+RED FLAGS:
+- Fever + confusion + fast HR (thyroid storm)  
+- Persistent low BP with fever (adrenal issue)  
+
+=================================================================
+SECTION 5 — DRUG-INDUCED FEVER
+=================================================================
+
+CAUSES:
+- Antibiotics (beta-lactams)
+- Anticonvulsants
+- Allopurinol
+- Heparin
+- Antidepressants
+- Sedatives
+- IL inhibitors
+
+CLUES:
+- Fever appears days–weeks after starting medication
+- Rash
+- Lymph node swelling
+- Facial swelling (DRESS syndrome)
+- No localizing symptoms
+
+Q1. New medications?
+A:
+- “Started new antibiotic.”
+
+Q2. Rash?
+A:
+- “Red rash on body.”
+
+RED FLAGS:
+- Rash + fever + facial swelling  
+- Fever + confusion after med change  
+
+=================================================================
+SECTION 6 — EXPOSURE-RELATED FUO
+=================================================================
+
+CAUSES:
+- Travel infections
+- Tick-borne: Lyme, babesiosis, ehrlichiosis
+- Malaria
+- Brucellosis
+- Leptospirosis
+- Q fever
+
+Q1. Travel?
+A:
+- “Returned from Africa/Asia/South America.”
+
+Q2. Mosquito/tick bites?
+A:
+- “Yes, hiking recently.”
+
+Q3. Animals?
+A:
+- “Work with livestock.”
+
+RED FLAGS:
+- Fever + travel + severe headache  
+- Fever + jaundice + vomiting  
+- Fever + dark urine  
+
+=================================================================
+SECTION 7 — FUO IN IMMUNOCOMPROMISED PATIENTS
+=================================================================
+
+CAUSES:
+- Opportunistic infections
+- Fungal infections
+- Viral reactivation (CMV)
+- Pneumocystis (PCP)
+- Catheter infections
+- Drug fevers
+
+CLUES:
+- Cough
+- SOB
+- Oral thrush
+- Pain at catheter site
+- Chronic diarrhea
+
+Q1. Immune status?
+A:
+- “On chemo.”
+- “On steroids.”
+
+RED FLAGS:
+- Fever + neutropenia symptoms  
+- Fever + confusion  
+- SOB + immune suppression  
+
+=================================================================
+SECTION 8 — FUO IN RETURNING TRAVELERS
+=================================================================
+
+REGIONS → SYMPTOM CLUSTERS:
+- AFRICA: malaria, dengue, brucellosis
+- SOUTH AMERICA: dengue, leishmaniasis
+- ASIA: typhoid, scrub typhus
+- MIDDLE EAST: Q fever, brucellosis
+
+Q1. Where did you travel?
+A:
+- “Tanzania / India / Brazil.”
+
+Q2. Water/food exposures?
+A:
+- “Ate from street vendors.”
+
+RED FLAGS:
+- Fever + jaundice  
+- Fever + severe headache  
+- Fever + bleeding tendency  
+
+=================================================================
+SECTION 9 — FUO IN CHILDREN
+=================================================================
+
+CAUSES:
+- Viral infections (most common)
+- Kawasaki disease
+- Juvenile idiopathic arthritis (JIA)
+- Autoimmune disease
+- Hidden abscesses
+
+CLUES:
+- Rash
+- Red eyes
+- Strawberry tongue
+- Swollen glands
+
+RED FLAGS:
+- Fever >5 days + rash  
+- Red eyes + cracked lips (Kawasaki)  
+- Dehydration + no urine  
+
+=================================================================
+SECTION 10 — GLOBAL FUO RED FLAGS
+=================================================================
+- Fever lasting more than 3 weeks  
+- Night sweats  
+- Weight loss  
+- Severe headache  
+- Confusion  
+- Coughing blood  
+- Dark urine or jaundice  
+- Chest pain  
+- Black stools  
+- Severe abdominal pain  
+- Shortness of breath  
+- Rapidly enlarging lymph nodes  
+
+=================================================================
+SECTION 11 — FUO TRIAGE LOGIC (FOR HEALTHYODA)
+=================================================================
+
+ASK:
+1. Weight loss?
+2. Night sweats?
+3. Travel?
+4. Animal exposures?
+5. Lymph node swelling?
+6. Cough?
+7. Abdominal pain?
+8. Urinary symptoms?
+9. Rash?
+10. New medications?
+11. Immune system issues?
+12. Bleeding/bruising?
+13. Headache/neurologic symptoms?
+
+ROUTE:
+- Weight loss + night sweats → TB / lymphoma  
+- Travel + fever → malaria/dengue  
+- Rash + meds → drug fever  
+- Rash + red eyes → Kawasaki (children)  
+- Fever + chest pain → pericarditis/PE/infection  
+- Fever + confusion → sepsis/meningitis  
+- Fever + abdominal pain → abscess, FMF, IBD  
+- Fever + lymph nodes → malignancy/infection  
+- Fever + cough → pneumonia/TB  
+- Fever + dark urine → malaria/hepatitis  
+
+=================================================================
+END OF FUO DEEPEST DIVE FILE
+=================================================================

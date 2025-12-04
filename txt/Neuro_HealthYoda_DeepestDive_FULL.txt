@@ -1,0 +1,358 @@
+NEUROLOGICAL SYSTEM — HealthYoda RAG DEEPEST DIVE
+=========================================================
+FULL VERSION WITH QUESTIONS + ANSWERS + RED FLAGS
+Developer-Ready RAG / Intake Knowledge Base File
+=========================================================
+
+NEURO COMPLAINT CLUSTERS
+------------------------
+1. Headache
+2. Dizziness / vertigo
+3. Syncope / near-syncope
+4. Weakness (generalized or focal)
+5. Numbness / tingling
+6. Seizure-like episodes
+7. Confusion / altered mental status
+8. Vision changes
+9. Speech difficulty
+10. Gait imbalance / walking trouble
+11. Tremors
+12. Memory problems
+13. Neck stiffness
+14. Back pain with neurological symptoms
+
+=========================================================
+SECTION 1 — UNIVERSAL NEURO HPI STRUCTURE
+=========================================================
+
+ONSET:
+- "Started suddenly."
+- "Came on gradually over weeks."
+- "Woke up with symptoms."
+
+DURATION:
+- Seconds
+- Minutes
+- Hours
+- Days
+- Constant vs episodic
+
+PATTERN:
+- Intermittent
+- Constant
+- Worsening
+- Improving
+- Triggered
+
+LOCATION:
+- One side
+- Both sides
+- Back of head
+- Behind eyes
+- Face
+- Arms
+- Legs
+
+RADIATION:
+- "Down my arm."
+- "Into my leg."
+- "Behind my eye."
+
+SEVERITY:
+- "Mild"
+- "Moderate"
+- "Severe — can’t function"
+
+ASSOCIATED SYMPTOMS:
+- Nausea
+- Vomiting
+- Weakness
+- Numbness
+- Vision changes
+- Speech trouble
+- Confusion
+- Loss of balance
+- Seizure activity
+
+AGGRAVATING FACTORS:
+- Movement
+- Standing
+- Lying down
+- Bright light
+- Loud noise
+- Stress
+
+RELIEVING FACTORS:
+- Rest
+- Closing eyes
+- Darkness
+- Sleep
+- Hydration
+
+=========================================================
+SECTION 2 — HEADACHE
+=========================================================
+
+Q1. When did the headache start?
+A: "2 hours ago." / "3 days ago." / "Months of headaches."
+
+Q2. Where is the pain located?
+A: "Forehead." / "Behind one eye." / "Back of head."
+
+Q3. What does it feel like?
+A: "Throbbing." / "Pressure." / "Sharp." / "Burning."
+
+Q4. Severity (0–10)?
+A: "3/10." / "7/10." / "10/10."
+
+Q5. Sudden or gradual?
+A: "Gradual." / "Sudden and woke me up." / "Instant."
+
+Q6. Sensitivity to light or sound?
+A: "Light hurts." / "Noise worsens it."
+
+Q7. Nausea or vomiting?
+A: "Yes." / "Vomited twice." / "No."
+
+Q8. Vision changes?
+A: "Flashing lights." / "Blind spots."
+
+Q9. Neck stiffness?
+A: "Yes significant." / "Mild." / "No."
+
+HEADACHE RED FLAGS:
+- Sudden worst-ever headache
+- Fever + neck stiffness
+- New neuro deficits
+- Vision loss
+- Confusion
+- Trauma-related
+- Pregnancy-related
+
+=========================================================
+SECTION 3 — DIZZINESS / VERTIGO
+=========================================================
+
+Q1. Describe the dizziness.
+A: "Room spinning." / "Feel faint." / "Unsteady."
+
+Q2. When did it start?
+A: "Suddenly today." / "Intermittent for weeks."
+
+Q3. Triggered by head movement?
+A: "Yes." / "Only standing."
+
+Q4. Any nausea or vomiting?
+A: "Yes nausea." / "Vomited twice."
+
+Q5. Any hearing changes?
+A: "Ringing." / "Blocked ear."
+
+DIZZINESS RED FLAGS:
+- Vertigo + slurred speech
+- Vertigo + weakness
+- Syncope with injury
+- Ataxia (can't walk)
+
+=========================================================
+SECTION 4 — SYNCOPE / NEAR-SYNCOPE
+=========================================================
+
+Q1. Full loss of consciousness?
+A: "Yes completely." / "Almost fainted."
+
+Q2. Any shaking?
+A: "Yes shaking." / "No."
+
+Q3. Tongue biting?
+A: "Bit tongue." / "No."
+
+Q4. Confusion afterward?
+A: "10 minutes confused." / "Fully alert."
+
+SYNCOPE RED FLAGS:
+- Loss of consciousness + shaking
+- Post-event confusion
+- Incontinence
+- Sudden collapse
+
+=========================================================
+SECTION 5 — WEAKNESS
+=========================================================
+
+Q1. One side or both?
+A: "Left side weak." / "Right hand only." / "Whole body."
+
+Q2. When did it start?
+A: "Suddenly today." / "Gradual."
+
+Q3. Grip strength changes?
+A: "Dropping objects." / "Weak grip."
+
+Q4. Walking problems?
+A: "Dragging foot." / "Unsteady."
+
+Q5. Numbness?
+A: "Tingling in arm." / "Leg numb."
+
+WEAKNESS RED FLAGS:
+- Sudden one-sided weakness
+- Facial droop
+- Sudden speech difficulty
+- Rapid progression
+
+=========================================================
+SECTION 6 — NUMBNESS / TINGLING
+=========================================================
+
+Q1. Where?
+A: "Left hand." / "Right leg." / "Face."
+
+Q2. Onset?
+A: "Sudden." / "Gradual."
+
+Q3. Weakness also present?
+A: "Yes weak." / "No."
+
+NUMBNESS RED FLAGS:
+- One-sided
+- Facial + speech issues
+- Numbness + weakness
+- Post-trauma
+
+=========================================================
+SECTION 7 — SEIZURE-LIKE EPISODES
+=========================================================
+
+Q1. Loss of consciousness?
+A: "Yes."
+
+Q2. Shaking movements?
+A: "Full body shaking."
+
+Q3. Tongue bite?
+A: "Side of tongue bitten."
+
+Q4. Post-event confusion?
+A: "Confused 20 minutes."
+
+Q5. Incontinence?
+A: "Yes urine leakage."
+
+SEIZURE RED FLAGS:
+- First ever seizure
+- Recurrent seizure
+- Fever-related seizure
+- Post-traumatic seizure
+
+=========================================================
+SECTION 8 — CONFUSION / ALTERED MENTAL STATUS
+=========================================================
+
+Q1. Onset?
+A: "This morning." / "Gradual."
+
+Q2. Recognizes people?
+A: "No." / "Sometimes."
+
+Q3. Any fever?
+A: "Yes fever."
+
+Q4. Recent fall?
+A: "Yes fell yesterday."
+
+AMS RED FLAGS:
+- Confusion + fever
+- Trauma-related confusion
+- Focal deficits
+- New elderly confusion
+
+=========================================================
+SECTION 9 — VISION CHANGES
+=========================================================
+
+Q1. Type of vision change?
+A: "Blurry." / "Double." / "Loss on left."
+
+Q2. Sudden or gradual?
+A: "Sudden." / "Gradual."
+
+VISION RED FLAGS:
+- Sudden loss of vision
+- Double vision + weakness
+- Post-trauma vision change
+
+=========================================================
+SECTION 10 — SPEECH DIFFICULTY
+=========================================================
+
+Q1. Trouble speaking or understanding?
+A: "Words won't come out." / "Slurred." / "Can't understand."
+
+SPEECH RED FLAGS:
+- Sudden inability to speak
+- Slurred speech + weakness
+
+=========================================================
+SECTION 11 — GAIT IMBALANCE
+=========================================================
+
+Q1. Describe imbalance.
+A: "Like I'm drunk." / "Veering to one side."
+
+Q2. Leg weakness?
+A: "Left leg weak."
+
+GAIT RED FLAGS:
+- Ataxia + headache
+- Ataxia + vertigo + weakness
+
+=========================================================
+SECTION 12 — TREMORS
+=========================================================
+
+Q1. When do tremors happen?
+A: "At rest." / "When reaching."
+
+=========================================================
+SECTION 13 — NECK STIFFNESS
+=========================================================
+
+Q1. Can you touch chin to chest?
+A: "No, very painful."
+
+NECK STIFFNESS RED FLAGS:
+- Stiff neck + fever + headache (meningitis)
+
+=========================================================
+SECTION 14 — BACK PAIN WITH NEURO SYMPTOMS
+=========================================================
+
+Q1. Any numbness around groin?
+A: "Yes numb."
+
+Q2. Incontinence?
+A: "Yes leaking urine."
+
+BACK PAIN RED FLAGS:
+- Saddle anesthesia
+- Incontinence
+- Progressive leg weakness (cauda equina)
+
+=========================================================
+NEURO GLOBAL RED FLAGS
+=========================================================
+- Sudden weakness
+- Facial droop
+- Speech difficulty
+- Severe sudden headache
+- Seizure activity
+- Loss of consciousness
+- Confusion
+- Sudden vision loss
+- Incontinence + leg weakness
+- Fever + neck stiffness
+
+=========================================================
+END OF NEURO DEEPEST DIVE FILE
+=========================================================

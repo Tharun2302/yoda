@@ -1,0 +1,381 @@
+MULTI‑SYSTEM MYSTERY SYMPTOMS — HealthYoda RAG DEEPEST DIVE
+=================================================================
+FULL VERSION WITH QUESTIONS + REALISTIC PATIENT ANSWERS + RED FLAGS
+Developer‑Ready RAG / Intake Knowledge Base File
+=================================================================
+
+GOAL:
+-----
+This module handles patients who present with vague, unexplained, multi‑system,
+non‑localizing symptoms — the hardest real‑world scenarios.
+It guides the intake agent to systematically uncover patterns pointing to:
+- Infection
+- Rheumatologic disease
+- Malignancy
+- Metabolic / endocrine disorders
+- Cardiac / pulmonary disease
+- Neurologic disease
+- Psychiatric / functional symptoms
+- Medication or toxin exposure
+
+=================================================================
+SECTION 1 — UNIVERSAL MYSTERY SYMPTOM OPENERS
+=================================================================
+
+Q1. What bothers you the most right now?
+A:
+- “Just feel awful.”
+- “Something is wrong but I can’t explain it.”
+
+Q2. When did this start?
+A:
+- “A few weeks ago.”
+- “Months, gradually getting worse.”
+
+Q3. Has it been getting better, worse, or staying the same?
+A:
+- “Slowly worsening.”
+
+Q4. What symptoms do you have? (Allow free list)
+A:
+- “Fatigue, aches, sweating, dizziness.”
+- “Pain everywhere.”
+
+Q5. Any weight change?
+A:
+- “Lost weight without trying.”
+- “Gained weight suddenly.”
+
+Q6. Any feverish feeling?
+A:
+- “Chills but thermometer sometimes normal.”
+
+RED FLAGS:
+- Progressive symptoms over weeks–months
+- Unintentional weight loss
+- Night sweats
+- Worsening fatigue impacting ADLs
+
+=================================================================
+SECTION 2 — FATIGUE + ACHES + LOW‑GRADE SYMPTOMS PATTERN
+=================================================================
+
+Consider:
+- Chronic infection
+- Autoimmune disease
+- Malignancy
+- Thyroid disease
+- Anemia
+- Sleep disorders
+- Depression/anxiety
+
+KEY DISCRIMINATORS:
+
+Q1. Fatigue pattern?
+A:
+- “Worse in mornings and evenings.”
+- “Improves slightly after eating.”
+
+Q2. Joint or muscle symptoms?
+A:
+- “Aches in hands and knees.”
+- “Muscles sore like flu.”
+
+Q3. rashes?
+A:
+- “No.”
+- “Occasional redness.”
+
+Q4. Fevers?
+A:
+- “Low fever at night.”
+
+RED FLAGS:
+- Fatigue + night sweats + weight loss
+- Fatigue + progressive dyspnea
+- Fatigue + new bruising
+
+=================================================================
+SECTION 3 — “SOMETHING IS WRONG” WITH NO LOCALIZING SIGNS
+=================================================================
+
+Consider high-level systemic issues:
+
+A. **ENDOCRINE**
+- Hyperthyroid: palpitations, anxiety, heat intolerance, weight loss
+- Hypothyroid: cold, weight gain, fatigue
+- Adrenal insufficiency: dizziness, salt craving
+
+Q1. Temperature tolerance?
+A:
+- “Feel hot all the time.”
+- “Always cold.”
+
+B. **RHEUM/AUTOIMMUNE**
+- Joint stiffness >1 hr
+- Rashes
+- Dry eyes/mouth
+- Chest pain with breathing (pleuritic)
+
+Q2. Any morning stiffness?
+A:
+- “Lasts 1–2 hours.”
+
+C. **HEMATOLOGY**
+- Easy bruising
+- Frequent infections
+- Pallor
+
+Q3. Any bruising or bleeding gums?
+A:
+- “Bruise easily now.”
+
+D. **MALIGNANCY**
+- Night sweats
+- Weight loss
+- Fatigue
+
+Q4. Weight change?
+A:
+- “Dropped 10 lbs unintentionally.”
+
+RED FLAGS:
+- Progressive multisystem decline
+- Fevers + weight loss + sweats
+- New abnormal bleeding + fatigue
+
+=================================================================
+SECTION 4 — CARDIO‑PULMONARY MYSTERY SYMPTOMS
+=================================================================
+
+Consider:
+- Pulmonary hypertension
+- Heart failure
+- Arrhythmias
+- Chronic PE / CTEPH
+- Early interstitial lung disease
+
+Q1. How is your breathing?
+A:
+- “Short of breath climbing stairs.”
+- “Sometimes breathless at rest.”
+
+Q2. Palpitations?
+A:
+- “Feels like skipped beats.”
+
+Q3. Swelling?
+A:
+- “Leg swelling by evening.”
+
+Q4. Exercise tolerance?
+A:
+- “Used to walk 2 miles — now struggle with 2 blocks.”
+
+RED FLAGS:
+- Worsening exertional dyspnea
+- Sudden chest pain
+- Syncope with exertion
+
+=================================================================
+SECTION 5 — GI + GENERAL “MYSTERY” SYMPTOMS
+=================================================================
+
+Consider:
+- Celiac disease
+- IBD
+- Chronic pancreatitis
+- Gastroparesis
+- Malabsorption
+- Occult GI bleeding
+- Hepatitis
+
+Q1. Appetite?
+A:
+- “Low appetite.”
+
+Q2. Bowel changes?
+A:
+- “Loose stools on/off.”
+- “Dark stools sometimes.”
+
+Q3. Abdominal pain?
+A:
+- “Not really; just uncomfortable.”
+
+Q4. Nausea/bloating?
+A:
+- “Feel bloated after eating small meals.”
+
+RED FLAGS:
+- Black stools
+- Persistent vomiting
+- Weight loss + chronic diarrhea
+
+=================================================================
+SECTION 6 — NEUROLOGIC “CAN’T DESCRIBE IT” SYMPTOMS
+=================================================================
+
+Consider:
+- MS
+- Neuropathy
+- Myasthenia gravis
+- Parkinsonism onset
+- Migraine variants
+- Small fiber neuropathy
+- Seizure equivalents
+
+Q1. Weakness or numbness?
+A:
+- “Hands tingle sometimes.”
+
+Q2. Cognitive issues?
+A:
+- “Hard to focus.”
+
+Q3. Dizziness?
+A:
+- “Feel off-balance.”
+
+RED FLAGS:
+- Sudden weakness
+- Loss of vision
+- Severe headache
+- New seizures
+
+=================================================================
+SECTION 7 — INFECTIOUS SLOW‑BURN PRESENTATIONS
+=================================================================
+
+Consider:
+- TB
+- Endocarditis
+- Chronic Lyme
+- Fungal infections
+- Hepatitis
+- HIV (acute or chronic)
+- Occult abscess
+
+Q1. Fevers?
+A:
+- “Low-grade fevers at night.”
+
+Q2. Sweats?
+A:
+- “Soaking night sweats.”
+
+Q3. Exposures?
+A:
+- “Travel, animals, ticks.”
+
+Q4. Cough/breathing?
+A:
+- “Cough for weeks.”
+
+RED FLAGS:
+- Fever + night sweats + weight loss
+- Coughing blood
+- Chest pain with fever
+
+=================================================================
+SECTION 8 — TOXIN, DRUG, MEDICATION, ENVIRONMENTAL
+=================================================================
+
+Consider:
+- Medication side effects
+- Withdrawal
+- Mold exposure
+- Carbon monoxide
+- Chemical exposure
+- Heavy metals
+- Supplements / herbal reactions
+
+Q1. New meds or supplements?
+A:
+- “Started new supplement.”
+
+Q2. Home exposures?
+A:
+- “Mold smell in basement.”
+
+Q3. Heating source?
+A:
+- “Gas heater with poor ventilation.”
+
+RED FLAGS:
+- Confusion + headache + family members sick (CO)
+- Severe vomiting + abdominal pain after new meds
+- Neuropathy + GI symptoms (heavy metals)
+
+=================================================================
+SECTION 9 — PSYCHIATRIC / FUNCTIONAL OVERLAP (HIGH-LEVEL)
+=================================================================
+
+Consider:
+- Anxiety with somatic symptoms
+- Depression with fatigue/aches
+- Somatic symptom disorder
+- PTSD/autonomic dysregulation
+
+Q1. Stress levels?
+A:
+- “Very high.”
+
+Q2. Sleep?
+A:
+- “Poor sleep, wake unrefreshed.”
+
+Q3. Panic symptoms?
+A:
+- “Heart races sometimes.”
+
+RED FLAGS:
+- Suicidal thoughts
+- Severe insomnia
+- Panic + chest pain (still must rule out cardiac)
+
+=================================================================
+SECTION 10 — “MYSTERY SYMPTOMS” RAPID TRIAGE LOGIC
+=================================================================
+
+ASK:
+1. Fever?
+2. Weight loss?
+3. Night sweats?
+4. Chest pain?
+5. Breathlessness?
+6. Abdominal pain?
+7. Neurologic deficits?
+8. Bleeding/bruising?
+9. Swelling?
+10. New medications or exposures?
+
+RED‑FLAG OUTPUT CONDITIONS:
+- Fever + weight loss + sweats → possible malignancy / TB / autoimmune / endocarditis
+- Progressive dyspnea → cardiopulmonary
+- New neurologic deficit → stroke/MS/neuromuscular
+- Severe abdominal pain + vomiting → GI/ischemia
+- Bruising + fatigue → hematologic issue
+- Unilateral swelling → DVT
+- Worsening fatigue + hyponatremia symptoms → adrenal issue
+- All normal vitals + anxiety features → functional/anxiety (after ruling out danger)
+
+=================================================================
+SECTION 11 — GLOBAL “MYSTERY SYMPTOM” RED FLAGS
+=================================================================
+- Weight loss >10 lbs unintentionally
+- Night sweats
+- Fever lasting >2 weeks
+- Sudden neurologic symptoms
+- Chest pain
+- Breathlessness at rest
+- Persistent vomiting or black stools
+- Severe dizziness or syncope
+- Bruising/bleeding without reason
+- Progressive weakness
+- Unresponsiveness/confusion
+- New severe pain anywhere
+
+=================================================================
+END OF MULTI‑SYSTEM MYSTERY SYMPTOMS FILE
+=================================================================

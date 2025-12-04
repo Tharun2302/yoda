@@ -1496,6 +1496,79 @@
         right: 60px !important;
       }
     }
+
+    /* Evaluation Toggle Switch */
+    .evaluation-toggle {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
+      background: #f5f5f5;
+      border-radius: 8px;
+      margin: 10px 0;
+    }
+
+    .evaluation-toggle label {
+      font-weight: 600;
+      color: #333;
+      font-size: 14px;
+    }
+
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 24px;
+    }
+
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .toggle-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .4s;
+      border-radius: 24px;
+    }
+
+    .toggle-slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .toggle-slider {
+      background-color: #4CAF50;
+    }
+
+    input:checked + .toggle-slider:before {
+      transform: translateX(26px);
+    }
+
+    #evaluationStatus {
+      color: #666;
+      font-size: 14px;
+    }
+
+    #evaluationLatency {
+      color: #999;
+      font-size: 12px;
+      margin-left: 10px;
+    }
   </style>
   <!-- Favicon removed - add your own icon if needed -->
 </head>
@@ -1540,6 +1613,20 @@
         </span>
         <span>New Chat</span>
       </button>
+
+      <!-- Evaluation Toggle -->
+      <div class="evaluation-toggle">
+        <label style="font-weight: 600; color: #333;">
+          Evaluations:
+        </label>
+        <label class="toggle-switch">
+          <input type="checkbox" id="evaluationToggle" onchange="toggleEvaluations()">
+          <span class="toggle-slider"></span>
+        </label>
+        <span id="evaluationStatus" style="color: #666; font-size: 14px;">Disabled</span>
+        <span id="evaluationLatency" style="color: #999; font-size: 12px; margin-left: 10px;"></span>
+      </div>
+
       <div class="user-menu" id="userMenu">
       <div class="user-menu" id="userMenu">
       <div class="user-info">
@@ -2294,9 +2381,8 @@
                     botDiv.dataset.generationId = generationId;
                   }
                   
-                  // Evaluations run in background (logged by backend)
+                  // Note: Evaluations may run in background if enabled (check toggle)
                   let evalStartTime = performance.now();
-                  console.log('[STEP] Evaluations running in background...');
                   
                   // End streaming - keep current mode (don't force to auto)
                   isStreaming = false;
@@ -3492,6 +3578,74 @@
     checkVoiceAvailability();
     
     // ===== END VOICE FUNCTIONALITY =====
+
+    // ===== EVALUATION TOGGLE FUNCTIONALITY =====
+    
+    // Toggle evaluation functionality
+    async function toggleEvaluations() {
+      const toggle = document.getElementById('evaluationToggle');
+      const status = document.getElementById('evaluationStatus');
+      const latencySpan = document.getElementById('evaluationLatency');
+      
+      const enabled = toggle.checked;
+      
+      try {
+        const response = await fetch('/evaluation/toggle', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            session_id: sessionId,
+            enabled: enabled
+          })
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+          status.textContent = enabled ? 'Enabled' : 'Disabled';
+          status.style.color = enabled ? '#4CAF50' : '#666';
+          latencySpan.textContent = enabled ? '(+5-7 seconds per response)' : '(Fast mode)';
+          
+          console.log(`[EVALUATIONS] ${enabled ? 'Enabled' : 'Disabled'} for session ${sessionId}`);
+        }
+      } catch (error) {
+        console.error('Failed to toggle evaluations:', error);
+        toggle.checked = !enabled; // Revert on error
+      }
+    }
+    
+    // Load evaluation status on page load
+    async function loadEvaluationStatus() {
+      try {
+        const response = await fetch(`/evaluation/status?session_id=${sessionId}`);
+        const data = await response.json();
+        
+        const toggle = document.getElementById('evaluationToggle');
+        const status = document.getElementById('evaluationStatus');
+        const latencySpan = document.getElementById('evaluationLatency');
+        
+        if (toggle && status && latencySpan) {
+          toggle.checked = data.evaluations_enabled;
+          status.textContent = data.evaluations_enabled ? 'Enabled' : 'Disabled';
+          status.style.color = data.evaluations_enabled ? '#4CAF50' : '#666';
+          
+          if (data.evaluations_enabled) {
+            latencySpan.textContent = '(+5-7 seconds per response)';
+          } else {
+            latencySpan.textContent = '(Fast mode)';
+          }
+        }
+      } catch (error) {
+        console.error('Failed to load evaluation status:', error);
+      }
+    }
+    
+    // Load evaluation status when page loads
+    loadEvaluationStatus();
+    
+    // ===== END EVALUATION TOGGLE FUNCTIONALITY =====
 
     // Add a function to start a new conversation (clear memory)
     async function startNewConversation() {

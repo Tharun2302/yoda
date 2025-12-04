@@ -1,0 +1,510 @@
+RHEUMATOLOGY — HealthYoda RAG DEEPEST DIVE
+=========================================================
+FULL VERSION WITH QUESTIONS + REALISTIC PATIENT ANSWERS + RED FLAGS
+Developer-Ready RAG / Intake Knowledge Base File
+=========================================================
+
+RHEUMATOLOGY COMPLAINT CLUSTERS
+-------------------------------
+1. Joint pain (acute vs chronic)
+2. Inflammatory vs mechanical pain discriminator
+3. Morning stiffness duration
+4. Symmetric vs asymmetric joint involvement
+5. Small vs large joint patterns
+6. Swelling, warmth, redness patterns
+7. Rheumatoid arthritis pattern
+8. Osteoarthritis pattern
+9. Gout and pseudogout
+10. Lupus (systemic symptoms + specific clues)
+11. Sjögren’s syndrome
+12. Polymyalgia rheumatica
+13. Ankylosing spondylitis & axial spondyloarthritis
+14. Psoriatic arthritis
+15. Reactive arthritis
+16. Vasculitides (high-level symptom logic)
+17. Raynaud’s phenomenon
+18. Scleroderma clues
+19. Myositis (dermato/polymyositis pattern)
+20. Fibromyalgia (as a rheum-adjacent condition)
+21. Rheumatologic emergency red flags
+
+=========================================================
+SECTION 1 — UNIVERSAL RHEUMATOLOGY HPI STRUCTURE
+=========================================================
+
+Q1. Where are your symptoms?
+A:
+- "Knees."
+- "Hands and wrists."
+- "Lower back."
+- "Multiple joints."
+
+Q2. Onset?
+A:
+- "Sudden overnight."
+- "Gradual over months."
+
+Q3. Morning stiffness?
+A:
+- "Lasts 1–2 hours." (inflammatory)
+- "Stiff for 5–10 minutes." (mechanical/degenerative)
+
+Q4. Pattern?
+A:
+- "Both sides of body." (symmetric)
+- "One knee and one toe." (asymmetric)
+
+Q5. Swelling?
+A:
+- "Joints look puffy."
+- "Red, hot, painful joint."
+
+Q6. Triggers?
+A:
+- "Injury."
+- "Cold weather."
+- "After infection."
+
+Q7. Systemic symptoms?
+A:
+- "Rash."
+- "Fever."
+- "Weight loss."
+- "Dry eyes/mouth."
+
+RHEUM GLOBAL RED FLAGS:
+- Red, hot, intensely painful joint (possible septic joint or gout)
+- Joint pain + fever + chills
+- Rash + fever + joint pain
+- Night sweats + weight loss + swollen nodes
+- Back pain + bowel/bladder issues
+- New severe muscle weakness
+
+=========================================================
+SECTION 2 — INFLAMMATORY VS MECHANICAL PAIN DISCRIMINATOR
+=========================================================
+
+INFLAMMATORY:
+- Morning stiffness > 45–60 minutes
+- Better with movement
+- Worse with rest
+- Swelling/warmth
+
+MECHANICAL:
+- Morning stiffness < 10 minutes
+- Worse as day goes on
+- Worse with activity
+- Improves with rest
+
+Q1. How long does stiffness last in the morning?
+A:
+- "About an hour." (inflammatory)
+- "Only 5 minutes." (mechanical)
+
+=========================================================
+SECTION 3 — RHEUMATOID ARTHRITIS (RA)
+=========================================================
+
+CLUES:
+- Symmetric small joints (MCP, PIP, wrists)
+- Morning stiffness >1 hour
+- Warm, swollen joints
+- Chronic, progressive pattern
+
+Q1. Which joints hurt?
+A:
+- "Both hands and wrists."
+
+Q2. Morning stiffness?
+A:
+- "Lasts a couple of hours."
+
+Q3. Swelling?
+A:
+- "Yes, knuckles swollen."
+
+Q4. Fatigue?
+A:
+- "Very tired."
+
+RED FLAGS:
+- Rapidly worsening hand swelling
+- Difficulty making fist
+- Systemic symptoms + joint pain (consider other diagnoses)
+
+=========================================================
+SECTION 4 — OSTEOARTHRITIS (OA)
+=========================================================
+
+CLUES:
+- Pain worse with activity
+- Stiffness lasting <30 minutes
+- Knees, hips, spine, hands (DIP, PIP)
+- Bony enlargements (Heberden/Bouchard nodes)
+
+Q1. Where is the pain?
+A:
+- "Knees and hips."
+
+Q2. Worse with movement?
+A:
+- "Hurts when walking."
+
+Q3. Morning stiffness?
+A:
+- "Only a few minutes."
+
+Q4. Swelling?
+A:
+- "Some swelling after long day."
+
+RED FLAGS:
+- Knee swelling + fever (not OA)
+- Night pain with weight loss (consider malignancy)
+
+=========================================================
+SECTION 5 — GOUT
+=========================================================
+
+CLUES:
+- Sudden overnight onset
+- Extremely painful, red, hot joint
+- Big toe (1st MTP) common
+- Triggers: alcohol, red meat, dehydration
+
+Q1. Onset?
+A:
+- "Started suddenly at night."
+
+Q2. Which joint?
+A:
+- "Big toe swollen and throbbing."
+
+Q3. Appearance?
+A:
+- "Red, very tender, can’t tolerate touch."
+
+RED FLAGS:
+- Fever + red hot joint (possible septic arthritis)
+- Severe unrelenting pain
+
+=========================================================
+SECTION 6 — PSEUDOGOUT
+=========================================================
+
+CLUES:
+- Older adults
+- Knee common
+- Swelling + moderate redness
+- Often triggered by illness/surgery
+
+Q1. Which joint?
+A:
+- "My knee."
+
+Q2. Onset?
+A:
+- "Started suddenly."
+
+RED FLAGS:
+- Fever + knee swelling + redness
+
+=========================================================
+SECTION 7 — LUPUS (SLE)
+=========================================================
+
+CLUES:
+- Young women more common
+- Joint pain without destruction
+- Photosensitive rash
+- Malar butterfly rash
+- Hair loss
+- Mouth ulcers
+- Fatigue
+- Raynaud’s
+- Chest pain (pleuritic)
+- Kidney symptoms
+
+Q1. Rashes?
+A:
+- "Rash on cheeks, worse in sun."
+
+Q2. Hair loss?
+A:
+- "Hair falling out."
+
+Q3. Mouth sores?
+A:
+- "Yes, painful sores."
+
+Q4. Chest pain?
+A:
+- "Sharp pain when taking deep breath."
+
+Q5. Urine?
+A:
+- "Foamy urine."
+
+RED FLAGS:
+- Chest pain + shortness of breath
+- Kidney symptoms (edema, frothy urine)
+- Fever + rash + joint pain
+
+=========================================================
+SECTION 8 — SJÖGREN’S SYNDROME
+=========================================================
+
+CLUES:
+- Dry eyes ("gritty feeling")
+- Dry mouth
+- Parotid swelling
+- Dental issues
+- Fatigue
+- Often overlaps with RA or lupus
+
+Q1. Eye symptoms?
+A:
+- "Feels like sand in eyes."
+
+Q2. Dry mouth?
+A:
+- "Hard to swallow crackers."
+
+RED FLAGS:
+- Severe dental decay
+- Persistent parotid swelling
+
+=========================================================
+SECTION 9 — POLYMYALGIA RHEUMATICA (PMR)
+=========================================================
+
+CLUES:
+- Age >50
+- Shoulder and hip girdle pain
+- Morning stiffness >1 hour
+- Difficulty rising from chair or lifting arms
+- Often associated with giant cell arteritis (GCA)
+
+Q1. Where is pain?
+A:
+- "Shoulders and hips."
+
+Q2. Morning stiffness?
+A:
+- "Very stiff in morning, lasts hours."
+
+Q3. Difficulty getting out of bed/chair?
+A:
+- "Yes, very hard to start moving."
+
+RED FLAGS:
+- Headache + jaw pain (GCA risk)
+- Vision changes
+
+=========================================================
+SECTION 10 — ANKYLOSING SPONDYLITIS / AXIAL SPA
+=========================================================
+
+CLUES:
+- Young men often
+- Chronic back pain >3 months
+- Morning stiffness >30–60 minutes
+- Better with exercise, worse with rest
+- Night back pain
+- Heel/plantar pain
+- Uveitis history
+
+Q1. Back pain timeline?
+A:
+- "Years of back pain."
+
+Q2. Worse at rest?
+A:
+- "Yes, stiff in mornings."
+
+Q3. Better with exercise?
+A:
+- "Yes, moving helps."
+
+Q4. Eye issues?
+A:
+- "Had painful red eye episodes."
+
+RED FLAGS:
+- New severe back pain + fever
+- Neurologic deficits
+
+=========================================================
+SECTION 11 — PSORIATIC ARTHRITIS (PsA)
+=========================================================
+
+CLUES:
+- History of psoriasis
+- Nail pitting
+- Dactylitis (sausage digits)
+- Asymmetric oligoarthritis
+- Back involvement possible
+
+Q1. Skin history?
+A:
+- "Psoriasis for years."
+
+Q2. Nail symptoms?
+A:
+- "Nail pitting."
+
+Q3. Swollen fingers/toes?
+A:
+- "Whole finger looks swollen."
+
+RED FLAGS:
+- Severe joint destruction
+- Sudden vision changes (uveitis risk)
+
+=========================================================
+SECTION 12 — REACTIVE ARTHRITIS
+=========================================================
+
+TRIAD:
+- Arthritis
+- Conjunctivitis
+- Urethritis
+
+Q1. Recent infection?
+A:
+- "Had stomach bug."
+- "Had STI symptoms."
+
+Q2. Eye symptoms?
+A:
+- "Red, painful eyes."
+
+RED FLAGS:
+- Severe eye pain
+- Scrotal/testicular pain + joint pain (consider other causes)
+
+=========================================================
+SECTION 13 — VASCULITIS (HIGH-LEVEL PATTERN)
+=========================================================
+
+GENERAL CLUES:
+- Purpuric rash
+- Abdominal pain
+- Neuropathy
+- Kidney issues
+- Fever, weight loss
+
+HSP / IgA:
+- Rash on legs
+- Abdominal pain
+- Joint pain
+
+GCA:
+- Headache, jaw claudication
+- Vision symptoms
+
+ANCA-associated:
+- Sinusitis
+- Cough with blood
+- Kidney issues
+
+RED FLAGS:
+- Vision changes (GCA)
+- Coughing blood
+- Dark urine + swelling
+
+=========================================================
+SECTION 14 — RAYNAUD’S PHENOMENON
+=========================================================
+
+Q1. Color changes with cold?
+A:
+- "Finger turns white then blue."
+
+Q2. Triggers?
+A:
+- "Cold weather."
+
+RED FLAGS:
+- Ulcers on fingertips
+- Severe pain at fingertips
+
+=========================================================
+SECTION 15 — SCLERODERMA (SYSTEMIC SCLEROSIS)
+=========================================================
+
+CLUES:
+- Tight skin
+- Difficulty swallowing
+- Heartburn
+- Raynaud’s
+- Puffy fingers
+- Shortness of breath
+
+Q1. Skin changes?
+A:
+- "Skin feels tight."
+
+Q2. Heartburn?
+A:
+- "Bad reflux."
+
+RED FLAGS:
+- SOB + scleroderma features (pulmonary hypertension)
+- Severe swallowing issues
+
+=========================================================
+SECTION 16 — MYOSITIS (DERMATOMYOSITIS / POLYMYOSITIS)
+=========================================================
+
+CLUES:
+- Proximal muscle weakness (difficulty lifting arms, climbing stairs)
+- Rash (heliotrope, Gottron papules — high-level)
+- Fatigue
+
+Q1. Weakness?
+A:
+- "Hard to climb stairs."
+
+Q2. Rash?
+A:
+- "Purple rash around eyes."
+
+RED FLAGS:
+- Difficulty swallowing
+- Trouble breathing
+
+=========================================================
+SECTION 17 — FIBROMYALGIA (RHEUM-ADJACENT)
+=========================================================
+
+CLUES:
+- Widespread pain
+- Fatigue
+- Poor sleep
+- Cognitive fog
+
+Q1. Does pain occur in multiple regions?
+A:
+- "Neck, shoulders, hips, back."
+
+RED FLAGS:
+- Night sweats + weight loss (not fibromyalgia)
+- Focal neurologic deficits
+
+=========================================================
+SECTION 18 — RHEUMATOLOGY GLOBAL RED FLAGS (CONSOLIDATED)
+=========================================================
+- Hot, red, extremely painful joint (possible septic arthritis)
+- Joint pain + fever
+- Sudden swollen joint after injury (hemarthrosis)
+- Back pain + bowel/bladder changes
+- Rash + fever + joint pain
+- Vision changes + headache (GCA)
+- Unintentional weight loss + night sweats
+- Severe muscle weakness (myositis)
+- Chest pain + pleurisy symptoms (SLE)
+
+=========================================================
+END OF RHEUMATOLOGY DEEPEST DIVE FILE
+=========================================================

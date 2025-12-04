@@ -1,0 +1,373 @@
+RARE & COMPLEX METABOLIC DISORDERS — HealthYoda RAG DEEPEST DIVE
+=================================================================
+FULL VERSION WITH QUESTIONS + REALISTIC PATIENT ANSWERS + RED FLAGS
+Developer-Ready RAG / Intake Knowledge Base File
+=================================================================
+
+METABOLIC DISORDER CLUSTERS (SYMPTOM-LEVEL)
+-------------------------------------------
+1. Recurrent unexplained hypoglycemia (non-diabetic / brittle diabetic)
+2. Lactic acidosis patterns
+3. Urea cycle disorder clues (hyperammonemia)
+4. Mitochondrial disease patterns
+5. Porphyria (acute intermittent & cutaneous)
+6. Wilson disease (copper metabolism)
+7. Hereditary hemochromatosis (iron overload) — cross-ref
+8. Inborn errors of metabolism in children (high-level)
+9. Recurrent rhabdomyolysis with triggers
+10. Familial hyperlipidemia (early vascular disease)
+11. Metabolic myopathies (exercise intolerance)
+12. Rare electrolyte/acid–base disorders (salt wasting, RTA clues)
+13. Metabolic crises triggers (fasting, infections, high-protein meals)
+14. Global metabolic red flags
+
+=================================================================
+SECTION 1 — RECURRENT UNEXPLAINED HYPOGLYCEMIA
+=================================================================
+
+ADULT NON-DIABETIC:
+Q1. Episodes of shakiness, sweating, confusion?
+A:
+- "Hands shake, heart races, feel sweaty."
+- "Get confused if I don’t eat."
+
+Q2. Timing?
+A:
+- "Happens when I skip meals."
+- "Sometimes at night."
+
+Q3. Relief?
+A:
+- "Better after juice or sugar."
+
+Q4. Meds / diabetes?
+A:
+- "Not on diabetes meds."
+- "On insulin / sulfonylurea."
+
+PEDIATRIC:
+Q1. Child irritable or lethargic when sick or fasting?
+A:
+- "Very sleepy and hard to wake when not eating."
+
+HYPOGLYCEMIA RED FLAGS:
+- Confusion or behavior change during episode
+- Seizures
+- Loss of consciousness
+- Recurrent episodes in non-diabetic patient
+
+=================================================================
+SECTION 2 — LACTIC ACIDOSIS PATTERNS
+=================================================================
+
+CLUES:
+- Deep, rapid breathing
+- Nausea, vomiting
+- Abdominal discomfort
+- Severe fatigue
+- Often triggered by infection, hypoxia, certain meds, mitochondrial disease
+
+Q1. Any severe infections, low blood pressure, or poor circulation?
+A:
+- "Recently had bad infection / sepsis."
+
+Q2. Symptoms during episodes?
+A:
+- "Very short of breath and breathing fast."
+- "Feel extremely weak."
+
+RED FLAGS:
+- Rapid breathing + confusion
+- Severe infection with high fevers
+- Chest pain or severe SOB
+
+=================================================================
+SECTION 3 — UREA CYCLE DISORDERS / HYPERAMMONEMIA CLUES
+=================================================================
+
+CLUES (often in children or young adults):
+- Episodic confusion
+- Vomiting after high-protein meals
+- Behavior changes
+- Lethargy, coma
+
+Q1. Any episodes of confusion after high-protein meals or illness?
+A:
+- "Gets very sleepy and confused after eating a lot of meat."
+
+Q2. Vomiting?
+A:
+- "Vomits repeatedly during episodes."
+
+Q3. Family history?
+A:
+- "Yes, relatives with similar episodes."
+
+RED FLAGS:
+- Confusion + vomiting without clear cause
+- Rapid progression to unresponsiveness
+- History of similar crises with illness or fasting
+
+=================================================================
+SECTION 4 — MITOCHONDRIAL DISEASE PATTERNS
+=================================================================
+
+CLUES:
+- Exercise intolerance
+- Muscle weakness
+- Lactic acidosis
+- Multi-organ involvement (neurologic, cardiac, endocrine)
+- Stroke-like episodes in young patients
+
+Q1. Energy levels and exercise?
+A:
+- "Exhausted after mild exertion."
+- "Cannot keep up with peers."
+
+Q2. Multi-system symptoms?
+A:
+- "Muscle weakness + hearing loss."
+- "Migraine-like episodes + vision changes."
+
+Q3. Family history?
+A:
+- "Multiple family members with similar issues at young age."
+
+RED FLAGS:
+- Stroke-like episodes in young patient
+- Progressive weakness + neurologic changes
+- Recurrent lactic acidosis
+
+=================================================================
+SECTION 5 — PORPHYRIA (ACUTE & CUTANEOUS)
+=================================================================
+
+ACUTE INTERMITTENT PORPHYRIA (AIP) CLUES:
+- Severe abdominal pain
+- Normal exam or minimal tenderness
+- Dark/red urine
+- Neuropathy, limb weakness
+- Psychiatric symptoms (anxiety, hallucinations)
+- Triggers: certain drugs, fasting, hormones
+
+Q1. Abdominal pain description?
+A:
+- "Very severe, crampy, but belly not very tender."
+
+Q2. Urine color?
+A:
+- "Sometimes reddish or dark."
+
+Q3. Neurologic/psychiatric symptoms?
+A:
+- "Tingling in legs."
+- "Anxiety and mood changes."
+
+CUTANEOUS PORPHYRIA:
+- Blistering skin on sun-exposed areas
+- Fragile skin
+
+RED FLAGS:
+- Severe unexplained abdominal pain + dark urine
+- Weakness or paralysis during attacks
+- Confusion or hallucinations with pain episodes
+
+=================================================================
+SECTION 6 — WILSON DISEASE (COPPER METABOLISM)
+=================================================================
+
+CLUES:
+- Young patients (teens/20s)
+- Liver disease signs (jaundice, abnormal LFTs)
+- Neurologic symptoms: tremor, clumsiness, speech changes
+- Psychiatric symptoms: mood changes, personality change
+
+Q1. Age and symptoms?
+A:
+- "In 20s with shaky hands and trouble speaking clearly."
+
+Q2. Liver symptoms?
+A:
+- "Yellow eyes sometimes."
+- "Abdominal swelling."
+
+Q3. Behavior changes?
+A:
+- "Irritable, personality change."
+
+RED FLAGS:
+- Young onset liver failure
+- New neurologic symptoms with liver disease
+- Family history of early liver problems
+
+=================================================================
+SECTION 7 — INBORN ERRORS OF METABOLISM (PEDIATRIC, HIGH-LEVEL)
+=================================================================
+
+CLUES IN INFANTS/CHILDREN:
+- Poor feeding
+- Vomiting
+- Failure to thrive
+- Developmental delay
+- Recurrent metabolic crises with illness
+- Strange odor of urine or body
+
+Q1. Early growth and development?
+A:
+- "Not gaining weight well."
+
+Q2. Crises?
+A:
+- "Becomes very sleepy and vomits when sick."
+
+Q3. Family history?
+A:
+- "Sibling with similar problems."
+
+RED FLAGS:
+- Lethargy, seizures, or coma in child with fever or fasting
+- Rapid breathing + vomiting + poor feeding
+
+=================================================================
+SECTION 8 — RECURRENT RHABDOMYOLYSIS WITH TRIGGERS
+=================================================================
+
+CLUES:
+- Muscle pain after exercise or illness
+- Dark urine
+- Elevated CK in history
+- Often triggered by intense activity, fasting, heat, or certain drugs
+
+Q1. When did muscle pain start?
+A:
+- "After heavy exercise."
+
+Q2. Urine color?
+A:
+- "Tea-colored urine."
+
+Q3. Previous episodes?
+A:
+- "Happened before after workouts."
+
+RED FLAGS:
+- Dark urine + muscle pain
+- Weakness + decreased urine output
+- Confusion or vomiting with rhabdomyolysis
+
+=================================================================
+SECTION 9 — FAMILIAL HYPERLIPIDEMIA
+=================================================================
+
+CLUES:
+- Early heart disease
+- Strong family history of MI or stroke at young age
+- Tendon xanthomas
+- Extremely high cholesterol documented
+
+Q1. Family history?
+A:
+- "Parent had heart attack in 40s."
+
+Q2. Symptoms?
+A:
+- "Occasional chest discomfort."
+- "No symptoms but told cholesterol very high."
+
+RED FLAGS:
+- Chest pain or SOB with exertion
+- Transient neurologic symptoms
+
+=================================================================
+SECTION 10 — METABOLIC MYOPATHIES (EXERCISE INTOLERANCE)
+=================================================================
+
+CLUES:
+- Muscle cramps and pain with exercise
+- Early fatigue with exertion
+- Occasional myoglobinuria (dark urine)
+- Better with rest, sometimes associated with fasting
+
+Q1. What happens when you exercise?
+A:
+- "Legs burn and cramp very quickly."
+- "Feel exhausted after short walks."
+
+Q2. Any dark urine after exertion?
+A:
+- "Yes, a few times after intense activity."
+
+RED FLAGS:
+- Severe muscle pain + dark urine
+- Weakness interfering with walking or standing
+
+=================================================================
+SECTION 11 — RARE ELECTROLYTE / ACID–BASE DISORDERS (HPI LEVEL)
+=================================================================
+
+RENAL TUBULAR ACIDOSIS (RTA) CLUES:
+- Chronic fatigue
+- Bone pain, fractures
+- Kidney stones history
+
+SALT-WASTING / ADRENAL-TYPE CLUES (at symptom level):
+- Dizziness on standing
+- Craving salt
+- Nausea, vomiting
+- Weight loss
+
+Q1. Lightheaded when standing?
+A:
+- "Yes, almost faint sometimes."
+
+Q2. Muscle cramps?
+A:
+- "Frequent cramps."
+
+RED FLAGS:
+- Severe dehydration
+- Repeated episodes of collapse
+- Confusion
+
+=================================================================
+SECTION 12 — METABOLIC CRISIS TRIGGERS
+=================================================================
+
+COMMON TRIGGERS:
+- Fasting
+- Infection/fever
+- High-protein intake
+- New medication
+- Major stress/surgery
+
+Q1. Do episodes cluster around illness, fasting, or certain foods?
+A:
+- "Always worse when I’m sick or not eating."
+
+RED FLAGS:
+- Vomiting, confusion, lethargy triggered by illness
+- Seizures after fasting
+
+=================================================================
+SECTION 13 — GLOBAL METABOLIC RED FLAGS
+=================================================================
+- Recurrent, unexplained episodes of:
+  - Confusion
+  - Vomiting
+  - Lethargy or coma
+- Seizures without known cause
+- Dark urine + muscle pain (possible rhabdomyolysis)
+- Rapid breathing + confusion (possible acidosis)
+- Young patients with:
+  - Liver failure signs
+  - Neurologic decline
+  - Psychiatric changes + liver disease
+- Infants/children with:
+  - Failure to thrive
+  - Developmental delay
+  - Metabolic crises during illness or fasting
+- Any severe episode after high-protein meals or prolonged fasting
+
+=================================================================
+END OF RARE & COMPLEX METABOLIC DISORDERS FILE
+=================================================================

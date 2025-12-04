@@ -1,0 +1,384 @@
+AUTOIMMUNE DISEASE — HealthYoda RAG DEEPEST DIVE
+=====================================================
+FULL VERSION WITH QUESTIONS + REALISTIC PATIENT ANSWERS + RED FLAGS
+Developer-Ready RAG / Intake Knowledge Base File
+=====================================================
+
+AUTOIMMUNE CLUSTERS (HPI-LEVEL)
+-------------------------------
+1. Systemic autoimmune “big 5” symptom patterns  
+2. Connective tissue diseases (SLE, Sjögren’s, Scleroderma)  
+3. Vasculitis spectrum  
+4. Autoimmune myopathies  
+5. Autoimmune thyroid disease  
+6. Inflammatory bowel disease extra-intestinal clues  
+7. Autoimmune neurological disorders  
+8. Autoimmune skin diseases  
+9. Autoimmune liver & biliary disease  
+10. Multi-system flare discrimination  
+11. Autoimmune emergency red flags  
+
+=====================================================
+SECTION 1 — SYSTEMIC AUTOIMMUNE “BIG 5” PATTERN
+=====================================================
+
+Consider SLE, RA, Sjögren’s, Scleroderma, Mixed CTD.
+
+Q1. Fatigue?
+A:
+- “Severe tiredness I can’t explain.”
+
+Q2. Joint symptoms?
+A:
+- “Aching in hands and wrists.”
+- “Stiff in the morning for over an hour.”
+
+Q3. Rashes?
+A:
+- “Red rash on cheeks after sun.”
+
+Q4. Mouth/eye dryness?
+A:
+- “Hard to swallow dry foods.”
+
+Q5. Raynaud’s?
+A:
+- “Fingers turn white/blue in cold.”
+
+RED FLAGS:
+- Fever + rash + joint pain  
+- SOB + chest pain (serositis)  
+- Leg swelling + foamy urine (renal disease)  
+
+=====================================================
+SECTION 2 — SYSTEMIC LUPUS ERYTHEMATOSUS (SLE)
+=====================================================
+
+CLUES:
+- Malar rash, photosensitivity
+- Non-erosive joint pain
+- Mouth/nasal ulcers
+- Pleuritic chest pain
+- Hair loss
+- Fevers
+- Raynaud’s
+- Kidney involvement (frothy urine, swelling)
+
+Q1. Rashes?
+A:
+- “Butterfly rash on cheeks that worsens in sun.”
+
+Q2. Chest pain?
+A:
+- “Sharp pain when breathing deeply.”
+
+Q3. Urine changes?
+A:
+- “Foamy urine.”
+
+RED FLAGS:
+- Chest pain + SOB → possible pericarditis/pleuritis  
+- Confusion or severe headache  
+- Facial swelling + decreased urination  
+
+=====================================================
+SECTION 3 — SJÖGREN’S SYNDROME
+=====================================================
+
+CLUES:
+- Dry eyes (“gritty feeling”)
+- Dry mouth (dental issues)
+- Parotid swelling
+- Fatigue
+- Arthralgias
+
+Q1. Eye symptoms?
+A:
+- “Feels like sand in eyes.”
+
+Q2. Mouth?
+A:
+- “Need water to swallow bread.”
+
+RED FLAGS:
+- Persistent parotid swelling  
+- Severe dental decay  
+
+=====================================================
+SECTION 4 — SYSTEMIC SCLEROSIS (SCLERODERMA)
+=====================================================
+
+CLUES:
+- Skin thickening/tightness
+- Finger puffiness
+- Raynaud’s
+- Heartburn, swallowing problems
+- SOB (pulmonary hypertension or fibrosis)
+
+Q1. Skin changes?
+A:
+- “Skin on fingers feels tight.”
+
+Q2. Heartburn?
+A:
+- “Constant reflux, trouble swallowing.”
+
+RED FLAGS:
+- SOB + scleroderma → possible pulmonary hypertension  
+- Severe dysphagia/food impaction  
+
+=====================================================
+SECTION 5 — MIXED CONNECTIVE TISSUE DISEASE (MCTD)
+=====================================================
+
+CLUES:
+- Raynaud’s
+- Puffy fingers
+- Joint pain
+- Myositis-like weakness
+- Features of SLE + scleroderma + polymyositis
+
+Q1. Finger swelling?
+A:
+- “Whole fingers feel swollen.”
+
+RED FLAGS:
+- SOB  
+- New muscle weakness  
+
+=====================================================
+SECTION 6 — VASCULITIS SPECTRUM
+=====================================================
+
+TYPES (high-level HPI):
+- ANCA-associated (sinus, lung, kidney)
+- PAN (abdominal pain + neuropathy)
+- HSP (purpura + abdominal pain)
+- GCA (headache, jaw pain)
+- Behçet’s (oral/genital ulcers)
+
+GENERAL CLUES:
+- Purpuric rash
+- Abdominal pain
+- Neuropathy
+- Sinus symptoms
+- Coughing blood
+- Kidney issues (dark urine)
+
+Q1. Rashes?
+A:
+- “Red spots on legs that don’t fade.”
+
+Q2. Sinus issues?
+A:
+- “Chronic congestion and nosebleeds.”
+
+Q3. Nerve symptoms?
+A:
+- “Foot numbness.”
+
+RED FLAGS:
+- Eye pain + headache (GCA)  
+- Coughing blood  
+- Dark urine + swelling  
+
+=====================================================
+SECTION 7 — INFLAMMATORY MYOPATHIES
+=====================================================
+
+Polymyositis / Dermatomyositis
+
+CLUES:
+- Proximal muscle weakness (stairs, lifting arms)
+- Difficulty combing hair
+- Fatigue
+- Rash (heliotrope, Gottron’s papules)
+
+Q1. Weakness?
+A:
+- “Can’t lift arms to brush hair.”
+
+Q2. Rash?
+A:
+- “Purple rash on eyelids.”
+
+RED FLAGS:
+- Difficulty swallowing  
+- Difficulty breathing  
+
+=====================================================
+SECTION 8 — AUTOIMMUNE THYROID DISEASE
+=====================================================
+
+HASHIMOTO’S:
+- Fatigue
+- Weight gain
+- Cold intolerance
+- Hair loss
+- Constipation
+
+GRAVES’:
+- Heat intolerance
+- Anxiety
+- Palpitations
+- Weight loss
+- Eye bulging
+
+Q1. Temperature tolerance?
+A:
+- “Always cold / always hot.”
+
+Q2. Heart symptoms?
+A:
+- “Heart races.”
+
+RED FLAGS:
+- Severe palpitations  
+- Eye pain + vision changes  
+
+=====================================================
+SECTION 9 — AUTOIMMUNE GI (IBD EXTRA-INTESTINAL)
+=====================================================
+
+CONSIDER:
+- Crohn’s disease
+- Ulcerative colitis
+
+EXTRA-INTESTINAL:
+- Joint pain
+- Eye inflammation (uveitis)
+- Skin lesions (erythema nodosum, pyoderma gangrenosum)
+- Fatigue
+
+Q1. GI symptoms?
+A:
+- “Chronic diarrhea.”
+- “Bloody stools.”
+
+Q2. Eye symptoms?
+A:
+- “Red painful eye.”
+
+RED FLAGS:
+- Severe abdominal pain  
+- High fever  
+- Visual symptoms  
+
+=====================================================
+SECTION 10 — AUTOIMMUNE LIVER & BILIARY
+=====================================================
+
+TYPES:
+- Autoimmune hepatitis (AIH)
+- Primary biliary cholangitis (PBC)
+- Primary sclerosing cholangitis (PSC)
+
+CLUES:
+- RUQ discomfort
+- Itching
+- Fatigue
+- Jaundice
+- Dark urine
+
+Q1. Skin itching?
+A:
+- “Itching all over.”
+
+Q2. Urine color?
+A:
+- “Dark.”
+
+RED FLAGS:
+- Jaundice + confusion (liver failure)  
+- Severe abdominal pain  
+
+=====================================================
+SECTION 11 — AUTOIMMUNE NEUROLOGICAL DISORDERS
+=====================================================
+
+PERIPHERAL:
+- Guillain-Barré: ascending weakness
+- CIDP: chronic version
+- Myasthenia gravis: fatigue with repetition
+
+CENTRAL:
+- MS: vision changes, limb tingling, episodes
+
+Q1. Weakness?
+A:
+- “Legs getting weaker.”
+
+Q2. Vision problems?
+A:
+- “Blurry vision in one eye.”
+
+RED FLAGS:
+- Rapidly rising weakness  
+- Trouble breathing  
+- Sudden loss of vision  
+
+=====================================================
+SECTION 12 — AUTOIMMUNE SKIN DISEASES
+=====================================================
+
+PSORIASIS:
+- Red patches + silvery scale
+- Nail pitting
+
+DERMATITIS HERPETIFORMIS:
+- Clusters of itchy blisters (celiac-associated)
+
+VITILIGO:
+- Depigmented patches
+
+LUPUS SKIN:
+- Photosensitive rash
+
+Q1. Describe the rash?
+A:
+- “Red scaly patches.”
+- “Very itchy clusters.”
+
+RED FLAGS:
+- Rash + fever  
+- Widespread blistering  
+
+=====================================================
+SECTION 13 — MULTI-SYSTEM AUTOIMMUNE FLARE LOGIC
+=====================================================
+
+KEY QUESTIONS:
+1. Fever?
+2. Weight loss?
+3. Night sweats?
+4. SOB or chest pain?
+5. Joint swelling?
+6. Rash?
+7. Mouth/eye dryness?
+8. Weakness?
+9. New numbness?
+10. GI or urinary changes?
+
+FLARE RED-FLAG OUTPUT:
+- SOB + chest pain (serositis)  
+- Kidney involvement (foamy urine, swelling)  
+- Progressive weakness  
+- Severe headache or confusion  
+- High fever + rash + joint pain  
+
+=====================================================
+SECTION 14 — AUTOIMMUNE EMERGENCY RED FLAGS (CONSOLIDATED)
+=====================================================
+- Vision loss or severe eye pain  
+- Chest pain with deep breathing  
+- Shortness of breath  
+- Sudden weakness or paralysis  
+- High fever + rash  
+- Dark urine + swelling  
+- Unintentional weight loss >10 lbs  
+- Severe abdominal pain  
+- Difficulty swallowing or breathing (myositis/MG)  
+
+=====================================================
+END OF AUTOIMMUNE PATTERNS DEEPEST DIVE FILE
+=====================================================
