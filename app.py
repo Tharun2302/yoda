@@ -1160,7 +1160,10 @@ def chat_greeting():
                 enhanced_system_prompt += collected_data_context
             
             # Try to get initial question from RAG if available
+            # DISABLED FOR INITIAL GREETING - No need for RAG search on first load
             rag_context = ""
+            rag_question_info = None
+            """
             if rag_system:
                 try:
                     rag_question_info = rag_system.get_next_question(
@@ -1180,6 +1183,7 @@ def chat_greeting():
             
             if rag_context:
                 enhanced_system_prompt += rag_context
+            """
             
             # Create messages with system prompt and a prompt to start the interview with introduction
             messages = [

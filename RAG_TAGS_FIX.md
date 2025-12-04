@@ -93,3 +93,4 @@ The RAG system IS working well:
 ## Summary
 The RAG system is functioning correctly and prioritizing red flags as expected. The only issue is missing tags, which will be resolved after rebuilding the vectorstore with the updated code.
 
+

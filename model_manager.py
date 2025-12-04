@@ -185,25 +185,25 @@ class ModelManager:
         print(f"📋 Available models: {list(self.available_models.keys())}")
 
     def _set_default_model(self):
-        """Set default active model - prefer Gemini 1.5 Flash (cheapest), fallback to Gemini 3 Pro, then GPT-4o Mini"""
+        """Set default active model - prefer GPT-4o Mini, fallback to Gemini models"""
         # Try to set from environment variable
-        default_model = os.getenv('DEFAULT_MODEL', 'gemini-1.5-flash')
+        default_model = os.getenv('DEFAULT_MODEL', 'gpt-4o-mini')
 
         # If the requested default is available, use it
         if default_model in self.available_models:
             self.active_model = default_model
             print(f"🎯 Default model set to: {self.active_model}")
         else:
-            # Fallback priority: Gemini 1.5 Flash > Gemini 3 Pro > GPT-4o Mini > MedGemma
-            if 'gemini-1.5-flash' in self.available_models:
+            # Fallback priority: GPT-4o Mini > Gemini 1.5 Flash > Gemini 3 Pro > MedGemma
+            if 'gpt-4o-mini' in self.available_models:
+                self.active_model = 'gpt-4o-mini'
+                print(f"🎯 Default model set to: {self.active_model}")
+            elif 'gemini-1.5-flash' in self.available_models:
                 self.active_model = 'gemini-1.5-flash'
                 print(f"🎯 Default model set to: {self.active_model} (Cheapest & Fast!)")
             elif 'gemini-3-pro-preview' in self.available_models:
                 self.active_model = 'gemini-3-pro-preview'
                 print(f"🎯 Default model set to: {self.active_model} (FREE 300M tokens!)")
-            elif 'gpt-4o-mini' in self.available_models:
-                self.active_model = 'gpt-4o-mini'
-                print(f"🎯 Default model set to: {self.active_model}")
             elif any('medgemma' in model_id.lower() for model_id in self.available_models):
                 medgemma_model = next(model_id for model_id in self.available_models if 'medgemma' in model_id.lower())
                 self.active_model = medgemma_model
@@ -347,18 +347,30 @@ class ModelManager:
 
     def _gemini_to_openai_stream(self, gemini_stream):
         """Convert Gemini streaming response to OpenAI format"""
-        for chunk in gemini_stream:
-            if chunk.text:
-                # Create OpenAI-compatible chunk
-                yield type('obj', (object,), {
-                    'choices': [type('obj', (object,), {
-                        'delta': type('obj', (object,), {
-                            'content': chunk.text
-                        })(),
-                        'index': 0,
-                        'finish_reason': None
-                    })()]
-                })()
+        try:
+            for chunk in gemini_stream:
+                try:
+                    if chunk.text:
+                        # Create OpenAI-compatible chunk
+                        yield type('obj', (object,), {
+                            'choices': [type('obj', (object,), {
+                                'delta': type('obj', (object,), {
+                                    'content': chunk.text
+                                })(),
+                                'index': 0,
+                                'finish_reason': None
+                            })()]
+                        })()
+                except Exception as chunk_error:
+                    print(f"[GEMINI STREAM] Error processing chunk: {chunk_error}")
+                    # Check if chunk has error info
+                    if hasattr(chunk, 'candidates') and chunk.candidates:
+                        print(f"[GEMINI STREAM] Chunk candidates: {chunk.candidates}")
+                    continue  # Skip this chunk and continue
+        except Exception as stream_error:
+            print(f"[GEMINI STREAM] Stream error: {stream_error}")
+            import traceback
+            traceback.print_exc()
 
     def _gemini_to_openai_response(self, gemini_response):
         """Convert Gemini response to OpenAI format"""

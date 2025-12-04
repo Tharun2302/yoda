@@ -152,6 +152,125 @@
       border-color: #bd2130;
     }
 
+    /* Settings button */
+    .settings-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      background: #f8f9fa;
+      color: #495057;
+      border: 1px solid #dee2e6;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      font-family: inherit;
+      min-width: 100px;
+    }
+
+    .settings-btn:hover {
+      background: #e9ecef;
+      border-color: #adb5bd;
+      color: #212529;
+    }
+
+    .settings-btn.active {
+      background: #007bff;
+      color: white;
+      border-color: #007bff;
+    }
+
+    /* Settings panel */
+    .settings-panel {
+      position: fixed;
+      top: 60px;
+      right: 20px;
+      width: 380px;
+      max-height: calc(100vh - 80px);
+      background: white;
+      border: 1px solid #dee2e6;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      z-index: 999;
+      display: none;
+      overflow-y: auto;
+    }
+
+    .settings-panel.open {
+      display: block;
+      animation: slideIn 0.2s ease-out;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .settings-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid #dee2e6;
+      background: #f8f9fa;
+      border-radius: 8px 8px 0 0;
+    }
+
+    .settings-header h3 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 600;
+      color: #212529;
+    }
+
+    .settings-content {
+      padding: 20px;
+    }
+
+    .settings-section {
+      margin-bottom: 24px;
+    }
+
+    .settings-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .settings-section-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #495057;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .settings-item {
+      margin-bottom: 16px;
+    }
+
+    .settings-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .settings-label {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      color: #333;
+      margin-bottom: 8px;
+    }
+
+    .settings-description {
+      font-size: 12px;
+      color: #666;
+      margin-top: 4px;
+    }
+
     /* Model selector dropdown */
     .model-selector {
       position: relative;
@@ -193,15 +312,17 @@
     .model-dropdown {
       position: absolute;
       top: 100%;
+      left: 0;
       right: 0;
       background: white;
       border: 1px solid #dee2e6;
       border-radius: 6px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      min-width: 200px;
-      max-height: 300px;
+      min-width: 100%;
+      max-height: 250px;
       overflow-y: auto;
-      z-index: 1001;
+      overflow-x: hidden;
+      z-index: 1050;
       display: none;
       margin-top: 4px;
     }
@@ -1578,33 +1699,6 @@
   <header>
     <h1 style="margin: 0; font-size: 24px; color: #0129ac;">HealthYoda</h1>
     <div class="header-controls">
-      <button class="voice-toggle-btn" id="voiceToggleBtn" title="Toggle voice mode">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
-          <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
-        </svg>
-        <span>Voice Off</span>
-      </button>
-
-      <!-- Model Selector -->
-      <div class="model-selector" id="modelSelector">
-        <button class="model-select-btn" id="modelSelectBtn" title="Select AI model">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-          </svg>
-          <span id="activeModelName">Loading...</span>
-          <span class="model-dropdown-arrow">▼</span>
-        </button>
-        <div class="model-dropdown" id="modelDropdown">
-          <div class="model-option" data-model="loading">
-            <div class="model-info">
-              <div class="model-name">Loading models...</div>
-              <div class="model-provider">Please wait</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <button class="new-chat-btn" id="newChatBtn">
         <span>
           <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="icon" aria-hidden="true">
@@ -1614,40 +1708,87 @@
         <span>New Chat</span>
       </button>
 
-      <!-- Evaluation Toggle -->
-      <div class="evaluation-toggle">
-        <label style="font-weight: 600; color: #333;">
-          Evaluations:
-        </label>
-        <label class="toggle-switch">
-          <input type="checkbox" id="evaluationToggle" onchange="toggleEvaluations()">
-          <span class="toggle-slider"></span>
-        </label>
-        <span id="evaluationStatus" style="color: #666; font-size: 14px;">Disabled</span>
-        <span id="evaluationLatency" style="color: #999; font-size: 12px; margin-left: 10px;"></span>
-      </div>
-
-      <div class="user-menu" id="userMenu">
-      <div class="user-menu" id="userMenu">
-      <div class="user-info">
-        <div class="user-avatar" id="userAvatar">U</div>
-        <span class="user-name" id="userName">User</span>
-        <div class="dropdown-arrow"></div>
-      </div>
-        <div class="user-dropdown" id="userDropdown">
-          <div class="dropdown-item" id="userEmail">HealthYoda User</div>
-          <div class="dropdown-item logout" id="logoutBtn">
-            <span>
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="icon" aria-hidden="true">
-                <path d="M3.50171 12.6663V7.33333C3.50171 6.64424 3.50106 6.08728 3.53784 5.63704C3.57525 5.17925 3.65463 4.77342 3.84644 4.39681L3.96851 4.17806C4.2726 3.68235 4.70919 3.2785 5.23023 3.01302L5.3728 2.94661C5.7091 2.80238 6.06981 2.73717 6.47046 2.70443C6.9207 2.66764 7.47766 2.66829 8.16675 2.66829H9.16675L9.30054 2.68197C9.60367 2.7439 9.83179 3.0119 9.83179 3.33333C9.83179 3.65476 9.60367 3.92277 9.30054 3.9847L9.16675 3.99837H8.16675C7.45571 3.99837 6.96238 3.99926 6.57886 4.0306C6.297 4.05363 6.10737 4.09049 5.96362 4.14193L5.83374 4.19857C5.53148 4.35259 5.27861 4.58671 5.1023 4.87435L5.03198 5.00032C4.95147 5.15833 4.89472 5.36974 4.86401 5.74544C4.83268 6.12896 4.83179 6.6223 4.83179 7.33333V12.6663C4.83179 13.3772 4.8327 13.8707 4.86401 14.2542C4.8947 14.6298 4.95153 14.8414 5.03198 14.9993L5.1023 15.1263C5.27861 15.4137 5.53163 15.6482 5.83374 15.8021L5.96362 15.8577C6.1074 15.9092 6.29691 15.947 6.57886 15.9701C6.96238 16.0014 7.45571 16.0013 8.16675 16.0013H9.16675L9.30054 16.015C9.6036 16.0769 9.83163 16.345 9.83179 16.6663C9.83179 16.9877 9.60363 17.2558 9.30054 17.3177L9.16675 17.3314H8.16675C7.47766 17.3314 6.9207 17.332 6.47046 17.2952C6.06978 17.2625 5.70912 17.1973 5.3728 17.0531L5.23023 16.9867C4.70911 16.7211 4.27261 16.3174 3.96851 15.8216L3.84644 15.6038C3.65447 15.2271 3.57526 14.8206 3.53784 14.3626C3.50107 13.9124 3.50171 13.3553 3.50171 12.6663ZM13.8035 13.804C13.5438 14.0634 13.1226 14.0635 12.863 13.804C12.6033 13.5443 12.6033 13.1223 12.863 12.8626L13.8035 13.804ZM12.863 6.19661C13.0903 5.96939 13.4409 5.94126 13.699 6.11165L13.8035 6.19661L17.1375 9.52962C17.3969 9.78923 17.3968 10.2104 17.1375 10.4701L13.8035 13.804L13.3337 13.3333L12.863 12.8626L15.0603 10.6654H9.16675C8.79959 10.6654 8.50189 10.3674 8.50171 10.0003C8.50171 9.63306 8.79948 9.33529 9.16675 9.33529H15.0613L12.863 7.13704L12.7781 7.03255C12.6077 6.77449 12.6359 6.42386 12.863 6.19661Z"></path>
-              </svg>
-            </span>
-            <span>Logout</span>
-          </div>
-        </div>
-      </div>
+      <button class="settings-btn" id="settingsBtn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 15a3 3 0 100-6 3 3 0 000 6z"/>
+          <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/>
+        </svg>
+        <span>Settings</span>
+      </button>
     </div>
   </header>
+
+  <!-- Settings Panel -->
+  <div class="settings-panel" id="settingsPanel">
+    <div class="settings-header">
+      <h3>⚙️ Settings</h3>
+    </div>
+    <div class="settings-content">
+      
+      <!-- Voice Mode Section -->
+      <div class="settings-section">
+        <div class="settings-section-title">Voice Mode</div>
+        <div class="settings-item">
+          <button class="voice-toggle-btn" id="voiceToggleBtn" title="Toggle voice mode" style="width: 100%; justify-content: center;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+              <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+            </svg>
+            <span>Voice Off</span>
+          </button>
+          <div class="settings-description">Enable voice input and text-to-speech</div>
+        </div>
+      </div>
+
+      <!-- Model Selection Section -->
+      <div class="settings-section">
+        <div class="settings-section-title">AI Model</div>
+        <div class="settings-item">
+          <label class="settings-label">Select Model</label>
+          <div class="model-selector" id="modelSelector">
+            <button class="model-select-btn" id="modelSelectBtn" title="Select AI model" style="width: 100%;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span id="activeModelName">Loading...</span>
+              <span class="model-dropdown-arrow">▼</span>
+            </button>
+            <div class="model-dropdown" id="modelDropdown">
+              <div class="model-option" data-model="loading">
+                <div class="model-info">
+                  <div class="model-name">Loading models...</div>
+                  <div class="model-provider">Please wait</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="settings-description">Choose which AI model to use for responses</div>
+        </div>
+      </div>
+
+      <!-- Evaluation Section -->
+      <div class="settings-section">
+        <div class="settings-section-title">Evaluation Mode</div>
+        <div class="settings-item">
+          <div class="evaluation-toggle" style="justify-content: space-between; width: 100%;">
+            <label style="font-weight: 600; color: #333;">
+              Enable Evaluations
+            </label>
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <label class="toggle-switch">
+                <input type="checkbox" id="evaluationToggle" onchange="toggleEvaluations()">
+                <span class="toggle-slider"></span>
+              </label>
+              <span id="evaluationStatus" style="color: #666; font-size: 14px;">Disabled</span>
+            </div>
+          </div>
+          <span id="evaluationLatency" style="color: #999; font-size: 12px; display: block; margin-top: 8px;"></span>
+          <div class="settings-description">Run HealthBench and HELM evaluations (slower response times)</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
 
   <div class="main-content">
     <div id="messages"></div>
@@ -1680,6 +1821,90 @@
   </div>
 
   <script>
+    // ===== AUDIO QUEUE FOR STREAMING TTS =====
+    class AudioQueue {
+      constructor() {
+        this.queue = [];
+        this.isPlaying = false;
+        this.currentAudio = null;
+      }
+      
+      add(audioBase64) {
+        // Convert base64 to blob URL
+        try {
+          const binaryString = atob(audioBase64);
+          const bytes = new Uint8Array(binaryString.length);
+          for (let i = 0; i < binaryString.length; i++) {
+            bytes[i] = binaryString.charCodeAt(i);
+          }
+          const blob = new Blob([bytes], { type: 'audio/wav' });
+          const url = URL.createObjectURL(blob);
+          
+          this.queue.push(url);
+          console.log('[TTS QUEUE] Added audio chunk, queue length:', this.queue.length);
+          
+          if (!this.isPlaying) {
+            this.playNext();
+          }
+        } catch (error) {
+          console.error('[TTS QUEUE] Error processing audio:', error);
+        }
+      }
+      
+      async playNext() {
+        if (this.queue.length === 0) {
+          this.isPlaying = false;
+          console.log('[TTS QUEUE] Queue empty, stopping');
+          return;
+        }
+        
+        this.isPlaying = true;
+        const audioUrl = this.queue.shift();
+        
+        try {
+          this.currentAudio = new Audio(audioUrl);
+          
+          this.currentAudio.onended = () => {
+            URL.revokeObjectURL(audioUrl); // Clean up blob URL
+            console.log('[TTS QUEUE] Audio finished, playing next');
+            this.playNext();
+          };
+          
+          this.currentAudio.onerror = (error) => {
+            console.error('[TTS QUEUE] Audio playback error:', error);
+            URL.revokeObjectURL(audioUrl);
+            this.playNext(); // Continue with next audio
+          };
+          
+          await this.currentAudio.play();
+          console.log('[TTS QUEUE] Playing audio chunk');
+        } catch (error) {
+          console.error('[TTS QUEUE] Error playing audio:', error);
+          URL.revokeObjectURL(audioUrl);
+          this.playNext(); // Continue with next audio
+        }
+      }
+      
+      stop() {
+        // Stop current audio and clear queue
+        if (this.currentAudio) {
+          this.currentAudio.pause();
+          this.currentAudio = null;
+        }
+        
+        // Clean up all blob URLs in queue
+        this.queue.forEach(url => URL.revokeObjectURL(url));
+        this.queue = [];
+        this.isPlaying = false;
+        console.log('[TTS QUEUE] Stopped and cleared');
+      }
+    }
+    
+    // Initialize global audio queue
+    const audioQueue = new AudioQueue();
+    
+    // ===== END AUDIO QUEUE =====
+    
     // API Base URL configuration
     function getApiBase() {
       const protocol = window.location.protocol;
@@ -2280,6 +2505,7 @@
         let fullResponse = "";
         let lastRenderTime = 0;
         const renderThrottle = 16; // 60fps - re-render every 16ms for smooth streaming
+        let receivedStreamingAudio = false; // Track if we got streaming audio chunks
 
         while (true) {
           const { done, value } = await reader.read();
@@ -2320,6 +2546,11 @@
                     scrollToBottom();
                     lastRenderTime = now;
                   }
+                } else if (data.type === 'audio_chunk') {
+                  // Streaming TTS audio chunk received
+                  console.log('[TTS STREAM] Received audio chunk for:', data.sentence?.substring(0, 50));
+                  audioQueue.add(data.audio);
+                  receivedStreamingAudio = true; // Mark that we got streaming audio
                 } else if (data.type === 'done') {
                   // Final response received with trace_id, generation_id, and tree branch info
                   fullResponse = data.full_response || fullResponse;
@@ -2389,8 +2620,11 @@
                   
                   // If voice mode enabled, speak the response
                   // In hands-free mode, recording will auto-start after speaking completes
-                  if (voiceEnabled && fullResponse) {
+                  // Skip if we already played streaming TTS
+                  if (voiceEnabled && fullResponse && !receivedStreamingAudio) {
                     await speakText(fullResponse);
+                  } else if (receivedStreamingAudio) {
+                    console.log('[TTS] Skipping full-text TTS - already played streaming audio');
                   } else if (voiceEnabled && isHandsFree && !isSpeaking) {
                     // If TTS is disabled but hands-free is on, restart recording immediately
                     setTimeout(() => {
@@ -3772,6 +4006,11 @@
                     scrollToBottom();
                     lastRenderTime = now;
                   }
+                } else if (data.type === 'audio_chunk') {
+                  // Streaming TTS audio chunk received
+                  console.log('[TTS STREAM] Received audio chunk for:', data.sentence?.substring(0, 50));
+                  audioQueue.add(data.audio);
+                  receivedStreamingAudio = true; // Mark that we got streaming audio
                 } else if (data.type === 'done') {
                   // Final response received
                   fullResponse = data.full_response || fullResponse;
@@ -4075,6 +4314,8 @@
     }
 
     // Handle dropdown toggle
+    // Removed - User menu functions no longer needed
+    /*
     function toggleDropdown() {
       const dropdown = document.getElementById('userDropdown');
       dropdown.classList.toggle('show');
@@ -4105,6 +4346,7 @@
       
       // Session cleared
     }
+    */
 
     // OLD AUTH CODE REMOVED - Handle OAuth callback
     function handleOAuthCallback_DELETED() {
@@ -4317,36 +4559,22 @@
     }
 
     // Update user info in header
+    // Update user info in UI - DISABLED (user menu removed)
     function updateUserInfo(user) {
-      const userName = document.getElementById('userName');
-      const userAvatar = document.getElementById('userAvatar');
-      const userEmail = document.getElementById('userEmail');
-      
-      if (user) {
-        userName.textContent = user.name || 'User';
-        userAvatar.textContent = (user.name || 'U').charAt(0).toUpperCase();
-        userEmail.textContent = user.email || '';
-      } else {
-        userName.textContent = 'User';
-        userAvatar.textContent = 'U';
-        userEmail.textContent = '';
-      }
+      // Removed - user menu no longer exists
+      return;
     }
 
-    // Handle dropdown toggle
+    // Handle dropdown toggle - DISABLED (user menu removed)
     function toggleDropdown() {
-      const dropdown = document.getElementById('userDropdown');
-      dropdown.classList.toggle('show');
+      // Removed - user menu no longer exists
+      return;
     }
 
-    // Close dropdown when clicking outside
+    // Close dropdown when clicking outside - DISABLED (user menu removed)
     function closeDropdown(event) {
-      const userMenu = document.getElementById('userMenu');
-      const dropdown = document.getElementById('userDropdown');
-      
-      if (!userMenu.contains(event.target)) {
-        dropdown.classList.remove('show');
-      }
+      // Removed - user menu no longer exists
+      return;
     }
 
     // Load user's chat history
@@ -4447,13 +4675,42 @@
     }
 
     // Initialize when page loads (no authentication)
-    updateUserInfo();
+    // updateUserInfo(); // DISABLED - user menu removed
 
     // Event listeners
     document.getElementById('newChatBtn').addEventListener('click', handleNewChat);
-    document.getElementById('userMenu').addEventListener('click', toggleDropdown);
-    document.getElementById('logoutBtn').addEventListener('click', handleLogout);
-    document.addEventListener('click', closeDropdown);
+    
+    // Settings button handler
+    document.getElementById('settingsBtn').addEventListener('click', function() {
+      const settingsPanel = document.getElementById('settingsPanel');
+      const settingsBtn = document.getElementById('settingsBtn');
+      
+      if (settingsPanel.classList.contains('open')) {
+        settingsPanel.classList.remove('open');
+        settingsBtn.classList.remove('active');
+      } else {
+        settingsPanel.classList.add('open');
+        settingsBtn.classList.add('active');
+      }
+    });
+    
+    // Close settings panel when clicking outside
+    document.addEventListener('click', function(event) {
+      const settingsPanel = document.getElementById('settingsPanel');
+      const settingsBtn = document.getElementById('settingsBtn');
+      
+      if (!settingsPanel.contains(event.target) && !settingsBtn.contains(event.target)) {
+        if (settingsPanel.classList.contains('open')) {
+          settingsPanel.classList.remove('open');
+          settingsBtn.classList.remove('active');
+        }
+      }
+    });
+    
+    // Removed old user menu handlers
+    // document.getElementById('userMenu').addEventListener('click', toggleDropdown);
+    // document.getElementById('logoutBtn').addEventListener('click', handleLogout);
+    // document.addEventListener('click', closeDropdown);
     
     // Show voice warning modal by default on page load
     // Wait a bit to ensure DOM is ready and history is loaded

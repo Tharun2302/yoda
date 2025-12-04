@@ -136,3 +136,4 @@ If you need to customize:
 
 The Gemini integration is complete and ready to use! It will automatically appear in your model selector dropdown once you add the API key and restart. 🚀
 
+

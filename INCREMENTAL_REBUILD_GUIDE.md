@@ -221,3 +221,4 @@ INFO: [OK] Created 1687 embeddings in vector database
 2. Set to `true` only when adding/removing files
 3. Set back to `false` after rebuild completes
 
+
