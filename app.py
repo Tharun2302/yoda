@@ -2170,7 +2170,7 @@ def transcribe_voice():
         finally:
             # HIPAA Compliance: Delete temp file immediately
             if VOICE_AVAILABLE:
-            voice_processor.cleanup_temp_file(temp_audio_path)
+                voice_processor.cleanup_temp_file(temp_audio_path)
             else:
                 try:
                     os.unlink(temp_audio_path)

@@ -163,7 +163,7 @@ class TextFileProcessor:
         red_flags = self._extract_red_flags(section_content)
         if red_flags:
             for i, red_flag in enumerate(red_flags):
-            pattern = {
+                pattern = {
                     'medical_domain': medical_domain,
                     'section': section_title,
                     'content_type': 'red_flag',
@@ -182,8 +182,8 @@ class TextFileProcessor:
                     'tree_path': f"{medical_domain} > {section_title} > Red Flags > {i+1}",
                     'source': 'deepest_dive',
                     'metadata': metadata
-            }
-            patterns.append(pattern)
+                }
+                patterns.append(pattern)
                 self.stats['red_flags'] += 1
 
         # 2. Extract CLINICAL DIFFERENTIALS
@@ -193,7 +193,7 @@ class TextFileProcessor:
             diff_groups = self._group_differentials(section_content)
             
             for subsection, diff_list in diff_groups.items():
-            pattern = {
+                pattern = {
                     'medical_domain': medical_domain,
                     'section': section_title,
                     'content_type': 'differential',
@@ -211,17 +211,17 @@ class TextFileProcessor:
                     ],
                     'tree_path': f"{medical_domain} > {section_title} > Differentials > {subsection or 'Main'}",
                     'source': 'deepest_dive',
-                'metadata': metadata,
+                    'metadata': metadata,
                     'differentials': diff_list
-            }
-            patterns.append(pattern)
+                }
+                patterns.append(pattern)
                 self.stats['differentials'] += 1
 
         # 3. Extract Q&A PATTERNS (interview questions)
         qa_patterns = self._extract_qa_patterns(section_content)
         if qa_patterns:
-        for i, (bot_question, patient_responses) in enumerate(qa_patterns):
-            pattern = {
+            for i, (bot_question, patient_responses) in enumerate(qa_patterns):
+                pattern = {
                     'medical_domain': medical_domain,
                     'section': section_title,
                     'content_type': 'interview_question',
@@ -240,15 +240,15 @@ class TextFileProcessor:
                     'tree_path': f"{medical_domain} > {section_title} > Interview Questions > {i+1}",
                     'source': 'deepest_dive',
                     'metadata': metadata
-            }
-            patterns.append(pattern)
+                }
+                patterns.append(pattern)
                 self.stats['questions'] += 1
 
         # 4. Extract CLINICAL CLUES (symptom patterns)
         clinical_clues = self._extract_clinical_clues(section_content)
         if clinical_clues:
             for subsection, clues in clinical_clues.items():
-            pattern = {
+                pattern = {
                     'medical_domain': medical_domain,
                     'section': section_title,
                     'content_type': 'clinical_clue',
@@ -266,10 +266,10 @@ class TextFileProcessor:
                     ],
                     'tree_path': f"{medical_domain} > {section_title} > Clinical Clues > {subsection}",
                     'source': 'deepest_dive',
-                'metadata': metadata,
+                    'metadata': metadata,
                     'clinical_clues': clues
-            }
-            patterns.append(pattern)
+                }
+                patterns.append(pattern)
                 self.stats['clinical_clues'] += 1
 
         self.stats['total_patterns'] += len(patterns)

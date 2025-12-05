@@ -187,7 +187,7 @@ class QuestionBookRAG:
         """Load both docx document and text files"""
         # Load docx document (if exists)
         if os.path.exists(self.docx_path):
-        self.load_docx_document()
+            self.load_docx_document()
         else:
             logger.warning(f"DOCX file not found at {self.docx_path}, skipping...")
 
@@ -425,7 +425,7 @@ class QuestionBookRAG:
                     logger.error(f"Error clearing collection: {e}")
                 
                 questions_to_process = self.questions
-        start_index = 0
+                start_index = 0
         else:
             # First build
             logger.info(f"[INIT] Creating embeddings for {len(self.questions)} patterns...")
