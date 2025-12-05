@@ -68,7 +68,7 @@ class QuestionBookRAG:
                 traceback.print_exc()
                 self.chroma_client = None
                 self.collection = None
-        
+
         # Check if rebuild is requested via environment variable
         rebuild_vectorstore = os.getenv('REBUILD_VECTORSTORE', 'false').lower() == 'true'
         
@@ -97,7 +97,7 @@ class QuestionBookRAG:
             self.load_documents()
             
             # Create embeddings
-            if self.collection:
+        if self.collection:
                 self.create_embeddings(force_rebuild=False)
         
         else:
@@ -187,7 +187,7 @@ class QuestionBookRAG:
         """Load both docx document and text files"""
         # Load docx document (if exists)
         if os.path.exists(self.docx_path):
-            self.load_docx_document()
+        self.load_docx_document()
         else:
             logger.warning(f"DOCX file not found at {self.docx_path}, skipping...")
 
@@ -354,8 +354,8 @@ class QuestionBookRAG:
             'source': 'docx',
             'metadata': {
                 'line_number': line_number,
-                'system': system,
-                'symptom': symptom,
+            'system': system,
+            'symptom': symptom,
                 'category': category
             }
         }
@@ -425,7 +425,7 @@ class QuestionBookRAG:
                     logger.error(f"Error clearing collection: {e}")
                 
                 questions_to_process = self.questions
-                start_index = 0
+        start_index = 0
         else:
             # First build
             logger.info(f"[INIT] Creating embeddings for {len(self.questions)} patterns...")
@@ -826,7 +826,7 @@ if __name__ == '__main__':
     
     # Export to JSON
     rag.export_to_json()
-    
+
     print("\n" + "="*80)
     print("Test complete!")
     print("="*80)

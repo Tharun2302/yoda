@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify, Response, send_file
 from flask_cors import CORS
+from flask_socketio import SocketIO, emit
 from functools import wraps
 import json
 import time
@@ -12,6 +13,15 @@ from openai import OpenAI
 from dotenv import load_dotenv
 from langfuse_tracker import langfuse_tracker
 from rag_system import QuestionBookRAG
+
+# Deepgram imports
+try:
+    from deepgram import DeepgramClient
+    DEEPGRAM_AVAILABLE = True
+    print("✅ Deepgram SDK available")
+except ImportError:
+    DEEPGRAM_AVAILABLE = False
+    print("⚠️  Deepgram SDK not installed - streaming STT disabled")
 
 # MongoDB imports
 try:
@@ -68,6 +78,10 @@ app = Flask(__name__)
 # In production, replace with actual frontend domain(s)
 # Allow both port 8000 (separate frontend server) and 8002 (Flask serving frontend)
 ALLOWED_ORIGINS = os.getenv('ALLOWED_ORIGINS', 'https://167.71.238.114,http://167.71.238.114:8002,http://localhost:8000,http://127.0.0.1:8000,http://localhost:8002,http://127.0.0.1:8002').split(',')
+
+# Initialize SocketIO for WebSocket support
+socketio = SocketIO(app, cors_allowed_origins=ALLOWED_ORIGINS, async_mode='threading', ping_timeout=60, ping_interval=25)
+
 CORS(app, origins=ALLOWED_ORIGINS, supports_credentials=True)
 
 # HIPAA Compliance: Add security headers
@@ -87,7 +101,7 @@ def add_security_headers(response):
         if 'text/html' in content_type:
             # For HTML pages, allow inline styles and scripts (needed for dashboard and chatbot UI)
             # Allow marked.js CDN and connections to both localhost and 127.0.0.1 on port 8002
-            response.headers['Content-Security-Policy'] = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; connect-src 'self' https://167.71.238.114 http://127.0.0.1:8002 http://localhost:8002"
+            response.headers['Content-Security-Policy'] = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdn.socket.io; style-src 'self' 'unsafe-inline'; connect-src 'self' https://cdn.socket.io https://167.71.238.114 http://127.0.0.1:8002 http://localhost:8002 ws://127.0.0.1:8002 ws://localhost:8002"
         else:
             # For other content (JSON, etc.), use strict CSP
             response.headers['Content-Security-Policy'] = "default-src 'self'"
@@ -1544,8 +1558,8 @@ def chat_stream():
                 # Get medical context from RAG
                 medical_context = rag_question_info.get('tree_path') if rag_question_info else None
                 
-                # Check if evaluations are enabled for this session
-                eval_enabled_for_session = evaluation_enabled_sessions.get(session_id, False)
+                # Check if evaluations are enabled for this session (default: enabled)
+                eval_enabled_for_session = evaluation_enabled_sessions.get(session_id, True)
                 print(f"[DEBUG] Session: {session_id}, Eval enabled: {eval_enabled_for_session}")
                 
                 # HEALTHBENCH EVALUATION
@@ -1875,7 +1889,7 @@ def toggle_evaluation():
 def evaluation_status():
     """Get evaluation status for a session"""
     session_id = request.args.get('session_id', 'default')
-    enabled = evaluation_enabled_sessions.get(session_id, False)
+    enabled = evaluation_enabled_sessions.get(session_id, True)  # Default: enabled
     
     return jsonify({
         'session_id': session_id,
@@ -1985,11 +1999,94 @@ def get_session_data(session_id):
     
     return jsonify(response_data)
 
+# ============================================================================
+# DEEPGRAM STT HELPER FUNCTION
+# ============================================================================
+
+def transcribe_with_deepgram(audio_file_path):
+    """
+    Transcribe audio file using Deepgram Nova-2 API (non-streaming)
+    Uses simplified API for v5.x compatibility
+    
+    Args:
+        audio_file_path: Path to audio file
+        
+    Returns:
+        str: Transcribed text or None if failed
+    """
+    import time
+    start_time = time.time()
+    
+    deepgram_api_key = os.getenv('DEEPGRAM_API_KEY')
+    if not deepgram_api_key:
+        print("[DEEPGRAM] API key not found")
+        return None
+    
+    try:
+        # Use requests library for direct API call
+        import requests
+        
+        # Read audio file directly - Deepgram handles preprocessing
+        read_start = time.time()
+        with open(audio_file_path, 'rb') as audio_file:
+            audio_data = audio_file.read()
+        read_time = time.time() - read_start
+        
+        print(f"[DEEPGRAM] Sending {len(audio_data)} bytes for transcription (raw audio)...")
+        print(f"[TIMING] File read: {read_time:.3f}s")
+        
+        # Direct REST API call - Deepgram auto-detects format
+        url = 'https://api.deepgram.com/v1/listen'
+        params = {
+            'model': 'nova',  # Use basic nova model (available on all tiers)
+            'smart_format': 'true',
+            'punctuate': 'true',
+            'language': 'en-US'
+            # No 'encoding' parameter - let Deepgram auto-detect
+        }
+        headers = {
+            'Authorization': f'Token {deepgram_api_key}',
+            'Content-Type': 'audio/webm'
+        }
+        
+        api_start = time.time()
+        response = requests.post(url, params=params, headers=headers, data=audio_data, timeout=30)
+        api_time = time.time() - api_start
+        print(f"[TIMING] Deepgram API call: {api_time:.3f}s")
+        
+        if response.status_code == 200:
+            result = response.json()
+            
+            # Extract transcript
+            if 'results' in result:
+                channels = result['results'].get('channels', [])
+                if channels and len(channels) > 0:
+                    alternatives = channels[0].get('alternatives', [])
+                    if alternatives and len(alternatives) > 0:
+                        transcript = alternatives[0].get('transcript', '')
+                        total_time = time.time() - start_time
+                        print(f"[DEEPGRAM] ✅ Transcription successful: '{transcript}' ({len(transcript)} chars)")
+                        print(f"[TIMING] ⏱️  TOTAL STT TIME: {total_time:.3f}s (Read: {read_time:.3f}s + API: {api_time:.3f}s)")
+                        return transcript
+            
+            print("[DEEPGRAM] No transcript in response")
+            print(f"[DEEPGRAM] Response: {result}")
+            return None
+        else:
+            print(f"[DEEPGRAM] API error {response.status_code}: {response.text}")
+            return None
+            
+    except Exception as e:
+        print(f"[DEEPGRAM] ❌ Transcription error: {e}")
+        import traceback
+        traceback.print_exc()
+        return None
+
 @app.route('/voice/transcribe', methods=['POST', 'OPTIONS'])
 def transcribe_voice():
     """
-    Transcribe audio to text using Whisper.
-    HIPAA Compliant: Audio processed locally, deleted immediately after.
+    Transcribe audio to text using selected STT provider (Faster-Whisper or Deepgram Nova-2).
+    HIPAA Compliant: Audio processed locally or via secure API, deleted immediately after.
     """
     # Handle OPTIONS preflight request
     if request.method == 'OPTIONS':
@@ -2000,14 +2097,6 @@ def transcribe_voice():
         client_ip = request.environ.get('HTTP_X_FORWARDED_FOR', request.remote_addr)
         if not check_rate_limit(client_ip):
             return jsonify({'error': 'Rate limit exceeded. Please try again later.'}), 429
-        
-        # Check if voice is available
-        if not VOICE_AVAILABLE:
-            return jsonify({'error': 'Voice processing not available'}), 503
-        
-        stt_available, _ = voice_processor.is_voice_available()
-        if not stt_available:
-            return jsonify({'error': 'Speech-to-text not available'}), 503
         
         # Check if audio file is present
         if 'audio' not in request.files:
@@ -2021,6 +2110,18 @@ def transcribe_voice():
         session_id = request.form.get('session_id', 'default')
         if not validate_session_id(session_id):
             return jsonify({'error': 'Invalid session ID format'}), 400
+        
+        # Get STT provider from request or default to Deepgram (faster and better)
+        stt_provider = request.form.get('stt_provider', 'deepgram')
+        
+        # If Deepgram is selected but API key not available, fall back to faster-whisper
+        if stt_provider == 'deepgram':
+            if not os.getenv('DEEPGRAM_API_KEY'):
+                print("[STT] Deepgram requested but API key not configured, falling back to Faster-Whisper")
+                stt_provider = 'faster-whisper'
+            elif not DEEPGRAM_AVAILABLE:
+                print("[STT] Deepgram requested but SDK/requests not available, falling back to Faster-Whisper")
+                stt_provider = 'faster-whisper'
         
         # Save uploaded audio to temp file
         import tempfile
@@ -2037,7 +2138,20 @@ def transcribe_voice():
             if file_size > max_size:
                 return jsonify({'error': 'Audio file too large'}), 413
             
-            # Transcribe audio
+            # Transcribe based on selected provider
+            if stt_provider == 'deepgram' and DEEPGRAM_AVAILABLE:
+                print(f"[STT] Using Deepgram Nova-2 for transcription")
+                transcription = transcribe_with_deepgram(temp_audio_path)
+            else:
+                # Fallback to Faster-Whisper
+                if not VOICE_AVAILABLE:
+                    return jsonify({'error': 'Voice processing not available'}), 503
+                
+                stt_available, _ = voice_processor.is_voice_available()
+                if not stt_available:
+                    return jsonify({'error': 'Speech-to-text not available'}), 503
+                
+                print(f"[STT] Using Faster-Whisper for transcription")
             transcription = voice_processor.transcribe_audio(temp_audio_path)
             
             if transcription is None:
@@ -2049,12 +2163,19 @@ def transcribe_voice():
             return jsonify({
                 'text': transcription,
                 'session_id': session_id,
+                'stt_provider': stt_provider,
                 'timestamp': datetime.now().isoformat()
             })
             
         finally:
             # HIPAA Compliance: Delete temp file immediately
+            if VOICE_AVAILABLE:
             voice_processor.cleanup_temp_file(temp_audio_path)
+            else:
+                try:
+                    os.unlink(temp_audio_path)
+                except:
+                    pass
     
     except Exception as e:
         print(f"[Voice] Transcription error: {e}")
@@ -2136,7 +2257,7 @@ def synthesize_voice():
 
 @app.route('/voice/status', methods=['GET'])
 def voice_status():
-    """Get voice processing system status"""
+    """Get voice processing system status including available STT providers"""
     if not VOICE_AVAILABLE:
         return jsonify({
             'available': False,
@@ -2144,7 +2265,65 @@ def voice_status():
         })
     
     status = voice_processor.get_voice_status()
+    
+    # Add STT provider information
+    stt_providers = {
+        'faster-whisper': {
+            'available': VOICE_AVAILABLE,
+            'name': 'Faster Whisper',
+            'latency': '3-4 seconds',
+            'requires_api_key': False
+        },
+        'deepgram': {
+            'available': DEEPGRAM_AVAILABLE and os.getenv('DEEPGRAM_API_KEY') is not None,
+            'name': 'Deepgram Nova-2',
+            'latency': '0.3-0.5 seconds',
+            'requires_api_key': True
+        }
+    }
+    
+    status['stt_providers'] = stt_providers
+    status['current_stt_provider'] = os.getenv('STT_PROVIDER', 'deepgram')
+    
     return jsonify(status)
+
+@app.route('/voice/stt-provider', methods=['GET', 'POST'])
+def stt_provider_endpoint():
+    """Get or set the STT provider for the session"""
+    if request.method == 'GET':
+        return jsonify({
+            'provider': os.getenv('STT_PROVIDER', 'deepgram'),
+            'available_providers': {
+                'faster-whisper': VOICE_AVAILABLE,
+                'deepgram': DEEPGRAM_AVAILABLE and os.getenv('DEEPGRAM_API_KEY') is not None
+            }
+        })
+    
+    elif request.method == 'POST':
+        data = request.get_json() or {}
+        provider = data.get('provider', 'faster-whisper')
+        
+        # Validate provider
+        if provider not in ['faster-whisper', 'deepgram']:
+            return jsonify({'error': 'Invalid STT provider'}), 400
+        
+        # Check if provider is available
+        if provider == 'deepgram':
+            if not DEEPGRAM_AVAILABLE:
+                return jsonify({'error': 'Deepgram SDK not installed'}), 400
+            if not os.getenv('DEEPGRAM_API_KEY'):
+                return jsonify({'error': 'Deepgram API key not configured'}), 400
+        elif provider == 'faster-whisper':
+            if not VOICE_AVAILABLE:
+                return jsonify({'error': 'Faster-Whisper not available'}), 400
+        
+        # Note: In a real app, this would be stored per-session in database
+        # For now, we'll return success and the frontend will pass it with each request
+        return jsonify({
+            'success': True,
+            'provider': provider,
+            'message': f'STT provider set to {provider}'
+        })
 
 @app.route('/healthbench/results', methods=['GET'])
 def get_healthbench_results():
@@ -2223,7 +2402,7 @@ def healthbench_dashboard():
         
         # Override CSP for dashboard to allow inline styles and scripts
         # Dashboard is internal tool, not patient-facing, so this is acceptable
-        response.headers['Content-Security-Policy'] = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; connect-src 'self' https://167.71.238.114 http://127.0.0.1:8002 http://localhost:8002"
+        response.headers['Content-Security-Policy'] = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdn.socket.io; style-src 'self' 'unsafe-inline'; connect-src 'self' https://167.71.238.114 http://127.0.0.1:8002 http://localhost:8002 ws://127.0.0.1:8002 ws://localhost:8002"
         
         return response
     
@@ -2368,7 +2547,7 @@ def chatbot_interface():
         response.headers['Expires'] = '0'
         
         # Allow inline styles and scripts for chatbot UI, and marked.js CDN
-        response.headers['Content-Security-Policy'] = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; connect-src 'self' https://167.71.238.114 http://127.0.0.1:8002 http://localhost:8002; img-src 'self' data: blob:; media-src 'self' blob:"
+        response.headers['Content-Security-Policy'] = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdn.socket.io; style-src 'self' 'unsafe-inline'; connect-src 'self' https://cdn.socket.io https://167.71.238.114 http://127.0.0.1:8002 http://localhost:8002 ws://127.0.0.1:8002 ws://localhost:8002; img-src 'self' data: blob:; media-src 'self' blob:"
         
         return response
     
@@ -2377,6 +2556,322 @@ def chatbot_interface():
         import traceback
         traceback.print_exc()
         return f"<h1>Error</h1><p>{str(e)}</p>", 500
+
+# ============================================================================
+# DEEPGRAM LIVE STREAMING STT (Real-time WebSocket)
+# ============================================================================
+
+import asyncio
+import threading
+from queue import Queue
+
+# Store active Deepgram live connections
+deepgram_live_connections = {}
+transcription_queues = {}
+
+@socketio.on('connect')
+def handle_connect():
+    """Handle WebSocket connection"""
+    print(f"[DEEPGRAM LIVE] Client connected: {request.sid}")
+    transcription_queues[request.sid] = Queue()
+    
+@socketio.on('disconnect')
+def handle_disconnect():
+    """Handle WebSocket disconnection"""
+    print(f"[DEEPGRAM LIVE] Client disconnected: {request.sid}")
+    
+    # Clean up
+    if request.sid in deepgram_live_connections:
+        try:
+            conn_data = deepgram_live_connections[request.sid]
+            if 'connection' in conn_data:
+                # Stop the connection gracefully
+                conn_data['stop_flag'] = True
+            del deepgram_live_connections[request.sid]
+        except Exception as e:
+            print(f"[DEEPGRAM LIVE] Error cleaning up: {e}")
+    
+    if request.sid in transcription_queues:
+        del transcription_queues[request.sid]
+
+@socketio.on('start_live_transcription')
+def handle_start_live_transcription(data):
+    """Start a REAL live streaming transcription using Deepgram Live API"""
+    import time
+    start_time = time.time()
+    
+    deepgram_api_key = os.getenv('DEEPGRAM_API_KEY')
+    if not deepgram_api_key:
+        print("[DEEPGRAM LIVE] API key not found")
+        emit('transcription_error', {'error': 'Deepgram API key not configured'})
+        return
+    
+    try:
+        client_sid = request.sid
+        session_id = data.get('session_id', 'unknown')
+        
+        # PREVENT DUPLICATE SESSIONS
+        if client_sid in deepgram_live_connections:
+            print(f"[DEEPGRAM LIVE] Session already active for client: {client_sid}, ignoring duplicate start")
+            return
+        
+        print(f"[DEEPGRAM LIVE] Starting LIVE streaming for client: {client_sid}")
+        
+        # Initialize connection data
+        deepgram_live_connections[client_sid] = {
+            'session_id': session_id,
+            'full_transcript': '',
+            'last_transcript': '',  # Track last interim result as fallback
+            'stop_flag': False,
+            'ws_url': None
+        }
+        
+        # Create WebSocket URL for Deepgram Live API
+        import websocket
+        import json
+        
+        # Try nova-2 for better accuracy, fall back to nova if access denied
+        ws_url = f"wss://api.deepgram.com/v1/listen?model=nova-2&punctuate=true&interim_results=true&endpointing=300&encoding=linear16&sample_rate=16000&channels=1"
+        
+        def on_message(ws, message):
+            """Handle incoming transcription from Deepgram"""
+            try:
+                result = json.loads(message)
+                
+                if 'channel' in result:
+                    transcript = result['channel']['alternatives'][0]['transcript']
+                    is_final = result.get('is_final', False)
+                    
+                    if transcript:
+                        print(f"[DEEPGRAM LIVE] {'FINAL' if is_final else 'INTERIM'}: {transcript}")
+                        
+                        # Send to client immediately
+                        socketio.emit('live_transcript', {
+                            'text': transcript,
+                            'is_final': is_final,
+                            'session_id': session_id
+                        }, room=client_sid)
+                        
+                        # Track both final and last interim (in case final doesn't come)
+                        if is_final:
+                            deepgram_live_connections[client_sid]['full_transcript'] += transcript + ' '
+                        
+                        # Always update last_transcript (fallback if no final arrives)
+                        deepgram_live_connections[client_sid]['last_transcript'] = transcript
+                            
+            except Exception as e:
+                print(f"[DEEPGRAM LIVE] Error processing message: {e}")
+        
+        def on_error(ws, error):
+            # Filter out common errors that don't need reporting
+            error_str = str(error)
+            if 'NoneType' not in error_str and 'sock' not in error_str:
+                print(f"[DEEPGRAM LIVE] WebSocket error: {error}")
+                socketio.emit('transcription_error', {'error': error_str}, room=client_sid)
+        
+        def on_close(ws, close_status_code, close_msg):
+            # Only log meaningful close messages
+            if close_status_code and close_status_code != 1000:  # 1000 = normal close
+                print(f"[DEEPGRAM LIVE] WebSocket closed: {close_status_code} - {close_msg}")
+            # Don't need to emit error for normal closes
+        
+        def on_open(ws):
+            print(f"[DEEPGRAM LIVE] WebSocket connection opened")
+            socketio.emit('live_ready', {'status': 'ready', 'session_id': session_id}, room=client_sid)
+        
+        # Create WebSocket connection in a separate thread
+        def run_websocket():
+            ws = websocket.WebSocketApp(
+                ws_url,
+                header={f"Authorization: Token {deepgram_api_key}"},
+                on_open=on_open,
+                on_message=on_message,
+                on_error=on_error,
+                on_close=on_close
+            )
+            
+            deepgram_live_connections[client_sid]['connection'] = ws
+            ws.run_forever()
+        
+        ws_thread = threading.Thread(target=run_websocket, daemon=True)
+        ws_thread.start()
+        
+        setup_time = time.time() - start_time
+        print(f"[TIMING] Live stream setup: {setup_time:.3f}s")
+        
+    except Exception as e:
+        print(f"[DEEPGRAM LIVE] Error starting live stream: {e}")
+        import traceback
+        traceback.print_exc()
+        emit('transcription_error', {'error': str(e)})
+
+@socketio.on('live_audio_data')
+def handle_live_audio_data(data):
+    """
+    Receive audio data and send IMMEDIATELY to Deepgram Live WebSocket
+    """
+    import base64
+    import websocket
+    
+    try:
+        client_sid = request.sid
+        audio_data = data.get('audio')  # Base64 encoded audio
+        
+        if not audio_data or client_sid not in deepgram_live_connections:
+            return
+        
+        conn_data = deepgram_live_connections[client_sid]
+        
+        # Check if connection exists and is open
+        if 'connection' in conn_data and conn_data['connection']:
+            ws = conn_data['connection']
+            
+            # Check if the WebSocket is connected and open
+            if hasattr(ws, 'sock') and ws.sock and ws.sock.connected:
+                # Decode base64 audio and send to Deepgram
+                audio_bytes = base64.b64decode(audio_data)
+                
+                # Send audio bytes directly to Deepgram WebSocket
+                ws.send(audio_bytes, opcode=websocket.ABNF.OPCODE_BINARY)
+            else:
+                # WebSocket not ready yet, skip this chunk
+                pass
+            
+    except Exception as e:
+        # Silently ignore errors during audio streaming to avoid spam
+        if 'socket is already closed' not in str(e):
+            print(f"[DEEPGRAM LIVE] Error sending audio: {e}")
+
+@socketio.on('stop_live_transcription')
+def handle_stop_live_transcription(data):
+    """Stop the live transcription session"""
+    try:
+        client_sid = request.sid
+        session_id = data.get('session_id', 'unknown')
+        
+        print(f"[DEEPGRAM LIVE] Stopping live transcription for client: {client_sid}")
+        
+        if client_sid in deepgram_live_connections:
+            conn_data = deepgram_live_connections[client_sid]
+            final_text = conn_data.get('full_transcript', '').strip()
+            last_interim = conn_data.get('last_transcript', '').strip()
+            
+            # If no final transcript was received, use the last interim result
+            if not final_text and last_interim:
+                print(f"[DEEPGRAM LIVE] No final transcript, using last interim: '{last_interim}'")
+                final_text = last_interim
+            
+            # Close WebSocket
+            if 'connection' in conn_data and conn_data['connection']:
+                try:
+                    ws = conn_data['connection']
+                    # Only try to send/close if the WebSocket is valid and connected
+                    if hasattr(ws, 'sock') and ws.sock:
+                        try:
+                            ws.send(json.dumps({"type": "CloseStream"}))
+                        except:
+                            pass  # Ignore if already closed
+                        try:
+                            ws.close()
+                        except:
+                            pass  # Ignore if already closed
+                except Exception as e:
+                    pass  # Silently ignore cleanup errors
+            
+            # Send final transcription to client
+            emit('live_transcription_complete', {
+                'text': final_text,
+                'session_id': session_id
+            })
+            
+            # Clean up
+            del deepgram_live_connections[client_sid]
+            
+    except Exception as e:
+        print(f"[DEEPGRAM LIVE] Error stopping live stream: {e}")
+        emit('transcription_error', {'error': str(e)})
+
+# Keep old handlers for fallback
+@socketio.on('start_transcription')
+def handle_start_transcription(data=None):
+    """
+    Start a streaming transcription session using Deepgram
+    Note: Full implementation requires Deepgram API key
+    """
+    if not DEEPGRAM_AVAILABLE:
+        emit('transcription_error', {'error': 'Deepgram not available, using fallback STT'})
+        return
+    
+    deepgram_api_key = os.getenv('DEEPGRAM_API_KEY')
+    if not deepgram_api_key:
+        print("[DEEPGRAM] API key not found, using fallback STT")
+        emit('transcription_error', {'error': 'Deepgram API key not configured'})
+        return
+    
+    try:
+        client_sid = request.sid
+        print(f"[DEEPGRAM] Streaming STT ready for client: {client_sid}")
+        print(f"[DEEPGRAM] ⚠️  Full streaming implementation requires Deepgram v5.x API update")
+        print(f"[DEEPGRAM] Current setup: API key configured, SDK installed")
+        
+        # For now, notify frontend that Deepgram is not fully implemented
+        # The detailed implementation guide is in DEEPGRAM_STREAMING_STT_GUIDE.md
+        emit('transcription_error', {
+            'error': 'Deepgram streaming STT implementation in progress. Using fallback STT.'
+        })
+        
+    except Exception as e:
+        print(f"[DEEPGRAM] Error: {e}")
+        import traceback
+        traceback.print_exc()
+        emit('transcription_error', {'error': str(e)})
+
+@socketio.on('audio_data')
+def handle_audio_data(data):
+    """
+    Handle incoming audio data from frontend
+    
+    Expected data format:
+    {
+        "audio": <base64 encoded audio data>
+    }
+    """
+    client_sid = request.sid
+    
+    if client_sid not in deepgram_connections:
+        print(f"[DEEPGRAM] No active connection for {client_sid}")
+        return
+    
+    try:
+        # Get the Deepgram connection
+        dg_connection = deepgram_connections[client_sid]
+        
+        # Send audio data to Deepgram
+        # Audio should be raw PCM audio bytes
+        import base64
+        audio_bytes = base64.b64decode(data.get('audio', ''))
+        dg_connection.send(audio_bytes)
+        
+    except Exception as e:
+        print(f"[DEEPGRAM] Error sending audio data: {e}")
+        emit('transcription_error', {'error': str(e)})
+
+@socketio.on('stop_transcription')
+def handle_stop_transcription():
+    """Stop the streaming transcription session"""
+    client_sid = request.sid
+    
+    if client_sid in deepgram_connections:
+        try:
+            print(f"[DEEPGRAM] Stopping transcription for {client_sid}")
+            connection = deepgram_connections[client_sid]
+            connection.finish()
+            del deepgram_connections[client_sid]
+            emit('transcription_stopped', {'status': 'stopped'})
+        except Exception as e:
+            print(f"[DEEPGRAM] Error stopping transcription: {e}")
+    else:
+        print(f"[DEEPGRAM] No active connection to stop for {client_sid}")
 
 if __name__ == '__main__':
     # Only print startup messages once (not on reload)
@@ -2435,5 +2930,6 @@ if __name__ == '__main__':
         print("-" * 50)
         app._startup_printed = True
     
-    app.run(host='127.0.0.1', port=8002, debug=False)
+    # Run with SocketIO support for WebSocket connections
+    socketio.run(app, host='127.0.0.1', port=8002, debug=False, allow_unsafe_werkzeug=True)
 

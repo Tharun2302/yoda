@@ -33,6 +33,7 @@
     }
   </script>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
   <style>
     /* Loading animation */
     @keyframes spin {
@@ -51,6 +52,8 @@
       padding: 0;
       min-height: 100vh;
       scroll-behavior: smooth;
+      overflow-x: hidden; /* Prevent horizontal scroll */
+      position: relative; /* Ensure proper stacking context */
     }
 
     header {
@@ -66,6 +69,8 @@
       left: 0;
       right: 0;
       z-index: 1000;
+      min-height: 60px; /* Ensure minimum height */
+      box-sizing: border-box;
     }
 
     header img {
@@ -1019,6 +1024,8 @@
         rgba(255, 255, 255, 0.9) 70%, 
         rgba(255, 255, 255, 0.95) 100%);
       z-index: 1000;
+      min-height: 80px; /* Ensure minimum height */
+      box-sizing: border-box;
     }
 
     .input-wrapper {
@@ -1115,19 +1122,26 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: all 0.2s ease;
+      transition: background-color 0.2s ease;
       width: 40px;
       height: 40px;
+      z-index: 10;
+      margin: 0;
+      box-sizing: border-box;
     }
 
     .mic-btn:hover {
       background: #5a6268;
-      transform: translateY(-50%) scale(1.05);
     }
 
     .mic-btn.recording {
       background: #dc3545;
       animation: pulse 1.5s ease-in-out infinite;
+      /* Ensure position stays fixed during recording */
+      position: absolute;
+      right: 60px;
+      top: 50%;
+      transform: translateY(-50%);
     }
 
     .mic-btn.disabled {
@@ -1229,6 +1243,25 @@
       font-size: 15px;
     }
 
+    #countdownNumber {
+      display: inline-block;
+      font-size: 48px;
+      font-weight: bold;
+      color: #0129ac;
+      margin: 0 8px;
+      min-width: 50px;
+      animation: countdownPulse 1s ease-in-out infinite;
+    }
+
+    @keyframes countdownPulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+    }
+
     .modal-buttons {
       display: flex;
       gap: 12px;
@@ -1298,11 +1331,25 @@
        ============================================ */
     
     @media (max-width: 768px) {
-      /* Header adjustments for mobile */
+      /* Ensure body doesn't scroll horizontally */
+      body {
+        overflow-x: hidden !important;
+      }
+      
+      /* Header adjustments for mobile - always at top */
       header {
         padding: 12px 16px;
         flex-wrap: wrap;
         gap: 8px;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        min-height: 60px;
+        box-sizing: border-box;
+        -webkit-transform: translateZ(0); /* Force GPU acceleration for smooth scrolling */
+        transform: translateZ(0);
       }
 
       header h1 {
@@ -1347,9 +1394,9 @@
         font-size: 14px !important;
       }
 
-      /* Main content - remove horizontal padding on mobile */
+      /* Main content - minimal padding on mobile */
       .main-content {
-        padding: 80px 0px 100px 0px !important;
+        padding: 70px 0px 90px 0px !important; /* Reduced top/bottom padding */
         align-items: stretch !important; /* Allow messages to stretch to edges */
       }
 
@@ -1414,13 +1461,18 @@
         font-size: 16px !important;
       }
 
-      /* Input container - minimal padding to show rounded corners */
+      /* Input container - always at bottom */
       #input-container {
         padding: 12px 8px !important; /* Small horizontal padding to show rounded corners */
         bottom: 0 !important;
         left: 0 !important;
         right: 0 !important;
         width: 100% !important;
+        position: fixed !important;
+        min-height: 80px;
+        box-sizing: border-box;
+        -webkit-transform: translateZ(0); /* Force GPU acceleration */
+        transform: translateZ(0);
       }
 
       .input-wrapper {
@@ -1456,6 +1508,16 @@
         width: 48px !important;
         height: 48px !important;
         padding: 12px !important;
+        position: absolute !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+      }
+      
+      .mic-btn.recording {
+        position: absolute !important;
+        right: 65px !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
       }
 
       .mic-btn svg {
@@ -1611,10 +1673,17 @@
       .mic-btn {
         width: 44px !important;
         height: 44px !important;
-      }
-
-      .mic-btn {
         right: 60px !important;
+        position: absolute !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+      }
+      
+      .mic-btn.recording {
+        position: absolute !important;
+        right: 60px !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
       }
     }
 
@@ -1784,6 +1853,23 @@
           </div>
           <span id="evaluationLatency" style="color: #999; font-size: 12px; display: block; margin-top: 8px;"></span>
           <div class="settings-description">Run HealthBench and HELM evaluations (slower response times)</div>
+        </div>
+      </div>
+
+      <!-- STT Provider Section -->
+      <div class="settings-section">
+        <div class="settings-section-title">Speech-to-Text (STT)</div>
+        <div class="settings-item">
+          <label class="settings-label">STT Provider</label>
+          <select id="sttProviderSelect" style="width: 100%; padding: 10px; border: 1px solid #dee2e6; border-radius: 6px; font-family: inherit; font-size: 14px;">
+            <option value="faster-whisper">Faster Whisper (3-4s, Offline)</option>
+            <option value="deepgram">Deepgram Nova-2 (0.5s, Requires API Key)</option>
+          </select>
+          <div class="settings-description" id="sttProviderDescription">
+            Current: Faster Whisper - Reliable, works offline, no API key needed
+          </div>
+          <div id="sttProviderStatus" style="margin-top: 8px; padding: 8px; border-radius: 4px; font-size: 12px; display: none;">
+          </div>
         </div>
       </div>
 
@@ -2693,6 +2779,16 @@
     let mediaRecorder = null;
     let audioChunks = [];
     
+    // STT Provider management
+    let sttProvider = 'deepgram'; // Default STT provider (will be loaded from backend)
+    
+    // WebSocket for streaming STT (Deepgram)
+    let socket = null;
+    let useStreamingSTT = true; // Use Deepgram streaming by default
+    let audioContext = null;
+    let audioWorkletNode = null;
+    let streamingTranscript = "";
+    
     // Voice latency tracker - measures time from patient voice end to bot voice start
     // Similar to AssemblyAI's silence detection between speakers
     const voiceLatencyTracker = {
@@ -2752,13 +2848,129 @@
       }
     };
     let currentAudio = null;
-    let audioContext = null;
+    // let audioContext = null; // Already declared above for Deepgram streaming
     let analyserNode = null;
     let silenceDetectionInterval = null;
     
     const voiceToggleBtn = document.getElementById('voiceToggleBtn');
     const micBtn = document.getElementById('micBtn');
     const voiceStatus = document.getElementById('voiceStatus');
+    
+    // Initialize WebSocket for streaming STT
+    function initializeWebSocket() {
+      if (socket && socket.connected) {
+        console.log('[WEBSOCKET] Already connected');
+        return;
+      }
+      
+      try {
+        // Connect to WebSocket server
+        socket = io(getApiBase(), {
+          transports: ['websocket', 'polling'],
+          upgrade: true
+        });
+        
+        socket.on('connect', () => {
+          console.log('[WEBSOCKET] ✅ Connected to server');
+        });
+        
+        socket.on('disconnect', () => {
+          console.log('[WEBSOCKET] Disconnected from server');
+        });
+        
+        socket.on('transcription_started', (data) => {
+          console.log('[DEEPGRAM] Transcription started');
+          streamingTranscript = "";
+        });
+        
+        socket.on('transcription_result', (data) => {
+          console.log(`[DEEPGRAM] Transcript: "${data.transcript}" (final: ${data.is_final})`);
+          
+          if (data.is_final) {
+            // Final transcript - send to chat
+            streamingTranscript += " " + data.transcript;
+            console.log(`[DEEPGRAM] ✅ Final transcript: "${streamingTranscript.trim()}"`);
+            
+            // Send the final transcript to chat
+            const finalText = streamingTranscript.trim();
+            if (finalText.length > 0) {
+              sendMessageText(finalText);
+            }
+            
+            streamingTranscript = "";
+          } else {
+            // Interim result - just for display (optional)
+            console.log(`[DEEPGRAM] Interim: "${data.transcript}"`);
+          }
+        });
+        
+        socket.on('transcription_error', (data) => {
+          console.error('[DEEPGRAM] Error:', data.error);
+          // Fallback to regular STT
+          useStreamingSTT = false;
+        });
+        
+        socket.on('transcription_stopped', (data) => {
+          console.log('[DEEPGRAM] Transcription stopped');
+        });
+        
+        // NEW: Live transcription handlers
+        socket.on('live_ready', (data) => {
+          console.log('[LIVE STT] Live transcription ready');
+        });
+        
+        socket.on('live_transcript', (data) => {
+          const text = data.text || '';
+          const isFinal = data.is_final || false;
+          
+          console.log(`[LIVE STT] ${isFinal ? 'FINAL' : 'INTERIM'}: "${text}"`);
+          
+          // Display interim results in the input box in real-time
+          if (!isFinal) {
+            // Show interim text with a visual indicator
+            input.value = text + ' ...';
+            input.style.fontStyle = 'italic';
+            input.style.opacity = '0.7';
+          } else {
+            // Final text - restore normal style
+            streamingTranscript += text + ' ';
+            input.value = streamingTranscript.trim();
+            input.style.fontStyle = 'normal';
+            input.style.opacity = '1';
+          }
+        });
+        
+        socket.on('live_transcription_complete', (data) => {
+          const finalText = data.text || streamingTranscript.trim();
+          console.log(`[LIVE STT] ✅ Complete: "${finalText}"`);
+          
+          // Reset streaming flag
+          streamingSessionActive = false;
+          
+          // Restore input style
+          input.style.fontStyle = 'normal';
+          input.style.opacity = '1';
+          
+          // Handle the final transcription
+          if (finalText && finalText.length > 0) {
+            handleTranscriptionResult(finalText);
+          } else {
+            // No transcription received - just restart recording in hands-free mode
+            console.log('[LIVE STT] No transcription received, restarting recording');
+            if (voiceEnabled && isHandsFree && !isSpeaking && !isRecording) {
+              setTimeout(() => startRecording(), 300);
+            }
+          }
+          
+          // Reset
+          streamingTranscript = "";
+        });
+        
+      } catch (error) {
+        console.error('[WEBSOCKET] Error initializing:', error);
+        useStreamingSTT = false;
+      }
+    }
     
     // Check voice availability on page load
     async function checkVoiceAvailability() {
@@ -2770,6 +2982,13 @@
         if (data.initialized && data.stt_available) {
           // Voice available - enable toggle button
           voiceToggleBtn.disabled = false;
+          
+          // Update STT provider options based on availability
+          if (data.stt_providers) {
+            updateSTTProviderOptions(data.stt_providers);
+            sttProvider = data.current_stt_provider || 'faster-whisper';
+            document.getElementById('sttProviderSelect').value = sttProvider;
+          }
         } else {
           voiceToggleBtn.disabled = true;
           voiceToggleBtn.title = 'Voice processing not available on server';
@@ -2777,6 +2996,83 @@
       } catch (error) {
         console.error('[ERROR] Error checking voice availability:', error);
         voiceToggleBtn.disabled = true;
+      }
+    }
+    
+    // Update STT provider select options based on availability
+    function updateSTTProviderOptions(providers) {
+      const select = document.getElementById('sttProviderSelect');
+      const whisperOption = select.querySelector('option[value="faster-whisper"]');
+      const deepgramOption = select.querySelector('option[value="deepgram"]');
+      
+      // Update option text based on availability
+      if (whisperOption) {
+        whisperOption.disabled = !providers['faster-whisper']?.available;
+        whisperOption.textContent = `Faster Whisper (3-4s, Offline)${!providers['faster-whisper']?.available ? ' - Unavailable' : ''}`;
+      }
+      
+      if (deepgramOption) {
+        deepgramOption.disabled = !providers['deepgram']?.available;
+        deepgramOption.textContent = `Deepgram Nova-2 (0.5s)${!providers['deepgram']?.available ? ' - Requires API Key' : ''}`;
+      }
+    }
+    
+    // Handle STT provider change
+    async function handleSTTProviderChange() {
+      const select = document.getElementById('sttProviderSelect');
+      const newProvider = select.value;
+      const statusDiv = document.getElementById('sttProviderStatus');
+      const descriptionDiv = document.getElementById('sttProviderDescription');
+      
+      console.log(`[STT] Switching to provider: ${newProvider}`);
+      
+      try {
+        const response = await fetch(`${getApiBase()}/voice/stt-provider`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ provider: newProvider })
+        });
+        
+        const data = await response.json();
+        
+        if (response.ok) {
+          sttProvider = newProvider;
+          statusDiv.style.display = 'block';
+          statusDiv.style.backgroundColor = '#d4edda';
+          statusDiv.style.color = '#155724';
+          statusDiv.textContent = '✅ ' + data.message;
+          
+          // Update description
+          if (newProvider === 'deepgram') {
+            descriptionDiv.textContent = 'Current: Deepgram Nova-2 - Ultra-fast (0.5s), requires API key';
+          } else {
+            descriptionDiv.textContent = 'Current: Faster Whisper - Reliable, works offline, no API key needed';
+          }
+          
+          // Hide status after 3 seconds
+          setTimeout(() => {
+            statusDiv.style.display = 'none';
+          }, 3000);
+        } else {
+          statusDiv.style.display = 'block';
+          statusDiv.style.backgroundColor = '#f8d7da';
+          statusDiv.style.color = '#721c24';
+          statusDiv.textContent = '❌ ' + (data.error || 'Failed to change STT provider');
+          
+          // Revert selection
+          select.value = sttProvider;
+        }
+      } catch (error) {
+        console.error('[STT] Error changing provider:', error);
+        statusDiv.style.display = 'block';
+        statusDiv.style.backgroundColor = '#f8d7da';
+        statusDiv.style.color = '#721c24';
+        statusDiv.textContent = '❌ Error: ' + error.message;
+        
+        // Revert selection
+        select.value = sttProvider;
       }
     }
     
@@ -2856,17 +3152,33 @@
       }
     }
     
-    // Show hands-free confirmation modal
-    function showHandsFreeModal() {
-      const modal = document.getElementById('handsFreeModal');
-      if (modal) {
-        modal.classList.add('show');
-      }
+    // Show voice countdown and auto-start
+    function showVoiceCountdown() {
+      const modal = document.getElementById('voiceCountdownModal');
+      const countdownNumber = document.getElementById('countdownNumber');
+      if (!modal || !countdownNumber) return;
+      
+      modal.classList.add('show');
+      
+      let countdown = 3;
+      countdownNumber.textContent = countdown;
+      
+      const countdownInterval = setInterval(() => {
+        countdown--;
+        if (countdown > 0) {
+          countdownNumber.textContent = countdown;
+        } else {
+          clearInterval(countdownInterval);
+          modal.classList.remove('show');
+          // Auto-start voice mode
+          enableHandsFreeMode();
+        }
+      }, 1000);
     }
 
-    // Hide hands-free confirmation modal
-    function hideHandsFreeModal() {
-      const modal = document.getElementById('handsFreeModal');
+    // Hide voice countdown modal
+    function hideVoiceCountdown() {
+      const modal = document.getElementById('voiceCountdownModal');
       if (modal) {
         modal.classList.remove('show');
       }
@@ -2882,9 +3194,12 @@
 
     // Enable hands-free mode after confirmation
     async function enableHandsFreeMode() {
-      hideHandsFreeModal();
+      hideVoiceCountdown();
       voiceEnabled = true;
       isHandsFree = true;
+      
+      // Initialize WebSocket for streaming STT
+      initializeWebSocket();
       
       voiceToggleBtn.classList.add('active');
       voiceToggleBtn.querySelector('span').textContent = 'Voice On';
@@ -2960,7 +3275,7 @@
         stream.getTracks().forEach(track => track.stop()); // Stop immediately, just checking permission
         
         // Show confirmation modal
-        showHandsFreeModal();
+        showVoiceCountdown();
       } catch (error) {
         console.error('[ERROR] Microphone permission denied:', error);
         let errorMessage = 'Microphone permission is required for voice mode.';
@@ -2996,8 +3311,11 @@
         const dataArray = new Uint8Array(analyserNode.frequencyBinCount);
         let isSpeaking = false;
         let silenceStartTime = null;
-        const SILENCE_THRESHOLD = 30; // Volume threshold (0-255)
-        const SILENCE_DURATION = 2000; // 2 seconds of silence to stop
+        let speechStartTime = null;
+        let hasDetectedSpeech = false; // Track if any real speech was detected
+        const SILENCE_THRESHOLD = 45; // Higher threshold to filter out background noise (0-255)
+        const SILENCE_DURATION = 800; // 0.8 seconds of silence to stop (faster response)
+        const MIN_SPEECH_DURATION = 400; // Minimum 400ms of speech to avoid capturing quick noises
         let lastCheckTime = Date.now();
         
         const checkVolume = () => {
@@ -3024,22 +3342,52 @@
             // User is speaking
             if (!isSpeaking) {
               isSpeaking = true;
+              speechStartTime = now; // Track when speech started
               silenceStartTime = null;
+            }
+            // Mark that we detected actual speech (not just initial noise)
+            if (now - speechStartTime > MIN_SPEECH_DURATION) {
+              hasDetectedSpeech = true;
             }
           } else {
             // Silence detected
             if (isSpeaking) {
-              // User was speaking, now silence
+              // Check if this was just a quick noise (less than MIN_SPEECH_DURATION)
+              const speechDuration = now - (speechStartTime || now);
+              
+              if (speechDuration < MIN_SPEECH_DURATION) {
+                // Too short - likely just noise, ignore it and DON'T stop recording
+                console.log('[VOICE] Ignoring short noise burst, continuing to listen');
+                isSpeaking = false;
+                speechStartTime = null;
+                silenceStartTime = null;
+                hasDetectedSpeech = false;
+                return;
+              }
+              
+              // User was speaking (for long enough), now silence
               if (silenceStartTime === null) {
                 // First moment of silence detected - mark this as speech end time
                 silenceStartTime = now;
                 voiceLatencyTracker.markPatientSpeechEnd();
               } else if (now - silenceStartTime >= SILENCE_DURATION) {
-                // Silence for long enough - stop recording
-                isSpeaking = false;
-                silenceStartTime = null;
-                stopRecording();
-                return;
+                // Only stop if we actually detected real speech
+                if (hasDetectedSpeech) {
+                  console.log('[VOICE] Real speech detected, stopping recording');
+                  isSpeaking = false;
+                  silenceStartTime = null;
+                  speechStartTime = null;
+                  hasDetectedSpeech = false;
+                  stopRecording();
+                  return;
+                } else {
+                  // No real speech detected, just reset and keep listening
+                  console.log('[VOICE] No real speech detected, continuing to listen');
+                  isSpeaking = false;
+                  silenceStartTime = null;
+                  speechStartTime = null;
+                  return;
+                }
               }
             }
           }
@@ -3091,12 +3439,58 @@
       try {
         const stream = await getUserMedia({ audio: true });
         
-        // Create MediaRecorder
+        // Create MediaRecorder with standard settings
+        // For live streaming, we'll use Web Audio API separately
         mediaRecorder = new MediaRecorder(stream, {
-          mimeType: 'audio/webm;codecs=opus'
+          mimeType: 'audio/webm;codecs=opus',
+          audioBitsPerSecond: 64000
         });
         
         audioChunks = [];
+        
+        // NEW: Set up Web Audio API for PCM streaming to Deepgram
+        if (sttProvider === 'deepgram' && socket && socket.connected && !streamingSessionActive) {
+          console.log('[LIVE STT] Starting live transcription session');
+          streamingSessionActive = true; // Mark session as active
+          
+          socket.emit('start_live_transcription', {
+            session_id: sessionId
+          });
+          
+          // Set up AudioContext for real-time PCM streaming
+          const audioContext = new (window.AudioContext || window.webkitAudioContext)({ sampleRate: 16000 });
+          const source = audioContext.createMediaStreamSource(stream);
+          const processor = audioContext.createScriptProcessor(2048, 1, 1); // Smaller buffer = faster streaming (128ms)
+          
+          processor.onaudioprocess = (e) => {
+            // Get PCM audio data
+            const inputData = e.inputBuffer.getChannelData(0);
+            
+            // Convert Float32Array to Int16Array (PCM 16-bit)
+            const pcm16 = new Int16Array(inputData.length);
+            for (let i = 0; i < inputData.length; i++) {
+              const s = Math.max(-1, Math.min(1, inputData[i]));
+              pcm16[i] = s < 0 ? s * 0x8000 : s * 0x7FFF;
+            }
+            
+            // Convert to base64 and send immediately
+            const uint8Array = new Uint8Array(pcm16.buffer);
+            const base64Audio = btoa(String.fromCharCode.apply(null, uint8Array));
+            
+            socket.emit('live_audio_data', {
+              audio: base64Audio,
+              session_id: sessionId
+            });
+          };
+          
+          source.connect(processor);
+          processor.connect(audioContext.destination);
+          
+          // Store for cleanup
+          window.liveAudioContext = audioContext;
+          window.liveAudioProcessor = processor;
+          window.liveAudioSource = source;
+        }
         
         mediaRecorder.ondataavailable = (event) => {
           if (event.data.size > 0) {
@@ -3114,17 +3508,45 @@
           // Stop silence detection
           stopSilenceDetection();
           
+          // Clean up Web Audio API if used
+          if (window.liveAudioContext) {
+            try {
+              if (window.liveAudioProcessor) {
+                window.liveAudioProcessor.disconnect();
+              }
+              if (window.liveAudioSource) {
+                window.liveAudioSource.disconnect();
+              }
+              window.liveAudioContext.close();
+              window.liveAudioContext = null;
+              window.liveAudioProcessor = null;
+              window.liveAudioSource = null;
+            } catch (e) {
+              console.error('[LIVE STT] Error cleaning up audio context:', e);
+            }
+          }
+          
           // Create audio blob
           const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
           
           // Stop all tracks
           stream.getTracks().forEach(track => track.stop());
           
-          // Send for transcription
-          await transcribeAudio(audioBlob);
+          // Stop live transcription if using Deepgram
+          if (sttProvider === 'deepgram' && socket && socket.connected) {
+            console.log('[LIVE STT] Stopping live transcription');
+            streamingSessionActive = false; // Reset flag
+            socket.emit('stop_live_transcription', {
+              session_id: sessionId
+            });
+            // Don't call transcribeAudio - live transcription already handled it
+          } else {
+            // Fallback to regular transcription
+            await transcribeAudio(audioBlob);
+          }
         };
         
-        // Start recording
+        // Start recording (collect for fallback)
         mediaRecorder.start();
         isRecording = true;
         
@@ -3186,23 +3608,43 @@
       }
     }
     
+    // Global variables for streaming
+    let streamingTranscription = false;
+    let streamingSessionActive = false;
+    
     // Transcribe audio
     async function transcribeAudio(audioBlob) {
-      const startTime = performance.now();
+      const overallStart = performance.now();
       console.log('[STEP] Converting Speech to Text...');
+      console.log(`[TIMING] Audio blob size: ${audioBlob.size} bytes`);
       
       try {
         voiceStatus.textContent = '⏳ Transcribing...';
         voiceStatus.classList.add('show', 'transcribing');
         
+        // Check if we should use streaming (always for Deepgram)
+        if (sttProvider === 'deepgram' && socket && socket.connected) {
+          console.log('[STT] Using Deepgram WebSocket streaming');
+          return await transcribeAudioStreaming(audioBlob, overallStart);
+        }
+        
+        // Fallback to regular REST API
+        const formDataStart = performance.now();
         const formData = new FormData();
         formData.append('audio', audioBlob, 'recording.webm');
         formData.append('session_id', sessionId);
+        formData.append('stt_provider', sttProvider); // Pass selected STT provider
+        console.log(`[TIMING] FormData prep: ${(performance.now() - formDataStart).toFixed(0)}ms`);
         
+        console.log(`[STT] Using provider: ${sttProvider}`);
+        
+        const fetchStart = performance.now();
         const response = await fetch(`${getApiBase()}/voice/transcribe`, {
           method: 'POST',
           body: formData
         });
+        const fetchTime = performance.now() - fetchStart;
+        console.log(`[TIMING] ⏱️  NETWORK + BACKEND: ${fetchTime.toFixed(0)}ms`);
         
         if (!response.ok) {
           throw new Error(`Transcription failed: ${response.status}`);
@@ -3210,36 +3652,22 @@
         
         const data = await response.json();
         const transcribedText = data.text;
+        const usedProvider = data.stt_provider || sttProvider;
+        
+        const totalTime = performance.now() - overallStart;
+        console.log(`[STT] ✅ Transcription complete using ${usedProvider}: "${transcribedText.substring(0, 50)}..."`);
+        console.log(`[TIMING] ⏱️  TOTAL CLIENT STT: ${totalTime.toFixed(0)}ms`);
         
         // Hide status
         voiceStatus.classList.remove('show', 'transcribing');
         
-        logTiming('Speech to Text', startTime);
+        logTiming('Speech to Text', overallStart);
         
-        // In hands-free mode, auto-send if text is valid
-        if (isHandsFree && transcribedText && transcribedText.trim().length > 0) {
-          // Minimum length check to avoid sending noise
-          if (transcribedText.trim().length >= 2) {
-            // Auto-send the transcribed text
-            input.value = transcribedText;
-            await sendMessage();
-          } else {
-            // Text too short, just put it in input for user to see
-            input.value = transcribedText;
-            input.focus();
-            // Restart recording in hands-free mode
-            if (voiceEnabled && isHandsFree && !isSpeaking) {
-              setTimeout(() => startRecording(), 500);
-            }
-          }
-        } else {
-          // Normal mode - put transcribed text in input box for user to review/edit
-          input.value = transcribedText;
-          input.focus();
-        }
+        // Handle the transcribed text
+        await handleTranscriptionResult(transcribedText);
         
       } catch (error) {
-        logTiming('Speech to Text (FAILED)', startTime);
+        logTiming('Speech to Text (FAILED)', overallStart);
         console.error('[ERROR] Transcription error:', error);
         // Cancel latency tracking on transcription failure
         voiceLatencyTracker.cancel();
@@ -3249,6 +3677,146 @@
           voiceStatus.classList.remove('show');
         }, 3000);
         alert('Transcription failed. Please try again or type your message.');
+      }
+    }
+    
+    // Streaming transcription using WebSocket
+    async function transcribeAudioStreaming(audioBlob, startTime) {
+      return new Promise((resolve, reject) => {
+        console.log('[STT STREAMING] Starting WebSocket streaming transcription');
+        
+        // Start streaming session
+        socket.emit('start_streaming_transcription', {
+          session_id: sessionId
+        });
+        
+        // Listen for streaming ready
+        socket.once('streaming_ready', async (data) => {
+          console.log('[STT STREAMING] Stream ready, sending audio chunks');
+          
+          try {
+            // Convert blob to array buffer
+            const arrayBuffer = await audioBlob.arrayBuffer();
+            const audioData = new Uint8Array(arrayBuffer);
+            
+            // Send audio in chunks
+            const CHUNK_SIZE = 8192; // 8KB chunks
+            const totalChunks = Math.ceil(audioData.length / CHUNK_SIZE);
+            
+            console.log(`[STT STREAMING] Sending ${totalChunks} chunks (${audioData.length} bytes total)`);
+            
+            for (let i = 0; i < totalChunks; i++) {
+              const start = i * CHUNK_SIZE;
+              const end = Math.min(start + CHUNK_SIZE, audioData.length);
+              const chunk = audioData.slice(start, end);
+              
+              // Convert to base64
+              const base64Chunk = btoa(String.fromCharCode.apply(null, chunk));
+              
+              const isFinal = (i === totalChunks - 1);
+              
+              // Send chunk via WebSocket
+              socket.emit('audio_chunk', {
+                audio: base64Chunk,
+                final: isFinal,
+                session_id: sessionId,
+                chunk_index: i,
+                total_chunks: totalChunks
+              });
+              
+              // Small delay between chunks to avoid overwhelming the server
+              if (!isFinal) {
+                await new Promise(r => setTimeout(r, 10));
+              }
+            }
+            
+            console.log('[STT STREAMING] All chunks sent, waiting for transcription...');
+            
+          } catch (error) {
+            console.error('[STT STREAMING] Error sending audio:', error);
+            reject(error);
+          }
+        });
+        
+        // Listen for transcription result
+        socket.once('transcription_result', (data) => {
+          const totalTime = performance.now() - startTime;
+          const transcribedText = data.text || '';
+          
+          console.log(`[STT STREAMING] ✅ Transcription complete: "${transcribedText.substring(0, 50)}..."`);
+          console.log(`[TIMING] ⏱️  TOTAL STREAMING STT: ${totalTime.toFixed(0)}ms`);
+          
+          // Hide status
+          voiceStatus.classList.remove('show', 'transcribing');
+          
+          logTiming('Speech to Text (Streaming)', startTime);
+          
+          // Handle the transcribed text
+          handleTranscriptionResult(transcribedText);
+          
+          resolve();
+        });
+        
+        // Listen for errors
+        socket.once('transcription_error', (data) => {
+          console.error('[STT STREAMING] Error:', data.error);
+          
+          // Fall back to regular REST API
+          console.log('[STT STREAMING] Falling back to REST API');
+          voiceStatus.classList.remove('show', 'transcribing');
+          reject(new Error(data.error));
+        });
+        
+        // Timeout after 30 seconds
+        setTimeout(() => {
+          reject(new Error('Streaming transcription timeout'));
+        }, 30000);
+      });
+    }
+    
+    // Handle transcription result (used by both regular and streaming)
+    async function handleTranscriptionResult(transcribedText) {
+      // Validate transcribed text
+      if (!transcribedText || transcribedText === 'undefined' || transcribedText.trim().length === 0) {
+        console.warn('[STT] Empty or invalid transcription, skipping');
+        // Restart recording in hands-free mode even if transcription failed
+        if (voiceEnabled && isHandsFree && !isSpeaking && !isRecording) {
+          setTimeout(() => startRecording(), 500);
+        }
+        return;
+      }
+      
+      console.log(`[STT] Handling transcription: "${transcribedText}" (Hands-free: ${isHandsFree})`);
+      
+      // In hands-free mode, auto-send if text is valid
+      if (isHandsFree && transcribedText && transcribedText.trim().length > 0) {
+        // Minimum length check to avoid sending noise
+        if (transcribedText.trim().length >= 2) {
+          // Auto-send the transcribed text
+          console.log('[STT] Auto-sending in hands-free mode');
+          input.value = transcribedText;
+          await sendMessage();
+          
+          // Restart recording after message is sent (in hands-free mode)
+          if (voiceEnabled && isHandsFree && !isSpeaking) {
+            console.log('[STT] Restarting recording in hands-free mode');
+            setTimeout(() => startRecording(), 500);
+          }
+        } else {
+          // Text too short, just put it in input for user to see
+          console.log('[STT] Text too short, not auto-sending');
+          input.value = transcribedText;
+          input.focus();
+          // Restart recording in hands-free mode
+          if (voiceEnabled && isHandsFree && !isSpeaking) {
+            setTimeout(() => startRecording(), 500);
+          }
+        }
+      } else {
+        // Normal mode - put transcribed text in input box for user to review/edit
+        console.log('[STT] Manual mode - text in input box');
+        input.value = transcribedText;
+        input.focus();
       }
     }
     
@@ -3411,6 +3979,12 @@
           voiceLatencyTracker.markBotVoiceStart();
           
           // TTS started speaking (playback begins)
+          
+          // STOP RECORDING TO PREVENT ECHO/FEEDBACK
+          if (isRecording && isHandsFree) {
+            console.log('[VOICE] Stopping mic to prevent bot voice echo');
+            stopRecording();
+          }
         };
         
         utterance.onend = () => {
@@ -3420,12 +3994,12 @@
           // In hands-free mode, auto-start recording after bot finishes speaking
           if (voiceEnabled && isHandsFree) {
             micBtn.classList.remove('disabled');
-            // Wait a bit before starting to record (let TTS finish completely)
+            // Reduced delay for faster response (300ms instead of 500ms)
             setTimeout(() => {
               if (voiceEnabled && isHandsFree && !isSpeaking && !isRecording) {
                 startRecording();
               }
-            }, 500);
+            }, 100);
           } else if (voiceEnabled) {
             // Normal mode - just show status
             micBtn.classList.remove('disabled');
@@ -3709,107 +4283,13 @@
       }, 5000);
     }
     
-    // Modal event handlers - attach after DOM is ready
-    function setupModalHandlers() {
-      const continueHandsFreeBtn = document.getElementById('continueHandsFreeBtn');
-      const switchToChatBtn = document.getElementById('switchToChatBtn');
-      const handsFreeModal = document.getElementById('handsFreeModal');
-
-      console.log('[MODAL] Setting up handlers:', {
-        continueBtn: !!continueHandsFreeBtn,
-        switchBtn: !!switchToChatBtn,
-        modal: !!handsFreeModal
-      });
-
-      if (continueHandsFreeBtn) {
-        continueHandsFreeBtn.addEventListener('click', (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          console.log('[MODAL] Continue button clicked');
-          enableHandsFreeMode();
-        });
-      } else {
-        console.error('[MODAL] Continue button not found!');
-      }
-
-      if (switchToChatBtn) {
-        switchToChatBtn.addEventListener('click', async (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          console.log('[MODAL] Switch to Chat button clicked');
-          hideHandsFreeModal();
-          // Disable voice mode completely
-          voiceEnabled = false;
-          isHandsFree = false;
-          
-          // Update UI to reflect voice is off
-          voiceToggleBtn.classList.remove('active');
-          voiceToggleBtn.querySelector('span').textContent = 'Voice Off';
-          micBtn.classList.add('disabled');
-          micBtn.title = 'Push to talk';
-          
-          // Stop any ongoing recording or speaking
-          stopRecording();
-          stopSpeaking();
-          
-          // Hide voice status
-          voiceStatus.classList.remove('show');
-          
-          // Start the session (send greeting)
-          await startSessionAfterModalChoice();
-        });
-      } else {
-        console.error('[MODAL] Switch to Chat button not found!');
-      }
-
-      // Close modal when clicking outside (but not on modal-content)
-      if (handsFreeModal) {
-        handsFreeModal.addEventListener('click', async (e) => {
-          // Only close if clicking directly on the modal backdrop, not on modal-content
-          if (e.target === handsFreeModal) {
-            hideHandsFreeModal();
-            // Disable voice mode completely
-            voiceEnabled = false;
-            isHandsFree = false;
-            
-            // Update UI to reflect voice is off
-            voiceToggleBtn.classList.remove('active');
-            voiceToggleBtn.querySelector('span').textContent = 'Voice Off';
-            micBtn.classList.add('disabled');
-            micBtn.title = 'Push to talk';
-            
-            // Stop any ongoing recording or speaking
-            stopRecording();
-            stopSpeaking();
-            
-            // Hide voice status
-            voiceStatus.classList.remove('show');
-            
-            // Start the session (send greeting) when clicking outside
-            await startSessionAfterModalChoice();
-          }
-        });
-        
-        // Prevent modal-content clicks from closing the modal
-        const modalContent = handsFreeModal.querySelector('.modal-content');
-        if (modalContent) {
-          modalContent.addEventListener('click', (e) => {
-            e.stopPropagation(); // Prevent click from bubbling to modal backdrop
-          });
-        }
-      }
-    }
-    
-    // Call setup function when DOM is ready
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', setupModalHandlers);
-    } else {
-      // DOM is already ready
-      setupModalHandlers();
-    }
+    // No modal handlers needed - voice mode auto-starts with countdown
     
     // Check voice availability on page load
     checkVoiceAvailability();
+    
+    // Attach STT provider change listener
+    document.getElementById('sttProviderSelect').addEventListener('change', handleSTTProviderChange);
     
     // ===== END VOICE FUNCTIONALITY =====
 
@@ -4244,7 +4724,7 @@
       
       // Show voice warning modal for new chat
       // The greeting will be sent after user chooses an option in the modal
-      showHandsFreeModal();
+      showVoiceCountdown();
     }
 
     // Reset new chat button to normal state
@@ -4486,7 +4966,7 @@
               // If history loading fails and no messages, show modal
               setTimeout(() => {
                 if (messagesDiv.children.length === 0 && !greetingSent) {
-                  showHandsFreeModal();
+                  showVoiceCountdown();
                 }
               }, 500);
             }).finally(() => {
@@ -4494,7 +4974,7 @@
               // Double-check after history load completes - if still no messages, show modal
               setTimeout(() => {
                 if (messagesDiv.children.length === 0 && !greetingSent) {
-                  showHandsFreeModal();
+                  showVoiceCountdown();
                 }
               }, 300);
             });
@@ -4503,7 +4983,7 @@
             // No user ID, show modal
             setTimeout(() => {
               if (messagesDiv.children.length === 0 && !greetingSent) {
-                showHandsFreeModal();
+                showVoiceCountdown();
               }
             }, 500);
           }
@@ -4635,7 +5115,7 @@
           } else {
             // No history to load - show modal
             if (!greetingSent) {
-              showHandsFreeModal();
+              showVoiceCountdown();
             }
           }
         } else {
@@ -4649,7 +5129,7 @@
         // Continue with empty chat if loading fails
         // Show modal if no messages are displayed
         if (messagesDiv.children.length === 0 && !greetingSent) {
-          showHandsFreeModal();
+          showVoiceCountdown();
         }
       }
     }
@@ -4718,20 +5198,16 @@
       // Only show modal if there are no messages (new session or empty chat)
       if (messagesDiv.children.length === 0) {
         // Show the hands-free voice mode modal by default
-        showHandsFreeModal();
+        showVoiceCountdown();
       }
     }, 1500); // Wait 1.5 seconds for history to potentially load
   </script>
 
-  <!-- Hands-free confirmation modal -->
-  <div id="handsFreeModal" class="modal">
+  <!-- Voice mode countdown -->
+  <div id="voiceCountdownModal" class="modal">
     <div class="modal-content">
-      <h3>🎤 Hands-Free Voice Mode</h3>
-      <p>Voice mode keeps the microphone always on to automatically detect when you speak. Your audio is processed securely and not stored.</p>
-      <div class="modal-buttons">
-        <button class="modal-btn primary" id="continueHandsFreeBtn">Continue</button>
-        <button class="modal-btn secondary" id="switchToChatBtn">Switch to Chat</button>
-      </div>
+      <h3>🎤 Starting Voice Agent</h3>
+      <p id="countdownText">Voice mode will start in <span id="countdownNumber">3</span> seconds...</p>
     </div>
   </div>
 </body>
