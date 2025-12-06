@@ -2879,7 +2879,7 @@ if __name__ == '__main__':
     
     if not hasattr(app, '_startup_printed'):
         print("Starting HealthYoda chatbot server...")
-        print("Server will run on http://127.0.0.1:8002")
+        print("Server will run on http://0.0.0.0:8002")
         print("-" * 50)
         
         if not openai_api_key:
@@ -2899,7 +2899,7 @@ if __name__ == '__main__':
         
         # Show HealthBench dashboard status
         if results_storage:
-            print("[OK] HealthBench Dashboard: http://127.0.0.1:8002/healthbench/dashboard")
+            print("[OK] HealthBench Dashboard: http://0.0.0.0:8002/healthbench/dashboard")
             print("   View real-time evaluation scores and metrics")
         
         if not mongodb_connected:
@@ -2931,5 +2931,5 @@ if __name__ == '__main__':
         app._startup_printed = True
     
     # Run with SocketIO support for WebSocket connections
-    socketio.run(app, host='127.0.0.1', port=8002, debug=False, allow_unsafe_werkzeug=True)
+    socketio.run(app, host='0.0.0.0', port=8002, debug=False, allow_unsafe_werkzeug=True)
 
