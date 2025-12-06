@@ -13,6 +13,21 @@ services:
       # OpenAI Configuration
       - OPENAI_API_KEY=${OPENAI_API_KEY}
       
+      # Google Gemini Configuration (Optional)
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+      
+      # Deepgram Configuration (Optional)
+      - DEEPGRAM_API_KEY=${DEEPGRAM_API_KEY:-}
+      - STT_PROVIDER=${STT_PROVIDER:-faster-whisper}
+      
+      # Ollama Configuration (Optional)
+      - OLLAMA_BASE_URL=${OLLAMA_BASE_URL:-http://localhost:11434}
+      - OLLAMA_API_KEY=${OLLAMA_API_KEY:-ollama}
+      - OLLAMA_MODEL=${OLLAMA_MODEL:-alibayram/medgemma:4b}
+      
+      # Default Model Selection
+      - DEFAULT_MODEL=${DEFAULT_MODEL:-gpt-4o-mini}
+      
       # Langfuse Configuration (Optional)
       - LANGFUSE_ENABLED=${LANGFUSE_ENABLED:-false}
       - LANGFUSE_PUBLIC_KEY=${LANGFUSE_PUBLIC_KEY:-}
@@ -28,7 +43,7 @@ services:
       - HELM_JUDGE_MODEL=${HELM_JUDGE_MODEL:-gpt-4o-mini}
       
       # CORS Configuration
-      - ALLOWED_ORIGINS=${ALLOWED_ORIGINS:-https://68.183.88.5,http://68.183.88.5:8002,http://localhost:8002,http://127.0.0.1:8002}
+      - ALLOWED_ORIGINS=${ALLOWED_ORIGINS:-https://movefuze.com,https://www.movefuze.com,https://68.183.88.5,http://68.183.88.5:8002,http://localhost:8002,http://127.0.0.1:8002}
       
       # Rate Limiting
       - RATE_LIMIT_REQUESTS=${RATE_LIMIT_REQUESTS:-100}
@@ -36,9 +51,11 @@ services:
       
       # Voice Processing (Optional)
       - VOICE_ENABLED=${VOICE_ENABLED:-false}
+      - MAX_AUDIO_SIZE=${MAX_AUDIO_SIZE:-10485760}
       
       # Vector Store
       - REBUILD_VECTORSTORE=${REBUILD_VECTORSTORE:-false}
+      - RAG_REBUILD_MODEL=${RAG_REBUILD_MODEL:-text-embedding-3-small}
     
     volumes:
       - ./chroma_db:/app/chroma_db

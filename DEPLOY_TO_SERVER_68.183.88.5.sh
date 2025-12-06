@@ -199,9 +199,11 @@ echo -e "${GREEN}╚════════════════════
 echo ""
 
 echo -e "${YELLOW}Application URLs:${NC}"
-echo -e "  • HTTPS (Recommended): ${GREEN}https://68.183.88.5${NC}"
+echo -e "  • HTTPS (Domain):      ${GREEN}https://movefuze.com${NC} 🌐"
+echo -e "  • HTTPS (www):         ${GREEN}https://www.movefuze.com${NC} 🌐"
+echo -e "  • HTTPS (IP):          ${GREEN}https://68.183.88.5${NC}"
 echo -e "  • HTTP:                ${GREEN}http://68.183.88.5:8002${NC}"
-echo -e "  • Dashboard:           ${GREEN}https://68.183.88.5/healthbench/dashboard${NC}"
+echo -e "  • Dashboard:           ${GREEN}https://movefuze.com/healthbench/dashboard${NC}"
 echo ""
 
 echo -e "${YELLOW}Useful Commands:${NC}"

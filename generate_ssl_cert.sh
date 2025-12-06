@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# Generate self-signed SSL certificate for IP address
-# This allows HTTPS without a domain name
+# Generate self-signed SSL certificate for domain and IP address
+# This allows HTTPS with domain name or IP
 
-echo "Generating self-signed SSL certificate for IP: 68.183.88.5"
+echo "Generating self-signed SSL certificate for movefuze.com (68.183.88.5)"
 echo ""
 
 # Create ssl directory if it doesn't exist
@@ -12,15 +12,15 @@ mkdir -p ssl
 # Generate private key
 openssl genrsa -out ssl/key.pem 2048
 
-# Generate certificate signing request (CSR) with IP address
-openssl req -new -key ssl/key.pem -out ssl/cert.csr -subj "/CN=68.183.88.5" \
-  -addext "subjectAltName=IP:68.183.88.5"
+# Generate certificate signing request (CSR) with domain and IP address
+openssl req -new -key ssl/key.pem -out ssl/cert.csr -subj "/CN=movefuze.com" \
+  -addext "subjectAltName=DNS:movefuze.com,DNS:www.movefuze.com,IP:68.183.88.5"
 
 # Generate self-signed certificate (valid for 365 days)
 openssl x509 -req -days 365 -in ssl/cert.csr -signkey ssl/key.pem -out ssl/cert.pem \
   -extensions v3_req -extfile <(
     echo "[v3_req]"
-    echo "subjectAltName=IP:68.183.88.5"
+    echo "subjectAltName=DNS:movefuze.com,DNS:www.movefuze.com,IP:68.183.88.5"
   )
 
 # Clean up CSR

@@ -1,3 +1,7 @@
+# Git
+.git
+.gitignore
+
 # Python
 __pycache__/
 *.py[cod]
@@ -7,79 +11,51 @@ __pycache__/
 *.egg-info/
 dist/
 build/
-.eggs/
 
 # Virtual environments
 venv/
 env/
 ENV/
-.venv
 
 # IDE
 .vscode/
 .idea/
 *.swp
 *.swo
-*~
 
-# Git
-.git/
-.gitignore
-.gitattributes
+# Environment files
+.env
+.env.local
+.env.*.local
 
-# Docker
-Dockerfile
-docker-compose.yml
-.dockerignore
-
-# Documentation
-*.md
-!README.md
-*.txt
-!requirements.txt
-
-# Test files
-test_*.py
-*_test.py
-
-# Helm - exclude heavy frontend and development files
-Helm/helm-frontend/
-Helm/scripts/
-Helm/install-*.sh
-Helm/pre-commit*.sh
-Helm/mkdocs.yml
-Helm/uv.lock
+# Logs
+*.log
+logs/
 
 # OS
 .DS_Store
 Thumbs.db
 
-# Logs
-*.log
+# Docker
+docker-compose.override.yml
 
-# Environment variables
-.env
-.env.*
-!.env.example
+# Large files that shouldn't be in image
+*.tar.gz
+*.zip
 
-# Chromadb (will be volume mounted)
-chroma_db/*.bin
-chroma_db/*.sqlite3
+# Documentation (not needed in production image)
+*.md
+docs/
+
+# Test files
+tests/
+test_*.py
+*_test.py
+
+# CI/CD
+.github/
+.gitlab-ci.yml
 
 # Temporary files
-*.tmp
-*.temp
 tmp/
 temp/
-
-# Jupyter notebooks
-*.ipynb
-.ipynb_checkpoints/
-
-# Coverage reports
-htmlcov/
-.coverage
-.coverage.*
-coverage.xml
-*.cover
-

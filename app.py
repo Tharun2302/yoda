@@ -77,7 +77,7 @@ app = Flask(__name__)
 # HIPAA Compliance: Restrict CORS to specific origins only
 # In production, replace with actual frontend domain(s)
 # Allow both port 8000 (separate frontend server) and 8002 (Flask serving frontend)
-ALLOWED_ORIGINS = os.getenv('ALLOWED_ORIGINS', 'https://167.71.238.114,http://167.71.238.114:8002,http://localhost:8000,http://127.0.0.1:8000,http://localhost:8002,http://127.0.0.1:8002').split(',')
+ALLOWED_ORIGINS = os.getenv('ALLOWED_ORIGINS', 'https://movefuze.com,https://www.movefuze.com,https://68.183.88.5,http://68.183.88.5:8002,http://localhost:8000,http://127.0.0.1:8000,http://localhost:8002,http://127.0.0.1:8002').split(',')
 
 # Initialize SocketIO for WebSocket support
 socketio = SocketIO(app, cors_allowed_origins=ALLOWED_ORIGINS, async_mode='threading', ping_timeout=60, ping_interval=25)
@@ -101,7 +101,7 @@ def add_security_headers(response):
         if 'text/html' in content_type:
             # For HTML pages, allow inline styles and scripts (needed for dashboard and chatbot UI)
             # Allow marked.js CDN and connections to both localhost and 127.0.0.1 on port 8002
-            response.headers['Content-Security-Policy'] = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdn.socket.io; style-src 'self' 'unsafe-inline'; connect-src 'self' https://cdn.socket.io https://167.71.238.114 http://127.0.0.1:8002 http://localhost:8002 ws://127.0.0.1:8002 ws://localhost:8002"
+            response.headers['Content-Security-Policy'] = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdn.socket.io; style-src 'self' 'unsafe-inline'; connect-src 'self' https://cdn.socket.io https://movefuze.com https://www.movefuze.com https://68.183.88.5 http://127.0.0.1:8002 http://localhost:8002 ws://127.0.0.1:8002 ws://localhost:8002 wss://movefuze.com wss://www.movefuze.com"
         else:
             # For other content (JSON, etc.), use strict CSP
             response.headers['Content-Security-Policy'] = "default-src 'self'"
@@ -2402,7 +2402,7 @@ def healthbench_dashboard():
         
         # Override CSP for dashboard to allow inline styles and scripts
         # Dashboard is internal tool, not patient-facing, so this is acceptable
-        response.headers['Content-Security-Policy'] = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdn.socket.io; style-src 'self' 'unsafe-inline'; connect-src 'self' https://167.71.238.114 http://127.0.0.1:8002 http://localhost:8002 ws://127.0.0.1:8002 ws://localhost:8002"
+        response.headers['Content-Security-Policy'] = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdn.socket.io; style-src 'self' 'unsafe-inline'; connect-src 'self' https://cdn.socket.io https://movefuze.com https://www.movefuze.com https://68.183.88.5 http://127.0.0.1:8002 http://localhost:8002 ws://127.0.0.1:8002 ws://localhost:8002 wss://movefuze.com wss://www.movefuze.com"
         
         return response
     
@@ -2526,7 +2526,7 @@ def index():
     # Create response with modified CSP headers to allow inline styles and marked.js CDN
     from flask import make_response
     response = make_response(html_content)
-    response.headers['Content-Security-Policy'] = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; connect-src 'self' https://167.71.238.114 http://127.0.0.1:8002 http://localhost:8002"
+    response.headers['Content-Security-Policy'] = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; connect-src 'self' https://movefuze.com https://www.movefuze.com https://68.183.88.5 http://127.0.0.1:8002 http://localhost:8002"
     return response
 
 @app.route('/index.html', methods=['GET'])
@@ -2547,7 +2547,7 @@ def chatbot_interface():
         response.headers['Expires'] = '0'
         
         # Allow inline styles and scripts for chatbot UI, and marked.js CDN
-        response.headers['Content-Security-Policy'] = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdn.socket.io; style-src 'self' 'unsafe-inline'; connect-src 'self' https://cdn.socket.io https://167.71.238.114 http://127.0.0.1:8002 http://localhost:8002 ws://127.0.0.1:8002 ws://localhost:8002; img-src 'self' data: blob:; media-src 'self' blob:"
+        response.headers['Content-Security-Policy'] = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdn.socket.io; style-src 'self' 'unsafe-inline'; connect-src 'self' https://cdn.socket.io https://movefuze.com https://www.movefuze.com https://68.183.88.5 http://127.0.0.1:8002 http://localhost:8002 ws://127.0.0.1:8002 ws://localhost:8002 wss://movefuze.com wss://www.movefuze.com; img-src 'self' data: blob:; media-src 'self' blob:"
         
         return response
     

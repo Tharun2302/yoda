@@ -160,7 +160,9 @@ if [ "$SKIP_NGINX" = true ]; then
     echo -e "  • http://localhost:8002 (if running locally)"
 else
     echo -e "${YELLOW}Application is running at:${NC}"
-    echo -e "  • https://68.183.88.5 (HTTPS via nginx) 🔒"
+    echo -e "  • https://movefuze.com (HTTPS via nginx) 🔒 🌐"
+    echo -e "  • https://www.movefuze.com (HTTPS via nginx) 🔒 🌐"
+    echo -e "  • https://68.183.88.5 (HTTPS via IP) 🔒"
     echo -e "  • http://68.183.88.5 (redirects to HTTPS)"
     echo -e "  • http://68.183.88.5:8002 (direct access, HTTP only)"
     echo ""

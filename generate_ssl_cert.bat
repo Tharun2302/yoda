@@ -1,5 +1,5 @@
 @echo off
-echo Generating self-signed SSL certificate for IP: 167.71.238.114
+echo Generating self-signed SSL certificate for movefuze.com (68.183.88.5)
 echo.
 
 REM Create ssl directory if it doesn't exist
@@ -23,7 +23,7 @@ REM Generate private key
 openssl genrsa -out ssl\key.pem 2048
 
 REM Generate certificate signing request
-openssl req -new -key ssl\key.pem -out ssl\cert.csr -subj "/CN=167.71.238.114" -addext "subjectAltName=IP:167.71.238.114"
+openssl req -new -key ssl\key.pem -out ssl\cert.csr -subj "/CN=movefuze.com" -addext "subjectAltName=DNS:movefuze.com,DNS:www.movefuze.com,IP:68.183.88.5"
 
 REM Generate self-signed certificate
 openssl x509 -req -days 365 -in ssl\cert.csr -signkey ssl\key.pem -out ssl\cert.pem -extensions v3_req -extfile ssl\extfile.conf
@@ -31,7 +31,7 @@ openssl x509 -req -days 365 -in ssl\cert.csr -signkey ssl\key.pem -out ssl\cert.
 REM Create extfile.conf for certificate extensions
 (
 echo [v3_req]
-echo subjectAltName=IP:167.71.238.114
+echo subjectAltName=DNS:movefuze.com,DNS:www.movefuze.com,IP:68.183.88.5
 ) > ssl\extfile.conf
 
 openssl x509 -req -days 365 -in ssl\cert.csr -signkey ssl\key.pem -out ssl\cert.pem -extensions v3_req -extfile ssl\extfile.conf

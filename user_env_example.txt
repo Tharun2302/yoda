@@ -28,7 +28,7 @@ MONGODB_DB=Healthyoda
 # CORS Configuration
 # ========================================
 # Update with your server IP
-ALLOWED_ORIGINS=http://68.183.88.5,http://68.183.88.5:8002,http://localhost:8002,http://127.0.0.1:8002
+ALLOWED_ORIGINS=https://movefuze.com,https://www.movefuze.com,https://68.183.88.5,http://68.183.88.5:8002,http://localhost:8002,http://127.0.0.1:8002
 
 # ========================================
 # Rate Limiting
