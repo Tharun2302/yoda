@@ -335,7 +335,8 @@
     </div>
     
     <script>
-        const API = `http://${window.location.hostname}:8002/healthbench/results`;
+        // Use relative URL (works through nginx proxy)
+        const API = '/healthbench/results';
         
         async function loadData() {
             try {
