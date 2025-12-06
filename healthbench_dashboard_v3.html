@@ -609,8 +609,15 @@
         
         async function loadEvaluations() {
             try {
-                console.log('[Dashboard] Fetching evaluations from:', `${API_BASE}/healthbench/results`);
-                const response = await fetch(`${API_BASE}/healthbench/results`);
+                // Add cache-busting timestamp
+                const url = `${API_BASE}/healthbench/results?_=${Date.now()}`;
+                console.log('[Dashboard] Fetching evaluations from:', url);
+                const response = await fetch(url, {
+                    cache: 'no-cache',
+                    headers: {
+                        'Cache-Control': 'no-cache'
+                    }
+                });
                 
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);

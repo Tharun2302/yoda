@@ -341,7 +341,15 @@
         
         async function loadData() {
             try {
-                const res = await fetch(API);
+                // Add cache-busting timestamp
+                const url = `${API}?_=${Date.now()}`;
+                console.log('[Dashboard Clean] Fetching from:', url);
+                const res = await fetch(url, {
+                    cache: 'no-cache',
+                    headers: {
+                        'Cache-Control': 'no-cache'
+                    }
+                });
                 
                 if (!res.ok) {
                     throw new Error(`HTTP error! status: ${res.status}`);

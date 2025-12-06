@@ -2402,7 +2402,7 @@ def healthbench_dashboard():
         
         # Override CSP for dashboard to allow inline styles and scripts
         # Dashboard is internal tool, not patient-facing, so this is acceptable
-        response.headers['Content-Security-Policy'] = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdn.socket.io; style-src 'self' 'unsafe-inline'; connect-src 'self' https://cdn.socket.io https://movefuze.com https://www.movefuze.com https://68.183.88.5 http://127.0.0.1:8002 http://localhost:8002 ws://127.0.0.1:8002 ws://localhost:8002 wss://movefuze.com wss://www.movefuze.com"
+        response.headers['Content-Security-Policy'] = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdn.socket.io; style-src 'self' 'unsafe-inline'; connect-src 'self' https://movefuze.com https://www.movefuze.com https://68.183.88.5 wss://movefuze.com wss://www.movefuze.com; img-src 'self' data:;"
         
         return response
     
