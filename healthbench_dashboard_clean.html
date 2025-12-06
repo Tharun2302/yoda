@@ -337,11 +337,22 @@
     <script>
         // Use relative URL (works through nginx proxy)
         const API = '/healthbench/results';
+        console.log('[Dashboard Clean v2.0] Will fetch from:', API);
         
         async function loadData() {
             try {
                 const res = await fetch(API);
+                
+                if (!res.ok) {
+                    throw new Error(`HTTP error! status: ${res.status}`);
+                }
+                
                 const data = await res.json();
+                
+                if (!data || !data.results) {
+                    throw new Error('Invalid data format');
+                }
+
                 
                 // Update stats
                 document.getElementById('total-evals').textContent = data.statistics.total_evaluations || 0;

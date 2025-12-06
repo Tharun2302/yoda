@@ -600,6 +600,8 @@
     <script>
         // Use current protocol and host (works through nginx proxy)
         const API_BASE = '';
+        console.log('[Dashboard v2.0] Initializing - API_BASE:', API_BASE);
+        console.log('[Dashboard v2.0] Will fetch from:', `${API_BASE}/healthbench/results`);
         let expandedSessions = new Set();
         let expandedRubrics = new Set();  // Track which rubrics sections are expanded
         let allSessionsData = [];  // Store all sessions for filtering
@@ -607,19 +609,34 @@
         
         async function loadEvaluations() {
             try {
+                console.log('[Dashboard] Fetching evaluations from:', `${API_BASE}/healthbench/results`);
                 const response = await fetch(`${API_BASE}/healthbench/results`);
-                const data = await response.json();
                 
-                updateStatistics(data.statistics, data.results);
-                displayEvaluations(data.results);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                console.log('[Dashboard] Data received:', { 
+                    totalResults: data.results?.length, 
+                    hasStatistics: !!data.statistics 
+                });
+                
+                if (!data || !data.results) {
+                    throw new Error('Invalid data format received');
+                }
+                
+                updateStatistics(data.statistics || {}, data.results || []);
+                displayEvaluations(data.results || []);
+                console.log('[Dashboard] Evaluations loaded successfully');
                 
             } catch (error) {
                 console.error('Error loading evaluations:', error);
                 document.getElementById('evaluations-container').innerHTML = `
                     <div class="empty-state">
                         <h3>❌ Failed to load evaluations</h3>
-                        <p>Make sure the backend server is running on port 8002</p>
-                        <p style="color: #e74c3c; margin-top: 10px;">${error.message}</p>
+                        <p>Error: ${error.message}</p>
+                        <p style="color: #999; margin-top: 10px; font-size: 12px;">API: ${API_BASE}/healthbench/results</p>
                     </div>
                 `;
             }
